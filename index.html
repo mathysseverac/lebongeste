@@ -594,149 +594,219 @@
         </section>
 
         <!-- ==================== PAGE : DEVIS ==================== -->
-        <section id="page-devis" class="page-view relative py-12 lg:py-24 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="page-devis" class="page-view relative py-12 lg:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+            <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-3">Devis en ligne</p>
+            <h2 class="font-arboria text-4xl md:text-5xl text-slate-900 mb-4">Demande de devis gratuit</h2>
+            <p class="text-slate-600 text-lg">Décrivez votre projet. Réponse rapide sous 24h à 48h.</p>
+        </div>
+
+        <form action="https://formsubmit.co/contact.lebongeste@gmail.com" method="POST" enctype="multipart/form-data" class="bg-gray-light p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm space-y-8">
+            
+            <input type="hidden" name="_subject" value="Nouveau devis - Le Bon Geste">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://le-bon-geste.fr/">
+            
+            <!-- 1. Vos coordonnées -->
+            <div>
+                <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">1. Vos coordonnées</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label for="nom" class="block text-sm font-medium text-slate-700 mb-1">Nom et Prénom *</label>
+                        <input type="text" id="nom" name="nom" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label for="tel" class="block text-sm font-medium text-slate-700 mb-1">Numéro de téléphone *</label>
+                        <input type="tel" id="tel" name="tel" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Adresse email *</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all">
+                    </div>
+                    <div class="relative">
+                        <label for="ville" class="block text-sm font-medium text-slate-700 mb-1">Code postal ou Ville * <span class="text-xs text-slate-500 font-normal">(Mazamet et alentours)</span></label>
+                        <input type="text" id="ville" name="ville" autocomplete="off" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all" placeholder="Ex: 81200 ou Mazamet">
+                        <ul id="ville-results" class="absolute z-10 w-full bg-white border border-gray-200 shadow-lg rounded-md mt-1 hidden max-h-48 overflow-y-auto"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Type de prestation -->
+            <div>
+                <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">2. Type de prestation souhaitée</h3>
+                <div class="space-y-3">
+                    <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors">
+                        <input type="radio" name="prestation" value="jardin" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                        <div>
+                            <span class="block font-semibold text-slate-800">Espaces verts & Jardinage</span>
+                            <span class="text-sm text-teal font-medium">Éligible crédit d'impôt 50%</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors">
+                        <input type="radio" name="prestation" value="bricolage" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                        <div>
+                            <span class="block font-semibold text-slate-800">Bricolage / Petits travaux à domicile</span>
+                            <span class="text-sm text-teal font-medium">Éligible crédit d'impôt 50%</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors">
+                        <input type="radio" name="prestation" value="meca" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                        <div>
+                            <span class="block font-semibold text-slate-800">Mécanique auto / Entretien véhicule</span>
+                            <span class="text-sm text-slate-500">Hors SAP - pièces fournies par le client</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors items-center">
+                        <input type="radio" name="prestation" value="autre" class="mt-0.5 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                        <span class="block font-semibold text-slate-800">Autre demande multiservices</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 3. Détails du projet -->
+            <div>
+                <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">3. Détails de votre projet</h3>
                 
-                <div class="text-center mb-12">
-                    <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-3">Devis en ligne</p>
-                    <h2 class="font-arboria text-4xl md:text-5xl text-slate-900 mb-4">Demande de devis gratuit</h2>
-                    <p class="text-slate-600 text-lg">Décrivez votre projet. Réponse rapide sous 24h à 48h.</p>
+                <div class="bg-white p-5 border border-gray-200 rounded-md mb-5 space-y-5">
+                    <p class="text-sm font-semibold text-slate-700">Uniquement si votre demande concerne la taille de haie :</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="longueur-haie" class="block text-sm text-slate-600 mb-1">Longueur estimée (en ml)</label>
+                            <input type="number" id="longueur-haie" name="longueur_haie" placeholder="Ex: 15" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none">
+                        </div>
+                        <div>
+                            <label for="hauteur-haie" class="block text-sm text-slate-600 mb-1">Hauteur approximative</label>
+                            <select id="hauteur-haie" name="hauteur_haie" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none bg-white">
+                                <option value="">Sélectionnez...</option>
+                                <option value="basse">&lt; 1,50 m</option>
+                                <option value="standard">≤ 2 m</option>
+                                <option value="haute">&gt; 2 m</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <span class="block text-sm text-slate-600 mb-2">Évacuation des déchets végétaux souhaitée :</span>
+                        <div class="flex gap-6">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="evacuation" value="oui" class="w-4 h-4 text-teal focus:ring-teal border-gray-300"> <span class="text-sm font-medium">Oui</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="evacuation" value="non" class="w-4 h-4 text-teal focus:ring-teal border-gray-300"> <span class="text-sm font-medium">Non</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Formulaire connecté à FormSubmit -->
-                <form action="https://formsubmit.co/contact.lebongeste@gmail.com" method="POST" enctype="multipart/form-data" class="bg-gray-light p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm space-y-8">
-                    
-                    <!-- Configurations invisibles FormSubmit -->
-                    <input type="hidden" name="_subject" value="🎯 Nouveau devis - Le Bon Geste">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://le-bon-geste.fr/">
-                    
-                    <!-- 1. Vos coordonnées -->
-                    <div>
-                        <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">1. Vos coordonnées</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <div>
-                                <label for="nom" class="block text-sm font-medium text-slate-700 mb-1">Nom et Prénom *</label>
-                                <input type="text" id="nom" name="nom" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all">
-                            </div>
-                            <div>
-                                <label for="tel" class="block text-sm font-medium text-slate-700 mb-1">Numéro de téléphone *</label>
-                                <input type="tel" id="tel" name="tel" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Adresse email *</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all">
-                            </div>
-                            <div>
-                                <label for="ville" class="block text-sm font-medium text-slate-700 mb-1">Ville d'intervention / Code postal * <span class="text-xs text-slate-500 font-normal">(Mazamet et alentours)</span></label>
-                                <input type="text" id="ville" name="ville" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. Type de prestation -->
-                    <div>
-                        <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">2. Type de prestation souhaitée</h3>
-                        <div class="space-y-3">
-                            <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors">
-                                <input type="radio" name="prestation" value="jardin" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                                <div>
-                                    <span class="block font-semibold text-slate-800">Espaces verts & Jardinage</span>
-                                    <span class="text-sm text-teal font-medium">Éligible crédit d'impôt 50%</span>
-                                </div>
-                            </label>
-                            <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors">
-                                <input type="radio" name="prestation" value="bricolage" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                                <div>
-                                    <span class="block font-semibold text-slate-800">Bricolage / Petits travaux à domicile</span>
-                                    <span class="text-sm text-teal font-medium">Éligible crédit d'impôt 50%</span>
-                                </div>
-                            </label>
-                            <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors">
-                                <input type="radio" name="prestation" value="meca" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                                <div>
-                                    <span class="block font-semibold text-slate-800">Mécanique auto / Entretien véhicule</span>
-                                    <span class="text-sm text-slate-500">Hors SAP - pièces fournies par le client</span>
-                                </div>
-                            </label>
-                            <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors items-center">
-                                <input type="radio" name="prestation" value="autre" class="mt-0.5 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                                <span class="block font-semibold text-slate-800">Autre demande multiservices</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- 3. Détails du projet -->
-                    <div>
-                        <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">3. Détails de votre projet</h3>
-                        
-                        <div class="bg-white p-5 border border-gray-200 rounded-md mb-5 space-y-5">
-                            <p class="text-sm font-semibold text-slate-700">Uniquement si votre demande concerne la taille de haie :</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label for="longueur-haie" class="block text-sm text-slate-600 mb-1">Longueur estimée (en ml)</label>
-                                    <input type="number" id="longueur-haie" name="longueur_haie" placeholder="Ex: 15" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none">
-                                </div>
-                                <div>
-                                    <label for="hauteur-haie" class="block text-sm text-slate-600 mb-1">Hauteur approximative</label>
-                                    <select id="hauteur-haie" name="hauteur_haie" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none bg-white">
-                                        <option value="">Sélectionnez...</option>
-                                        <option value="basse">&lt; 1,50 m</option>
-                                        <option value="standard">≤ 2 m</option>
-                                        <option value="haute">&gt; 2 m</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="pt-2">
-                                <span class="block text-sm text-slate-600 mb-2">Évacuation des déchets végétaux souhaitée :</span>
-                                <div class="flex gap-6">
-                                    <label class="flex items-center gap-2 cursor-pointer">
-                                        <input type="radio" name="evacuation" value="oui" class="w-4 h-4 text-teal focus:ring-teal border-gray-300"> <span class="text-sm font-medium">Oui</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer">
-                                        <input type="radio" name="evacuation" value="non" class="w-4 h-4 text-teal focus:ring-teal border-gray-300"> <span class="text-sm font-medium">Non</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="description" class="block text-sm font-medium text-slate-700 mb-1">Description de votre besoin</label>
-                            <p class="text-xs text-slate-500 mb-2">État actuel, accès au terrain, modèle de véhicule pour la mécanique, etc.</p>
-                            <textarea id="description" name="description" rows="4" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all resize-y" placeholder="Détaillez votre demande ici..."></textarea>
-                        </div>
-                    </div>
-
-                    <!-- 4. Photos -->
-                    <div>
-                        <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">4. Photos du chantier / véhicule (très recommandé)</h3>
-                        <div class="flex items-center justify-center w-full">
-                            <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-50 transition-colors hover:border-teal/50">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <i class="ph-fill ph-camera text-3xl text-slate-400 mb-2"></i>
-                                    <p class="mb-1 text-sm text-slate-600"><span class="font-semibold text-teal">Cliquez pour ajouter</span> ou glissez vos photos</p>
-                                    <p class="text-xs text-slate-500 text-center px-4">Ajoutez 1 à 3 photos depuis votre smartphone ou PC pour faciliter l'estimation à distance</p>
-                                </div>
-                                <input id="dropzone-file" type="file" name="photos" class="hidden" multiple accept="image/png, image/jpeg, image/jpg" />
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- 5. Envoi -->
-                    <div class="pt-4 text-center">
-                        <button type="submit" class="w-full md:w-auto bg-teal hover:bg-teal-dark text-white px-10 py-4 rounded-md font-bold text-lg transition-all shadow-md shadow-teal/20 inline-flex items-center justify-center gap-2">
-                            <i class="ph ph-paper-plane-right text-xl"></i> Envoyer ma demande de devis gratuit
-                        </button>
-                        <p class="text-xs text-slate-500 mt-5 flex flex-col md:flex-row items-center justify-center gap-1.5 max-w-lg mx-auto">
-                            <i class="ph-fill ph-lock-key text-slate-400 text-sm hidden md:block"></i>
-                            Vos données restent strictement confidentielles. Intervention sur Mazamet, Aiguefonde et les communes voisines (rayon de 20 km).
-                        </p>
-                    </div>
-
-                </form>
+                <div>
+                    <label for="description" class="block text-sm font-medium text-slate-700 mb-1">Description de votre besoin</label>
+                    <p class="text-xs text-slate-500 mb-2">État actuel, accès au terrain, modèle de véhicule pour la mécanique, etc.</p>
+                    <textarea id="description" name="description" rows="4" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all resize-y" placeholder="Détaillez votre demande ici..."></textarea>
+                </div>
             </div>
-        </section>
+
+            <!-- 4. Photos -->
+            <div>
+                <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">4. Photos du chantier / véhicule (très recommandé)</h3>
+                <div class="flex items-center justify-center w-full">
+                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-50 transition-colors hover:border-teal/50">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6 w-full overflow-hidden" id="dropzone-content">
+                            <i class="ph-fill ph-camera text-3xl text-slate-400 mb-2"></i>
+                            <p class="mb-1 text-sm text-slate-600"><span class="font-semibold text-teal">Cliquez pour ajouter</span> ou glissez vos photos</p>
+                            <p class="text-xs text-slate-500 text-center px-4">Ajoutez 1 à 3 photos depuis votre smartphone ou PC</p>
+                        </div>
+                        <input id="dropzone-file" type="file" name="photos" class="hidden" multiple accept="image/png, image/jpeg, image/jpg" onchange="updateFileName(this)" />
+                    </label>
+                </div>
+            </div>
+
+            <!-- 5. Envoi -->
+            <div class="pt-4 text-center">
+                <button type="submit" class="w-full md:w-auto bg-teal hover:bg-teal-dark text-white px-10 py-4 rounded-md font-bold text-lg transition-all shadow-md shadow-teal/20 inline-flex items-center justify-center gap-2">
+                    <i class="ph ph-paper-plane-right text-xl"></i> Envoyer ma demande de devis gratuit
+                </button>
+                <p class="text-xs text-slate-500 mt-5 flex flex-col md:flex-row items-center justify-center gap-1.5 max-w-lg mx-auto">
+                    <i class="ph-fill ph-lock-key text-slate-400 text-sm hidden md:block"></i>
+                    Vos données restent strictement confidentielles. Intervention sur Mazamet, Aiguefonde et les communes voisines (rayon de 20 km).
+                </p>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Script inclus directement dans la section pour gérer les photos et le code postal -->
+    <script>
+        function updateFileName(input) {
+            const contentDiv = document.getElementById('dropzone-content');
+            if (input.files && input.files.length > 0) {
+                const fileNames = Array.from(input.files).map(file => file.name).join(', ');
+                contentDiv.innerHTML = `
+                    <i class="ph-fill ph-check-circle text-3xl text-teal mb-2"></i>
+                    <p class="mb-1 text-sm text-slate-800 font-semibold text-center px-4">${input.files.length} photo(s) prête(s)</p>
+                    <p class="text-xs text-teal text-center px-4 truncate w-[90%]">${fileNames}</p>
+                `;
+            } else {
+                contentDiv.innerHTML = `
+                    <i class="ph-fill ph-camera text-3xl text-slate-400 mb-2"></i>
+                    <p class="mb-1 text-sm text-slate-600"><span class="font-semibold text-teal">Cliquez pour ajouter</span> ou glissez vos photos</p>
+                    <p class="text-xs text-slate-500 text-center px-4">Ajoutez 1 à 3 photos depuis votre smartphone ou PC</p>
+                `;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const villeInput = document.getElementById('ville');
+            const villeResults = document.getElementById('ville-results');
+
+            if(villeInput && villeResults) {
+                villeInput.addEventListener('input', function() {
+                    const query = this.value.trim();
+                    
+                    if (query.length >= 2) {
+                        const isNumeric = /^\d+$/.test(query);
+                        const url = isNumeric 
+                            ? `https://geo.api.gouv.fr/communes?codePostal=${query}&boost=population&limit=5`
+                            : `https://geo.api.gouv.fr/communes?nom=${query}&boost=population&limit=5`;
+
+                        fetch(url)
+                            .then(response => response.json())
+                            .then(data => {
+                                villeResults.innerHTML = '';
+                                if (data.length > 0) {
+                                    data.forEach(city => {
+                                        const li = document.createElement('li');
+                                        li.className = 'px-4 py-3 hover:bg-teal-light cursor-pointer text-sm text-slate-700 border-b border-gray-100 last:border-0';
+                                        li.textContent = `${city.codePostal} - ${city.nom}`;
+                                        
+                                        li.addEventListener('click', function() {
+                                            villeInput.value = `${city.codePostal} ${city.nom}`;
+                                            villeResults.classList.add('hidden');
+                                        });
+                                        
+                                        villeResults.appendChild(li);
+                                    });
+                                    villeResults.classList.remove('hidden');
+                                } else {
+                                    villeResults.classList.add('hidden');
+                                }
+                            })
+                            .catch(error => console.error('Erreur API Geo:', error));
+                    } else {
+                        villeResults.classList.add('hidden');
+                    }
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (e.target !== villeInput && e.target !== villeResults) {
+                        villeResults.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+</section>
 
         <!-- ==================== PAGE : CONTACT ==================== -->
         <section id="page-contact" class="page-view relative py-12 lg:py-24">
