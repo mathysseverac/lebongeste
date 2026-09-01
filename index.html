@@ -778,10 +778,14 @@
                                     data.forEach(city => {
                                         const li = document.createElement('li');
                                         li.className = 'px-4 py-3 hover:bg-teal-light cursor-pointer text-sm text-slate-700 border-b border-gray-100 last:border-0';
-                                        li.textContent = `${city.codePostal} - ${city.nom}`;
+                                        
+                                        // Récupération correcte du premier code postal du tableau
+                                        const cp = (city.codesPostaux && city.codesPostaux.length > 0) ? city.codesPostaux[0] : '';
+                                        
+                                        li.textContent = `${cp} - ${city.nom}`;
                                         
                                         li.addEventListener('click', function() {
-                                            villeInput.value = `${city.codePostal} ${city.nom}`;
+                                            villeInput.value = `${cp} ${city.nom}`;
                                             villeResults.classList.add('hidden');
                                         });
                                         
