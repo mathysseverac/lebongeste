@@ -483,69 +483,101 @@
         </section>
 
         <!-- ==================== PAGE : AVANTAGE SAP ==================== -->
-        <section id="page-sap" class="page-view relative py-12 lg:py-16">
+        <section id="page-sap" class="page-view relative py-16 lg:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div class="bg-teal rounded-lg p-8 md:p-12 lg:p-16">
-                    <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
-                        <div class="flex-1 text-white">
-                            <p class="text-xs font-semibold text-teal-light uppercase tracking-[0.15em] mb-5">Avance Immédiate Urssaf</p>
-                            <h2 class="font-arboria text-3xl md:text-5xl mb-6 leading-tight">Ne payez que la moitié de la facture finale.</h2>
-                            <p class="text-teal-light mb-8 text-lg font-light leading-relaxed">
-                                En tant que prestataire agréé <strong>Services à la Personne</strong>, je suis habilité à vous faire bénéficier du service de l'Urssaf : l'Avance Immédiate sur les prestations éligibles (bricolage, jardinage, nettoyage haute pression, assistance informatique).
-                            </p>
-                            <div class="space-y-5 mb-8 border-t border-white/15 pt-6">
-                                <div>
-                                    <h4 class="font-semibold text-base">C'est immédiat</h4>
-                                    <p class="text-sm text-teal-light mt-1">Les 50 % de crédit d'impôt sont déduits en temps réel. Vous ne sortez jamais la totalité de l'argent de votre poche.</p>
-                                </div>
-                                <div class="border-t border-white/15 pt-5">
-                                    <h4 class="font-semibold text-base">Zéro contrainte administrative</h4>
-                                    <p class="text-sm text-teal-light mt-1">Une fois inscrit sur la plateforme, je déclare la facture pour vous. L'Urssaf prélève uniquement le reste à charge.</p>
-                                </div>
+                <!-- En-tête de page -->
+                <div class="text-center max-w-4xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-light text-teal-dark font-bold text-sm mb-6 border border-teal/20">
+                        <i class="ph-fill ph-check-circle text-lg"></i>
+                        Service Avance Immédiate de l'Urssaf
+                    </div>
+                    <h2 class="font-arboria text-4xl sm:text-5xl lg:text-6xl text-slate-900 mb-6 leading-tight">
+                        Vos travaux à domicile à <span class="text-teal">-50%</span>, tout de suite.
+                    </h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                        En tant que prestataire agréé Services à la Personne (SAP), je vous fais bénéficier de l'Avance Immédiate. Vous ne déboursez plus la totalité : <strong>la moitié de la facture est prise en charge en temps réel</strong>.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Les 3 avantages (Gauche) -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- Avantage 1 -->
+                        <div class="flex items-start sm:items-center gap-5 p-6 rounded-2xl bg-white shadow-sm border border-gray-200 hover:border-teal/40 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-teal text-white flex items-center justify-center text-3xl shrink-0 shadow-md shadow-teal/20">
+                                <i class="ph-fill ph-lightning"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-arboria text-xl text-slate-900 mb-1">Immédiat, sans avance de frais</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">Fini l'attente de l'année suivante pour votre crédit d'impôt. La déduction se fait directement à chaque facture.</p>
                             </div>
                         </div>
                         
-                        <div class="w-full lg:w-[400px] shrink-0 bg-white p-8 rounded-lg border border-gray-200 text-center">
-                            <h4 class="font-arboria text-slate-800 text-2xl mb-6 border-b border-gray-100 pb-4">Exemple concret</h4>
-                            
-                            <div class="space-y-6">
-                                <div>
-                                    <div class="flex justify-between text-slate-500 mb-1 font-medium text-sm">
-                                        <span>Prestation Bricolage / Jardin (2h)</span>
-                                    </div>
-                                    <div class="flex justify-between text-slate-800 font-bold text-xl">
-                                        <span>Total facturé</span>
-                                        <span>80,00 €</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="border-t border-b border-gray-100 py-4">
-                                    <div class="flex justify-between text-slate-500 mb-1 font-medium text-sm">
-                                        <span>Avance Immédiate (50 %)</span>
-                                    </div>
-                                    <div class="flex justify-between text-teal font-bold text-xl">
-                                        <span>Pris en charge</span>
-                                        <span>- 40,00 €</span>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <div class="flex justify-between text-slate-500 mb-1 font-medium text-sm">
-                                        <span>Prélevé par l'Urssaf</span>
-                                    </div>
-                                    <div class="flex justify-between items-center text-2xl font-bold text-teal">
-                                        <span>Vous payez</span>
-                                        <span>40,00 €</span>
-                                    </div>
-                                </div>
+                        <!-- Avantage 2 -->
+                        <div class="flex items-start sm:items-center gap-5 p-6 rounded-2xl bg-white shadow-sm border border-gray-200 hover:border-teal/40 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-teal text-white flex items-center justify-center text-3xl shrink-0 shadow-md shadow-teal/20">
+                                <i class="ph-fill ph-file-dashed"></i>
                             </div>
-                            
-                            <p class="text-xs text-slate-400 mt-6">Un devis transparent est toujours validé avant intervention.</p>
+                            <div>
+                                <h3 class="font-arboria text-xl text-slate-900 mb-1">Zéro paperasse</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">Une fois votre compte créé, je m'occupe de déclarer la facture à l'Urssaf. Vous recevez une notification, vous n'avez qu'à valider.</p>
+                            </div>
+                        </div>
+
+                        <!-- Avantage 3 -->
+                        <div class="flex items-start sm:items-center gap-5 p-6 rounded-2xl bg-white shadow-sm border border-gray-200 hover:border-teal/40 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-teal text-white flex items-center justify-center text-3xl shrink-0 shadow-md shadow-teal/20">
+                                <i class="ph-fill ph-shield-check"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-arboria text-xl text-slate-900 mb-1">100% Transparent et Sécurisé</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">L'Urssaf prélève uniquement votre reste à charge (50%) directement sur votre compte bancaire. Tout est officiel et traçable.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                    <!-- L'Exemple Concret (Droite) -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-teal rounded-3xl p-1.5 shadow-2xl shadow-teal/20 transform hover:-translate-y-1 transition-transform duration-300">
+                            <div class="bg-white rounded-[20px] p-8 sm:p-10 text-center relative overflow-hidden">
+                                <!-- Fond décoratif -->
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-teal-light rounded-bl-full opacity-50 -mr-4 -mt-4"></div>
+                                
+                                <h4 class="font-arboria text-slate-400 uppercase tracking-[0.2em] text-xs font-bold mb-8 relative z-10">Exemple de facture</h4>
+                                
+                                <div class="space-y-5 relative z-10">
+                                    <div class="flex justify-between items-center text-slate-600 border-b border-dashed border-gray-200 pb-4">
+                                        <span class="text-sm font-medium">Prestation (ex: Jardinage 2h)</span>
+                                        <span class="font-bold text-lg">80,00 €</span>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center text-teal border-b border-dashed border-gray-200 pb-4">
+                                        <span class="text-sm font-bold flex items-center gap-2">
+                                            <i class="ph-fill ph-minus-circle text-lg"></i> Avantage SAP (-50%)
+                                        </span>
+                                        <span class="font-bold text-xl">- 40,00 €</span>
+                                    </div>
+                                    
+                                    <div class="pt-2">
+                                        <span class="block text-slate-500 text-sm font-medium mb-1">Prélevé par l'Urssaf</span>
+                                        <div class="text-6xl font-arboria font-bold text-slate-900 tracking-tight">
+                                            40<span class="text-4xl text-slate-400">€</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-10 relative z-10">
+                                    <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="block w-full bg-slate-900 hover:bg-slate-800 text-white px-6 py-4 rounded-xl font-semibold text-sm transition-colors shadow-lg">
+                                        Consulter les tarifs éligibles
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -561,7 +593,7 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="tel:+33664954732" class="flex items-center justify-center gap-4 bg-white border border-gray-300 text-slate-800 hover:border-teal hover:text-teal px-8 py-5 rounded-lg font-semibold text-lg transition-colors">
+                    <a href="tel:+33756952556" class="flex items-center justify-center gap-4 bg-white border border-gray-300 text-slate-800 hover:border-teal hover:text-teal px-8 py-5 rounded-lg font-semibold text-lg transition-colors">
                         <div class="text-left leading-tight">
                             <span class="block text-xs font-normal text-slate-500 uppercase tracking-wider">Appelez-moi</span>
                             <span>07 56 95 25 56</span>
@@ -591,7 +623,7 @@
                         <h3 class="font-bold text-slate-900 text-lg mb-2">1. Éditeur du site</h3>
                         <p><strong>Sylvain Séverac — Entrepreneur individuel (Le Bon Geste)</strong><br>
                         10 Chemin d'Aupillac, 81200 Aiguefonde<br>
-                        Téléphone : <a href="tel:0664954732" class="text-teal hover:underline">07 56 95 25 56</a><br>
+                        Téléphone : <a href="tel:0664954732" class="text-teal hover:underline">06 64 95 47 32</a><br>
                         Email : <a href="mailto:contact.lebongeste@gmail.com" class="text-teal hover:underline">contact.lebongeste@gmail.com</a><br>
                         SIREN : 919 151 902 • SIRET : 919 151 902 00054<br>
                         Directeur de la publication : Sylvain Séverac<br>
