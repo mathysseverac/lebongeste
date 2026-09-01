@@ -603,7 +603,14 @@
                     <p class="text-slate-600 text-lg">Décrivez votre projet. Réponse rapide sous 24h à 48h.</p>
                 </div>
 
-                <form class="bg-gray-light p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm space-y-8" action="#" method="POST" onsubmit="event.preventDefault(); alert('Formulaire envoyé avec succès !');">
+                <!-- Formulaire connecté à FormSubmit -->
+                <form action="https://formsubmit.co/contact.lebongeste@gmail.com" method="POST" enctype="multipart/form-data" class="bg-gray-light p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm space-y-8">
+                    
+                    <!-- Configurations invisibles FormSubmit -->
+                    <input type="hidden" name="_subject" value="🎯 Nouveau devis - Le Bon Geste">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://le-bon-geste.fr/">
                     
                     <!-- 1. Vos coordonnées -->
                     <div>
