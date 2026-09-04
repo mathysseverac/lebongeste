@@ -287,21 +287,21 @@
                                     <tbody class="text-slate-600">
                                         <tr class="border-t border-gray-100">
                                             <td class="py-2.5 pr-2 font-medium text-slate-800">Haie basse (&lt; 1,50 m)</td>
-                                            <td class="py-2.5 px-2 text-center">3,50 € / ml</td>
-                                            <td class="py-2.5 px-2 text-center">5,00 € / ml</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">2,50 € / ml</td>
+                                            <td class="py-2.5 px-2 text-center">3,50 € / ml<i class="ph-fill ph-info text-slate-400 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></td>
+                                            <td class="py-2.5 px-2 text-center">5,00 € / ml<i class="ph-fill ph-info text-slate-400 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></td>
+                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">2,50 € / ml<i class="ph-fill ph-info text-teal/70 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></td>
                                         </tr>
                                         <tr class="border-t border-gray-100">
                                             <td class="py-2.5 pr-2 font-medium text-slate-800">Haie moyenne (1,50 m à 2,00 m)</td>
-                                            <td class="py-2.5 px-2 text-center">4,50 € / ml</td>
-                                            <td class="py-2.5 px-2 text-center">6,50 € / ml</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">3,25 € / ml</td>
+                                            <td class="py-2.5 px-2 text-center">4,50 € / ml<i class="ph-fill ph-info text-slate-400 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></td>
+                                            <td class="py-2.5 px-2 text-center">6,50 € / ml<i class="ph-fill ph-info text-slate-400 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></td>
+                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">3,25 € / ml<i class="ph-fill ph-info text-teal/70 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></td>
                                         </tr>
                                         <tr class="border-t border-gray-100">
                                             <td class="py-2.5 pr-2 font-medium text-slate-800">Haie haute (&gt; 2,00 m — travail sur perche)</td>
-                                            <td class="py-2.5 px-2 text-center">5,50 € / ml</td>
-                                            <td class="py-2.5 px-2 text-center">7,50 € / ml</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">3,75 € / ml</td>
+                                            <td class="py-2.5 px-2 text-center">5,50 € / ml<i class="ph-fill ph-info text-slate-400 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></td>
+                                            <td class="py-2.5 px-2 text-center">7,50 € / ml<i class="ph-fill ph-info text-slate-400 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></td>
+                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">3,75 € / ml<i class="ph-fill ph-info text-teal/70 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -746,7 +746,7 @@
                     <p class="text-sm font-semibold text-slate-700">Uniquement si votre demande concerne la taille de haie :</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label for="longueur-haie" class="block text-sm text-slate-600 mb-1">Longueur estimée (en ml)</label>
+                            <label for="longueur-haie" class="block text-sm text-slate-600 mb-1">Longueur estimée (en ml)<i class="ph-fill ph-info text-slate-400 text-xs ml-0.5 cursor-help align-super" title="ml = mètre linéaire"></i></label>
                             <input type="number" id="longueur-haie" name="longueur_haie" placeholder="Ex: 15" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none">
                         </div>
                         <div>
@@ -1147,7 +1147,7 @@
             </div>
             
             <div class="text-center md:text-left text-sm">
-                <p>&copy; 2026 Le bon geste. Tous droits réservés.</p>
+                <p>&copy; <span id="copyright-year">2026</span> Le bon geste. Tous droits réservés.</p>
                 <p class="mt-2 text-xs text-white/60">Statut mixte : Artisanat (BIC) & Services à la Personne (SAP)</p>
             </div>
             
@@ -1218,6 +1218,14 @@
     </div>
 
     <script>
+        // Met à jour automatiquement l'année du copyright dans le footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearEl = document.getElementById('copyright-year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+        });
+
         function navigateTo(event, pageId) {
             if (event) {
                 event.preventDefault();
