@@ -125,6 +125,27 @@
         .sap-receipt-total strong { color: #123330; line-height: .8; white-space: nowrap; }
         .sap-receipt-total b { font-family: Arboria, sans-serif; font-size: 4.4rem; letter-spacing: -.08em; }
         .sap-receipt-total em { font-style: normal; font-size: 2rem; margin-left: .2rem; }
+        /* Catalogue : colonnes stables sur grand écran, puis cartes tarifaires sur mobile. */
+        #page-services .catalog-table-wrap { overflow-x: visible; }
+        #page-services .catalog-price-table { width: 100%; table-layout: fixed; }
+        #page-services .catalog-price-table th,
+        #page-services .catalog-price-table td { vertical-align: top; }
+        #page-services .catalog-price-table th { line-height: 1.25; }
+        #page-services .catalog-price-table td { line-height: 1.4; }
+        #page-services .catalog-price-table th:first-child,
+        #page-services .catalog-price-table td:first-child { width: 36%; }
+        #page-services .catalog-price-table th:nth-child(2),
+        #page-services .catalog-price-table td:nth-child(2) { width: 20%; }
+        #page-services .catalog-price-table th:nth-child(3),
+        #page-services .catalog-price-table td:nth-child(3) { width: 24%; }
+        #page-services .catalog-price-table th:nth-child(4),
+        #page-services .catalog-price-table td:nth-child(4) { width: 20%; }
+        #page-services .catalog-price-table:not(:has(th:nth-child(4))) th:nth-child(2),
+        #page-services .catalog-price-table:not(:has(th:nth-child(4))) td:nth-child(2),
+        #page-services .catalog-price-table:not(:has(th:nth-child(4))) th:nth-child(3),
+        #page-services .catalog-price-table:not(:has(th:nth-child(4))) td:nth-child(3) { width: 32%; }
+        #page-services .catalog-price-table td:not(:first-child) { white-space: nowrap; }
+        #page-services .catalog-price-table:nth-of-type(1) td:first-child { overflow-wrap: break-word; }
         @media (max-width: 767px) {
             .sap-highlight { padding: 1.5rem; }
             .sap-benefits { gap: 1.5rem; }
@@ -133,29 +154,35 @@
 
             /* Catalogue mobile : chaque ligne devient une carte lisible, sans défilement horizontal. */
             #page-services .catalog-table-wrap { overflow: visible; }
+            #page-services .catalog-table-wrap { margin-top: .25rem; }
             #page-services .catalog-price-table,
             #page-services .catalog-price-table tbody,
             #page-services .catalog-price-table tr,
             #page-services .catalog-price-table td { display: block; }
+            #page-services .catalog-price-table { table-layout: auto; }
             #page-services .catalog-price-table thead { display: none; }
             #page-services .catalog-price-table tr {
                 display: grid;
-                grid-template-columns: 1fr auto;
-                gap: .25rem .75rem;
-                padding: .7rem 0;
-                border-top: 1px solid #f1f5f9;
+                grid-template-columns: minmax(0, 1fr);
+                gap: .1rem;
+                padding: .85rem .75rem;
+                margin-bottom: .55rem;
+                border: 1px solid #e2e8f0;
+                border-radius: .55rem;
+                background: #fff;
             }
             #page-services .catalog-price-table td {
                 min-width: 0;
                 padding: .15rem 0;
-                font-size: .78rem;
+                font-size: .8rem;
                 line-height: 1.35;
                 white-space: normal;
-                overflow-wrap: anywhere;
+                overflow-wrap: break-word;
             }
             #page-services .catalog-price-table td:first-child {
                 grid-column: 1 / -1;
                 padding-bottom: .3rem;
+                font-size: .82rem;
             }
             #page-services .catalog-price-table td:not(:first-child) {
                 display: flex;
@@ -163,6 +190,7 @@
                 justify-content: space-between;
                 gap: .75rem;
                 text-align: right;
+                white-space: nowrap;
             }
             #page-services .catalog-price-table td:not(:first-child)::before {
                 content: attr(data-label);
@@ -173,6 +201,7 @@
                 text-transform: uppercase;
                 text-align: left;
                 flex: 1 1 auto;
+                white-space: normal;
             }
             #page-services .catalog-price-table td.text-teal,
             #page-services .catalog-price-table td.font-bold {
