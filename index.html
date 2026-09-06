@@ -188,6 +188,14 @@
         .home-service-link { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .85rem 1rem; border: 1px solid #dce8e6; border-radius: .55rem; color: #0f172a; font-weight: 700; font-size: .9rem; transition: border-color .2s, color .2s, background-color .2s; }
         .home-service-link:hover { border-color: #007271; color: #007271; background: #edf7f6; }
         .home-service-link i { color: #007271; }
+        .home-service-area { color: #64748b; font-size: .82rem; line-height: 1.45; }
+        .mobile-call-button { box-shadow: 0 10px 25px rgba(0, 78, 74, .2); }
+        #haie-details.hidden { display: none; }
+        @media (min-width: 768px) {
+            #cookie-banner > div { padding: .9rem 1.1rem; gap: 1rem; }
+            #cookie-banner p { font-size: .78rem; line-height: 1.35; }
+            #cookie-banner button { padding: .55rem .7rem; font-size: .75rem; }
+        }
         .home-trust-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
         .home-trust-grid div { border-left: 2px solid #84c8c1; padding-left: .8rem; }
         .home-trust-grid strong, .home-trust-grid span { display: block; }
@@ -233,10 +241,11 @@
         .faq-list details[open] summary::after { content: '–'; }
         .faq-list details p { padding: 0 1.25rem 1.2rem; margin: 0; color: #64748b; line-height: 1.65; }
         @media (max-width: 767px) {
-            #cookie-banner { padding-left: .75rem; padding-right: .75rem; padding-bottom: .75rem; }
-            #cookie-banner > div { padding: .9rem; gap: .7rem; }
-            #cookie-banner p { font-size: .75rem; line-height: 1.35; }
-            #cookie-banner button { padding: .55rem .65rem; font-size: .75rem; }
+            #cookie-banner { padding-left: .5rem; padding-right: .5rem; padding-bottom: .5rem; }
+            #cookie-banner > div { padding: .7rem; gap: .55rem; }
+            #cookie-banner > div > div:first-child { gap: .5rem; }
+            #cookie-banner p { font-size: .7rem; line-height: 1.3; }
+            #cookie-banner button { padding: .45rem .5rem; font-size: .68rem; }
             .home-service-map-heading { display: block; }
             .home-service-map-note { display: block; margin-top: .35rem; }
             .home-service-map-grid, .home-trust-grid, .contact-practical-grid { grid-template-columns: 1fr; }
@@ -356,17 +365,18 @@
                 </p>
 
                 <p class="text-sm text-slate-600 border-l-2 border-teal pl-4 mb-10 max-w-xl">
-                    Profitez de <strong class="text-teal font-semibold">-50 % de crédit d'impôt</strong> sur les prestations SAP grâce à l'Avance Immédiate Urssaf.
+                    Toutes les prestations proposées sont éligibles aux Services à la Personne. Avec l'Avance Immédiate Urssaf, vous ne réglez que <strong class="text-teal font-semibold">50 % de la facture</strong>.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3">
                     <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="bg-teal hover:bg-teal-dark text-white px-7 py-3.5 rounded-md font-semibold text-base transition-colors flex items-center justify-center gap-2">
                         Voir le catalogue complet
                     </a>
-                    <a href="https://le-bon-geste.fr/contact" onclick="navigateTo(event, 'contact')" class="bg-white hover:border-teal text-slate-800 hover:text-teal border border-gray-300 px-7 py-3.5 rounded-md font-semibold text-base transition-colors flex items-center justify-center gap-2">
-                        Me contacter
+                    <a href="tel:+33610669435" class="bg-white hover:border-teal text-slate-800 hover:text-teal border border-gray-300 px-7 py-3.5 rounded-md font-semibold text-base transition-colors flex items-center justify-center gap-2">
+                        Appeler Sylvain
                     </a>
                 </div>
+                <p class="home-service-area mt-4">Interventions à Mazamet, Aiguefonde et dans les communes voisines, dans un rayon indicatif de 20 km.</p>
 
                 <div class="home-service-map mt-12" aria-label="Principales prestations">
                     <div class="home-service-map-heading">
@@ -374,10 +384,10 @@
                         <span class="home-service-map-note">Mazamet et alentours · Devis gratuit</span>
                     </div>
                     <div class="home-service-map-grid">
-                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="home-service-link"><span>Taille de haies</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="home-service-link"><span>Pelouses & tonte</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="home-service-link"><span>Petit bricolage</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="home-service-link"><span>Nettoyage & assistance</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                        <a href="https://le-bon-geste.fr/catalogue#service-haies" onclick="navigateToService(event, 'service-haies')" class="home-service-link"><span>Taille de haies</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                        <a href="https://le-bon-geste.fr/catalogue#service-pelouses" onclick="navigateToService(event, 'service-pelouses')" class="home-service-link"><span>Pelouses & tonte</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                        <a href="https://le-bon-geste.fr/catalogue#service-bricolage" onclick="navigateToService(event, 'service-bricolage')" class="home-service-link"><span>Petit bricolage</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                        <a href="https://le-bon-geste.fr/catalogue#service-nettoyage" onclick="navigateToService(event, 'service-nettoyage')" class="home-service-link"><span>Nettoyage & assistance</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
@@ -390,7 +400,7 @@
                 
                 <div class="text-center mb-12">
                     <h2 class="font-arboria text-3xl sm:text-4xl text-teal mb-4">Catalogue & grille tarifaire</h2>
-                    <p class="text-slate-600 max-w-2xl mx-auto text-lg">Découvrez mes services à la personne à domicile, éligibles au crédit d'impôt de 50 %.</p>
+                    <p class="text-slate-600 max-w-2xl mx-auto text-lg">Toutes les prestations proposées par Le bon geste relèvent des Services à la Personne et bénéficient de l'Avance Immédiate, sous réserve de son activation.</p>
                 </div>
 
                 <!-- SECTION 1 : CATALOGUE SAP -->
@@ -402,7 +412,7 @@
                     <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
                         
                         <!-- CARTE SAP 1 : Taille de haies -->
-                        <div class="bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
+                        <div id="service-haies" class="bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
                                     <i class="ph ph-tree"></i>
@@ -416,7 +426,7 @@
                             <p class="text-teal font-medium text-sm mb-4"> 3 faces : côtés et dessus. Travail soigné.</p>
 
                             <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
-                                <strong>Bénéficiez de 50 % de crédit d'impôt immédiat</strong> : avec le service Avance Immédiate de l'Urssaf, vous ne réglez que 50 % de la facture lors de la prestation.
+                                <strong>Avance Immédiate Urssaf</strong> : vous ne réglez que 50 % de la facture lors de la prestation, après activation du service.
                             </div>
 
                             <div class="catalog-table-wrap flex-grow border-t border-gray-100 pt-4 overflow-x-auto">
@@ -462,7 +472,7 @@
                         </div>
 
                         <!-- CARTE SAP 2 : Entretien des pelouses & Tonte -->
-                        <div class="bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
+                        <div id="service-pelouses" class="bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
                                     <i class="ph ph-plant"></i>
@@ -476,7 +486,7 @@
                             <p class="text-teal font-medium text-sm mb-4"> Tonte soignée et finitions des bordures.</p>
 
                             <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
-                                <strong>Bénéficiez de 50 % de crédit d'impôt immédiat</strong> : avec le service Avance Immédiate de l'Urssaf, vous ne réglez que 50 % de la facture lors de la prestation.
+                                <strong>Avance Immédiate Urssaf</strong> : vous ne réglez que 50 % de la facture lors de la prestation, après activation du service.
                             </div>
 
                             <div class="catalog-table-wrap flex-grow border-t border-gray-100 pt-4 overflow-x-auto">
@@ -523,7 +533,7 @@
                         </div>
 
                         <!-- CARTE SAP 3 : Petit Bricolage -->
-                        <div class="lg:order-3 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
+                        <div id="service-bricolage" class="lg:order-3 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
                                     <i class="ph ph-hammer"></i>
@@ -544,7 +554,7 @@
                         </div>
 
                         <!-- CARTE SAP 4 : Nettoyage Haute Pression -->
-                        <div class="lg:order-5 lg:col-span-2 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
+                        <div id="service-nettoyage" class="lg:order-5 lg:col-span-2 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
                                     <i class="ph ph-drop"></i>
@@ -582,7 +592,7 @@
                         </div>
 
                         <!-- CARTE SAP 5 : Assistance Informatique & Confort -->
-                        <div class="lg:order-4 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
+                        <div id="service-assistance" class="lg:order-4 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
                                     <i class="ph ph-laptop"></i>
@@ -709,7 +719,7 @@
         <div class="text-center mb-12">
             <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-3">Devis en ligne</p>
             <h2 class="font-arboria text-4xl md:text-5xl text-slate-900 mb-4">Demande de devis gratuit</h2>
-            <p class="text-slate-600 text-lg">Décrivez votre projet. Réponse rapide sous 24h à 48h.</p>
+            <p class="text-slate-600 text-lg">Décrivez votre projet. Retour sous 24 à 48 h pour préciser votre besoin et préparer votre devis.</p>
         </div>
 
         <form id="devis-form" action="https://formsubmit.co/contact.lebongeste@gmail.com" method="POST" enctype="multipart/form-data" class="bg-gray-light p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm space-y-8" novalidate>
@@ -778,8 +788,8 @@
             <div>
                 <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">3. Détails de votre projet</h3>
                 
-                <div class="bg-white p-5 border border-gray-200 rounded-md mb-5 space-y-5">
-                    <p class="text-sm font-semibold text-slate-700">Si votre demande concerne une taille de haie, précisez les éléments ci-dessous :</p>
+                <div id="haie-details" class="hidden bg-white p-5 border border-gray-200 rounded-md mb-5 space-y-5" aria-hidden="true">
+                    <p class="text-sm font-semibold text-slate-700">Pour une taille de haie, ces précisions permettent de préparer le devis :</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="longueur-haie" class="block text-sm text-slate-600 mb-1">Longueur estimée (en ml)</label>
@@ -832,6 +842,7 @@
 
             <!-- 5. Envoi -->
             <div class="pt-4 text-center">
+                <p class="text-sm text-slate-600 mb-4">Les informations indispensables suffisent pour commencer. Les photos et précisions complémentaires restent facultatives.</p>
                 <button type="submit" id="devis-submit-btn" class="w-full md:w-auto bg-teal hover:bg-teal-dark disabled:opacity-70 disabled:cursor-wait text-white px-10 py-4 rounded-md font-bold text-lg transition-all shadow-md shadow-teal/20 inline-flex items-center justify-center gap-2">
                     <i class="ph ph-paper-plane-right text-xl" id="devis-submit-icon"></i>
                     <span id="devis-submit-label">Envoyer ma demande de devis gratuit</span>
@@ -1036,7 +1047,7 @@
                 </div>
                 <div class="faq-list">
                     <details open><summary>Quelles prestations propose Le bon geste ?</summary><p>Jardinage, taille de haies, tonte, petit bricolage, nettoyage haute pression et assistance multimédia ou de confort à domicile.</p></details>
-                    <details><summary>Comment fonctionne l’Avance Immédiate Urssaf ?</summary><p>Pour les prestations éligibles, le crédit d’impôt de 50 % est déduit directement. Vous réglez donc uniquement le reste à charge, après activation et validation du dispositif.</p></details>
+                        <details><summary>Comment fonctionne l’Avance Immédiate Urssaf ?</summary><p>Les prestations proposées par Le bon geste relèvent des Services à la Personne. Après activation et validation du dispositif, le crédit d’impôt de 50 % est déduit directement et vous réglez uniquement le reste à charge.</p></details>
                     <details><summary>Dans quelles communes intervenez-vous ?</summary><p>Les interventions sont proposées à Mazamet, Aiguefonde et dans les communes voisines, dans un rayon indicatif de 20 km. La zone est confirmée avec le devis.</p></details>
                     <details><summary>Le devis est-il gratuit ?</summary><p>Oui. Un devis clair et gratuit est établi avant toute intervention, avec les éventuelles contraintes de terrain, d’accès ou de fourniture.</p></details>
                     <details><summary>Y a-t-il un minimum d’intervention ?</summary><p>Un forfait minimum de 50 € brut par intervention et déplacement s’applique, soit 25 € restant à charge lorsque l’Avance Immédiate est applicable.</p></details>
@@ -1073,7 +1084,7 @@
 
                 <div class="guide-warning mt-10">
                     <i class="ph ph-info" aria-hidden="true"></i>
-                    <div><strong>À retenir</strong><p>Le parcours dépend de votre situation et du dispositif utilisé. Ce guide concerne les clients d’un organisme de services à la personne ; il ne remplace pas les instructions affichées par l’Urssaf. Si votre situation relève du Cesu employeur, consultez la démarche spécifique indiquée par l’Urssaf.</p></div>
+                    <div><strong>À retenir</strong><p>L’éligibilité des prestations proposées est déjà prévue ; l’activation de l’Avance Immédiate se fait ensuite avec l’Urssaf. Ce guide concerne les clients d’un organisme de services à la personne et ne remplace pas les instructions affichées par l’Urssaf. Si votre situation relève du Cesu employeur, consultez la démarche spécifique indiquée par l’Urssaf.</p></div>
                 </div>
 
                 <div class="guide-actions mt-10">
@@ -1364,9 +1375,13 @@
         </div>
     </footer>
 
+    <a href="tel:+33610669435" class="mobile-call-button fixed bottom-4 left-4 right-4 z-40 md:hidden bg-teal hover:bg-teal-dark text-white px-5 py-3 rounded-full font-semibold text-sm text-center transition-colors" aria-label="Appeler Le bon geste">
+        Appeler Sylvain · 06 10 66 94 35
+    </a>
+
     <!-- ==================== BANDEAU COOKIES ==================== -->
     <div id="cookie-banner" class="fixed inset-x-0 bottom-0 z-[100] hidden px-4 pb-4 sm:px-6">
-        <div class="max-w-3xl mx-auto bg-white border border-gray-200 rounded-xl shadow-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="max-w-4xl mx-auto bg-white border border-gray-200 rounded-xl shadow-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <div class="flex items-start gap-3">
                 <i class="ph-fill ph-cookie text-teal text-2xl shrink-0 mt-0.5"></i>
                 <p class="text-sm text-slate-600 leading-relaxed">
@@ -1374,7 +1389,7 @@
                     <a href="https://le-bon-geste.fr/politique-de-cookies" onclick="navigateTo(event, 'cookies')" class="text-teal hover:underline font-medium">En savoir plus</a>
                 </p>
             </div>
-            <div class="flex flex-wrap gap-2 shrink-0 w-full sm:w-auto">
+            <div class="flex flex-wrap gap-2 shrink-0 w-full sm:w-auto cookie-actions">
                 <button onclick="setCookieConsent('rejected')" class="flex-1 sm:flex-none border border-gray-300 text-slate-700 hover:border-teal hover:text-teal px-4 py-2.5 rounded-md text-sm font-semibold transition-colors">Tout refuser</button>
                 <button onclick="openCookieModal()" class="flex-1 sm:flex-none border border-gray-300 text-slate-700 hover:border-teal hover:text-teal px-4 py-2.5 rounded-md text-sm font-semibold transition-colors">Personnaliser</button>
                 <button onclick="setCookieConsent('accepted')" class="flex-1 sm:flex-none bg-teal text-white hover:bg-teal-dark px-4 py-2.5 rounded-md text-sm font-semibold transition-colors">Tout accepter</button>
@@ -1719,6 +1734,28 @@
                 });
             });
         });
+
+        function updateHaieDetails() {
+            const selected = document.querySelector('input[name="prestation"]:checked');
+            const details = document.getElementById('haie-details');
+            if (!details) return;
+            const visible = selected && selected.value === 'jardin';
+            details.classList.toggle('hidden', !visible);
+            details.setAttribute('aria-hidden', String(!visible));
+        }
+
+        document.querySelectorAll('input[name="prestation"]').forEach(function(input) {
+            input.addEventListener('change', updateHaieDetails);
+        });
+        updateHaieDetails();
+
+        function navigateToService(event, serviceId) {
+            navigateTo(event, 'services');
+            window.setTimeout(function() {
+                const service = document.getElementById(serviceId);
+                if (service) service.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }, 80);
+        }
 
         // Initialisation au chargement de la page selon l'URL actuelle
         window.onload = function() {
