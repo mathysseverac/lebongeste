@@ -131,39 +131,48 @@
             .sap-invoice { padding: 1.25rem; }
             .sap-receipt-total b { font-size: 3.8rem; }
 
-            /* Catalogue mobile : les montants restent entiers et les tableaux se lisent sans être écrasés. */
-            #page-services .catalog-table-wrap {
-                margin-right: -0.25rem;
-                padding-bottom: .35rem;
-                scrollbar-width: thin;
-                scrollbar-color: #9bc8c3 transparent;
-            }
-            #page-services .catalog-price-table {
-                width: 100%;
-                min-width: 0;
-                table-layout: fixed;
-            }
-            #page-services .catalog-price-table th {
-                padding-left: .2rem;
-                padding-right: .2rem;
-                font-size: .58rem;
-                line-height: 1.25;
-                letter-spacing: .04em;
-                white-space: normal;
-                vertical-align: bottom;
+            /* Catalogue mobile : chaque ligne devient une carte lisible, sans défilement horizontal. */
+            #page-services .catalog-table-wrap { overflow: visible; }
+            #page-services .catalog-price-table,
+            #page-services .catalog-price-table tbody,
+            #page-services .catalog-price-table tr,
+            #page-services .catalog-price-table td { display: block; }
+            #page-services .catalog-price-table thead { display: none; }
+            #page-services .catalog-price-table tr {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: .25rem .75rem;
+                padding: .7rem 0;
+                border-top: 1px solid #f1f5f9;
             }
             #page-services .catalog-price-table td {
-                padding-left: .2rem;
-                padding-right: .2rem;
-                font-size: .64rem;
+                min-width: 0;
+                padding: .15rem 0;
+                font-size: .78rem;
                 line-height: 1.35;
-                white-space: nowrap;
-                word-break: normal;
-                overflow-wrap: normal;
+                white-space: normal;
+                overflow-wrap: anywhere;
             }
             #page-services .catalog-price-table td:first-child {
-                white-space: normal;
-                min-width: 0;
+                grid-column: 1 / -1;
+                padding-bottom: .3rem;
+            }
+            #page-services .catalog-price-table td:not(:first-child) {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: .75rem;
+                text-align: right;
+            }
+            #page-services .catalog-price-table td:not(:first-child)::before {
+                content: attr(data-label);
+                color: #94a3b8;
+                font-size: .65rem;
+                font-weight: 700;
+                letter-spacing: .06em;
+                text-transform: uppercase;
+                text-align: left;
+                flex: 1 1 auto;
             }
             #page-services .catalog-price-table td.text-teal,
             #page-services .catalog-price-table td.font-bold {
@@ -372,11 +381,6 @@
                     </div>
                 </div>
 
-                <div class="home-trust-grid mt-8" aria-label="Informations pratiques">
-                    <div><strong>Zone locale</strong><span>Mazamet, Aiguefonde et communes voisines</span></div>
-                    <div><strong>Réponse rapide</strong><span>Retour sous 24 à 48 h après votre demande</span></div>
-                    <div><strong>Avant chaque intervention</strong><span>Devis clair et gratuit</span></div>
-                </div>
             </div>
         </section>
 
@@ -1060,7 +1064,7 @@
                 </div>
 
                 <div class="guide-steps" aria-label="Étapes d’activation de l’Avance Immédiate">
-                    <article class="guide-step"><span class="guide-step-number">01</span><div><h3>Parlez-en au bon moment</h3><p>Lors de votre demande de devis, indiquez que vous souhaitez utiliser l’Avance Immédiate. Nous vérifions ensemble que la prestation et votre situation peuvent entrer dans le dispositif.</p></div></article>
+                    <article class="guide-step"><span class="guide-step-number">01</span><div><h3>Un dispositif déjà prévu</h3><p>Toutes les prestations proposées par Le bon geste sont éligibles aux Services à la Personne et à l'Avance Immédiate. Vous bénéficiez ainsi directement du crédit d'impôt de 50 % sur les prestations concernées.</p></div></article>
                     <article class="guide-step"><span class="guide-step-number">02</span><div><h3>Ouvrez votre espace officiel</h3><p>Rendez-vous sur l’espace particulier de l’Urssaf. Utilisez uniquement le site officiel et ne transmettez jamais vos identifiants par email ou téléphone.</p><a href="https://www.particulier.urssaf.fr/" target="_blank" rel="noopener noreferrer" class="guide-link">Accéder à l’espace particulier Urssaf <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></article>
                     <article class="guide-step"><span class="guide-step-number">03</span><div><h3>Suivez l’invitation et validez</h3><p>Selon le dispositif utilisé, l’organisme SAP vous inscrit ou vous adresse une invitation. Dans votre espace, vérifiez vos informations puis activez et validez le service selon les instructions affichées par l’Urssaf.</p></div></article>
                     <article class="guide-step"><span class="guide-step-number">04</span><div><h3>Validez la demande après l’intervention</h3><p>Après la prestation, les éléments de facturation sont transmis selon le dispositif. Consultez la demande dans votre espace Urssaf et validez-la si nécessaire. Le montant restant à votre charge est alors prélevé selon les modalités indiquées.</p></div></article>
@@ -1702,6 +1706,18 @@
 
         window.addEventListener('popstate', function() {
             navigateTo(null, resolvePathToPageId(window.location.pathname));
+        });
+
+        // Sur mobile, les tableaux de prix sont présentés comme des cartes lisibles.
+        document.querySelectorAll('#page-services .catalog-price-table').forEach(function(table) {
+            const labels = Array.from(table.querySelectorAll('thead th')).map(function(header) {
+                return header.textContent.trim();
+            });
+            table.querySelectorAll('tbody tr').forEach(function(row) {
+                row.querySelectorAll('td').forEach(function(cell, index) {
+                    if (index > 0 && labels[index]) cell.setAttribute('data-label', labels[index]);
+                });
+            });
         });
 
         // Initialisation au chargement de la page selon l'URL actuelle
