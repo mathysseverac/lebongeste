@@ -195,6 +195,27 @@
         .contact-practical-grid strong, .contact-practical-grid span { display: block; }
         .contact-practical-grid strong { color: #0f172a; margin-bottom: .35rem; }
         .contact-practical-grid span { color: #64748b; font-size: .86rem; line-height: 1.5; }
+        .guide-intro { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; border: 1px solid #b7ded9; border-radius: .75rem; background: #edf7f6; }
+        .guide-intro-icon { flex: 0 0 auto; width: 2.75rem; height: 2.75rem; border-radius: 999px; background: #007271; color: white; display: grid; place-items: center; font-size: 1.25rem; }
+        .guide-intro strong, .guide-warning strong { color: #075e5c; display: block; margin-bottom: .3rem; }
+        .guide-intro p, .guide-warning p { color: #486361; line-height: 1.6; margin: 0; }
+        .guide-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+        .guide-step { display: flex; gap: 1rem; padding: 1.25rem; border: 1px solid #dce8e6; border-radius: .75rem; background: #fff; }
+        .guide-step:last-child { grid-column: 1 / -1; }
+        .guide-step-number { flex: 0 0 auto; color: #007271; font-size: .75rem; font-weight: 800; letter-spacing: .08em; padding-top: .2rem; }
+        .guide-step h3 { color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0 0 .45rem; }
+        .guide-step p { color: #64748b; line-height: 1.6; margin: 0; }
+        .guide-link { display: inline-flex; gap: .35rem; align-items: center; margin-top: .8rem; color: #007271; font-weight: 700; font-size: .9rem; text-decoration: underline; text-underline-offset: .2rem; }
+        .guide-warning { display: flex; gap: .8rem; align-items: flex-start; padding: 1.1rem 1.25rem; border-left: 3px solid #d5a928; background: #fff9e7; }
+        .guide-warning > i { color: #a47700; font-size: 1.3rem; margin-top: .1rem; }
+        .guide-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+        @media (max-width: 767px) {
+            .guide-steps { grid-template-columns: 1fr; }
+            .guide-step:last-child { grid-column: auto; }
+            .guide-intro { padding: 1rem; }
+            .guide-step { padding: 1rem; }
+            .guide-actions a { width: 100%; }
+        }
         .faq-list { display: grid; gap: .75rem; }
         .faq-list details { border: 1px solid #dce8e6; border-radius: .65rem; background: #fff; }
         .faq-list summary { cursor: pointer; list-style: none; padding: 1.15rem 1.25rem; color: #0f172a; font-weight: 700; display: flex; justify-content: space-between; gap: 1rem; }
@@ -260,6 +281,7 @@
                     <a href="https://le-bon-geste.fr/" onclick="navigateTo(event, 'accueil')" class="nav-link active-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Accueil</a>
                     <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Catalogue</a>
                     <a href="https://le-bon-geste.fr/avantage-sap" onclick="navigateTo(event, 'sap')" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Avantage -50%</a>
+                    <a href="https://le-bon-geste.fr/guide-urssaf" onclick="navigateTo(event, 'guide')" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Guide Urssaf</a>
                     <a href="https://le-bon-geste.fr/contact" onclick="navigateTo(event, 'contact')" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Contact</a>
                     <a href="https://le-bon-geste.fr/faq" onclick="navigateTo(event, 'faq')" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">FAQ</a>
                 </nav>
@@ -286,6 +308,7 @@
                 <a href="https://le-bon-geste.fr/" onclick="navigateTo(event, 'accueil')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Accueil</a>
                 <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Catalogue</a>
                 <a href="https://le-bon-geste.fr/avantage-sap" onclick="navigateTo(event, 'sap')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Avantage -50%</a>
+                <a href="https://le-bon-geste.fr/guide-urssaf" onclick="navigateTo(event, 'guide')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Guide Urssaf</a>
                 <a href="https://le-bon-geste.fr/contact" onclick="navigateTo(event, 'contact')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Contact</a>
                 <a href="https://le-bon-geste.fr/faq" onclick="navigateTo(event, 'faq')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">FAQ</a>
                 <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="mobile-link block px-3 py-3 text-base font-medium text-white bg-teal rounded-md mt-4 text-center">Demander un devis</a>
@@ -642,9 +665,14 @@
                         <p class="sap-kicker mb-4">Exemple concret</p>
                         <h3 class="font-arboria text-3xl sm:text-4xl text-slate-900 mb-4">Une prestation de 80 € revient à 40 €.</h3>
                         <p class="text-slate-600 leading-relaxed max-w-xl mb-6">L'exemple ci-contre montre simplement la déduction de 50 % sur une prestation de jardinage de deux heures.</p>
-                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="sap-cta inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3.5 rounded-md font-semibold text-sm">
-                            Consulter les tarifs SAP <i class="ph ph-arrow-up-right"></i>
-                        </a>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="sap-cta inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3.5 rounded-md font-semibold text-sm">
+                                Consulter les tarifs SAP <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://le-bon-geste.fr/guide-urssaf" onclick="navigateTo(event, 'guide')" class="inline-flex items-center gap-2 border border-teal/30 text-teal hover:bg-white px-6 py-3.5 rounded-md font-semibold text-sm">
+                                Voir le guide Urssaf <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
                     <div class="lg:col-span-5">
                         <div class="sap-receipt" aria-label="Exemple de facture avec crédit d'impôt immédiat">
@@ -1014,6 +1042,43 @@
             </div>
         </section>
 
+        <!-- ==================== PAGE : GUIDE URSSAF ==================== -->
+        <section id="page-guide" class="page-view relative py-12 lg:py-20 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-4">Mode d’emploi client</p>
+                    <h2 class="font-arboria text-4xl sm:text-5xl text-slate-900 mb-5">Activer l’Avance Immédiate Urssaf</h2>
+                    <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">Vous souhaitez faire intervenir Le bon geste chez vous ? Voici comment fonctionne le crédit d’impôt de 50 % et ce que vous devez faire de votre côté.</p>
+                </div>
+
+                <div class="guide-intro mb-10">
+                    <div class="guide-intro-icon"><i class="ph ph-lightbulb" aria-hidden="true"></i></div>
+                    <div>
+                        <strong>Le principe en une phrase</strong>
+                        <p>Pour une prestation éligible, l’Avance Immédiate permet de déduire directement 50 % du crédit d’impôt du montant à régler, au lieu d’attendre la déclaration annuelle.</p>
+                    </div>
+                </div>
+
+                <div class="guide-steps" aria-label="Étapes d’activation de l’Avance Immédiate">
+                    <article class="guide-step"><span class="guide-step-number">01</span><div><h3>Parlez-en au bon moment</h3><p>Lors de votre demande de devis, indiquez que vous souhaitez utiliser l’Avance Immédiate. Nous vérifions ensemble que la prestation et votre situation peuvent entrer dans le dispositif.</p></div></article>
+                    <article class="guide-step"><span class="guide-step-number">02</span><div><h3>Ouvrez votre espace officiel</h3><p>Rendez-vous sur l’espace particulier de l’Urssaf. Utilisez uniquement le site officiel et ne transmettez jamais vos identifiants par email ou téléphone.</p><a href="https://www.particulier.urssaf.fr/" target="_blank" rel="noopener noreferrer" class="guide-link">Accéder à l’espace particulier Urssaf <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></article>
+                    <article class="guide-step"><span class="guide-step-number">03</span><div><h3>Suivez l’invitation et validez</h3><p>Selon le dispositif utilisé, l’organisme SAP vous inscrit ou vous adresse une invitation. Dans votre espace, vérifiez vos informations puis activez et validez le service selon les instructions affichées par l’Urssaf.</p></div></article>
+                    <article class="guide-step"><span class="guide-step-number">04</span><div><h3>Validez la demande après l’intervention</h3><p>Après la prestation, les éléments de facturation sont transmis selon le dispositif. Consultez la demande dans votre espace Urssaf et validez-la si nécessaire. Le montant restant à votre charge est alors prélevé selon les modalités indiquées.</p></div></article>
+                    <article class="guide-step"><span class="guide-step-number">05</span><div><h3>Suivez votre avantage</h3><p>Votre espace particulier vous permet de retrouver les montants d’avance utilisés et ceux encore disponibles. Conservez également vos devis et factures.</p></div></article>
+                </div>
+
+                <div class="guide-warning mt-10">
+                    <i class="ph ph-info" aria-hidden="true"></i>
+                    <div><strong>À retenir</strong><p>Le parcours dépend de votre situation et du dispositif utilisé. Ce guide concerne les clients d’un organisme de services à la personne ; il ne remplace pas les instructions affichées par l’Urssaf. Si votre situation relève du Cesu employeur, consultez la démarche spécifique indiquée par l’Urssaf.</p></div>
+                </div>
+
+                <div class="guide-actions mt-10">
+                    <a href="https://www.urssaf.fr/accueil/services/services-particuliers/service-avance-immediate.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3.5 rounded-md font-semibold">Lire les informations Urssaf <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-slate-800 hover:border-teal hover:text-teal px-6 py-3.5 rounded-md font-semibold">Demander un devis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+
         <!-- ==================== PAGE : CONFIRMATION DEVIS ==================== -->
         <section id="page-merci" class="page-view relative py-20 lg:py-32">
             <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -1377,6 +1442,11 @@
                 title: "50 % de crédit d'impôt immédiat avec l'Avance Urssaf | Le bon geste",
                 description: "Comment fonctionne l'Avance Immédiate de l'Urssaf : vous ne réglez que la moitié de la facture, le crédit d'impôt est déduit tout de suite, sans avance de trésorerie."
             },
+            'guide': {
+                url: 'https://le-bon-geste.fr/guide-urssaf',
+                title: "Guide Avance Immédiate Urssaf | Le bon geste à Mazamet",
+                description: "Guide simple pour comprendre et activer l'Avance Immédiate Urssaf avec un organisme de services à la personne à Mazamet."
+            },
             'devis': {
                 url: 'https://le-bon-geste.fr/devis',
                 title: "Demander un devis gratuit | Le bon geste, Mazamet",
@@ -1618,6 +1688,7 @@
             if (path === '/' || path === '' || path.indexOf('index.html') !== -1) return 'accueil';
             if (path.indexOf('catalogue') !== -1) return 'services';
             if (path.indexOf('avantage-sap') !== -1) return 'sap';
+            if (path.indexOf('guide-urssaf') !== -1) return 'guide';
             if (path.indexOf('devis') !== -1) return 'devis';
             if (path.indexOf('merci') !== -1) return 'merci';
             if (path.indexOf('contact') !== -1) return 'contact';
