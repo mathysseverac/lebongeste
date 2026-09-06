@@ -130,6 +130,45 @@
             .sap-benefits { gap: 1.5rem; }
             .sap-invoice { padding: 1.25rem; }
             .sap-receipt-total b { font-size: 3.8rem; }
+
+            /* Catalogue mobile : les montants restent entiers et les tableaux se lisent sans être écrasés. */
+            #page-services .catalog-table-wrap {
+                margin-right: -0.25rem;
+                padding-bottom: .35rem;
+                scrollbar-width: thin;
+                scrollbar-color: #9bc8c3 transparent;
+            }
+            #page-services .catalog-price-table {
+                width: 100%;
+                min-width: 0;
+                table-layout: fixed;
+            }
+            #page-services .catalog-price-table th {
+                padding-left: .2rem;
+                padding-right: .2rem;
+                font-size: .58rem;
+                line-height: 1.25;
+                letter-spacing: .04em;
+                white-space: normal;
+                vertical-align: bottom;
+            }
+            #page-services .catalog-price-table td {
+                padding-left: .2rem;
+                padding-right: .2rem;
+                font-size: .64rem;
+                line-height: 1.35;
+                white-space: nowrap;
+                word-break: normal;
+                overflow-wrap: normal;
+            }
+            #page-services .catalog-price-table td:first-child {
+                white-space: normal;
+                min-width: 0;
+            }
+            #page-services .catalog-price-table td.text-teal,
+            #page-services .catalog-price-table td.font-bold {
+                font-variant-numeric: tabular-nums;
+            }
         }
     </style>
 </head>
@@ -288,14 +327,14 @@
                                 <strong>Bénéficiez de 50 % de crédit d'impôt immédiat</strong> : avec le service Avance Immédiate de l'Urssaf, vous ne réglez que 50 % de la facture lors de la prestation.
                             </div>
 
-                            <div class="flex-grow border-t border-gray-100 pt-4 overflow-x-auto">
-                                <table class="w-full text-sm text-left border-collapse">
+                            <div class="catalog-table-wrap flex-grow border-t border-gray-100 pt-4 overflow-x-auto">
+                                <table class="catalog-price-table w-full text-sm text-left border-collapse">
                                     <thead>
                                         <tr class="text-xs uppercase text-slate-400 tracking-wider">
-                                            <th class="py-2 pr-2 font-bold">Hauteur de haie <span class="block normal-case font-normal text-slate-400">(3 faces)</span></th>
-                                            <th class="py-2 px-2 font-bold text-center">Coupe seule <span class="block normal-case font-normal text-slate-400">(déchets au sol)</span></th>
-                                            <th class="py-2 px-2 font-bold text-center">Clé en main <span class="block normal-case font-normal text-slate-400">(Taille + Nettoyage + Évacuation)</span></th>
-                                            <th class="py-2 pl-2 font-bold text-center text-teal-dark">Coût réel clé en main <span class="block normal-case font-normal text-teal-dark/70">après -50 %</span></th>
+                                            <th class="py-2 pr-2 font-bold" title="Hauteur de haie, trois faces">Hauteur</th>
+                                            <th class="py-2 px-2 font-bold text-center" title="Coupe seule, déchets au sol">Coupe seule</th>
+                                            <th class="py-2 px-2 font-bold text-center" title="Taille, nettoyage et évacuation">Clé en main</th>
+                                            <th class="py-2 pl-2 font-bold text-center text-teal-dark" title="Coût réel clé en main après crédit d’impôt">Après -50 %</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-slate-600">
@@ -348,13 +387,13 @@
                                 <strong>Bénéficiez de 50 % de crédit d'impôt immédiat</strong> : avec le service Avance Immédiate de l'Urssaf, vous ne réglez que 50 % de la facture lors de la prestation.
                             </div>
 
-                            <div class="flex-grow border-t border-gray-100 pt-4 overflow-x-auto">
-                                <table class="w-full text-sm text-left border-collapse">
+                            <div class="catalog-table-wrap flex-grow border-t border-gray-100 pt-4 overflow-x-auto">
+                                <table class="catalog-price-table w-full text-sm text-left border-collapse">
                                     <thead>
                                         <tr class="text-xs uppercase text-slate-400 tracking-wider">
                                             <th class="py-2 pr-2 font-bold">Prestation</th>
                                             <th class="py-2 px-2 font-bold text-center">Tarif brut</th>
-                                            <th class="py-2 pl-2 font-bold text-center text-teal-dark">Coût réel <span class="block normal-case font-normal text-teal-dark/70">après -50 %</span></th>
+                                            <th class="py-2 pl-2 font-bold text-center text-teal-dark" title="Coût réel après crédit d’impôt">Après -50 %</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-slate-600">
