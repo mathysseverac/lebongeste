@@ -93,6 +93,39 @@
             background-color: #007271;
             border-radius: 2px;
         }
+
+        /* Page Avantage SAP : composition dédiée, sans effet de carte surdimensionné */
+        .sap-page { background: #f5f8f7; }
+        .sap-kicker { color: #007271; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+        .sap-hero h2 { letter-spacing: -.045em; }
+        .sap-highlight { background: #007271; color: #fff; padding: 2rem 2.25rem; border-radius: 16px; }
+        .sap-highlight-label { display: block; color: #c5e8e3; font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .75rem; }
+        .sap-highlight strong { display: block; font-family: Arboria, sans-serif; font-size: clamp(4.5rem, 9vw, 7rem); line-height: .9; letter-spacing: -.07em; }
+        .sap-highlight strong span { font-size: .48em; margin-left: .08em; vertical-align: top; letter-spacing: -.02em; }
+        .sap-highlight p { color: #d8efec; font-size: .9rem; line-height: 1.6; max-width: 19rem; margin-top: 1.25rem; }
+        .sap-benefit { display: grid; grid-template-columns: auto 1fr; gap: 1rem; padding-top: 1.25rem; border-top: 2px solid #cfe2df; }
+        .sap-benefit-number { color: #007271; font-size: .72rem; font-weight: 800; letter-spacing: .12em; padding-top: .3rem; }
+        .sap-benefit h3 { letter-spacing: -.025em; }
+        .sap-invoice { background: #e8f3f1; border-radius: 18px; padding: clamp(1.5rem, 4vw, 3rem); }
+        .sap-invoice h3 { letter-spacing: -.04em; }
+        .sap-cta { transition: background-color .18s ease, color .18s ease; }
+        .sap-receipt { background: #fff; border-radius: 14px; padding: 1.5rem; box-shadow: 0 14px 30px rgba(0, 78, 74, .09); }
+        .sap-receipt-top { display: flex; align-items: center; justify-content: space-between; color: #6c807d; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding-bottom: 1rem; border-bottom: 1px solid #dbe9e6; }
+        .sap-receipt-tag { color: #007271; background: #e8f3f1; padding: .3rem .55rem; border-radius: 5px; font-size: .65rem; }
+        .sap-receipt-row { display: flex; justify-content: space-between; gap: 1rem; color: #536562; font-size: .88rem; padding: 1rem 0; border-bottom: 1px solid #edf3f1; }
+        .sap-receipt-row strong { color: #183a36; white-space: nowrap; }
+        .sap-receipt-discount { color: #007271; }
+        .sap-receipt-discount strong { color: #007271; }
+        .sap-receipt-total { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding-top: 1.25rem; color: #536562; font-size: .78rem; }
+        .sap-receipt-total strong { color: #123330; line-height: .8; white-space: nowrap; }
+        .sap-receipt-total b { font-family: Arboria, sans-serif; font-size: 4.4rem; letter-spacing: -.08em; }
+        .sap-receipt-total em { font-style: normal; font-size: 2rem; margin-left: .2rem; }
+        @media (max-width: 767px) {
+            .sap-highlight { padding: 1.5rem; }
+            .sap-benefits { gap: 1.5rem; }
+            .sap-invoice { padding: 1.25rem; }
+            .sap-receipt-total b { font-size: 3.8rem; }
+        }
     </style>
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
@@ -450,100 +483,80 @@
         </section>
 
         <!-- ==================== PAGE : AVANTAGE SAP ==================== -->
-        <section id="page-sap" class="page-view relative py-16 lg:py-24">
+        <section id="page-sap" class="page-view sap-page relative py-12 lg:py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <!-- En-tête de page -->
-                <div class="text-center max-w-4xl mx-auto mb-16">
-                    <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-light text-teal-dark font-bold text-sm mb-6 border border-teal/20">
-                        <i class="ph-fill ph-check-circle text-lg"></i>
-                        Service Avance Immédiate de l'Urssaf
+                <div class="sap-hero grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-16">
+                    <div class="lg:col-span-7">
+                        <p class="sap-kicker">Services à la Personne · Avance Immédiate Urssaf</p>
+                        <h2 class="font-arboria text-4xl sm:text-5xl lg:text-6xl text-slate-900 mt-5 mb-6 leading-[1.06]">
+                            Le crédit d'impôt se déduit <span class="text-teal">dès maintenant.</span>
+                        </h2>
+                        <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
+                            Pour vos prestations éligibles aux Services à la Personne, l'Avance Immédiate Urssaf réduit directement le montant réglé après l'intervention.
+                        </p>
                     </div>
-                    <h2 class="font-arboria text-4xl sm:text-5xl lg:text-6xl text-slate-900 mb-6 leading-tight">
-                        Vos travaux à domicile à <span class="text-teal">-50%</span>, tout de suite.
-                    </h2>
-                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                        En tant que prestataire agréé Services à la Personne (SAP), je vous fais bénéficier de l'Avance Immédiate. Vous ne déboursez plus la totalité : <strong>la moitié de la facture est prise en charge en temps réel</strong>.
-                    </p>
+                    <div class="lg:col-span-5">
+                        <div class="sap-highlight">
+                            <span class="sap-highlight-label">Votre avantage</span>
+                            <strong>50<span>%</span></strong>
+                            <p>de crédit d'impôt appliqué immédiatement sur les prestations éligibles.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="grid lg:grid-cols-12 gap-12 items-center">
-                    
-                    <!-- Les 3 avantages (Gauche) -->
-                    <div class="lg:col-span-7 space-y-6">
-                        <!-- Avantage 1 -->
-                        <div class="flex items-start sm:items-center gap-5 p-6 rounded-2xl bg-white shadow-sm border border-gray-200 hover:border-teal/40 transition-colors">
-                            <div class="w-14 h-14 rounded-full bg-teal text-white flex items-center justify-center text-3xl shrink-0 shadow-md shadow-teal/20">
-                                <i class="ph-fill ph-lightning"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-arboria text-xl text-slate-900 mb-1">Immédiat, sans avance de frais</h3>
-                                <p class="text-slate-600 text-sm leading-relaxed">Fini l'attente de l'année suivante pour votre crédit d'impôt. La déduction se fait directement à chaque facture.</p>
-                            </div>
+                <div class="sap-benefits grid lg:grid-cols-3 gap-8 mb-16">
+                    <article class="sap-benefit">
+                        <span class="sap-benefit-number">01</span>
+                        <div>
+                            <h3 class="font-arboria text-xl text-slate-900 mb-2">Un montant réduit dès la facture</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Vous réglez uniquement votre reste à charge, sans attendre la déclaration annuelle.</p>
                         </div>
-                        
-                        <!-- Avantage 2 -->
-                        <div class="flex items-start sm:items-center gap-5 p-6 rounded-2xl bg-white shadow-sm border border-gray-200 hover:border-teal/40 transition-colors">
-                            <div class="w-14 h-14 rounded-full bg-teal text-white flex items-center justify-center text-3xl shrink-0 shadow-md shadow-teal/20">
-                                <i class="ph-fill ph-file-dashed"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-arboria text-xl text-slate-900 mb-1">Zéro paperasse</h3>
-                                <p class="text-slate-600 text-sm leading-relaxed">Une fois votre compte créé, je m'occupe de déclarer la facture à l'Urssaf. Vous recevez une notification, vous n'avez qu'à valider.</p>
-                            </div>
+                    </article>
+                    <article class="sap-benefit">
+                        <span class="sap-benefit-number">02</span>
+                        <div>
+                            <h3 class="font-arboria text-xl text-slate-900 mb-2">Une démarche simple</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Après activation du service, la facture est transmise à l'Urssaf et vous validez la demande.</p>
                         </div>
+                    </article>
+                    <article class="sap-benefit">
+                        <span class="sap-benefit-number">03</span>
+                        <div>
+                            <h3 class="font-arboria text-xl text-slate-900 mb-2">Un dispositif officiel</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Le prélèvement de votre reste à charge est géré directement par l'Urssaf.</p>
+                        </div>
+                    </article>
+                </div>
 
-                        <!-- Avantage 3 -->
-                        <div class="flex items-start sm:items-center gap-5 p-6 rounded-2xl bg-white shadow-sm border border-gray-200 hover:border-teal/40 transition-colors">
-                            <div class="w-14 h-14 rounded-full bg-teal text-white flex items-center justify-center text-3xl shrink-0 shadow-md shadow-teal/20">
-                                <i class="ph-fill ph-shield-check"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-arboria text-xl text-slate-900 mb-1">100% transparent et sécurisé</h3>
-                                <p class="text-slate-600 text-sm leading-relaxed">L'Urssaf prélève uniquement votre reste à charge (50%) directement sur votre compte bancaire. Tout est officiel et traçable.</p>
-                            </div>
-                        </div>
+                <div class="sap-invoice grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    <div class="lg:col-span-7">
+                        <p class="sap-kicker mb-4">Exemple concret</p>
+                        <h3 class="font-arboria text-3xl sm:text-4xl text-slate-900 mb-4">Une prestation de 80 € revient à 40 €.</h3>
+                        <p class="text-slate-600 leading-relaxed max-w-xl mb-6">L'exemple ci-contre montre simplement la déduction de 50 % sur une prestation de jardinage de deux heures.</p>
+                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="sap-cta inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3.5 rounded-md font-semibold text-sm">
+                            Consulter les tarifs SAP <i class="ph ph-arrow-up-right"></i>
+                        </a>
                     </div>
-
-                    <!-- L'Exemple Concret (Droite) -->
                     <div class="lg:col-span-5">
-                        <div class="bg-teal rounded-3xl p-1.5 shadow-2xl shadow-teal/20 transform hover:-translate-y-1 transition-transform duration-300">
-                            <div class="bg-white rounded-[20px] p-8 sm:p-10 text-center relative overflow-hidden">
-                                <!-- Fond décoratif -->
-                                <div class="absolute top-0 right-0 w-32 h-32 bg-teal-light rounded-bl-full opacity-50 -mr-4 -mt-4"></div>
-                                
-                                <h4 class="font-arboria text-slate-400 uppercase tracking-[0.2em] text-xs font-bold mb-8 relative z-10">Exemple de facture</h4>
-                                
-                                <div class="space-y-5 relative z-10">
-                                    <div class="flex justify-between items-center text-slate-600 border-b border-dashed border-gray-200 pb-4">
-                                        <span class="text-sm font-medium">Prestation (ex: Jardinage 2h)</span>
-                                        <span class="font-bold text-lg">80,00 €</span>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center text-teal border-b border-dashed border-gray-200 pb-4">
-                                        <span class="text-sm font-bold flex items-center gap-2">
-                                            <i class="ph-fill ph-minus-circle text-lg"></i> Avantage SAP (-50%)
-                                        </span>
-                                        <span class="font-bold text-xl">- 40,00 €</span>
-                                    </div>
-                                    
-                                    <div class="pt-2">
-                                        <span class="block text-slate-500 text-sm font-medium mb-1">Prélevé par l'Urssaf</span>
-                                        <div class="text-6xl font-arboria font-bold text-slate-900 tracking-tight">
-                                            40<span class="text-4xl text-slate-400">€</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="mt-10 relative z-10">
-                                    <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="block w-full bg-slate-900 hover:bg-slate-800 text-white px-6 py-4 rounded-xl font-semibold text-sm transition-colors shadow-lg">
-                                        Consulter les tarifs éligibles
-                                    </a>
-                                </div>
+                        <div class="sap-receipt" aria-label="Exemple de facture avec crédit d'impôt immédiat">
+                            <div class="sap-receipt-top">
+                                <span>Exemple de facture</span>
+                                <span class="sap-receipt-tag">SAP</span>
+                            </div>
+                            <div class="sap-receipt-row">
+                                <span>Prestation de jardinage</span>
+                                <strong>80,00 €</strong>
+                            </div>
+                            <div class="sap-receipt-row sap-receipt-discount">
+                                <span>Avantage immédiat · 50 %</span>
+                                <strong>- 40,00 €</strong>
+                            </div>
+                            <div class="sap-receipt-total">
+                                <span>Prélevé par l'Urssaf</span>
+                                <strong><b>40</b><em>€</em></strong>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
