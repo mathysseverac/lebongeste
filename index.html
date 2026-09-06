@@ -170,6 +170,50 @@
                 font-variant-numeric: tabular-nums;
             }
         }
+
+        .home-service-map { border-top: 1px solid #dce8e6; padding-top: 1.25rem; }
+        .home-service-map-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: .75rem; }
+        .home-kicker { color: #007271; font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+        .home-service-map-note { color: #64748b; font-size: .82rem; }
+        .home-service-map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+        .home-service-link { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .85rem 1rem; border: 1px solid #dce8e6; border-radius: .55rem; color: #0f172a; font-weight: 700; font-size: .9rem; transition: border-color .2s, color .2s, background-color .2s; }
+        .home-service-link:hover { border-color: #007271; color: #007271; background: #edf7f6; }
+        .home-service-link i { color: #007271; }
+        .home-trust-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
+        .home-trust-grid div { border-left: 2px solid #84c8c1; padding-left: .8rem; }
+        .home-trust-grid strong, .home-trust-grid span { display: block; }
+        .home-trust-grid strong { color: #0f766e; font-size: .84rem; margin-bottom: .15rem; }
+        .home-trust-grid span { color: #64748b; font-size: .78rem; line-height: 1.45; }
+        .devis-service-option { display: flex; align-items: flex-start; gap: .75rem; padding: 1rem; border: 1px solid #e2e8f0; border-radius: .55rem; background: #fff; cursor: pointer; transition: border-color .2s, background-color .2s; }
+        .devis-service-option:hover, .devis-service-option:has(input:checked) { border-color: #007271; background: #edf7f6; }
+        .devis-service-option strong, .devis-service-option small { display: block; }
+        .devis-service-option strong { color: #1e293b; font-size: .95rem; }
+        .devis-service-option small { color: #0f766e; margin-top: .2rem; line-height: 1.35; }
+        .contact-practical-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; text-align: left; }
+        .contact-practical-grid div { border: 1px solid #dce8e6; border-radius: .65rem; padding: 1.1rem; background: #fff; }
+        .contact-practical-grid i { color: #007271; font-size: 1.35rem; display: block; margin-bottom: .75rem; }
+        .contact-practical-grid strong, .contact-practical-grid span { display: block; }
+        .contact-practical-grid strong { color: #0f172a; margin-bottom: .35rem; }
+        .contact-practical-grid span { color: #64748b; font-size: .86rem; line-height: 1.5; }
+        .faq-list { display: grid; gap: .75rem; }
+        .faq-list details { border: 1px solid #dce8e6; border-radius: .65rem; background: #fff; }
+        .faq-list summary { cursor: pointer; list-style: none; padding: 1.15rem 1.25rem; color: #0f172a; font-weight: 700; display: flex; justify-content: space-between; gap: 1rem; }
+        .faq-list summary::-webkit-details-marker { display: none; }
+        .faq-list summary::after { content: '+'; color: #007271; font-size: 1.3rem; line-height: 1; }
+        .faq-list details[open] summary::after { content: '–'; }
+        .faq-list details p { padding: 0 1.25rem 1.2rem; margin: 0; color: #64748b; line-height: 1.65; }
+        @media (max-width: 767px) {
+            #cookie-banner { padding-left: .75rem; padding-right: .75rem; padding-bottom: .75rem; }
+            #cookie-banner > div { padding: .9rem; gap: .7rem; }
+            #cookie-banner p { font-size: .75rem; line-height: 1.35; }
+            #cookie-banner button { padding: .55rem .65rem; font-size: .75rem; }
+            .home-service-map-heading { display: block; }
+            .home-service-map-note { display: block; margin-top: .35rem; }
+            .home-service-map-grid, .home-trust-grid, .contact-practical-grid { grid-template-columns: 1fr; }
+            .home-service-link { padding: .8rem .9rem; }
+            .devis-service-option { padding: .85rem; }
+        }
+
     </style>
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
@@ -217,6 +261,7 @@
                     <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Catalogue</a>
                     <a href="https://le-bon-geste.fr/avantage-sap" onclick="navigateTo(event, 'sap')" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Avantage -50%</a>
                     <a href="https://le-bon-geste.fr/contact" onclick="navigateTo(event, 'contact')" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Contact</a>
+                    <a href="https://le-bon-geste.fr/faq" onclick="navigateTo(event, 'faq')" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">FAQ</a>
                 </nav>
 
                 <!-- CTA Button -->
@@ -228,8 +273,8 @@
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-teal focus:outline-none p-2">
-                        <i class="ph ph-list text-3xl"></i>
+                    <button id="mobile-menu-btn" class="text-teal focus:outline-none p-2" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="ph ph-list text-3xl" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -242,6 +287,7 @@
                 <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Catalogue</a>
                 <a href="https://le-bon-geste.fr/avantage-sap" onclick="navigateTo(event, 'sap')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Avantage -50%</a>
                 <a href="https://le-bon-geste.fr/contact" onclick="navigateTo(event, 'contact')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Contact</a>
+                <a href="https://le-bon-geste.fr/faq" onclick="navigateTo(event, 'faq')" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">FAQ</a>
                 <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="mobile-link block px-3 py-3 text-base font-medium text-white bg-teal rounded-md mt-4 text-center">Demander un devis</a>
             </div>
         </div>
@@ -269,12 +315,12 @@
                 </div>
 
                 <h1 class="font-arboria text-4xl sm:text-5xl lg:text-6xl text-slate-900 mb-6 leading-[1.1]">
-                    L'expertise d'un pro,<br>
-                    <span class="text-teal border-b-2 border-teal/30">le service en plus.</span>
+                    Jardinage, petits travaux<br>
+                    <span class="text-teal border-b-2 border-teal/30">et services à domicile.</span>
                 </h1>
 
                 <p class="text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed">
-                    À Mazamet et ses environs, je vous accompagne au quotidien avec des services à la personne fiables, soignés et réalisés à domicile.
+                    À Mazamet et ses environs, Le Bon Geste vous accompagne avec des prestations fiables, soignées et réalisées directement à domicile.
                 </p>
 
                 <p class="text-sm text-slate-600 border-l-2 border-teal pl-4 mb-10 max-w-xl">
@@ -288,6 +334,25 @@
                     <a href="https://le-bon-geste.fr/contact" onclick="navigateTo(event, 'contact')" class="bg-white hover:border-teal text-slate-800 hover:text-teal border border-gray-300 px-7 py-3.5 rounded-md font-semibold text-base transition-colors flex items-center justify-center gap-2">
                         Me contacter
                     </a>
+                </div>
+
+                <div class="home-service-map mt-12" aria-label="Principales prestations">
+                    <div class="home-service-map-heading">
+                        <span class="home-kicker">Des services utiles, chez vous</span>
+                        <span class="home-service-map-note">Mazamet et alentours · Devis gratuit</span>
+                    </div>
+                    <div class="home-service-map-grid">
+                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="home-service-link"><span>Taille de haies</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="home-service-link"><span>Pelouses & tonte</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="home-service-link"><span>Petit bricolage</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                        <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="home-service-link"><span>Nettoyage & assistance</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="home-trust-grid mt-8" aria-label="Informations pratiques">
+                    <div><strong>Zone locale</strong><span>Mazamet, Aiguefonde et communes voisines</span></div>
+                    <div><strong>Réponse rapide</strong><span>Retour sous 24 à 48 h après votre demande</span></div>
+                    <div><strong>Avant chaque intervention</strong><span>Devis clair et gratuit</span></div>
                 </div>
             </div>
         </section>
@@ -654,23 +719,25 @@
             <div>
                 <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">2. Type de prestation souhaitée</h3>
                 <div class="space-y-3">
-                    <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors">
+                    <label class="devis-service-option">
                         <input type="radio" name="prestation" value="jardin" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                        <div>
-                            <span class="block font-semibold text-slate-800">Espaces verts & Jardinage</span>
-                            <span class="text-sm text-teal font-medium">Éligible crédit d'impôt 50%</span>
-                        </div>
+                        <span><strong>Jardinage & espaces verts</strong><small>Taille de haies, tonte et débroussaillage</small></span>
                     </label>
-                    <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors">
+                    <label class="devis-service-option">
                         <input type="radio" name="prestation" value="bricolage" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                        <div>
-                            <span class="block font-semibold text-slate-800">Bricolage / Petits travaux à domicile</span>
-                            <span class="text-sm text-teal font-medium">Éligible crédit d'impôt 50%</span>
-                        </div>
+                        <span><strong>Petit bricolage</strong><small>Montage, fixations et petits dépannages</small></span>
                     </label>
-                    <label class="flex items-start gap-3 cursor-pointer p-4 border border-gray-200 rounded-md bg-white hover:border-teal/50 transition-colors items-center">
-                        <input type="radio" name="prestation" value="autre" class="mt-0.5 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                        <span class="block font-semibold text-slate-800">Autre demande multiservices</span>
+                    <label class="devis-service-option">
+                        <input type="radio" name="prestation" value="nettoyage" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                        <span><strong>Nettoyage haute pression</strong><small>Terrasses, allées et margelles</small></span>
+                    </label>
+                    <label class="devis-service-option">
+                        <input type="radio" name="prestation" value="assistance" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                        <span><strong>Assistance à domicile</strong><small>Multimédia, petites tâches et confort</small></span>
+                    </label>
+                    <label class="devis-service-option">
+                        <input type="radio" name="prestation" value="autre" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                        <span><strong>Autre besoin</strong><small>Décrivez votre demande dans le message</small></span>
                     </label>
                 </div>
             </div>
@@ -680,7 +747,7 @@
                 <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">3. Détails de votre projet</h3>
                 
                 <div class="bg-white p-5 border border-gray-200 rounded-md mb-5 space-y-5">
-                    <p class="text-sm font-semibold text-slate-700">Uniquement si votre demande concerne la taille de haie :</p>
+                    <p class="text-sm font-semibold text-slate-700">Si votre demande concerne une taille de haie, précisez les éléments ci-dessous :</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="longueur-haie" class="block text-sm text-slate-600 mb-1">Longueur estimée (en ml)</label>
@@ -911,9 +978,39 @@
                     </a>
                 </div>
                 
-                <p class="mt-14 text-sm text-slate-500 max-w-lg mx-auto border-t border-gray-200 pt-6">
-                    En cas d'absence lors de votre appel, n'hésitez pas à laisser un message vocal avec vos coordonnées et l'objet de votre demande, je vous rappellerai dans les plus brefs délais.
+                <div class="contact-practical-grid mt-12">
+                    <div><i class="ph ph-map-pin" aria-hidden="true"></i><strong>Zone d’intervention</strong><span>Mazamet, Aiguefonde et communes voisines dans un rayon de 20 km.</span></div>
+                    <div><i class="ph ph-clock" aria-hidden="true"></i><strong>Réponse sous 24 à 48 h</strong><span>Un retour rapide après votre appel, email ou demande de devis.</span></div>
+                    <div><i class="ph ph-file-text" aria-hidden="true"></i><strong>Devis gratuit</strong><span>Chaque intervention est confirmée par un devis clair avant réalisation.</span></div>
+                </div>
+
+                <p class="mt-10 text-sm text-slate-500 max-w-lg mx-auto">
+                    En cas d'absence, laissez un message vocal avec vos coordonnées et l'objet de votre demande. Je vous rappellerai dans les plus brefs délais.
                 </p>
+                <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="inline-flex items-center gap-2 mt-8 bg-teal text-white hover:bg-teal-dark px-6 py-3.5 rounded-md font-semibold transition-colors">
+                    Demander un devis en ligne <i class="ph ph-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- ==================== PAGE : FAQ ==================== -->
+        <section id="page-faq" class="page-view relative py-12 lg:py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-4">Questions fréquentes</p>
+                    <h2 class="font-arboria text-4xl sm:text-5xl text-slate-900 mb-5">Tout savoir avant de demander un devis</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">Les réponses essentielles sur les prestations à domicile, les tarifs et l’Avance Immédiate Urssaf à Mazamet.</p>
+                </div>
+                <div class="faq-list">
+                    <details open><summary>Quelles prestations propose Le Bon Geste ?</summary><p>Jardinage, taille de haies, tonte, petit bricolage, nettoyage haute pression et assistance multimédia ou de confort à domicile.</p></details>
+                    <details><summary>Comment fonctionne l’Avance Immédiate Urssaf ?</summary><p>Pour les prestations éligibles, le crédit d’impôt de 50 % est déduit directement. Vous réglez donc uniquement le reste à charge, après activation et validation du dispositif.</p></details>
+                    <details><summary>Dans quelles communes intervenez-vous ?</summary><p>Les interventions sont proposées à Mazamet, Aiguefonde et dans les communes voisines, dans un rayon indicatif de 20 km. La zone est confirmée avec le devis.</p></details>
+                    <details><summary>Le devis est-il gratuit ?</summary><p>Oui. Un devis clair et gratuit est établi avant toute intervention, avec les éventuelles contraintes de terrain, d’accès ou de fourniture.</p></details>
+                    <details><summary>Y a-t-il un minimum d’intervention ?</summary><p>Un forfait minimum de 50 € brut par intervention et déplacement s’applique, soit 25 € restant à charge lorsque l’Avance Immédiate est applicable.</p></details>
+                    <details><summary>Comment préparer ma demande ?</summary><p>Indiquez la commune, la prestation souhaitée, les dimensions ou la surface si vous les connaissez, puis ajoutez quelques photos lorsque cela peut aider à évaluer le besoin.</p></details>
+                </div>
+                <div class="text-center mt-12"><a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white px-7 py-3.5 rounded-md font-semibold">Décrire mon projet <i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>
             </div>
         </section>
 
@@ -978,7 +1075,7 @@
 
                     <div>
                         <h3 class="font-bold text-slate-900 text-lg mb-2">3. Assurance professionnelle & médiation</h3>
-                        <p><strong>Assurance Responsabilité Civile Professionnelle :</strong> [à compléter : nom de l'assureur]. Couverture géographique : France métropolitaine.</p>
+                        <p><strong>Assurance Responsabilité Civile Professionnelle :</strong> les informations relatives à la couverture professionnelle sont communiquées sur demande. Couverture géographique : France métropolitaine.</p>
                         <p><strong>Médiateur de la consommation :</strong> CM2C, 14 rue Saint-Jean, 75017 Paris (<a href="https://www.cm2c.net" target="_blank" class="text-teal hover:underline">www.cm2c.net</a>).</p>
                     </div>
 
@@ -1191,6 +1288,7 @@
                 <a href="https://le-bon-geste.fr/mentions-legales" onclick="navigateTo(event, 'mentions')" class="text-sm hover:text-teal-light transition-colors">Mentions légales</a>
                 <a href="https://le-bon-geste.fr/cgv" onclick="navigateTo(event, 'cgv')" class="text-sm hover:text-teal-light transition-colors">CGV</a>
                 <a href="https://le-bon-geste.fr/politique-de-confidentialite" onclick="navigateTo(event, 'confidentialite')" class="text-sm hover:text-teal-light transition-colors">Confidentialité</a>
+                <a href="https://le-bon-geste.fr/faq" onclick="navigateTo(event, 'faq')" class="text-sm hover:text-teal-light transition-colors">FAQ</a>
                 <a href="https://le-bon-geste.fr/politique-de-cookies" onclick="navigateTo(event, 'cookies')" class="text-sm hover:text-teal-light transition-colors">Cookies</a>
                 <button onclick="openCookieModal()" class="text-sm hover:text-teal-light transition-colors underline decoration-dotted">Gérer mes cookies</button>
             </div>
@@ -1267,7 +1365,7 @@
             'accueil': {
                 url: 'https://le-bon-geste.fr/',
                 title: "Le Bon Geste à Mazamet : services à la personne à domicile",
-                description: "Jardinage et services à la personne à Mazamet et alentours. Devis gratuit, 50 % de crédit d'impôt immédiat."
+                description: "Jardinage, petit bricolage et services à la personne à Mazamet et alentours. Devis gratuit, 50 % de crédit d'impôt immédiat."
             },
             'services': {
                 url: 'https://le-bon-geste.fr/catalogue',
@@ -1287,7 +1385,12 @@
             'contact': {
                 url: 'https://le-bon-geste.fr/contact',
                 title: "Contact | Le Bon Geste, Mazamet",
-                description: "Téléphone et email : contactez Le Bon Geste pour vos services à la personne à Mazamet et ses environs."
+                description: "Téléphone, email et devis gratuit : contactez Le Bon Geste pour vos services à la personne à Mazamet et ses environs."
+            },
+            'faq': {
+                url: 'https://le-bon-geste.fr/faq',
+                title: "FAQ services à la personne à Mazamet | Le Bon Geste",
+                description: "Réponses aux questions fréquentes sur les services à la personne, les tarifs, le devis et l'Avance Immédiate Urssaf à Mazamet."
             },
             'mentions': {
                 url: 'https://le-bon-geste.fr/mentions-legales',
@@ -1487,6 +1590,9 @@
         if (mobileBtn && mobileMenuEl) {
             mobileBtn.addEventListener('click', function() {
                 mobileMenuEl.classList.toggle('hidden');
+                const isOpen = !mobileMenuEl.classList.contains('hidden');
+                mobileBtn.setAttribute('aria-expanded', String(isOpen));
+                mobileBtn.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
             });
         }
 
@@ -1515,6 +1621,7 @@
             if (path.indexOf('devis') !== -1) return 'devis';
             if (path.indexOf('merci') !== -1) return 'merci';
             if (path.indexOf('contact') !== -1) return 'contact';
+            if (path.indexOf('faq') !== -1) return 'faq';
             if (path.indexOf('mentions-legales') !== -1) return 'mentions';
             if (path.indexOf('cgv') !== -1) return 'cgv';
             if (path.indexOf('politique-de-confidentialite') !== -1) return 'confidentialite';
