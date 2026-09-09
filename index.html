@@ -79,6 +79,15 @@
 
         .font-arboria { font-weight: 600; }
 
+        /* Tout le texte du site en Manrope SemiBold (plus lisible que le Regular) */
+        body,
+        .font-normal,
+        .font-medium,
+        .font-semibold,
+        .font-bold {
+            font-weight: 600 !important;
+        }
+
         .page-view {
             display: none;
             opacity: 0;
@@ -94,7 +103,7 @@
 
         .nav-link.active-link {
             color: #007271;
-            font-weight: 700;
+            font-weight: 600;
         }
         .nav-link.active-link::after {
             content: '';
@@ -109,21 +118,21 @@
 
         /* Page Avantage SAP : composition dédiée, sans effet de carte surdimensionné */
         .sap-page { background: #f5f8f7; }
-        .sap-kicker { color: #007271; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+        .sap-kicker { color: #007271; font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
         .sap-hero h2 { letter-spacing: -.045em; }
         .sap-highlight { background: #007271; color: #fff; padding: 2rem 2.25rem; border-radius: 16px; }
-        .sap-highlight-label { display: block; color: #c5e8e3; font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .75rem; }
+        .sap-highlight-label { display: block; color: #c5e8e3; font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .75rem; }
         .sap-highlight strong { display: block; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: clamp(4.5rem, 9vw, 7rem); line-height: .9; letter-spacing: -.07em; }
         .sap-highlight strong span { font-size: .48em; margin-left: .08em; vertical-align: top; letter-spacing: -.02em; }
         .sap-highlight p { color: #d8efec; font-size: .9rem; line-height: 1.6; max-width: 19rem; margin-top: 1.25rem; }
         .sap-benefit { display: grid; grid-template-columns: auto 1fr; gap: 1rem; padding-top: 1.25rem; border-top: 2px solid #cfe2df; }
-        .sap-benefit-number { color: #007271; font-size: .72rem; font-weight: 800; letter-spacing: .12em; padding-top: .3rem; }
+        .sap-benefit-number { color: #007271; font-size: .72rem; font-weight: 600; letter-spacing: .12em; padding-top: .3rem; }
         .sap-benefit h3 { letter-spacing: -.025em; }
         .sap-invoice { background: #e8f3f1; border-radius: 18px; padding: clamp(1.5rem, 4vw, 3rem); }
         .sap-invoice h3 { letter-spacing: -.04em; }
         .sap-cta { transition: background-color .18s ease, color .18s ease; }
         .sap-receipt { background: #fff; border-radius: 14px; padding: 1.5rem; box-shadow: 0 14px 30px rgba(0, 78, 74, .09); }
-        .sap-receipt-top { display: flex; align-items: center; justify-content: space-between; color: #6c807d; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding-bottom: 1rem; border-bottom: 1px solid #dbe9e6; }
+        .sap-receipt-top { display: flex; align-items: center; justify-content: space-between; color: #6c807d; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding-bottom: 1rem; border-bottom: 1px solid #dbe9e6; }
         .sap-receipt-tag { color: #007271; background: #e8f3f1; padding: .3rem .55rem; border-radius: 5px; font-size: .65rem; }
         .sap-receipt-row { display: flex; justify-content: space-between; gap: 1rem; color: #536562; font-size: .88rem; padding: 1rem 0; border-bottom: 1px solid #edf3f1; }
         .sap-receipt-row strong { color: #183a36; white-space: nowrap; }
@@ -204,7 +213,7 @@
                 content: attr(data-label);
                 color: #94a3b8;
                 font-size: .65rem;
-                font-weight: 700;
+                font-weight: 600;
                 letter-spacing: .06em;
                 text-transform: uppercase;
                 text-align: left;
@@ -219,10 +228,10 @@
 
         .home-service-map { border-top: 1px solid #dce8e6; padding-top: 1.25rem; }
         .home-service-map-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: .75rem; }
-        .home-kicker { color: #007271; font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+        .home-kicker { color: #007271; font-size: .72rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
         .home-service-map-note { color: #64748b; font-size: .82rem; }
         .home-service-map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
-        .home-service-link { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .85rem 1rem; border: 1px solid #dce8e6; border-radius: .55rem; color: #0f172a; font-weight: 700; font-size: .9rem; transition: border-color .2s, color .2s, background-color .2s; }
+        .home-service-link { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .85rem 1rem; border: 1px solid #dce8e6; border-radius: .55rem; color: #0f172a; font-weight: 600; font-size: .9rem; transition: border-color .2s, color .2s, background-color .2s; }
         .home-service-link:hover { border-color: #007271; color: #007271; background: #edf7f6; }
         .home-service-link i { color: #007271; }
         .home-service-area { color: #64748b; font-size: .82rem; line-height: 1.45; }
@@ -255,10 +264,10 @@
         .guide-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
         .guide-step { display: flex; gap: 1rem; padding: 1.25rem; border: 1px solid #dce8e6; border-radius: .75rem; background: #fff; }
         .guide-step:last-child { grid-column: 1 / -1; }
-        .guide-step-number { flex: 0 0 auto; color: #007271; font-size: .75rem; font-weight: 800; letter-spacing: .08em; padding-top: .2rem; }
-        .guide-step h3 { color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0 0 .45rem; }
+        .guide-step-number { flex: 0 0 auto; color: #007271; font-size: .75rem; font-weight: 600; letter-spacing: .08em; padding-top: .2rem; }
+        .guide-step h3 { color: #0f172a; font-size: 1.05rem; font-weight: 600; margin: 0 0 .45rem; }
         .guide-step p { color: #64748b; line-height: 1.6; margin: 0; }
-        .guide-link { display: inline-flex; gap: .35rem; align-items: center; margin-top: .8rem; color: #007271; font-weight: 700; font-size: .9rem; text-decoration: underline; text-underline-offset: .2rem; }
+        .guide-link { display: inline-flex; gap: .35rem; align-items: center; margin-top: .8rem; color: #007271; font-weight: 600; font-size: .9rem; text-decoration: underline; text-underline-offset: .2rem; }
         .guide-warning { display: flex; gap: .8rem; align-items: flex-start; padding: 1.1rem 1.25rem; border-left: 3px solid #d5a928; background: #fff9e7; }
         .guide-warning > i { color: #a47700; font-size: 1.3rem; margin-top: .1rem; }
         .guide-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
@@ -271,7 +280,7 @@
         }
         .faq-list { display: grid; gap: .75rem; }
         .faq-list details { border: 1px solid #dce8e6; border-radius: .65rem; background: #fff; }
-        .faq-list summary { cursor: pointer; list-style: none; padding: 1.15rem 1.25rem; color: #0f172a; font-weight: 700; display: flex; justify-content: space-between; gap: 1rem; }
+        .faq-list summary { cursor: pointer; list-style: none; padding: 1.15rem 1.25rem; color: #0f172a; font-weight: 600; display: flex; justify-content: space-between; gap: 1rem; }
         .faq-list summary::-webkit-details-marker { display: none; }
         .faq-list summary::after { content: '+'; color: #007271; font-size: 1.3rem; line-height: 1; }
         .faq-list details[open] summary::after { content: '–'; }
