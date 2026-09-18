@@ -3,7 +3,7 @@
         // ==================== PHOTOS DU DEVIS ====================
         // Limites côté navigateur (confort d'usage). La vraie barrière reste le service qui reçoit le formulaire.
         const MAX_PHOTOS = 3;
-        const MAX_PHOTO_BYTES = 5 * 1024 * 1024; // 5 Mo par photo (3 x 5 Mo restent sous la limite de 25 Mo d'un e-mail)
+        const MAX_TOTAL_BYTES = 9.5 * 1024 * 1024; // FormSubmit refuse plus de 10 Mo au total (marge pour l'enveloppe du formulaire)
 
         function buildNode(tag, className, text) {
             const node = document.createElement(tag);
@@ -14,12 +14,14 @@
 
         function photoError(files) {
             if (files.length > MAX_PHOTOS) return 'Maximum ' + MAX_PHOTOS + ' photos.';
+            let total = 0;
             for (const file of files) {
                 const okType = file.type === 'image/jpeg' || file.type === 'image/png' ||
                                (file.type === '' && /\.(jpe?g|png)$/i.test(file.name));
                 if (!okType) return 'Formats acceptés : JPG ou PNG.';
-                if (file.size > MAX_PHOTO_BYTES) return 'Chaque photo doit peser moins de 5 Mo.';
+                total += file.size;
             }
+            if (total > MAX_TOTAL_BYTES) return 'Photos trop lourdes : 10 Mo maximum au total.';
             return null;
         }
 
@@ -34,7 +36,7 @@
             if (error) {
                 nodes.push(buildNode('i', 'ph-fill ph-warning-circle text-3xl text-red-500 mb-2'));
                 nodes.push(buildNode('p', 'mb-1 text-sm text-red-600 font-semibold text-center px-4', error));
-                nodes.push(buildNode('p', 'text-xs text-slate-500 text-center px-4', 'Ajoutez 1 à 3 photos (JPG ou PNG, 5 Mo maximum chacune).'));
+                nodes.push(buildNode('p', 'text-xs text-slate-500 text-center px-4', 'Ajoutez 1 à 3 photos (JPG ou PNG, 10 Mo maximum au total).'));
             } else if (files.length > 0) {
                 nodes.push(buildNode('i', 'ph-fill ph-check-circle text-3xl text-teal mb-2'));
                 nodes.push(buildNode('p', 'mb-1 text-sm text-slate-800 font-semibold text-center px-4', files.length + ' photo(s) prête(s)'));
@@ -482,6 +484,13 @@
 
         // Initialisation au chargement de la page selon l'URL actuelle
         window.onload = function() {
+            // Retour de FormSubmit après l'envoi d'un devis : https://le-bon-geste.fr/?envoye=1
+            // (on passe par la page d'accueil + un paramètre plutôt que par /merci, qui dépend du routage de l'hébergeur)
+            if (new URLSearchParams(window.location.search).get('envoye') === '1') {
+                try { history.replaceState(null, '', '/'); } catch (e) { /* sans gravité */ }
+                navigateTo(null, 'merci');
+                return;
+            }
             navigateTo(null, resolvePathToPageId(window.location.pathname));
         };
 
