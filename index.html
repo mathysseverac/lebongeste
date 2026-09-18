@@ -131,99 +131,10 @@
         .sap-invoice { background: #e8f3f1; border-radius: 18px; padding: clamp(1.5rem, 4vw, 3rem); }
         .sap-invoice h3 { letter-spacing: -.04em; }
         .sap-cta { transition: background-color .18s ease, color .18s ease; }
-        .sap-receipt { background: #fff; border-radius: 14px; padding: 1.5rem; box-shadow: 0 14px 30px rgba(0, 78, 74, .09); }
-        .sap-receipt-top { display: flex; align-items: center; justify-content: space-between; color: #6c807d; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding-bottom: 1rem; border-bottom: 1px solid #dbe9e6; }
-        .sap-receipt-tag { color: #007271; background: #e8f3f1; padding: .3rem .55rem; border-radius: 5px; font-size: .65rem; }
-        .sap-receipt-row { display: flex; justify-content: space-between; gap: 1rem; color: #536562; font-size: .88rem; padding: 1rem 0; border-bottom: 1px solid #edf3f1; }
-        .sap-receipt-row strong { color: #183a36; white-space: nowrap; }
-        .sap-receipt-discount { color: #007271; }
-        .sap-receipt-discount strong { color: #007271; }
-        .sap-receipt-total { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding-top: 1.25rem; color: #536562; font-size: .78rem; }
-        .sap-receipt-total strong { color: #123330; line-height: .8; white-space: nowrap; }
-        .sap-receipt-total b { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 4.4rem; letter-spacing: -.08em; }
-        .sap-receipt-total em { font-style: normal; font-size: 2rem; margin-left: .2rem; }
-        /* Catalogue : colonnes stables sur grand écran, puis cartes tarifaires sur mobile. */
-        #page-services .catalog-table-wrap { overflow-x: visible; }
-        #page-services .catalog-price-table { width: 100%; table-layout: fixed; }
-        #page-services .catalog-price-table th,
-        #page-services .catalog-price-table td { vertical-align: top; }
-        #page-services .catalog-price-table th { line-height: 1.25; }
-        #page-services .catalog-price-table td { line-height: 1.4; }
-        #page-services .catalog-price-table th:first-child,
-        #page-services .catalog-price-table td:first-child { width: 36%; }
-        #page-services .catalog-price-table th:nth-child(2),
-        #page-services .catalog-price-table td:nth-child(2) { width: 20%; }
-        #page-services .catalog-price-table th:nth-child(3),
-        #page-services .catalog-price-table td:nth-child(3) { width: 24%; }
-        #page-services .catalog-price-table th:nth-child(4),
-        #page-services .catalog-price-table td:nth-child(4) { width: 20%; }
-        #page-services .catalog-price-table:not(:has(th:nth-child(4))) th:nth-child(2),
-        #page-services .catalog-price-table:not(:has(th:nth-child(4))) td:nth-child(2),
-        #page-services .catalog-price-table:not(:has(th:nth-child(4))) th:nth-child(3),
-        #page-services .catalog-price-table:not(:has(th:nth-child(4))) td:nth-child(3) { width: 32%; }
-        #page-services .catalog-price-table td:not(:first-child) { white-space: nowrap; }
-        #page-services .catalog-price-table:nth-of-type(1) td:first-child { overflow-wrap: break-word; }
         @media (max-width: 767px) {
             .sap-highlight { padding: 1.5rem; }
             .sap-benefits { gap: 1.5rem; }
             .sap-invoice { padding: 1.25rem; }
-            .sap-receipt-total b { font-size: 3.8rem; }
-
-            /* Catalogue mobile : chaque ligne devient une carte lisible, sans défilement horizontal. */
-            #page-services .catalog-table-wrap { overflow: visible; }
-            #page-services .catalog-table-wrap { margin-top: .25rem; }
-            #page-services .catalog-price-table,
-            #page-services .catalog-price-table tbody,
-            #page-services .catalog-price-table tr,
-            #page-services .catalog-price-table td { display: block; }
-            #page-services .catalog-price-table { table-layout: auto; }
-            #page-services .catalog-price-table thead { display: none; }
-            #page-services .catalog-price-table tr {
-                display: grid;
-                grid-template-columns: minmax(0, 1fr);
-                gap: .1rem;
-                padding: .85rem .75rem;
-                margin-bottom: .55rem;
-                border: 1px solid #e2e8f0;
-                border-radius: .55rem;
-                background: #fff;
-            }
-            #page-services .catalog-price-table td {
-                min-width: 0;
-                padding: .15rem 0;
-                font-size: .8rem;
-                line-height: 1.35;
-                white-space: normal;
-                overflow-wrap: break-word;
-            }
-            #page-services .catalog-price-table td:first-child {
-                grid-column: 1 / -1;
-                padding-bottom: .3rem;
-                font-size: .82rem;
-            }
-            #page-services .catalog-price-table td:not(:first-child) {
-                display: flex;
-                align-items: baseline;
-                justify-content: space-between;
-                gap: .75rem;
-                text-align: right;
-                white-space: nowrap;
-            }
-            #page-services .catalog-price-table td:not(:first-child)::before {
-                content: attr(data-label);
-                color: #94a3b8;
-                font-size: .65rem;
-                font-weight: 600;
-                letter-spacing: .06em;
-                text-transform: uppercase;
-                text-align: left;
-                flex: 1 1 auto;
-                white-space: normal;
-            }
-            #page-services .catalog-price-table td.text-teal,
-            #page-services .catalog-price-table td.font-bold {
-                font-variant-numeric: tabular-nums;
-            }
         }
 
         .home-service-map { border-top: 1px solid #dce8e6; padding-top: 1.25rem; }
@@ -308,7 +219,7 @@
                 
                 <!-- Logo -->
                 <a href="https://le-bon-geste.fr/" onclick="navigateTo(event, 'accueil')" class="flex items-center group w-48 shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 685.21 256.31" class="w-full h-auto group-hover:scale-105 transition-transform duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 685.21 256.31" role="img" aria-label="Le bon geste, multiservices" class="w-full h-auto group-hover:scale-105 transition-transform duration-300">
                         <g id="Calque_1-2"><g>
       <path fill="#007271" d="M130.01,28.58c-1.43-.1-14.28-.7-25.43,9.67-3.62,3.37-6.58,7.46-8.89,12.23-10.23-14.12-27.25-23.01-46.23-21.82C22.64,30.36,1.16,52.33.05,79.18c-1.29,30.97,24.23,56.43,55.21,55.05,28.35-1.26,50.26-25.13,50.47-53.5.1-14.09,3.41-24.64,9.58-30.54,6.14-5.86,13.34-5.61,13.65-5.59h-.1s1.15-16.02,1.15-16.02ZM56.23,118.08c-22.93,2.04-42.06-17.09-40.02-40.02,1.57-17.58,15.72-31.73,33.3-33.3,22.93-2.04,42.06,17.09,40.02,40.02-1.57,17.58-15.72,31.73-33.3,33.3Z"/>
       <path fill="#007271" d="M212.08,10.36c-.11.06-.21.12-.31.18-1.01.6-1.66,1.02-1.9,1.19-.07.04-.11.07-.11.07-14.03,8.94-31.35,24.08-51.23,49.55-41.35,52.95-77.06,74.87-114.87,98.08-6.04,3.71-12.28,7.54-18.47,11.46-10.81,6.85-18.52,15.88-22.31,26.12-3.55,9.58-3.61,19.71-.16,29.3,6.58,18.3,24.35,30,44.55,30,2.17,0,4.38-.14,6.61-.42,19.2-2.4,34.3-15.28,43.67-37.24,2.44-5.7,4.17-11.29,5.4-16.13.93-3.63,1.63-7.33,2.1-11.05.47-3.72.7-7.47.7-11.23v-43.04c20.87-16.17,42.52-36.62,65.45-65.99,29.64-37.97,52.1-50.21,64.44-54.12.18.01.26.03.26.03,0,0-18.36,12.79-29.93,30.79,0,0,23.51,8.04,45.95-18.77,5.09-6.08,7.96-13.75,10.02-21.41.66-2.44,1.13-4.71,1.09-6.04-23.24-5.8-44.13,4.66-50.94,8.64ZM89.68,177.67c0,10.52-1.72,20.99-5.36,30.86-5.08,13.78-14.68,29.2-32.44,31.42-17.98,2.25-30.06-7.96-34.05-19.08-3.72-10.36-1.49-25.38,15.95-36.43,6.09-3.86,12.28-7.66,18.28-11.34,12.36-7.59,24.87-15.26,37.62-24.14v28.7Z"/>
@@ -436,7 +347,7 @@
                         <a href="https://le-bon-geste.fr/catalogue#service-haies" onclick="navigateToService(event, 'service-haies')" class="home-service-link"><span>Taille de haies</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                         <a href="https://le-bon-geste.fr/catalogue#service-pelouses" onclick="navigateToService(event, 'service-pelouses')" class="home-service-link"><span>Pelouses & tonte</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                         <a href="https://le-bon-geste.fr/catalogue#service-bricolage" onclick="navigateToService(event, 'service-bricolage')" class="home-service-link"><span>Petit bricolage</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-                        <a href="https://le-bon-geste.fr/catalogue#service-nettoyage" onclick="navigateToService(event, 'service-nettoyage')" class="home-service-link"><span>Nettoyage & assistance</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                        <a href="https://le-bon-geste.fr/catalogue#service-nettoyage" onclick="navigateToService(event, 'service-nettoyage')" class="home-service-link"><span>Terrasses &amp; allées</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
@@ -448,14 +359,15 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="text-center mb-12">
-                    <h2 class="font-arboria text-3xl sm:text-4xl text-teal mb-4">Catalogue & grille tarifaire</h2>
+                    <h2 class="font-arboria text-3xl sm:text-4xl text-teal mb-4">Catalogue des prestations</h2>
                     <p class="text-slate-600 max-w-2xl mx-auto text-lg">Toutes les prestations proposées par Le bon geste relèvent des Services à la Personne et bénéficient de l'Avance Immédiate, sous réserve de son activation.</p>
                 </div>
 
                 <!-- SECTION 1 : CATALOGUE SAP -->
                 <div id="catalog-sap" class="catalog-content">
-                    <div class="border border-gray-200 p-4 rounded-lg mb-8 text-center max-w-3xl mx-auto">
-                        <span class="text-sm text-slate-600">Forfait minimum d'intervention et de déplacement de <strong class="text-slate-900">50 € brut</strong> (soit 25 € restant à votre charge après l'Avance Immédiate Urssaf).</span>
+                    <div class="border border-gray-200 bg-white p-5 rounded-lg mb-8 text-center max-w-3xl mx-auto">
+                        <p class="text-sm text-slate-700 mb-4">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
+                        <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="inline-flex items-center justify-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Demander un devis gratuit</a>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
@@ -472,52 +384,29 @@
                                 </div>
                             </div>
                             <h3 class="font-arboria text-2xl text-slate-900 mb-1">Taille de haies</h3>
-                            <p class="text-teal font-medium text-sm mb-4"> 3 faces : côtés et dessus. Travail soigné.</p>
+                            <p class="text-teal font-medium text-sm mb-4">Taille d'entretien courant de haies et arbustes.</p>
 
                             <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
                                 <strong>Avance Immédiate Urssaf</strong> : vous ne réglez que 50 % de la facture lors de la prestation, après activation du service.
                             </div>
 
-                            <div class="catalog-table-wrap flex-grow border-t border-gray-100 pt-4 overflow-x-auto">
-                                <table class="catalog-price-table w-full text-sm text-left border-collapse">
-                                    <thead>
-                                        <tr class="text-xs uppercase text-slate-400 tracking-wider">
-                                            <th class="py-2 pr-2 font-bold" title="Hauteur de haie, trois faces">Hauteur</th>
-                                            <th class="py-2 px-2 font-bold text-center" title="Coupe seule, déchets au sol">Coupe seule</th>
-                                            <th class="py-2 px-2 font-bold text-center" title="Taille, nettoyage et évacuation">Clé en main</th>
-                                            <th class="py-2 pl-2 font-bold text-center text-teal-dark" title="Coût réel clé en main après crédit d’impôt">Après -50 %</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-slate-600">
-                                        <tr class="border-t border-gray-100">
-                                            <td class="py-2.5 pr-2 font-medium text-slate-800">Haie basse (&lt; 1,50 m)</td>
-                                            <td class="py-2.5 px-2 text-center">3,50 € / ml</td>
-                                            <td class="py-2.5 px-2 text-center">5,50 € / ml</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">2,75 € / ml</td>
-                                        </tr>
-                                        <tr class="border-t border-gray-100">
-                                            <td class="py-2.5 pr-2 font-medium text-slate-800">Haie moyenne (1,50 m à 2,00 m)</td>
-                                            <td class="py-2.5 px-2 text-center">5,00 € / ml</td>
-                                            <td class="py-2.5 px-2 text-center">7,50 € / ml</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">3,75 € / ml</td>
-                                        </tr>
-                                        <tr class="border-t border-gray-100">
-                                            <td class="py-2.5 pr-2 font-medium text-slate-800">Haie haute (&gt; 2,00 m, travail sur perche)</td>
-                                            <td class="py-2.5 px-2 text-center">6,50 € / ml</td>
-                                            <td class="py-2.5 px-2 text-center">9,50 € / ml</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">4,75 € / ml</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <ul class="text-slate-600 space-y-2 text-sm mt-5 pt-4 border-t border-gray-50">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Formule clé en main : taille, nettoyage et évacuation.</span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Taille partielle et entretien régulier sur devis.</span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Devis gratuit après visite. Minimum : 50 € par déplacement.</span></li>
+                            <ul class="text-slate-600 space-y-2 text-sm flex-grow border-t border-gray-100 pt-4">
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Haies basses (&lt; 1,50 m)</span></li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Haies moyennes (1,50 m à 2,00 m)</span></li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Taille de haies hautes (jusqu'à 3 m, travail sur perche depuis le sol)</span></li>
                             </ul>
 
-                            <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">Organisme déclaré Services à la Personne n° <strong class="text-slate-500">SAP919151902</strong>. TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
+                            <ul class="text-slate-600 space-y-2 text-sm mt-5 pt-4 border-t border-gray-50">
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Travaux réalisés exclusivement depuis le sol ou sur plateforme sécurisée, sans monte ni grimpe d'arbre.</span></li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Ramassage et évacuation des résidus de coupe inclus.</span></li>
+                            </ul>
+
+                            <div class="mt-5 pt-4 border-t border-gray-100">
+                                <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
+                                <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Demander un devis gratuit</a>
+                            </div>
+
+                            <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
                         </div>
 
                         <!-- CARTE SAP 2 : Entretien des pelouses & Tonte -->
@@ -531,54 +420,30 @@
                                     <span class="inline-block bg-teal-light text-teal-dark px-3 py-1 rounded-md text-sm font-bold">5 000 € / an</span>
                                 </div>
                             </div>
-                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Entretien des pelouses & tonte</h3>
-                            <p class="text-teal font-medium text-sm mb-4"> Tonte soignée et finitions des bordures.</p>
+                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Entretien des pelouses &amp; tonte</h3>
+                            <p class="text-teal font-medium text-sm mb-4">Tonte soignée et finitions des bordures.</p>
 
                             <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
                                 <strong>Avance Immédiate Urssaf</strong> : vous ne réglez que 50 % de la facture lors de la prestation, après activation du service.
                             </div>
 
-                            <div class="catalog-table-wrap flex-grow border-t border-gray-100 pt-4 overflow-x-auto">
-                                <table class="catalog-price-table w-full text-sm text-left border-collapse">
-                                    <thead>
-                                        <tr class="text-xs uppercase text-slate-400 tracking-wider">
-                                            <th class="py-2 pr-2 font-bold">Prestation</th>
-                                            <th class="py-2 px-2 font-bold text-center">Tarif brut</th>
-                                            <th class="py-2 pl-2 font-bold text-center text-teal-dark" title="Coût réel après crédit d’impôt">Après -50 %</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-slate-600">
-                                        <tr class="border-t border-gray-100">
-                                            <td class="py-2.5 pr-2 font-medium text-slate-800">Tonte classique & finitions au coupe-bordure <span class="block font-normal text-slate-400 text-xs">selon relief et configuration</span></td>
-                                            <td class="py-2.5 px-2 text-center">38,00 € à 45,00 € / h</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">19,00 € à 22,50 € / h</td>
-                                        </tr>
-                                        <tr class="border-t border-gray-100">
-                                            <td class="py-2.5 pr-2 font-medium text-slate-800">Tonte avec matériel fourni par le client <span class="block font-normal text-slate-400 text-xs">matériel en bon état de fonctionnement</span></td>
-                                            <td class="py-2.5 px-2 text-center">35,00 € / h</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">17,50 € / h</td>
-                                        </tr>
-                                        <tr class="border-t border-gray-100">
-                                            <td class="py-2.5 pr-2 font-medium text-slate-800">Tonte mécanisée moyennes et grandes surfaces</td>
-                                            <td class="py-2.5 px-2 text-center">0,06 € à 0,10 € / m²</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">0,03 € à 0,05 € / m²</td>
-                                        </tr>
-                                        <tr class="border-t border-gray-100">
-                                            <td class="py-2.5 pr-2 font-medium text-slate-800">Débroussaillage & fauchage <span class="block font-normal text-slate-400 text-xs">herbes denses, sous-bois, ronces, terrains en pente</span></td>
-                                            <td class="py-2.5 px-2 text-center">42,00 € à 50,00 € / h</td>
-                                            <td class="py-2.5 pl-2 text-center font-bold text-teal">21,00 € à 25,00 € / h</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <ul class="text-slate-600 space-y-3 text-sm flex-grow border-t border-gray-100 pt-4">
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong class="font-medium text-slate-800">Tonte classique &amp; finitions au coupe-bordure</strong> <span class="block font-normal text-slate-400 text-xs">selon relief et configuration</span></span></li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong class="font-medium text-slate-800">Tonte avec matériel fourni par le client</strong> <span class="block font-normal text-slate-400 text-xs">matériel en bon état de fonctionnement</span></span></li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong class="font-medium text-slate-800">Tonte mécanisée moyennes et grandes surfaces</strong></span></li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong class="font-medium text-slate-800" style="hyphens:none;-webkit-hyphens:none;overflow-wrap:normal;word-break:normal;">Débroussaillage&nbsp;&amp;&nbsp;fauchage</strong> <span class="block font-normal text-slate-400 text-xs">Entretien courant : herbes hautes, terrains en friche, talus et abords de jardin</span></span></li>
+                            </ul>
 
                             <ul class="text-slate-600 space-y-2 text-sm mt-5 pt-4 border-t border-gray-50">
                                 <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Mulching : l'herbe est broyée et laissée sur place.</span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Tarifs confirmés par un devis selon votre terrain.</span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Minimum : 50 € par déplacement, soit 25 € après crédit d'impôt.</span></li>
                             </ul>
 
-                            <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">Organisme déclaré Services à la Personne n° <strong class="text-slate-500">SAP919151902</strong>. TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
+                            <div class="mt-5 pt-4 border-t border-gray-100">
+                                <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
+                                <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Demander un devis gratuit</a>
+                            </div>
+
+                            <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
                         </div>
 
                         <!-- CARTE SAP 3 : Petit Bricolage -->
@@ -593,16 +458,21 @@
                                 </div>
                             </div>
                             <h3 class="font-arboria text-2xl text-slate-900 mb-1">Petit bricolage</h3>
-                            <p class="text-teal font-medium text-sm mb-4"><i class="ph-fill ph-clock"></i> 35 € à 45 € / h · 2 h maximum</p>
+                            <p class="text-teal font-medium text-sm mb-4"><i class="ph-fill ph-clock"></i> Interventions de 2 h maximum</p>
                             
                             <ul class="text-slate-600 space-y-2 text-sm flex-grow border-t border-gray-100 pt-4">
                                 <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Montage de meubles et petits équipements.</span></li>
                                 <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Fixations, étagères, tringles et cadres.</span></li>
                                 <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Petits dépannages et remplacements simples.</span></li>
                             </ul>
+
+                            <div class="mt-5 pt-4 border-t border-gray-100">
+                                <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
+                                <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Demander un devis gratuit</a>
+                            </div>
                         </div>
 
-                        <!-- CARTE SAP 4 : Nettoyage Haute Pression -->
+                        <!-- CARTE SAP 4 : Entretien des terrasses et allées -->
                         <div id="service-nettoyage" class="lg:order-5 lg:col-span-2 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
                             <div class="flex items-center justify-between mb-6">
                                 <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
@@ -613,31 +483,17 @@
                                     <span class="inline-block bg-teal-light text-teal-dark px-3 py-1 rounded-md text-sm font-bold">5 000 € / an</span>
                                 </div>
                             </div>
-                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Nettoyage Haute Pression SAP</h3>
+                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Entretien courant des terrasses et allées de jardin</h3>
                             <p class="text-teal font-medium text-sm mb-4"><i class="ph-fill ph-check-circle"></i> Terrasses, allées et margelles</p>
                             
                             <ul class="text-slate-600 space-y-4 text-sm flex-grow border-t border-gray-100 pt-4">
-                                <li class="flex items-start gap-3">
-                                    <i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i>
-                                    <span>
-                                        <strong>Nettoyage terrasse simple :</strong> 4,00 € à 5,50 € / m² <span class="text-teal font-semibold">(soit 2,00 € à 2,75 € / m² après crédit d'impôt)</span>.
-                                        <span class="block text-slate-400 text-xs mt-1">Décapage haute pression des salissures courantes, poussières et mousses de surface.</span>
-                                    </span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i>
-                                    <span>
-                                        <strong>Nettoyage terrasse intensif & application de traitement :</strong> 6,00 € à 8,50 € / m² <span class="text-teal font-semibold">(soit 3,00 € à 4,25 € / m² après crédit d'impôt)</span>.
-                                        <span class="block text-slate-400 text-xs mt-1">Décrassage approfondi et application soignée de traitement (anti-mousse, protecteur ou hydrofuge).</span>
-                                    </span>
-                                </li>
+                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Nettoyage et rinçage de surface des salissures végétales et mousses courantes sur terrasses, allées et margelles.</span></li>
                             </ul>
 
-                            <ul class="text-slate-600 space-y-2 text-sm mt-5 pt-4 border-t border-gray-50">
-                                <li class="flex items-start gap-3"><span><strong>Fourniture des produits de traitement :</strong> pour bénéficier du crédit d'impôt sur la main-d'œuvre, les produits spécifiques (anti-mousse, nettoyant curatif, imperméabilisant / hydrofuge) doivent obligatoirement être fournis par le client.</span></li>
-                                <li class="flex items-start gap-3"><span><strong>Tarifs indicatifs :</strong> prix moyens constatés, confirmés systématiquement par un devis gratuit sur place selon la nature du support, le niveau d'encrassement et l'accès au point d'eau.</span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong>Minimum d'intervention :</strong> 50,00 € par déplacement (soit 25,00 € après crédit d'impôt).</span></li>
-                            </ul>
+                            <div class="mt-5 pt-4 border-t border-gray-100">
+                                <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
+                                <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Demander un devis gratuit</a>
+                            </div>
                         </div>
 
                         <!-- CARTE SAP 5 : Assistance Informatique & Confort -->
@@ -724,37 +580,17 @@
                 </div>
 
                 <div class="sap-invoice grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-7">
-                        <p class="sap-kicker mb-4">Exemple concret</p>
-                        <h3 class="font-arboria text-3xl sm:text-4xl text-slate-900 mb-4">Une prestation de 80 € revient à 40 €.</h3>
-                        <p class="text-slate-600 leading-relaxed max-w-xl mb-6">L'exemple ci-contre montre simplement la déduction de 50 % sur une prestation de jardinage de deux heures.</p>
+                    <div class="lg:col-span-8">
+                        <p class="sap-kicker mb-4">En pratique</p>
+                        <h3 class="font-arboria text-3xl sm:text-4xl text-slate-900 mb-4">Un devis gratuit, avant toute intervention.</h3>
+                        <p class="text-slate-600 leading-relaxed max-w-xl mb-6">Le tarif est établi sur devis gratuit et personnalisé, selon la configuration de votre terrain.</p>
                         <div class="flex flex-wrap gap-3">
-                            <a href="https://le-bon-geste.fr/catalogue" onclick="navigateTo(event, 'services')" class="sap-cta inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3.5 rounded-md font-semibold text-sm">
-                                Consulter les tarifs SAP <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                            <a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="sap-cta inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3.5 rounded-md font-semibold text-sm">
+                                Demander un devis gratuit <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
                             </a>
                             <a href="https://le-bon-geste.fr/guide-urssaf" onclick="navigateTo(event, 'guide')" class="inline-flex items-center gap-2 border border-teal/30 text-teal hover:bg-white px-6 py-3.5 rounded-md font-semibold text-sm">
                                 Voir le guide Urssaf <i class="ph ph-arrow-right" aria-hidden="true"></i>
                             </a>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-5">
-                        <div class="sap-receipt" aria-label="Exemple de facture avec crédit d'impôt immédiat">
-                            <div class="sap-receipt-top">
-                                <span>Exemple de facture</span>
-                                <span class="sap-receipt-tag">SAP</span>
-                            </div>
-                            <div class="sap-receipt-row">
-                                <span>Prestation de jardinage</span>
-                                <strong>80,00 €</strong>
-                            </div>
-                            <div class="sap-receipt-row sap-receipt-discount">
-                                <span>Avantage immédiat · 50 %</span>
-                                <strong>- 40,00 €</strong>
-                            </div>
-                            <div class="sap-receipt-total">
-                                <span>Prélevé par l'Urssaf</span>
-                                <strong><b>40</b><em>€</em></strong>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -820,7 +656,7 @@
                     </label>
                     <label class="devis-service-option">
                         <input type="radio" name="prestation" value="nettoyage" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                        <span><strong>Nettoyage haute pression</strong><small>Terrasses, allées et margelles</small></span>
+                        <span><strong>Entretien des terrasses et allées</strong><small>Nettoyage et rinçage de surface</small></span>
                     </label>
                     <label class="devis-service-option">
                         <input type="radio" name="prestation" value="assistance" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
@@ -849,22 +685,12 @@
                             <select id="hauteur-haie" name="hauteur_haie" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none bg-white">
                                 <option value="">Sélectionnez...</option>
                                 <option value="basse">&lt; 1,50 m</option>
-                                <option value="standard">≤ 2 m</option>
-                                <option value="haute">&gt; 2 m</option>
+                                <option value="standard">1,50 m à 2 m</option>
+                                <option value="haute">2 m à 3 m</option>
                             </select>
                         </div>
                     </div>
-                    <div class="pt-2">
-                        <span class="block text-sm text-slate-600 mb-2">Évacuation des déchets végétaux souhaitée :</span>
-                        <div class="flex gap-6">
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="evacuation" value="oui" class="w-4 h-4 text-teal focus:ring-teal border-gray-300"> <span class="text-sm font-medium">Oui</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="evacuation" value="non" class="w-4 h-4 text-teal focus:ring-teal border-gray-300"> <span class="text-sm font-medium">Non</span>
-                            </label>
-                        </div>
-                    </div>
+                    <p class="text-sm text-slate-600 pt-1">Taille d'entretien courant jusqu'à 3 m, depuis le sol ou sur plateforme sécurisée. Ramassage et évacuation des résidus de coupe inclus.</p>
                 </div>
 
                 <div>
@@ -1092,14 +918,14 @@
                 <div class="text-center mb-12">
                     <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-4">Questions fréquentes</p>
                     <h2 class="font-arboria text-4xl sm:text-5xl text-slate-900 mb-5">Tout savoir avant de demander un devis</h2>
-                    <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">Les réponses essentielles sur les prestations à domicile, les tarifs et l’Avance Immédiate Urssaf à Mazamet.</p>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">Les réponses essentielles sur les prestations à domicile, le devis gratuit et l’Avance Immédiate Urssaf à Mazamet.</p>
                 </div>
                 <div class="faq-list">
-                    <details open><summary>Quelles prestations propose Le bon geste ?</summary><p>Jardinage, taille de haies, tonte, petit bricolage, nettoyage haute pression et assistance multimédia ou de confort à domicile.</p></details>
+                    <details open><summary>Quelles prestations propose Le bon geste ?</summary><p>Jardinage, taille de haies, tonte, petit bricolage, entretien courant des terrasses et allées de jardin, et assistance multimédia ou de confort à domicile.</p></details>
                         <details><summary>Comment fonctionne l’Avance Immédiate Urssaf ?</summary><p>Les prestations proposées par Le bon geste relèvent des Services à la Personne. Après activation et validation du dispositif, le crédit d’impôt de 50 % est déduit directement et vous réglez uniquement le reste à charge.</p></details>
                     <details><summary>Dans quelles communes intervenez-vous ?</summary><p>Les interventions sont proposées à Mazamet, Aiguefonde et dans les communes voisines, dans un rayon indicatif de 20 km. La zone est confirmée avec le devis.</p></details>
                     <details><summary>Le devis est-il gratuit ?</summary><p>Oui. Un devis clair et gratuit est établi avant toute intervention, avec les éventuelles contraintes de terrain, d’accès ou de fourniture.</p></details>
-                    <details><summary>Y a-t-il un minimum d’intervention ?</summary><p>Un forfait minimum de 50 € brut par intervention et déplacement s’applique, soit 25 € restant à charge lorsque l’Avance Immédiate est applicable.</p></details>
+                    <details><summary>Comment sont établis les tarifs ?</summary><p>Les tarifs sont établis sur devis gratuit et personnalisé, selon la configuration de votre terrain.</p></details>
                     <details><summary>Comment préparer ma demande ?</summary><p>Indiquez la commune, la prestation souhaitée, les dimensions ou la surface si vous les connaissez, puis ajoutez quelques photos lorsque cela peut aider à évaluer le besoin.</p></details>
                 </div>
                 <div class="text-center mt-12"><a href="https://le-bon-geste.fr/devis" onclick="navigateTo(event, 'devis')" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white px-7 py-3.5 rounded-md font-semibold">Décrire mon projet <i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>
@@ -1197,9 +1023,8 @@
 
                     <div>
                         <h3 class="font-bold text-slate-900 text-lg mb-2">2. Activité & déclaration SAP</h3>
-                        <p>Le bon geste est déclaré Services à la Personne sous le numéro SAP919151902.</p>
-                        <p>Organisme déclaré Services à la Personne sous le numéro : <strong>SAP919151902</strong> auprès de la DREETS Occitanie.</p>
-                        <p>Les prestations éligibles ouvrent droit au crédit d'impôt de 50 % (art. 199 sexdecies du CGI) avec accès au service de l'Avance Immédiate de l'Urssaf.</p>
+                        <p>Le bon geste est une entreprise individuelle. La déclaration Services à la Personne est en cours d'enregistrement.</p>
+                        <p>Les prestations sont éligibles au crédit d'impôt de 50 % (art. 199 sexdecies du CGI), sous réserve de validation de la déclaration.</p>
                     </div>
 
                     <div>
@@ -1253,7 +1078,7 @@
 
                     <div>
                         <h3 class="font-bold text-slate-900 text-lg mb-2">3. Tarifs et paiement</h3>
-                        <p>Les tarifs sont exprimés en euros, TVA non applicable (article 293 B du CGI). Un minimum d'intervention de 50 € par déplacement est appliqué. Le règlement s'effectue à l'issue de la prestation, par espèces, virement ou chèque, sauf accord contraire mentionné sur le devis.</p>
+                        <p>Les tarifs sont exprimés en euros, TVA non applicable (article 293 B du CGI). Le règlement s'effectue à l'issue de la prestation, par espèces, virement ou chèque, sauf accord contraire mentionné sur le devis.</p>
                         <p class="mt-2">Pour les prestations éligibles au régime Services à la Personne, le client peut bénéficier du crédit d'impôt de 50 % (art. 199 sexdecies du CGI) via le service <strong>Avance Immédiate de l'Urssaf</strong> : dans ce cas, seul le solde de 50 % restant à charge est réglé lors de la prestation, l'avance étant versée directement par l'Urssaf.</p>
                     </div>
 
@@ -1269,7 +1094,7 @@
 
                     <div>
                         <h3 class="font-bold text-slate-900 text-lg mb-2">6. Annulation</h3>
-                        <p>Toute annulation d'un rendez-vous doit être signalée au moins 24h à l'avance. Une annulation tardive ou une absence non signalée du client peut donner lieu à une facturation forfaitaire correspondant au minimum d'intervention.</p>
+                        <p>Toute annulation d'un rendez-vous doit être signalée au moins 24h à l'avance. Une annulation tardive ou une absence non signalée du client peut donner lieu à une facturation forfaitaire, dont le montant est précisé dans le devis.</p>
                     </div>
 
                     <div>
@@ -1371,37 +1196,37 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center gap-6">
                  <!-- Logo Le bon geste Blanc -->
-                 <svg viewBox="0 0 685.21 256.31" class="w-24 h-auto">
+                 <svg viewBox="0 0 685.21 256.31" role="img" aria-label="Le bon geste, multiservices" class="w-24 h-auto">
                      <g><g>
-      <path fill="#007271" d="M130.01,28.58c-1.43-.1-14.28-.7-25.43,9.67-3.62,3.37-6.58,7.46-8.89,12.23-10.23-14.12-27.25-23.01-46.23-21.82C22.64,30.36,1.16,52.33.05,79.18c-1.29,30.97,24.23,56.43,55.21,55.05,28.35-1.26,50.26-25.13,50.47-53.5.1-14.09,3.41-24.64,9.58-30.54,6.14-5.86,13.34-5.61,13.65-5.59h-.1s1.15-16.02,1.15-16.02ZM56.23,118.08c-22.93,2.04-42.06-17.09-40.02-40.02,1.57-17.58,15.72-31.73,33.3-33.3,22.93-2.04,42.06,17.09,40.02,40.02-1.57,17.58-15.72,31.73-33.3,33.3Z"/>
-      <path fill="#007271" d="M212.08,10.36c-.11.06-.21.12-.31.18-1.01.6-1.66,1.02-1.9,1.19-.07.04-.11.07-.11.07-14.03,8.94-31.35,24.08-51.23,49.55-41.35,52.95-77.06,74.87-114.87,98.08-6.04,3.71-12.28,7.54-18.47,11.46-10.81,6.85-18.52,15.88-22.31,26.12-3.55,9.58-3.61,19.71-.16,29.3,6.58,18.3,24.35,30,44.55,30,2.17,0,4.38-.14,6.61-.42,19.2-2.4,34.3-15.28,43.67-37.24,2.44-5.7,4.17-11.29,5.4-16.13.93-3.63,1.63-7.33,2.1-11.05.47-3.72.7-7.47.7-11.23v-43.04c20.87-16.17,42.52-36.62,65.45-65.99,29.64-37.97,52.1-50.21,64.44-54.12.18.01.26.03.26.03,0,0-18.36,12.79-29.93,30.79,0,0,23.51,8.04,45.95-18.77,5.09-6.08,7.96-13.75,10.02-21.41.66-2.44,1.13-4.71,1.09-6.04-23.24-5.8-44.13,4.66-50.94,8.64ZM89.68,177.67c0,10.52-1.72,20.99-5.36,30.86-5.08,13.78-14.68,29.2-32.44,31.42-17.98,2.25-30.06-7.96-34.05-19.08-3.72-10.36-1.49-25.38,15.95-36.43,6.09-3.86,12.28-7.66,18.28-11.34,12.36-7.59,24.87-15.26,37.62-24.14v28.7Z"/>
+      <path fill="#ffffff" d="M130.01,28.58c-1.43-.1-14.28-.7-25.43,9.67-3.62,3.37-6.58,7.46-8.89,12.23-10.23-14.12-27.25-23.01-46.23-21.82C22.64,30.36,1.16,52.33.05,79.18c-1.29,30.97,24.23,56.43,55.21,55.05,28.35-1.26,50.26-25.13,50.47-53.5.1-14.09,3.41-24.64,9.58-30.54,6.14-5.86,13.34-5.61,13.65-5.59h-.1s1.15-16.02,1.15-16.02ZM56.23,118.08c-22.93,2.04-42.06-17.09-40.02-40.02,1.57-17.58,15.72-31.73,33.3-33.3,22.93-2.04,42.06,17.09,40.02,40.02-1.57,17.58-15.72,31.73-33.3,33.3Z"/>
+      <path fill="#ffffff" d="M212.08,10.36c-.11.06-.21.12-.31.18-1.01.6-1.66,1.02-1.9,1.19-.07.04-.11.07-.11.07-14.03,8.94-31.35,24.08-51.23,49.55-41.35,52.95-77.06,74.87-114.87,98.08-6.04,3.71-12.28,7.54-18.47,11.46-10.81,6.85-18.52,15.88-22.31,26.12-3.55,9.58-3.61,19.71-.16,29.3,6.58,18.3,24.35,30,44.55,30,2.17,0,4.38-.14,6.61-.42,19.2-2.4,34.3-15.28,43.67-37.24,2.44-5.7,4.17-11.29,5.4-16.13.93-3.63,1.63-7.33,2.1-11.05.47-3.72.7-7.47.7-11.23v-43.04c20.87-16.17,42.52-36.62,65.45-65.99,29.64-37.97,52.1-50.21,64.44-54.12.18.01.26.03.26.03,0,0-18.36,12.79-29.93,30.79,0,0,23.51,8.04,45.95-18.77,5.09-6.08,7.96-13.75,10.02-21.41.66-2.44,1.13-4.71,1.09-6.04-23.24-5.8-44.13,4.66-50.94,8.64ZM89.68,177.67c0,10.52-1.72,20.99-5.36,30.86-5.08,13.78-14.68,29.2-32.44,31.42-17.98,2.25-30.06-7.96-34.05-19.08-3.72-10.36-1.49-25.38,15.95-36.43,6.09-3.86,12.28-7.66,18.28-11.34,12.36-7.59,24.87-15.26,37.62-24.14v28.7Z"/>
     </g>
     <g>
-      <path fill="#032a28" d="M195.06,170.18v-61.99h9v53.51h28.07v8.48h-37.07Z"/>
-      <path fill="#032a28" d="M257.91,171.47c-4.62,0-8.67-1.01-12.16-3.03-3.49-2.02-6.2-4.85-8.14-8.48-1.94-3.63-2.91-7.84-2.91-12.63,0-5.08.95-9.48,2.86-13.22,1.91-3.73,4.57-6.61,7.99-8.65,3.42-2.04,7.39-3.06,11.92-3.06s8.77,1.1,12.1,3.29c3.33,2.2,5.82,5.32,7.47,9.36,1.65,4.05,2.3,8.85,1.96,14.42h-9v-3.27c-.06-5.4-1.08-9.38-3.08-11.97-1.99-2.58-5.03-3.87-9.1-3.87-4.51,0-7.89,1.42-10.16,4.26-2.27,2.84-3.4,6.95-3.4,12.31s1.13,9.06,3.4,11.86c2.27,2.8,5.54,4.2,9.82,4.2,2.81,0,5.24-.64,7.3-1.92,2.05-1.28,3.65-3.11,4.8-5.49l8.83,2.8c-1.81,4.16-4.55,7.38-8.22,9.66-3.67,2.28-7.76,3.42-12.27,3.42ZM241.33,149.47v-7.02h33.19v7.02h-33.19Z"/>
-      <path fill="#032a28" d="M301.52,170.18v-61.99h9.04v28.54h-1.03v33.45h-8.01ZM323.38,171.47c-4.45,0-8.18-1.08-11.19-3.25-3.01-2.17-5.3-5.1-6.84-8.8-1.55-3.7-2.32-7.88-2.32-12.53s.77-8.83,2.3-12.53c1.53-3.7,3.8-6.62,6.8-8.76,3-2.14,6.69-3.21,11.09-3.21s8.13,1.07,11.3,3.21c3.17,2.14,5.62,5.05,7.34,8.74,1.72,3.69,2.58,7.87,2.58,12.55s-.85,8.83-2.56,12.55c-1.71,3.72-4.13,6.65-7.28,8.8-3.14,2.15-6.88,3.23-11.21,3.23ZM322.14,163.33c2.87,0,5.24-.73,7.12-2.2,1.88-1.46,3.29-3.44,4.22-5.92.93-2.48,1.4-5.26,1.4-8.33s-.47-5.8-1.4-8.27c-.93-2.47-2.36-4.43-4.28-5.9-1.92-1.46-4.38-2.2-7.36-2.2-2.81,0-5.13.69-6.95,2.07-1.82,1.38-3.17,3.3-4.05,5.77-.88,2.47-1.31,5.31-1.31,8.52s.43,6.06,1.29,8.52c.86,2.47,2.22,4.41,4.09,5.81,1.87,1.41,4.28,2.11,7.23,2.11Z"/>
-      <path fill="#032a28" d="M371.94,171.47c-4.65,0-8.68-1.05-12.1-3.14-3.42-2.09-6.05-4.99-7.9-8.67-1.85-3.69-2.78-7.94-2.78-12.76s.95-9.12,2.84-12.81c1.89-3.69,4.55-6.56,7.96-8.61,3.42-2.05,7.4-3.08,11.97-3.08s8.68,1.05,12.1,3.14c3.42,2.1,6.06,4.98,7.92,8.65,1.87,3.67,2.8,7.91,2.8,12.7s-.94,9.12-2.82,12.81c-1.88,3.69-4.53,6.57-7.94,8.65-3.42,2.08-7.43,3.12-12.05,3.12ZM371.94,162.99c4.45,0,7.77-1.5,9.97-4.5,2.2-3,3.29-6.87,3.29-11.6s-1.11-8.73-3.34-11.64c-2.22-2.91-5.53-4.37-9.92-4.37-3.01,0-5.5.68-7.45,2.04-1.95,1.36-3.4,3.24-4.35,5.64-.95,2.4-1.42,5.17-1.42,8.33,0,4.88,1.12,8.78,3.36,11.71,2.24,2.93,5.52,4.39,9.86,4.39Z"/>
-      <path fill="#032a28" d="M402.03,170.18v-46.49h8.05v13.43h1.08v33.06h-9.13ZM434.71,170.18v-22.86c0-1.81-.15-3.67-.45-5.57-.3-1.91-.88-3.68-1.72-5.32-.85-1.64-2.04-2.96-3.57-3.96-1.54-1-3.54-1.51-6.01-1.51-1.61,0-3.13.27-4.56.8-1.44.53-2.69,1.39-3.77,2.56-1.08,1.18-1.92,2.73-2.54,4.65-.62,1.92-.93,4.26-.93,7.02l-5.6-2.11c0-4.22.79-7.94,2.37-11.17,1.58-3.23,3.85-5.75,6.8-7.56,2.96-1.81,6.53-2.71,10.72-2.71,3.21,0,5.91.52,8.09,1.55,2.18,1.03,3.95,2.39,5.32,4.07,1.36,1.68,2.4,3.51,3.12,5.49.72,1.98,1.21,3.92,1.46,5.81.26,1.89.39,3.56.39,4.99v25.83h-9.13Z"/>
-      <path fill="#032a28" d="M486.41,171.47c-4.33,0-8.07-1.08-11.21-3.23-3.14-2.15-5.57-5.09-7.28-8.8-1.71-3.72-2.56-7.9-2.56-12.55s.86-8.86,2.58-12.55c1.72-3.69,4.17-6.6,7.34-8.74,3.17-2.14,6.94-3.21,11.3-3.21s8.09,1.07,11.09,3.21c3,2.14,5.27,5.06,6.8,8.76,1.53,3.7,2.3,7.88,2.3,12.53s-.77,8.83-2.32,12.53c-1.55,3.7-3.83,6.64-6.84,8.8-3.01,2.17-6.74,3.25-11.19,3.25ZM487.1,192.13c-2.5,0-4.92-.39-7.25-1.16-2.34-.78-4.47-1.92-6.39-3.42-1.92-1.51-3.52-3.37-4.78-5.57l8.31-4.22c1,1.98,2.44,3.43,4.3,4.35,1.87.92,3.83,1.38,5.9,1.38,2.55,0,4.74-.45,6.54-1.36,1.81-.9,3.18-2.26,4.11-4.07.93-1.81,1.38-4.05,1.36-6.72v-13h1.08v-34.65h7.96v47.74c0,1.23-.04,2.41-.13,3.53s-.24,2.24-.47,3.36c-.66,3.13-1.92,5.71-3.77,7.75-1.85,2.04-4.2,3.56-7.06,4.56-2.86,1-6.09,1.51-9.71,1.51ZM487.66,163.33c2.96,0,5.37-.7,7.23-2.11,1.87-1.41,3.23-3.34,4.09-5.81.86-2.47,1.29-5.31,1.29-8.52s-.44-6.06-1.31-8.52c-.88-2.47-2.22-4.39-4.05-5.77-1.82-1.38-4.14-2.07-6.95-2.07-2.99,0-5.44.73-7.36,2.2-1.92,1.46-3.35,3.43-4.28,5.9-.93,2.47-1.4,5.22-1.4,8.27s.47,5.85,1.4,8.33c.93,2.48,2.34,4.46,4.22,5.92,1.88,1.46,4.25,2.2,7.12,2.2Z"/>
-      <path fill="#032a28" d="M538.76,171.47c-4.62,0-8.67-1.01-12.16-3.03-3.49-2.02-6.2-4.85-8.14-8.48-1.94-3.63-2.91-7.84-2.91-12.63,0-5.08.95-9.48,2.86-13.22,1.91-3.73,4.57-6.61,7.99-8.65,3.42-2.04,7.39-3.06,11.92-3.06s8.77,1.1,12.1,3.29c3.33,2.2,5.82,5.32,7.47,9.36,1.65,4.05,2.3,8.85,1.96,14.42h-9v-3.27c-.06-5.4-1.08-9.38-3.08-11.97s-5.03-3.87-9.1-3.87c-4.51,0-7.89,1.42-10.16,4.26-2.27,2.84-3.4,6.95-3.4,12.31s1.13,9.06,3.4,11.86c2.27,2.8,5.54,4.2,9.82,4.2,2.81,0,5.24-.64,7.3-1.92,2.05-1.28,3.65-3.11,4.8-5.49l8.83,2.8c-1.81,4.16-4.55,7.38-8.22,9.66s-7.76,3.42-12.27,3.42ZM522.18,149.47v-7.02h33.19v7.02h-33.19Z"/>
-      <path fill="#032a28" d="M585.12,171.43c-5.65,0-10.26-1.25-13.82-3.75-3.56-2.5-5.74-6.01-6.54-10.55l9.21-1.42c.57,2.41,1.9,4.31,3.98,5.7,2.08,1.39,4.67,2.09,7.77,2.09,2.81,0,5.02-.57,6.61-1.72,1.59-1.15,2.39-2.73,2.39-4.74,0-1.18-.28-2.13-.84-2.86s-1.73-1.43-3.51-2.09c-1.78-.66-4.49-1.48-8.14-2.45-3.99-1.03-7.15-2.15-9.49-3.34-2.34-1.19-4-2.58-4.99-4.18-.99-1.59-1.49-3.52-1.49-5.79,0-2.81.75-5.27,2.24-7.36,1.49-2.09,3.59-3.72,6.31-4.86,2.71-1.15,5.89-1.72,9.54-1.72s6.73.56,9.51,1.68,5.04,2.71,6.76,4.76c1.72,2.05,2.75,4.46,3.1,7.21l-9.21,1.68c-.32-2.24-1.36-4-3.14-5.3-1.78-1.29-4.09-1.99-6.93-2.11-2.73-.11-4.94.34-6.63,1.36-1.69,1.02-2.54,2.42-2.54,4.2,0,1.03.32,1.91.97,2.63.65.72,1.9,1.41,3.77,2.07,1.87.66,4.62,1.45,8.27,2.37,3.9,1.01,7,2.12,9.3,3.34,2.3,1.22,3.94,2.67,4.93,4.35.99,1.68,1.49,3.71,1.49,6.09,0,4.59-1.67,8.19-5.02,10.81-3.34,2.61-7.96,3.92-13.84,3.92Z"/>
-      <path fill="#032a28" d="M606.17,130.92v-7.23h31.77v7.23h-31.77ZM637.94,170.18c-2.93.57-5.8.82-8.61.73-2.81-.09-5.32-.63-7.53-1.64-2.21-1-3.87-2.58-4.99-4.74-1-1.92-1.54-3.88-1.61-5.88-.07-1.99-.11-4.25-.11-6.78v-41.11h9.04v40.68c0,1.87.02,3.49.06,4.86s.34,2.54.88,3.49c1.03,1.78,2.68,2.79,4.93,3.03,2.25.24,4.9.15,7.94-.28v7.62Z"/>
-      <path fill="#032a28" d="M664.03,171.47c-4.62,0-8.67-1.01-12.16-3.03-3.49-2.02-6.2-4.85-8.14-8.48-1.94-3.63-2.91-7.84-2.91-12.63,0-5.08.95-9.48,2.86-13.22,1.91-3.73,4.57-6.61,7.99-8.65,3.41-2.04,7.39-3.06,11.92-3.06s8.77,1.1,12.1,3.29,5.82,5.32,7.47,9.36c1.65,4.05,2.3,8.85,1.96,14.42h-9v-3.27c-.06-5.4-1.08-9.38-3.08-11.97-1.99-2.58-5.03-3.87-9.1-3.87-4.51,0-7.89,1.42-10.16,4.26-2.27,2.84-3.4,6.95-3.4,12.31s1.13,9.06,3.4,11.86c2.27,2.8,5.54,4.2,9.82,4.2,2.81,0,5.24-.64,7.3-1.92,2.05-1.28,3.65-3.11,4.8-5.49l8.83,2.8c-1.81,4.16-4.55,7.38-8.22,9.66-3.67,2.28-7.76,3.42-12.27,3.42ZM647.45,149.47v-7.02h33.19v7.02h-33.19Z"/>
+      <path fill="#ffffff" d="M195.06,170.18v-61.99h9v53.51h28.07v8.48h-37.07Z"/>
+      <path fill="#ffffff" d="M257.91,171.47c-4.62,0-8.67-1.01-12.16-3.03-3.49-2.02-6.2-4.85-8.14-8.48-1.94-3.63-2.91-7.84-2.91-12.63,0-5.08.95-9.48,2.86-13.22,1.91-3.73,4.57-6.61,7.99-8.65,3.42-2.04,7.39-3.06,11.92-3.06s8.77,1.1,12.1,3.29c3.33,2.2,5.82,5.32,7.47,9.36,1.65,4.05,2.3,8.85,1.96,14.42h-9v-3.27c-.06-5.4-1.08-9.38-3.08-11.97-1.99-2.58-5.03-3.87-9.1-3.87-4.51,0-7.89,1.42-10.16,4.26-2.27,2.84-3.4,6.95-3.4,12.31s1.13,9.06,3.4,11.86c2.27,2.8,5.54,4.2,9.82,4.2,2.81,0,5.24-.64,7.3-1.92,2.05-1.28,3.65-3.11,4.8-5.49l8.83,2.8c-1.81,4.16-4.55,7.38-8.22,9.66-3.67,2.28-7.76,3.42-12.27,3.42ZM241.33,149.47v-7.02h33.19v7.02h-33.19Z"/>
+      <path fill="#ffffff" d="M301.52,170.18v-61.99h9.04v28.54h-1.03v33.45h-8.01ZM323.38,171.47c-4.45,0-8.18-1.08-11.19-3.25-3.01-2.17-5.3-5.1-6.84-8.8-1.55-3.7-2.32-7.88-2.32-12.53s.77-8.83,2.3-12.53c1.53-3.7,3.8-6.62,6.8-8.76,3-2.14,6.69-3.21,11.09-3.21s8.13,1.07,11.3,3.21c3.17,2.14,5.62,5.05,7.34,8.74,1.72,3.69,2.58,7.87,2.58,12.55s-.85,8.83-2.56,12.55c-1.71,3.72-4.13,6.65-7.28,8.8-3.14,2.15-6.88,3.23-11.21,3.23ZM322.14,163.33c2.87,0,5.24-.73,7.12-2.2,1.88-1.46,3.29-3.44,4.22-5.92.93-2.48,1.4-5.26,1.4-8.33s-.47-5.8-1.4-8.27c-.93-2.47-2.36-4.43-4.28-5.9-1.92-1.46-4.38-2.2-7.36-2.2-2.81,0-5.13.69-6.95,2.07-1.82,1.38-3.17,3.3-4.05,5.77-.88,2.47-1.31,5.31-1.31,8.52s.43,6.06,1.29,8.52c.86,2.47,2.22,4.41,4.09,5.81,1.87,1.41,4.28,2.11,7.23,2.11Z"/>
+      <path fill="#ffffff" d="M371.94,171.47c-4.65,0-8.68-1.05-12.1-3.14-3.42-2.09-6.05-4.99-7.9-8.67-1.85-3.69-2.78-7.94-2.78-12.76s.95-9.12,2.84-12.81c1.89-3.69,4.55-6.56,7.96-8.61,3.42-2.05,7.4-3.08,11.97-3.08s8.68,1.05,12.1,3.14c3.42,2.1,6.06,4.98,7.92,8.65,1.87,3.67,2.8,7.91,2.8,12.7s-.94,9.12-2.82,12.81c-1.88,3.69-4.53,6.57-7.94,8.65-3.42,2.08-7.43,3.12-12.05,3.12ZM371.94,162.99c4.45,0,7.77-1.5,9.97-4.5,2.2-3,3.29-6.87,3.29-11.6s-1.11-8.73-3.34-11.64c-2.22-2.91-5.53-4.37-9.92-4.37-3.01,0-5.5.68-7.45,2.04-1.95,1.36-3.4,3.24-4.35,5.64-.95,2.4-1.42,5.17-1.42,8.33,0,4.88,1.12,8.78,3.36,11.71,2.24,2.93,5.52,4.39,9.86,4.39Z"/>
+      <path fill="#ffffff" d="M402.03,170.18v-46.49h8.05v13.43h1.08v33.06h-9.13ZM434.71,170.18v-22.86c0-1.81-.15-3.67-.45-5.57-.3-1.91-.88-3.68-1.72-5.32-.85-1.64-2.04-2.96-3.57-3.96-1.54-1-3.54-1.51-6.01-1.51-1.61,0-3.13.27-4.56.8-1.44.53-2.69,1.39-3.77,2.56-1.08,1.18-1.92,2.73-2.54,4.65-.62,1.92-.93,4.26-.93,7.02l-5.6-2.11c0-4.22.79-7.94,2.37-11.17,1.58-3.23,3.85-5.75,6.8-7.56,2.96-1.81,6.53-2.71,10.72-2.71,3.21,0,5.91.52,8.09,1.55,2.18,1.03,3.95,2.39,5.32,4.07,1.36,1.68,2.4,3.51,3.12,5.49.72,1.98,1.21,3.92,1.46,5.81.26,1.89.39,3.56.39,4.99v25.83h-9.13Z"/>
+      <path fill="#ffffff" d="M486.41,171.47c-4.33,0-8.07-1.08-11.21-3.23-3.14-2.15-5.57-5.09-7.28-8.8-1.71-3.72-2.56-7.9-2.56-12.55s.86-8.86,2.58-12.55c1.72-3.69,4.17-6.6,7.34-8.74,3.17-2.14,6.94-3.21,11.3-3.21s8.09,1.07,11.09,3.21c3,2.14,5.27,5.06,6.8,8.76,1.53,3.7,2.3,7.88,2.3,12.53s-.77,8.83-2.32,12.53c-1.55,3.7-3.83,6.64-6.84,8.8-3.01,2.17-6.74,3.25-11.19,3.25ZM487.1,192.13c-2.5,0-4.92-.39-7.25-1.16-2.34-.78-4.47-1.92-6.39-3.42-1.92-1.51-3.52-3.37-4.78-5.57l8.31-4.22c1,1.98,2.44,3.43,4.3,4.35,1.87.92,3.83,1.38,5.9,1.38,2.55,0,4.74-.45,6.54-1.36,1.81-.9,3.18-2.26,4.11-4.07.93-1.81,1.38-4.05,1.36-6.72v-13h1.08v-34.65h7.96v47.74c0,1.23-.04,2.41-.13,3.53s-.24,2.24-.47,3.36c-.66,3.13-1.92,5.71-3.77,7.75-1.85,2.04-4.2,3.56-7.06,4.56-2.86,1-6.09,1.51-9.71,1.51ZM487.66,163.33c2.96,0,5.37-.7,7.23-2.11,1.87-1.41,3.23-3.34,4.09-5.81.86-2.47,1.29-5.31,1.29-8.52s-.44-6.06-1.31-8.52c-.88-2.47-2.22-4.39-4.05-5.77-1.82-1.38-4.14-2.07-6.95-2.07-2.99,0-5.44.73-7.36,2.2-1.92,1.46-3.35,3.43-4.28,5.9-.93,2.47-1.4,5.22-1.4,8.27s.47,5.85,1.4,8.33c.93,2.48,2.34,4.46,4.22,5.92,1.88,1.46,4.25,2.2,7.12,2.2Z"/>
+      <path fill="#ffffff" d="M538.76,171.47c-4.62,0-8.67-1.01-12.16-3.03-3.49-2.02-6.2-4.85-8.14-8.48-1.94-3.63-2.91-7.84-2.91-12.63,0-5.08.95-9.48,2.86-13.22,1.91-3.73,4.57-6.61,7.99-8.65,3.42-2.04,7.39-3.06,11.92-3.06s8.77,1.1,12.1,3.29c3.33,2.2,5.82,5.32,7.47,9.36,1.65,4.05,2.3,8.85,1.96,14.42h-9v-3.27c-.06-5.4-1.08-9.38-3.08-11.97s-5.03-3.87-9.1-3.87c-4.51,0-7.89,1.42-10.16,4.26-2.27,2.84-3.4,6.95-3.4,12.31s1.13,9.06,3.4,11.86c2.27,2.8,5.54,4.2,9.82,4.2,2.81,0,5.24-.64,7.3-1.92,2.05-1.28,3.65-3.11,4.8-5.49l8.83,2.8c-1.81,4.16-4.55,7.38-8.22,9.66s-7.76,3.42-12.27,3.42ZM522.18,149.47v-7.02h33.19v7.02h-33.19Z"/>
+      <path fill="#ffffff" d="M585.12,171.43c-5.65,0-10.26-1.25-13.82-3.75-3.56-2.5-5.74-6.01-6.54-10.55l9.21-1.42c.57,2.41,1.9,4.31,3.98,5.7,2.08,1.39,4.67,2.09,7.77,2.09,2.81,0,5.02-.57,6.61-1.72,1.59-1.15,2.39-2.73,2.39-4.74,0-1.18-.28-2.13-.84-2.86s-1.73-1.43-3.51-2.09c-1.78-.66-4.49-1.48-8.14-2.45-3.99-1.03-7.15-2.15-9.49-3.34-2.34-1.19-4-2.58-4.99-4.18-.99-1.59-1.49-3.52-1.49-5.79,0-2.81.75-5.27,2.24-7.36,1.49-2.09,3.59-3.72,6.31-4.86,2.71-1.15,5.89-1.72,9.54-1.72s6.73.56,9.51,1.68,5.04,2.71,6.76,4.76c1.72,2.05,2.75,4.46,3.1,7.21l-9.21,1.68c-.32-2.24-1.36-4-3.14-5.3-1.78-1.29-4.09-1.99-6.93-2.11-2.73-.11-4.94.34-6.63,1.36-1.69,1.02-2.54,2.42-2.54,4.2,0,1.03.32,1.91.97,2.63.65.72,1.9,1.41,3.77,2.07,1.87.66,4.62,1.45,8.27,2.37,3.9,1.01,7,2.12,9.3,3.34,2.3,1.22,3.94,2.67,4.93,4.35.99,1.68,1.49,3.71,1.49,6.09,0,4.59-1.67,8.19-5.02,10.81-3.34,2.61-7.96,3.92-13.84,3.92Z"/>
+      <path fill="#ffffff" d="M606.17,130.92v-7.23h31.77v7.23h-31.77ZM637.94,170.18c-2.93.57-5.8.82-8.61.73-2.81-.09-5.32-.63-7.53-1.64-2.21-1-3.87-2.58-4.99-4.74-1-1.92-1.54-3.88-1.61-5.88-.07-1.99-.11-4.25-.11-6.78v-41.11h9.04v40.68c0,1.87.02,3.49.06,4.86s.34,2.54.88,3.49c1.03,1.78,2.68,2.79,4.93,3.03,2.25.24,4.9.15,7.94-.28v7.62Z"/>
+      <path fill="#ffffff" d="M664.03,171.47c-4.62,0-8.67-1.01-12.16-3.03-3.49-2.02-6.2-4.85-8.14-8.48-1.94-3.63-2.91-7.84-2.91-12.63,0-5.08.95-9.48,2.86-13.22,1.91-3.73,4.57-6.61,7.99-8.65,3.41-2.04,7.39-3.06,11.92-3.06s8.77,1.1,12.1,3.29,5.82,5.32,7.47,9.36c1.65,4.05,2.3,8.85,1.96,14.42h-9v-3.27c-.06-5.4-1.08-9.38-3.08-11.97-1.99-2.58-5.03-3.87-9.1-3.87-4.51,0-7.89,1.42-10.16,4.26-2.27,2.84-3.4,6.95-3.4,12.31s1.13,9.06,3.4,11.86c2.27,2.8,5.54,4.2,9.82,4.2,2.81,0,5.24-.64,7.3-1.92,2.05-1.28,3.65-3.11,4.8-5.49l8.83,2.8c-1.81,4.16-4.55,7.38-8.22,9.66-3.67,2.28-7.76,3.42-12.27,3.42ZM647.45,149.47v-7.02h33.19v7.02h-33.19Z"/>
     </g>
     <g>
-      <path fill="#007271" d="M195.06,249.17v-38.74h2.88l15.87,34.28,15.71-34.28h2.99v38.69h-3.04v-31.56l-14.42,31.61h-2.53l-14.45-31.61v31.61h-3.01Z"/>
-      <path fill="#007271" d="M249.86,249.85c-1.6,0-3.03-.23-4.29-.7-1.26-.47-2.36-1.13-3.3-1.98-.93-.85-1.7-1.86-2.31-3.01-.61-1.16-1.06-2.43-1.36-3.81-.3-1.38-.44-2.82-.44-4.33v-15.9h3.12v15.12c0,1.83.18,3.46.55,4.9.37,1.44.92,2.65,1.67,3.66.74,1.01,1.68,1.77,2.8,2.29,1.12.52,2.44.78,3.97.78s2.95-.27,4.1-.82c1.16-.55,2.11-1.31,2.85-2.3.74-.99,1.3-2.16,1.67-3.51.37-1.35.55-2.83.55-4.43l2.45.3c0,3.14-.53,5.73-1.6,7.76-1.07,2.04-2.51,3.54-4.32,4.52s-3.85,1.47-6.11,1.47ZM259.74,249.17v-6.54h-.3v-22.52h3.12v29.06h-2.83Z"/>
-      <path fill="#007271" d="M269.29,249.17v-39.55h3.09v39.55h-3.09Z"/>
-      <path fill="#007271" d="M275.88,222.94v-2.83h18.65v2.83h-18.65ZM294.53,249.17c-1.54.34-3.07.47-4.57.39-1.51-.08-2.85-.42-4.02-1.02-1.18-.6-2.06-1.53-2.65-2.79-.48-1.02-.75-2.05-.81-3.09-.05-1.04-.08-2.23-.08-3.58v-27.04h3.12v26.99c0,1.22.01,2.23.04,3.03.03.8.21,1.53.55,2.19.65,1.24,1.67,1.99,3.07,2.25s3.18.22,5.35-.12v2.8Z"/>
-      <path fill="#007271" d="M299.29,214.25v-3.96h3.09v3.96h-3.09ZM299.29,249.17v-29.06h3.09v29.06h-3.09Z"/>
-      <path fill="#007271" d="M319.84,249.93c-3.35,0-6.12-.71-8.3-2.13-2.18-1.42-3.53-3.39-4.05-5.92l3.17-.54c.45,1.72,1.51,3.09,3.18,4.12,1.67,1.02,3.71,1.53,6.13,1.53s4.31-.51,5.73-1.53c1.42-1.02,2.13-2.42,2.13-4.2,0-.97-.22-1.76-.66-2.38-.44-.62-1.3-1.19-2.6-1.71s-3.21-1.13-5.76-1.83c-2.69-.72-4.79-1.43-6.31-2.15-1.52-.72-2.58-1.53-3.2-2.45s-.93-2.04-.93-3.36c0-1.6.46-3,1.37-4.21.91-1.21,2.19-2.16,3.83-2.84,1.64-.68,3.54-1.02,5.69-1.02s4.09.35,5.81,1.06c1.72.71,3.11,1.7,4.17,2.96,1.06,1.26,1.67,2.73,1.83,4.4l-3.17.59c-.31-1.87-1.25-3.34-2.83-4.43-1.58-1.09-3.55-1.64-5.92-1.65-2.24-.04-4.07.41-5.49,1.33-1.42.92-2.13,2.14-2.13,3.65,0,.86.25,1.59.74,2.19.49.6,1.37,1.15,2.62,1.65,1.26.5,3.03,1.04,5.33,1.61,2.8.72,4.98,1.45,6.55,2.21,1.57.75,2.68,1.64,3.32,2.65.65,1.01.97,2.26.97,3.75,0,2.69-1,4.8-3,6.34-2,1.53-4.75,2.3-8.25,2.3Z"/>
-      <path fill="#007271" d="M347.69,249.98c-2.78,0-5.18-.62-7.21-1.87-2.03-1.25-3.6-3.01-4.71-5.3-1.11-2.29-1.67-4.99-1.67-8.11s.55-5.91,1.65-8.22c1.1-2.3,2.66-4.08,4.68-5.31,2.02-1.24,4.42-1.86,7.2-1.86s5.22.64,7.22,1.92c2,1.28,3.52,3.13,4.57,5.56,1.05,2.42,1.55,5.34,1.49,8.74h-3.23v-1.08c-.09-3.98-.99-7.01-2.69-9.09-1.7-2.08-4.14-3.12-7.32-3.12s-5.82,1.08-7.6,3.24c-1.79,2.16-2.68,5.22-2.68,9.16s.89,6.94,2.68,9.09c1.78,2.15,4.3,3.23,7.55,3.23,2.24,0,4.2-.52,5.88-1.57,1.68-1.05,3.01-2.55,4-4.51l2.8,1.24c-1.17,2.51-2.85,4.45-5.06,5.81-2.21,1.36-4.73,2.04-7.56,2.04ZM336.23,235.53v-2.8h22.95v2.8h-22.95Z"/>
-      <path fill="#007271" d="M365.53,249.17v-29.06h2.82v6.97l-.7-.92c.32-.82.73-1.59,1.22-2.3.49-.71,1-1.29,1.52-1.74.77-.72,1.68-1.26,2.72-1.63,1.04-.37,2.09-.58,3.15-.65,1.06-.06,2.02.02,2.88.26v2.93c-1.15-.27-2.37-.32-3.66-.16-1.29.16-2.5.72-3.63,1.67-.99.86-1.7,1.86-2.15,3-.45,1.14-.74,2.33-.86,3.58-.13,1.25-.19,2.46-.19,3.65v14.39h-3.12Z"/>
-      <path fill="#007271" d="M390.77,249.17l-10.55-29.06h3.2l8.99,24.83,8.96-24.83h3.23l-10.55,29.06h-3.28Z"/>
-      <path fill="#007271" d="M408.63,214.25v-3.96h3.09v3.96h-3.09ZM408.63,249.17v-29.06h3.09v29.06h-3.09Z"/>
-      <path fill="#007271" d="M430.32,249.98c-2.91,0-5.35-.65-7.35-1.95-1.99-1.3-3.5-3.1-4.53-5.41-1.03-2.3-1.57-4.96-1.6-7.98.04-3.07.58-5.75,1.63-8.06,1.05-2.3,2.57-4.09,4.56-5.37,1.99-1.27,4.43-1.91,7.32-1.91s5.3.68,7.44,2.03c2.14,1.35,3.63,3.22,4.45,5.58l-3.01,1.1c-.74-1.81-1.89-3.22-3.47-4.21-1.58-1-3.39-1.49-5.43-1.49-2.3,0-4.19.52-5.68,1.57s-2.6,2.5-3.34,4.35c-.74,1.85-1.12,3.98-1.16,6.4.05,3.71.93,6.7,2.62,8.95,1.7,2.25,4.21,3.38,7.55,3.38,2.06,0,3.85-.48,5.37-1.43,1.52-.95,2.68-2.33,3.48-4.14l3.07,1.05c-1.13,2.46-2.71,4.33-4.74,5.61-2.03,1.28-4.42,1.92-7.18,1.92Z"/>
-      <path fill="#007271" d="M457.68,249.98c-2.78,0-5.18-.62-7.21-1.87-2.03-1.25-3.6-3.01-4.71-5.3-1.11-2.29-1.67-4.99-1.67-8.11s.55-5.91,1.65-8.22c1.1-2.3,2.66-4.08,4.68-5.31,2.02-1.24,4.42-1.86,7.2-1.86s5.22.64,7.22,1.92c2,1.28,3.52,3.13,4.57,5.56,1.05,2.42,1.55,5.34,1.49,8.74h-3.23v-1.08c-.09-3.98-.99-7.01-2.69-9.09-1.7-2.08-4.14-3.12-7.32-3.12s-5.82,1.08-7.6,3.24c-1.79,2.16-2.68,5.22-2.68,9.16s.89,6.94,2.68,9.09c1.78,2.15,4.3,3.23,7.55,3.23,2.24,0,4.2-.52,5.88-1.57,1.68-1.05,3.01-2.55,4-4.51l2.8,1.24c-1.17,2.51-2.85,4.45-5.06,5.81s-4.73,2.04-7.56,2.04ZM446.22,235.53v-2.8h22.95v2.8h-22.95Z"/>
-      <path fill="#007271" d="M486.25,249.93c-3.35,0-6.12-.71-8.3-2.13s-3.53-3.39-4.05-5.92l3.17-.54c.45,1.72,1.51,3.09,3.18,4.12,1.67,1.02,3.71,1.53,6.13,1.53s4.31-.51,5.73-1.53c1.42-1.02,2.13-2.42,2.13-4.2,0-.97-.22-1.76-.66-2.38-.44-.62-1.31-1.19-2.6-1.71s-3.21-1.13-5.76-1.83c-2.69-.72-4.79-1.43-6.31-2.15s-2.58-1.53-3.2-2.45-.93-2.04-.93-3.36c0-1.6.46-3,1.37-4.21.91-1.21,2.19-2.16,3.83-2.84,1.64-.68,3.54-1.02,5.69-1.02s4.09.35,5.81,1.06c1.72.71,3.11,1.7,4.17,2.96,1.06,1.26,1.67,2.73,1.83,4.4l-3.17.59c-.3-1.87-1.25-3.34-2.83-4.43-1.58-1.09-3.55-1.64-5.92-1.65-2.24-.04-4.07.41-5.49,1.33-1.42.92-2.13,2.14-2.13,3.65,0,.86.25,1.59.74,2.19.49.6,1.37,1.15,2.62,1.65,1.26.5,3.03,1.04,5.33,1.61,2.8.72,4.98,1.45,6.55,2.21,1.57.75,2.68,1.64,3.32,2.65.65,1.01.97,2.26.97,3.75,0,2.69-1,4.8-3,6.34-2,1.53-4.75,2.3-8.25,2.3Z"/>
+      <path fill="#ffffff" d="M195.06,249.17v-38.74h2.88l15.87,34.28,15.71-34.28h2.99v38.69h-3.04v-31.56l-14.42,31.61h-2.53l-14.45-31.61v31.61h-3.01Z"/>
+      <path fill="#ffffff" d="M249.86,249.85c-1.6,0-3.03-.23-4.29-.7-1.26-.47-2.36-1.13-3.3-1.98-.93-.85-1.7-1.86-2.31-3.01-.61-1.16-1.06-2.43-1.36-3.81-.3-1.38-.44-2.82-.44-4.33v-15.9h3.12v15.12c0,1.83.18,3.46.55,4.9.37,1.44.92,2.65,1.67,3.66.74,1.01,1.68,1.77,2.8,2.29,1.12.52,2.44.78,3.97.78s2.95-.27,4.1-.82c1.16-.55,2.11-1.31,2.85-2.3.74-.99,1.3-2.16,1.67-3.51.37-1.35.55-2.83.55-4.43l2.45.3c0,3.14-.53,5.73-1.6,7.76-1.07,2.04-2.51,3.54-4.32,4.52s-3.85,1.47-6.11,1.47ZM259.74,249.17v-6.54h-.3v-22.52h3.12v29.06h-2.83Z"/>
+      <path fill="#ffffff" d="M269.29,249.17v-39.55h3.09v39.55h-3.09Z"/>
+      <path fill="#ffffff" d="M275.88,222.94v-2.83h18.65v2.83h-18.65ZM294.53,249.17c-1.54.34-3.07.47-4.57.39-1.51-.08-2.85-.42-4.02-1.02-1.18-.6-2.06-1.53-2.65-2.79-.48-1.02-.75-2.05-.81-3.09-.05-1.04-.08-2.23-.08-3.58v-27.04h3.12v26.99c0,1.22.01,2.23.04,3.03.03.8.21,1.53.55,2.19.65,1.24,1.67,1.99,3.07,2.25s3.18.22,5.35-.12v2.8Z"/>
+      <path fill="#ffffff" d="M299.29,214.25v-3.96h3.09v3.96h-3.09ZM299.29,249.17v-29.06h3.09v29.06h-3.09Z"/>
+      <path fill="#ffffff" d="M319.84,249.93c-3.35,0-6.12-.71-8.3-2.13-2.18-1.42-3.53-3.39-4.05-5.92l3.17-.54c.45,1.72,1.51,3.09,3.18,4.12,1.67,1.02,3.71,1.53,6.13,1.53s4.31-.51,5.73-1.53c1.42-1.02,2.13-2.42,2.13-4.2,0-.97-.22-1.76-.66-2.38-.44-.62-1.3-1.19-2.6-1.71s-3.21-1.13-5.76-1.83c-2.69-.72-4.79-1.43-6.31-2.15-1.52-.72-2.58-1.53-3.2-2.45s-.93-2.04-.93-3.36c0-1.6.46-3,1.37-4.21.91-1.21,2.19-2.16,3.83-2.84,1.64-.68,3.54-1.02,5.69-1.02s4.09.35,5.81,1.06c1.72.71,3.11,1.7,4.17,2.96,1.06,1.26,1.67,2.73,1.83,4.4l-3.17.59c-.31-1.87-1.25-3.34-2.83-4.43-1.58-1.09-3.55-1.64-5.92-1.65-2.24-.04-4.07.41-5.49,1.33-1.42.92-2.13,2.14-2.13,3.65,0,.86.25,1.59.74,2.19.49.6,1.37,1.15,2.62,1.65,1.26.5,3.03,1.04,5.33,1.61,2.8.72,4.98,1.45,6.55,2.21,1.57.75,2.68,1.64,3.32,2.65.65,1.01.97,2.26.97,3.75,0,2.69-1,4.8-3,6.34-2,1.53-4.75,2.3-8.25,2.3Z"/>
+      <path fill="#ffffff" d="M347.69,249.98c-2.78,0-5.18-.62-7.21-1.87-2.03-1.25-3.6-3.01-4.71-5.3-1.11-2.29-1.67-4.99-1.67-8.11s.55-5.91,1.65-8.22c1.1-2.3,2.66-4.08,4.68-5.31,2.02-1.24,4.42-1.86,7.2-1.86s5.22.64,7.22,1.92c2,1.28,3.52,3.13,4.57,5.56,1.05,2.42,1.55,5.34,1.49,8.74h-3.23v-1.08c-.09-3.98-.99-7.01-2.69-9.09-1.7-2.08-4.14-3.12-7.32-3.12s-5.82,1.08-7.6,3.24c-1.79,2.16-2.68,5.22-2.68,9.16s.89,6.94,2.68,9.09c1.78,2.15,4.3,3.23,7.55,3.23,2.24,0,4.2-.52,5.88-1.57,1.68-1.05,3.01-2.55,4-4.51l2.8,1.24c-1.17,2.51-2.85,4.45-5.06,5.81-2.21,1.36-4.73,2.04-7.56,2.04ZM336.23,235.53v-2.8h22.95v2.8h-22.95Z"/>
+      <path fill="#ffffff" d="M365.53,249.17v-29.06h2.82v6.97l-.7-.92c.32-.82.73-1.59,1.22-2.3.49-.71,1-1.29,1.52-1.74.77-.72,1.68-1.26,2.72-1.63,1.04-.37,2.09-.58,3.15-.65,1.06-.06,2.02.02,2.88.26v2.93c-1.15-.27-2.37-.32-3.66-.16-1.29.16-2.5.72-3.63,1.67-.99.86-1.7,1.86-2.15,3-.45,1.14-.74,2.33-.86,3.58-.13,1.25-.19,2.46-.19,3.65v14.39h-3.12Z"/>
+      <path fill="#ffffff" d="M390.77,249.17l-10.55-29.06h3.2l8.99,24.83,8.96-24.83h3.23l-10.55,29.06h-3.28Z"/>
+      <path fill="#ffffff" d="M408.63,214.25v-3.96h3.09v3.96h-3.09ZM408.63,249.17v-29.06h3.09v29.06h-3.09Z"/>
+      <path fill="#ffffff" d="M430.32,249.98c-2.91,0-5.35-.65-7.35-1.95-1.99-1.3-3.5-3.1-4.53-5.41-1.03-2.3-1.57-4.96-1.6-7.98.04-3.07.58-5.75,1.63-8.06,1.05-2.3,2.57-4.09,4.56-5.37,1.99-1.27,4.43-1.91,7.32-1.91s5.3.68,7.44,2.03c2.14,1.35,3.63,3.22,4.45,5.58l-3.01,1.1c-.74-1.81-1.89-3.22-3.47-4.21-1.58-1-3.39-1.49-5.43-1.49-2.3,0-4.19.52-5.68,1.57s-2.6,2.5-3.34,4.35c-.74,1.85-1.12,3.98-1.16,6.4.05,3.71.93,6.7,2.62,8.95,1.7,2.25,4.21,3.38,7.55,3.38,2.06,0,3.85-.48,5.37-1.43,1.52-.95,2.68-2.33,3.48-4.14l3.07,1.05c-1.13,2.46-2.71,4.33-4.74,5.61-2.03,1.28-4.42,1.92-7.18,1.92Z"/>
+      <path fill="#ffffff" d="M457.68,249.98c-2.78,0-5.18-.62-7.21-1.87-2.03-1.25-3.6-3.01-4.71-5.3-1.11-2.29-1.67-4.99-1.67-8.11s.55-5.91,1.65-8.22c1.1-2.3,2.66-4.08,4.68-5.31,2.02-1.24,4.42-1.86,7.2-1.86s5.22.64,7.22,1.92c2,1.28,3.52,3.13,4.57,5.56,1.05,2.42,1.55,5.34,1.49,8.74h-3.23v-1.08c-.09-3.98-.99-7.01-2.69-9.09-1.7-2.08-4.14-3.12-7.32-3.12s-5.82,1.08-7.6,3.24c-1.79,2.16-2.68,5.22-2.68,9.16s.89,6.94,2.68,9.09c1.78,2.15,4.3,3.23,7.55,3.23,2.24,0,4.2-.52,5.88-1.57,1.68-1.05,3.01-2.55,4-4.51l2.8,1.24c-1.17,2.51-2.85,4.45-5.06,5.81s-4.73,2.04-7.56,2.04ZM446.22,235.53v-2.8h22.95v2.8h-22.95Z"/>
+      <path fill="#ffffff" d="M486.25,249.93c-3.35,0-6.12-.71-8.3-2.13s-3.53-3.39-4.05-5.92l3.17-.54c.45,1.72,1.51,3.09,3.18,4.12,1.67,1.02,3.71,1.53,6.13,1.53s4.31-.51,5.73-1.53c1.42-1.02,2.13-2.42,2.13-4.2,0-.97-.22-1.76-.66-2.38-.44-.62-1.31-1.19-2.6-1.71s-3.21-1.13-5.76-1.83c-2.69-.72-4.79-1.43-6.31-2.15s-2.58-1.53-3.2-2.45-.93-2.04-.93-3.36c0-1.6.46-3,1.37-4.21.91-1.21,2.19-2.16,3.83-2.84,1.64-.68,3.54-1.02,5.69-1.02s4.09.35,5.81,1.06c1.72.71,3.11,1.7,4.17,2.96,1.06,1.26,1.67,2.73,1.83,4.4l-3.17.59c-.3-1.87-1.25-3.34-2.83-4.43-1.58-1.09-3.55-1.64-5.92-1.65-2.24-.04-4.07.41-5.49,1.33-1.42.92-2.13,2.14-2.13,3.65,0,.86.25,1.59.74,2.19.49.6,1.37,1.15,2.62,1.65,1.26.5,3.03,1.04,5.33,1.61,2.8.72,4.98,1.45,6.55,2.21,1.57.75,2.68,1.64,3.32,2.65.65,1.01.97,2.26.97,3.75,0,2.69-1,4.8-3,6.34-2,1.53-4.75,2.3-8.25,2.3Z"/>
     </g></g>
                  </svg>
 
@@ -1424,7 +1249,7 @@
             
             <div class="text-center md:text-left text-sm">
                 <p>&copy; <span id="copyright-year">2026</span> Le bon geste. Tous droits réservés.</p>
-                <p class="mt-2 text-xs text-white/60">Services à la Personne déclaré n° SAP919151902</p>
+                <p class="mt-2 text-xs text-white/60 max-w-md">Entreprise individuelle - Déclaration Services à la Personne en cours d'enregistrement. Prestations éligibles au crédit d'impôt de 50 % (sous réserve de validation). TVA non applicable, art. 293 B du CGI.</p>
             </div>
             
             <div class="flex flex-wrap justify-center gap-x-4 gap-y-2">
@@ -1512,8 +1337,8 @@
             },
             'services': {
                 url: 'https://le-bon-geste.fr/catalogue',
-                title: "Catalogue et tarifs : services à la personne | Le bon geste",
-                description: "Grille tarifaire des services à la personne à Mazamet : taille de haies, tonte, petit bricolage, nettoyage et assistance à domicile."
+                title: "Catalogue des prestations : services à la personne | Le bon geste",
+                description: "Catalogue des prestations à Mazamet : taille de haies, tonte, petit bricolage, entretien des terrasses et assistance à domicile. Devis gratuit."
             },
             'sap': {
                 url: 'https://le-bon-geste.fr/avantage-sap',
@@ -1538,7 +1363,7 @@
             'faq': {
                 url: 'https://le-bon-geste.fr/faq',
                 title: "FAQ services à la personne à Mazamet | Le bon geste",
-                description: "Réponses aux questions fréquentes sur les services à la personne, les tarifs, le devis et l'Avance Immédiate Urssaf à Mazamet."
+                description: "Réponses aux questions fréquentes sur les services à la personne, le devis gratuit et l'Avance Immédiate Urssaf à Mazamet."
             },
             'mentions': {
                 url: 'https://le-bon-geste.fr/mentions-legales',
@@ -1780,18 +1605,6 @@
 
         window.addEventListener('popstate', function() {
             navigateTo(null, resolvePathToPageId(window.location.pathname));
-        });
-
-        // Sur mobile, les tableaux de prix sont présentés comme des cartes lisibles.
-        document.querySelectorAll('#page-services .catalog-price-table').forEach(function(table) {
-            const labels = Array.from(table.querySelectorAll('thead th')).map(function(header) {
-                return header.textContent.trim();
-            });
-            table.querySelectorAll('tbody tr').forEach(function(row) {
-                row.querySelectorAll('td').forEach(function(cell, index) {
-                    if (index > 0 && labels[index]) cell.setAttribute('data-label', labels[index]);
-                });
-            });
         });
 
         function updateHaieDetails() {
