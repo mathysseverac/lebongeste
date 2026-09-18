@@ -482,17 +482,28 @@
             }, 80);
         }
 
-        // Initialisation au chargement de la page selon l'URL actuelle
-        window.onload = function() {
-            // Retour de FormSubmit après l'envoi d'un devis : https://le-bon-geste.fr/?envoye=1
-            // (on passe par la page d'accueil + un paramètre plutôt que par /merci, qui dépend du routage de l'hébergeur)
-            if (new URLSearchParams(window.location.search).get('envoye') === '1') {
+        // Initialisation : on affiche la page correspondant à l'adresse actuelle.
+        function initialRoute() {
+            // Retour de FormSubmit après l'envoi d'un devis : https://le-bon-geste.fr/?envoye=1#envoye
+            // (accueil + paramètre, plutôt que /merci qui dépend du routage de l'hébergeur ;
+            //  le « #envoye » survit même si l'hébergeur supprime le « ?envoye=1 » en redirigeant)
+            const confirmed = new URLSearchParams(window.location.search).get('envoye') === '1'
+                           || window.location.hash === '#envoye';
+            if (confirmed) {
                 try { history.replaceState(null, '', '/'); } catch (e) { /* sans gravité */ }
                 navigateTo(null, 'merci');
                 return;
             }
             navigateTo(null, resolvePathToPageId(window.location.pathname));
-        };
+        }
+
+        // Le script est chargé avec « defer » : la page est déjà lue, on peut donc afficher la bonne page tout de suite
+        // (plus fiable que l'évènement « load », qui peut être retardé ou perdu selon les réglages de l'hébergeur).
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initialRoute);
+        } else {
+            initialRoute();
+        }
 
         // ==================== ÉVÈNEMENTS (remplacent les anciens onclick="..." dans le HTML) ====================
         document.addEventListener('click', function(event) {
