@@ -121,6 +121,10 @@
         .guide-link { display: inline-flex; gap: .35rem; align-items: center; margin-top: .8rem; color: #007271; font-weight: 600; font-size: .9rem; text-decoration: underline; text-underline-offset: .2rem; }
         .guide-warning { display: flex; gap: .8rem; align-items: flex-start; padding: 1.1rem 1.25rem; border-left: 3px solid #d5a928; background: #fff9e7; }
         .guide-warning > i { color: #a47700; font-size: 1.3rem; margin-top: .1rem; }
+        .guide-section h3 { color: #0f172a; font-size: 1.25rem; font-weight: 600; margin: 0 0 1rem; }
+        .guide-list { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .75rem; }
+        .guide-list li { display: flex; gap: .7rem; align-items: flex-start; color: #475569; line-height: 1.6; }
+        .guide-list li > i { flex: 0 0 auto; color: #007271; font-size: 1.2rem; margin-top: .15rem; }
         .guide-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
         @media (max-width: 767px) {
             .guide-steps { grid-template-columns: 1fr; }
