@@ -186,8 +186,8 @@
         const PAGES = {
             'accueil': {
                 url: 'https://le-bon-geste.fr/',
-                title: "Le bon geste à Mazamet : services à la personne à domicile",
-                description: "Jardinage, petit bricolage et services à la personne à Mazamet et alentours. Devis gratuit, 50 % de crédit d'impôt immédiat."
+                title: "Jardinier à Mazamet : haies, pelouses, petits travaux | Le bon geste",
+                description: "Taille de haies, tonte et petits travaux à domicile à Mazamet et alentours. Appelez Sylvain. 50 % de crédit d'impôt avec l'Avance Immédiate Urssaf."
             },
             'services': {
                 url: 'https://le-bon-geste.fr/catalogue',
@@ -206,8 +206,8 @@
             },
             'devis': {
                 url: 'https://le-bon-geste.fr/devis',
-                title: "Demander un devis gratuit | Le bon geste, Mazamet",
-                description: "Décrivez votre projet de jardinage ou de service à domicile : réponse sous 24 à 48 h, devis gratuit et sans engagement."
+                title: "Prendre rendez-vous | Le bon geste, Mazamet",
+                description: "Décrivez votre besoin de jardinage ou de petit service à domicile : réponse sous 24 à 48 h et devis gratuit avant toute intervention."
             },
             'contact': {
                 url: 'https://le-bon-geste.fr/contact',
@@ -528,3 +528,20 @@
         if (photoInput) {
             photoInput.addEventListener('change', function() { updateFileName(photoInput); });
         }
+
+// Photos facultatives : chaque photo ne s'affiche que si son fichier existe dans /assets/img/
+(function () {
+    document.querySelectorAll('img[data-photo-img]').forEach(function (img) {
+        var fig = img.closest('[data-photo]');
+        if (!fig) return;
+        function show() {
+            fig.hidden = false;
+            var group = fig.closest('[data-photo-group]');
+            if (group) group.hidden = false;
+            var host = fig.closest('[data-photo-host]');
+            if (host) host.classList.add('has-photo');
+        }
+        if (img.complete && img.naturalWidth > 0) show();
+        else img.addEventListener('load', function () { if (img.naturalWidth > 0) show(); });
+    });
+})();
