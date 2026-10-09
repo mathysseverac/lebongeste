@@ -7,3 +7,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
+
+# Photos : revérifiées toutes les 5 minutes (ajout/suppression visibles sans purge)
+/assets/img/*
+  Cache-Control: public, max-age=300, must-revalidate

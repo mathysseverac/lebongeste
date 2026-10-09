@@ -1,10 +1,11 @@
-Photos à ajouter dans ce dossier (le site les affiche automatiquement dès qu'elles existent ; sans fichier, la zone reste masquée) :
+Photos du site (dossier assets/img/ sur GitHub). Noms exacts, en minuscules, en .jpg :
 
-hero.jpg           Sylvain au travail dans un jardin, format portrait (4:5), environ 900 x 1125 px
-sylvain.jpg        Portrait carré de Sylvain, souriant, en extérieur, environ 800 x 800 px
-realisation-1.jpg  Jardin, haie ou pelouse entretenu, format paysage (4:3), environ 900 x 675 px
-realisation-2.jpg  idem
-realisation-3.jpg  idem
+hero.jpg          Grande photo du haut de la page d'accueil. FORMAT PAYSAGE (large), 1600 px de large environ.
+                  Sylvain au travail (haie, tonte...), de l'espace libre à gauche pour le texte. Moins de 1 Mo.
+sylvain.jpg       Portrait carré de Sylvain, souriant, en extérieur (800 x 800).
+realisation-1.jpg Réalisations, format paysage 4:3 (900 x 675).
+realisation-2.jpg
+realisation-3.jpg
 
-Conseils : JPG de moins de 300 Ko chacun, vraies photos de vos interventions.
-Si une photo ne correspond pas au texte alternatif (attribut alt dans index.html), adaptez-le.
+Une photo absente n'affiche rien (la section se masque toute seule).
+Attention : un fichier .heic renommé en .jpg ne fonctionne pas. Exporter en vrai JPEG.

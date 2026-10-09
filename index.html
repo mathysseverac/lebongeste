@@ -33,7 +33,7 @@
 
     
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
-    <link rel="stylesheet" href="/assets/style.css?v=6c81b1c7">
+    <link rel="stylesheet" href="/assets/style.css?v=1c624a51">
 
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
@@ -126,43 +126,41 @@
         <!-- ==================== PAGE : ACCUEIL (landing) ==================== -->
         <section id="page-accueil" class="page-view active-page relative border-b border-gray-200">
 
-            <!-- Bandeau principal -->
-            <div class="lp-hero">
-                <div class="lp-wrap">
-                    <div class="lp-hero-grid">
-                        <div>
-                            <p class="lp-kicker">Mazamet · Aiguefonde · communes voisines</p>
-                            <h1 class="font-arboria lp-h1">Jardinage et petits travaux chez vous, <span class="lp-accent">à Mazamet.</span></h1>
-                            <p class="lp-lead">Sylvain s'occupe de vos haies, de votre pelouse et de vos petits travaux. Un seul interlocuteur, du premier appel à la facture.</p>
+            <!-- Bandeau principal : photo plein cadre (assets/img/hero.jpg), fond vert si la photo n'existe pas -->
+            <div class="lp-hero" data-photo-host>
+                <figure class="lp-hero-bg" data-photo hidden>
+                    <img src="/assets/img/hero.jpg" alt="Sylvain au travail dans un jardin à Mazamet" width="1600" height="900" data-photo-img>
+                </figure>
+                <div class="lp-hero-veil" aria-hidden="true"></div>
+                <div class="lp-wrap lp-hero-inner">
+                    <p class="lp-kicker">Mazamet · Aiguefonde · communes voisines</p>
+                    <h1 class="font-arboria lp-h1">Jardinage et petits travaux chez vous, <span class="lp-accent">à Mazamet.</span></h1>
+                    <p class="lp-lead">Sylvain s'occupe de vos haies, de votre pelouse et de vos petits travaux. Un seul interlocuteur, du premier appel à la facture.</p>
 
-                            <div class="lp-actions">
-                                <a href="tel:+33610669435" class="lp-btn lp-btn-primary">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-                                    Appeler Sylvain · 06 10 66 94 35
-                                </a>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lp-btn lp-btn-ghost">Prendre rendez-vous</a>
-                            </div>
-
-                            <ul class="lp-checks">
-                                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i><span>50 % de crédit d'impôt avec l'Avance Immédiate Urssaf, <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap">comment ça marche</a></span></li>
-                                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i><span>Réponse sous 24 à 48 h</span></li>
-                                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i><span>Un devis clair avant chaque intervention</span></li>
-                            </ul>
-                        </div>
-
-                        <div class="lp-aside" data-photo-host>
-                            <!-- Photo à ajouter : /assets/img/hero.jpg (format portrait). Tant que le fichier n'existe pas, elle reste masquée. -->
-                            <figure class="lp-photo lp-hero-photo" data-photo hidden>
-                                <img src="/assets/img/hero.jpg" alt="Sylvain au travail dans un jardin à Mazamet" width="900" height="1125" data-photo-img>
-                            </figure>
-                            <div class="lp-card50">
-                                <span class="lp-card50-label">Votre avantage</span>
-                                <div class="lp-card50-num">50 %</div>
-                                <p>de crédit d'impôt sur les prestations de services à la personne.</p>
-                                <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap">En savoir plus</a>
-                            </div>
-                        </div>
+                    <div class="lp-actions">
+                        <a href="tel:+33610669435" class="lp-btn lp-btn-primary">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+                            Appeler Sylvain · 06 10 66 94 35
+                        </a>
+                        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lp-btn lp-btn-ghost">Prendre rendez-vous</a>
                     </div>
+
+                    <ul class="lp-glass">
+                        <li>
+                            <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap">
+                                <strong>50 %</strong>
+                                <span>de crédit d'impôt avec l'Avance Immédiate Urssaf</span>
+                            </a>
+                        </li>
+                        <li>
+                            <strong>24-48 h</strong>
+                            <span>pour recevoir une réponse de Sylvain</span>
+                        </li>
+                        <li>
+                            <strong>20 km</strong>
+                            <span>autour de Mazamet, devis clair avant chaque intervention</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 

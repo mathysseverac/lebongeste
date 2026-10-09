@@ -57,7 +57,7 @@
         }
 
         /* Page Avantage SAP : composition dédiée, sans effet de carte surdimensionné */
-        .sap-page { background: #f5f8f7; }
+        .sap-page { background: #f6f3ec; }
         .sap-kicker { color: #007271; font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
         .sap-hero h2 { letter-spacing: -.045em; }
         .sap-highlight { background: #007271; color: #fff; padding: 2rem 2.25rem; border-radius: 16px; }
@@ -263,3 +263,62 @@ body{padding-bottom:4.4rem}
 }
 #header .hdr-call{white-space:nowrap}
 .hdr-call svg{width:1rem;height:1rem;flex:none}
+
+
+/* ===== Refonte v2 : hero plein cadre, menu pastille, fonds chauds ===== */
+body.bg-gray-light{background-color:#f6f3ec}
+.bg-teal-light,.hover\:bg-teal-light:hover{background-color:#e8f0e4}
+.lp-band-tint{background:#eef2e6}
+.lp-band-white{background:#fffefb}
+.lp-checks i{color:#4f8f3a}
+.bg-teal.rounded-md{border-radius:999px}
+.rounded-lg{border-radius:1rem}
+.lp-btn{border-radius:999px}
+.lp-service{border-radius:1.1rem}
+.lp-plafonds{border-radius:1.1rem}
+.lp-photo{border-radius:1.1rem}
+
+/* Menu en pastille flottante */
+#header{top:.75rem!important;padding:0 .75rem;background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;pointer-events:none}
+#header>div:first-child{pointer-events:auto;max-width:76rem;margin:0 auto;padding:0 .6rem 0 1.4rem;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:999px;box-shadow:0 8px 28px rgba(3,42,40,.16)}
+#header>div:first-child>div{height:4.25rem}
+#header a.w-48{width:8.4rem}
+#header .hdr-call{border-radius:999px;padding:.7rem 1.25rem}
+#mobile-menu{pointer-events:auto;top:calc(100% + .5rem);left:.75rem;right:.75rem;width:auto;border:0;border-radius:1.4rem;overflow:hidden}
+
+/* Hero plein cadre */
+.lp-hero{position:relative;overflow:hidden;display:flex;align-items:flex-end;min-height:38rem;margin-top:-6rem;padding:9rem 0 2rem;color:#fff;background:linear-gradient(135deg,#032a28 0%,#0b4f43 55%,#2f6b3a 100%)}
+@media(min-width:1024px){.lp-hero{min-height:min(46rem,92vh);padding:10rem 0 2.75rem}}
+.lp-hero-bg{position:absolute;inset:0;margin:0}
+.lp-hero-bg[hidden]{display:none}
+.lp-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.lp-hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,28,24,.45) 0%,rgba(3,28,24,.78) 100%)}
+@media(min-width:1024px){.lp-hero-veil{background:linear-gradient(90deg,rgba(3,28,24,.8) 0%,rgba(3,28,24,.5) 52%,rgba(3,28,24,.12) 100%),linear-gradient(0deg,rgba(3,28,24,.55) 0%,rgba(3,28,24,0) 40%)}}
+.lp-hero-inner{position:relative;width:100%}
+.lp-hero .lp-kicker{color:#cfeec0}
+.lp-hero .lp-h1{color:#fff;font-size:2.5rem;max-width:40rem}
+@media(min-width:640px){.lp-hero .lp-h1{font-size:3.4rem}}
+@media(min-width:1024px){.lp-hero .lp-h1{font-size:4.2rem}}
+.lp-hero .lp-accent{color:#a6dc8f}
+.lp-hero .lp-lead{color:rgba(255,255,255,.92);max-width:34rem}
+.lp-hero .lp-actions{margin:0 0 2.25rem}
+.lp-hero .lp-btn-primary{background:#fff;color:#032a28}
+.lp-hero .lp-btn-primary:hover{background:#e6f2f2}
+.lp-hero .lp-btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.65)}
+.lp-hero .lp-btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff;color:#fff}
+.lp-glass{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+@media(min-width:1024px){.lp-glass{max-width:46rem;gap:.9rem}}
+.lp-glass li,.lp-glass li>a{display:block}
+.lp-glass li{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);border-radius:1.1rem;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:.85rem .8rem}
+@media(min-width:640px){.lp-glass li{padding:1.1rem 1.2rem}}
+.lp-glass strong{display:block;font-size:1.35rem;line-height:1.1;font-weight:600;color:#fff;margin-bottom:.35rem}
+@media(min-width:640px){.lp-glass strong{font-size:2rem}}
+.lp-glass span{display:block;font-size:.72rem;line-height:1.4;color:rgba(255,255,255,.88)}
+@media(min-width:640px){.lp-glass span{font-size:.84rem}}
+.lp-glass li>a:hover strong{text-decoration:underline;text-underline-offset:4px}
+
+@media(max-width:767px){.lp-hero{min-height:0;padding:7.5rem 0 5.5rem}.lp-hero .lp-h1{font-size:2.15rem}.lp-hero .lp-actions{margin-bottom:1.5rem}}
+
+.bg-gray-50,.hover\:bg-gray-50:hover{background-color:#faf8f2}
+.bg-gray-100{background-color:#f1eee5}
+.border-gray-200{border-color:#e6e1d4}
