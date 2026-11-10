@@ -18,11 +18,8 @@
     <meta property="og:title" id="og-title" content="Jardinier à Mazamet : haies, pelouses, petits travaux | Le bon geste">
     <meta property="og:description" id="og-description" content="Taille de haies, tonte et petits travaux à domicile à Mazamet et alentours. Appelez Sylvain. 50 % de déduction via la coopérative Unipros.">
     <meta property="og:url" id="og-url" content="https://le-bon-geste.fr/">
-    <!-- Image de partage à ajouter : voir note en fin de fichier. En son absence, les liens partagés afficheront un simple rectangle sans visuel. -->
-    <!-- <meta property="og:image" content="https://le-bon-geste.fr/partage.jpg"> -->
     <meta name="twitter:card" content="summary">
 
-    <!-- Favicon SVG -->
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -31,10 +28,8 @@
     <meta name="apple-mobile-web-app-title" content="Le bon geste" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
     <link rel="stylesheet" href="/assets/style.css?v=27328d79">
-
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -126,7 +121,6 @@
         <!-- ==================== PAGE : ACCUEIL (landing) ==================== -->
         <section id="page-accueil" class="page-view active-page relative border-b border-gray-200">
 
-            <!-- Bandeau principal : photo plein cadre (assets/img/hero.jpg), fond vert si la photo n'existe pas -->
             <div class="lp-hero" data-photo-host>
                 <figure class="lp-hero-bg" data-photo hidden>
                     <img src="/assets/img/hero.jpg" alt="Sylvain au travail dans un jardin à Mazamet" width="1600" height="900" data-photo-img>
@@ -175,7 +169,7 @@
                             <h3>Taille de haies</h3>
                             <p>Haies basses, moyennes ou hautes (jusqu'à 3 m, depuis le sol), avec une taille soignée.</p>
                             <div class="lp-service-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-prestation="jardin" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour ma haie</a>
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour ma haie</a>
                                 <a href="https://le-bon-geste.fr/catalogue#service-haies" data-nav-service="service-haies" class="lp-link">Voir le détail</a>
                             </div>
                         </div>
@@ -184,7 +178,7 @@
                             <h3>Pelouses et tonte</h3>
                             <p>Tonte soignée et finitions des bordures, pour un jardin net toute la saison.</p>
                             <div class="lp-service-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-prestation="jardin" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour ma pelouse</a>
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour ma pelouse</a>
                                 <a href="https://le-bon-geste.fr/catalogue#service-pelouses" data-nav-service="service-pelouses" class="lp-link">Voir le détail</a>
                             </div>
                         </div>
@@ -193,7 +187,7 @@
                             <h3>Petit bricolage</h3>
                             <p>Fixer une étagère, accrocher un cadre, monter un petit meuble : des interventions de 2 h maximum.</p>
                             <div class="lp-service-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-prestation="bricolage" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour un petit travail</a>
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="bricolage" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour un petit travail</a>
                                 <a href="https://le-bon-geste.fr/catalogue#service-bricolage" data-nav-service="service-bricolage" class="lp-link">Voir le détail</a>
                             </div>
                         </div>
@@ -202,7 +196,7 @@
                             <h3>Terrasses et allées</h3>
                             <p>Entretien courant des terrasses, allées et margelles de votre jardin.</p>
                             <div class="lp-service-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-prestation="nettoyage" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour mes allées</a>
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="nettoyage" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour mes allées</a>
                                 <a href="https://le-bon-geste.fr/catalogue#service-nettoyage" data-nav-service="service-nettoyage" class="lp-link">Voir le détail</a>
                             </div>
                         </div>
@@ -230,13 +224,13 @@
                         <div class="lp-step">
                             <span class="lp-step-num">03</span>
                             <h3>Il intervient, puis la facture</h3>
-                            <p>Une fois le travail terminé, en passant par la coopérative Unipros, vous ne réglez que la moitié de la facture.</p>
+                            <p>Une fois le travail terminé, la facture est émise par la coopérative Unipros. Vous ne réglez que la moitié.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Avantage fiscal (remplacé par Avantage Unipros) -->
+            <!-- Avantage Unipros -->
             <div class="lp-band lp-band-tint">
                 <div class="lp-wrap lp-split">
                     <div>
@@ -371,7 +365,7 @@
 
                             <div class="mt-5 pt-4 border-t border-gray-100">
                                 <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-prestation="jardin" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour ma haie</a>
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour ma haie</a>
                             </div>
 
                             <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
@@ -407,7 +401,7 @@
 
                             <div class="mt-5 pt-4 border-t border-gray-100">
                                 <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-prestation="jardin" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour ma pelouse</a>
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour ma pelouse</a>
                             </div>
 
                             <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
@@ -439,7 +433,7 @@
 
                             <div class="mt-5 pt-4 border-t border-gray-100">
                                 <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre besoin.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-prestation="bricolage" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour un petit travail</a>
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="bricolage" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour un petit travail</a>
                             </div>
 
                             <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
@@ -469,7 +463,7 @@
 
                             <div class="mt-5 pt-4 border-t border-gray-100">
                                 <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-prestation="nettoyage" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour mes allées et terrasses</a>
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="nettoyage" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour mes allées et terrasses</a>
                             </div>
 
                             <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
@@ -486,7 +480,7 @@
                                     <span class="inline-block bg-teal-light text-teal-dark px-3 py-1 rounded-md text-sm font-bold">3 000 € / an</span>
                                 </div>
                             </div>
-                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Assistance multimédia & confort</h3>
+                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Assistance multimédia &amp; confort</h3>
                             <p class="text-teal font-medium text-sm mb-4"><i class="ph-fill ph-check-circle"></i> Aide simple et pratique à domicile</p>
 
                             <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
@@ -496,17 +490,17 @@
                             <ul class="text-slate-600 space-y-3 text-sm flex-grow border-t border-gray-100 pt-4">
                                 <li class="flex items-start gap-3">
                                     <i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i>
-                                    <span><strong>Informatique & Box :</strong> Mise en service PC, tablettes, smartphones, imprimantes, configuration Wi-Fi et initiation numérique.</span>
+                                    <span><strong>Informatique &amp; Box :</strong> Mise en service PC, tablettes, smartphones, imprimantes, configuration Wi-Fi et initiation numérique.</span>
                                 </li>
                                 <li class="flex items-start gap-3">
                                     <i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i>
-                                    <span><strong>Vigilance & Petites tâches :</strong> Relevé de courrier, arrosage d'intérieur, entretien des filtres VMC et climatisations lavables.</span>
+                                    <span><strong>Vigilance &amp; Petites tâches :</strong> Relevé de courrier, arrosage d'intérieur, entretien des filtres VMC et climatisations lavables.</span>
                                 </li>
                             </ul>
 
                             <div class="mt-5 pt-4 border-t border-gray-100">
                                 <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre besoin.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-prestation="assistance" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour une assistance</a>
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="assistance" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour une assistance</a>
                             </div>
 
                             <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
@@ -596,142 +590,141 @@
         </section>
 
         <!-- ==================== PAGE : DEVIS ==================== -->
-<section id="page-devis" class="page-view relative py-12 lg:py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center mb-12">
-            <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-3">Rendez-vous</p>
-            <h2 class="font-arboria text-4xl md:text-5xl text-slate-900 mb-4">Prendre rendez-vous avec Sylvain</h2>
-            <p class="text-slate-600 text-lg">Décrivez votre besoin. Sylvain vous répond sous 24 à 48 h et vous remet un devis gratuit avant toute intervention.</p>
-        </div>
-
-        <form id="devis-form" action="https://formsubmit.co/contact.lebongeste@gmail.com" method="POST" enctype="multipart/form-data" class="bg-gray-light p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm space-y-8" novalidate>
-            
-            <input type="hidden" name="_subject" value="Nouveau devis - Le bon geste">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://le-bon-geste.fr/?envoye=1#envoye">
-              <!-- Piège à robots (honeypot FormSubmit) : invisible pour un humain, une soumission qui le remplit est ignorée -->
-              <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-            
-            <!-- 1. Vos coordonnées -->
-            <div>
-                <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">1. Vos coordonnées</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                        <label for="nom" class="block text-sm font-medium text-slate-700 mb-1">Nom et Prénom *</label>
-                        <input type="text" id="nom" name="nom" maxlength="100" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all" aria-describedby="err-nom">
-                        <p id="err-nom" class="hidden mt-1.5 text-sm text-red-600">Indiquez votre nom et prénom.</p>
-                    </div>
-                    <div>
-                        <label for="tel" class="block text-sm font-medium text-slate-700 mb-1">Numéro de téléphone *</label>
-                        <input type="tel" id="tel" name="tel" maxlength="25" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all" aria-describedby="err-tel">
-                        <p id="err-tel" class="hidden mt-1.5 text-sm text-red-600">Indiquez un numéro de téléphone pour vous rappeler.</p>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Adresse email *</label>
-                        <input type="email" id="email" name="email" maxlength="254" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all" aria-describedby="err-email">
-                        <p id="err-email" class="hidden mt-1.5 text-sm text-red-600">Cette adresse email n'est pas valide.</p>
-                    </div>
-                    <div class="relative">
-                        <label for="ville" class="block text-sm font-medium text-slate-700 mb-1">Code postal ou Ville * <span class="text-xs text-slate-500 font-normal">(Mazamet et alentours)</span></label>
-                        <input type="text" id="ville" name="ville" maxlength="100" autocomplete="off" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all" placeholder="Ex: 81200 ou Mazamet" aria-describedby="err-ville">
-                        <ul id="ville-results" class="absolute z-10 w-full bg-white border border-gray-200 shadow-lg rounded-md mt-1 hidden max-h-48 overflow-y-auto"></ul>
-                        <p id="err-ville" class="hidden mt-1.5 text-sm text-red-600">Indiquez votre code postal ou votre commune.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. Type de prestation -->
-            <div>
-                <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">2. Type de prestation souhaitée</h3>
-                <div class="space-y-3">
-                    <label class="devis-service-option">
-                        <input type="radio" name="prestation" value="jardin" checked class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                        <span><strong>Jardinage & espaces verts</strong><small>Taille de haies, tonte et débroussaillage</small></span>
-                    </label>
-                    <label class="devis-service-option">
-                        <input type="radio" name="prestation" value="bricolage" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                        <span><strong>Petit bricolage</strong><small>Montage, fixations et petits dépannages</small></span>
-                    </label>
-                    <label class="devis-service-option">
-                        <input type="radio" name="prestation" value="nettoyage" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                        <span><strong>Entretien des terrasses et allées</strong><small>Nettoyage et rinçage de surface</small></span>
-                    </label>
-                    <label class="devis-service-option">
-                        <input type="radio" name="prestation" value="assistance" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                        <span><strong>Assistance à domicile</strong><small>Multimédia, petites tâches et confort</small></span>
-                    </label>
-                    <label class="devis-service-option">
-                        <input type="radio" name="prestation" value="autre" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
-                        <span><strong>Autre besoin</strong><small>Décrivez votre demande dans le message</small></span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- 3. Détails du projet -->
-            <div>
-                <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">3. Détails de votre projet</h3>
+        <section id="page-devis" class="page-view relative py-12 lg:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div id="haie-details" class="hidden bg-white p-5 border border-gray-200 rounded-md mb-5 space-y-5" aria-hidden="true">
-                    <p class="text-sm font-semibold text-slate-700">Pour une taille de haie, ces précisions permettent de préparer le devis :</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="longueur-haie" class="block text-sm text-slate-600 mb-1">Longueur estimée (en ml)</label>
-                            <input type="number" id="longueur-haie" name="longueur_haie" min="1" max="1000" placeholder="Ex: 15" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none">
-                        </div>
-                        <div>
-                            <label for="hauteur-haie" class="block text-sm text-slate-600 mb-1">Hauteur approximative</label>
-                            <select id="hauteur-haie" name="hauteur_haie" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none bg-white">
-                                <option value="">Sélectionnez...</option>
-                                <option value="basse">&lt; 1,50 m</option>
-                                <option value="standard">1,50 m à 2 m</option>
-                                <option value="haute">2 m à 3 m</option>
-                            </select>
+                <div class="text-center mb-12">
+                    <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-3">Rendez-vous</p>
+                    <h2 class="font-arboria text-4xl md:text-5xl text-slate-900 mb-4">Prendre rendez-vous avec Sylvain</h2>
+                    <p class="text-slate-600 text-lg">Décrivez votre besoin. Sylvain vous répond sous 24 à 48 h et vous remet un devis gratuit avant toute intervention.</p>
+                </div>
+
+                <form id="devis-form" action="https://formsubmit.co/contact.lebongeste@gmail.com" method="POST" enctype="multipart/form-data" class="bg-gray-light p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm space-y-8" novalidate>
+                    
+                    <input type="hidden" name="_subject" value="Nouveau devis - Le bon geste">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://le-bon-geste.fr/?envoye=1#envoye">
+                    <!-- Piège à robots (honeypot FormSubmit) -->
+                    <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    
+                    <!-- 1. Vos coordonnées -->
+                    <div>
+                        <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">1. Vos coordonnées</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label for="nom" class="block text-sm font-medium text-slate-700 mb-1">Nom et Prénom *</label>
+                                <input type="text" id="nom" name="nom" maxlength="100" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all" aria-describedby="err-nom">
+                                <p id="err-nom" class="hidden mt-1.5 text-sm text-red-600">Indiquez votre nom et prénom.</p>
+                            </div>
+                            <div>
+                                <label for="tel" class="block text-sm font-medium text-slate-700 mb-1">Numéro de téléphone *</label>
+                                <input type="tel" id="tel" name="tel" maxlength="25" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all" aria-describedby="err-tel">
+                                <p id="err-tel" class="hidden mt-1.5 text-sm text-red-600">Indiquez un numéro de téléphone pour vous rappeler.</p>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Adresse email *</label>
+                                <input type="email" id="email" name="email" maxlength="254" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all" aria-describedby="err-email">
+                                <p id="err-email" class="hidden mt-1.5 text-sm text-red-600">Cette adresse email n'est pas valide.</p>
+                            </div>
+                            <div class="relative">
+                                <label for="ville" class="block text-sm font-medium text-slate-700 mb-1">Code postal ou Ville * <span class="text-xs text-slate-500 font-normal">(Mazamet et alentours)</span></label>
+                                <input type="text" id="ville" name="ville" maxlength="100" autocomplete="off" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all" placeholder="Ex: 81200 ou Mazamet" aria-describedby="err-ville">
+                                <ul id="ville-results" class="absolute z-10 w-full bg-white border border-gray-200 shadow-lg rounded-md mt-1 hidden max-h-48 overflow-y-auto"></ul>
+                                <p id="err-ville" class="hidden mt-1.5 text-sm text-red-600">Indiquez votre code postal ou votre commune.</p>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-sm text-slate-600 pt-1">Taille d'entretien courant jusqu'à 3 m, depuis le sol.</p>
-                </div>
 
-                <div>
-                    <label for="description" class="block text-sm font-medium text-slate-700 mb-1">Description de votre besoin</label>
-                    <p class="text-xs text-slate-500 mb-2">État actuel, accès au terrain, surface à entretenir, etc.</p>
-                    <textarea id="description" name="description" rows="4" maxlength="2000" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all resize-y" placeholder="Détaillez votre demande ici..."></textarea>
-                </div>
-            </div>
-
-            <!-- 4. Photos -->
-            <div>
-                <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">4. Photos du chantier (facultatif mais utile)</h3>
-                <div class="flex items-center justify-center w-full">
-                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-50 transition-colors hover:border-teal/50">
-                        <div class="flex flex-col items-center justify-center pt-5 pb-6 w-full overflow-hidden" id="dropzone-content">
-                            <i class="ph-fill ph-camera text-3xl text-slate-400 mb-2"></i>
-                            <p class="mb-1 text-sm text-slate-600"><span class="font-semibold text-teal">Cliquez pour ajouter</span> ou glissez vos photos</p>
-                            <p class="text-xs text-slate-500 text-center px-4">Ajoutez 1 à 3 photos depuis votre smartphone ou PC</p>
+                    <!-- 2. Type de prestation -->
+                    <div>
+                        <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">2. Type de prestation souhaitée</h3>
+                        <div class="space-y-3">
+                            <label class="devis-service-option">
+                                <input type="radio" name="prestation" value="jardin" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                <span><strong>Jardinage &amp; espaces verts</strong><small>Taille de haies, tonte et débroussaillage</small></span>
+                            </label>
+                            <label class="devis-service-option">
+                                <input type="radio" name="prestation" value="bricolage" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                <span><strong>Petit bricolage</strong><small>Montage, fixations et petits dépannages</small></span>
+                            </label>
+                            <label class="devis-service-option">
+                                <input type="radio" name="prestation" value="nettoyage" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                <span><strong>Entretien des terrasses et allées</strong><small>Nettoyage et rinçage de surface</small></span>
+                            </label>
+                            <label class="devis-service-option">
+                                <input type="radio" name="prestation" value="assistance" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                <span><strong>Assistance à domicile</strong><small>Multimédia, petites tâches et confort</small></span>
+                            </label>
+                            <label class="devis-service-option">
+                                <input type="radio" name="prestation" value="autre" class="mt-1 w-4 h-4 text-teal focus:ring-teal border-gray-300">
+                                <span><strong>Autre besoin</strong><small>Décrivez votre demande dans le message</small></span>
+                            </label>
                         </div>
-                        <input id="dropzone-file" type="file" name="photos" class="hidden" multiple accept="image/png, image/jpeg, image/jpg" />
-                    </label>
-                </div>
+                    </div>
+
+                    <!-- 3. Détails du projet -->
+                    <div>
+                        <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">3. Détails de votre projet</h3>
+                        
+                        <div id="haie-details" class="hidden bg-white p-5 border border-gray-200 rounded-md mb-5 space-y-5" aria-hidden="true">
+                            <p class="text-sm font-semibold text-slate-700">Pour une taille de haie, ces précisions permettent de préparer le devis :</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="longueur-haie" class="block text-sm text-slate-600 mb-1">Longueur estimée (en ml)</label>
+                                    <input type="number" id="longueur-haie" name="longueur_haie" placeholder="Ex: 15" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none">
+                                </div>
+                                <div>
+                                    <label for="hauteur-haie" class="block text-sm text-slate-600 mb-1">Hauteur approximative</label>
+                                    <select id="hauteur-haie" name="hauteur_haie" class="w-full px-4 py-2 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none bg-white">
+                                        <option value="">Sélectionnez...</option>
+                                        <option value="basse">&lt; 1,50 m</option>
+                                        <option value="standard">1,50 m à 2 m</option>
+                                        <option value="haute">2 m à 3 m</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-600 pt-1">Taille d'entretien courant jusqu'à 3 m, depuis le sol.</p>
+                        </div>
+
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-slate-700 mb-1">Description de votre besoin</label>
+                            <p class="text-xs text-slate-500 mb-2">État actuel, accès au terrain, surface à entretenir, etc.</p>
+                            <textarea id="description" name="description" rows="4" maxlength="2000" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition-all resize-y" placeholder="Détaillez votre demande ici..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 4. Photos -->
+                    <div>
+                        <h3 class="font-arboria text-xl text-teal mb-4 border-b border-gray-200 pb-2">4. Photos du chantier (facultatif mais utile)</h3>
+                        <div class="flex items-center justify-center w-full">
+                            <label for="dropzone-file" id="dropzone-label" class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white hover:bg-gray-50 transition-colors hover:border-teal/50">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6 w-full overflow-hidden" id="dropzone-content">
+                                    <i class="ph-fill ph-camera text-3xl text-slate-400 mb-2"></i>
+                                    <p class="mb-1 text-sm text-slate-600"><span class="font-semibold text-teal">Cliquez pour ajouter</span> ou glissez vos photos</p>
+                                    <p class="text-xs text-slate-500 text-center px-4">Ajoutez 1 à 3 photos depuis votre smartphone ou PC</p>
+                                </div>
+                                <input id="dropzone-file" type="file" name="photos" class="hidden" multiple accept="image/png, image/jpeg, image/jpg" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 5. Envoi -->
+                    <div class="pt-4 text-center">
+                        <p class="text-sm text-slate-600 mb-4">Les informations indispensables suffisent pour commencer. Les photos et précisions complémentaires restent facultatives.</p>
+                        <button type="submit" id="devis-submit-btn" class="w-full md:w-auto bg-teal hover:bg-teal-dark disabled:opacity-70 disabled:cursor-wait text-white px-10 py-4 rounded-md font-bold text-lg transition-all shadow-md shadow-teal/20 inline-flex items-center justify-center gap-2">
+                            <i class="ph ph-paper-plane-right text-xl" id="devis-submit-icon"></i>
+                            <span id="devis-submit-label">Envoyer ma demande</span>
+                        </button>
+                        <p class="text-xs text-slate-500 mt-5 flex flex-col md:flex-row items-center justify-center gap-1.5 max-w-lg mx-auto">
+                            <i class="ph-fill ph-lock-key text-slate-400 text-sm hidden md:block"></i>
+                            Vos données restent strictement confidentielles. Intervention sur Mazamet, Aiguefonde et les communes voisines (rayon de 20 km).
+                        </p>
+                    </div>
+
+                </form>
             </div>
-
-            <!-- 5. Envoi -->
-            <div class="pt-4 text-center">
-                <p class="text-sm text-slate-600 mb-4">Les informations indispensables suffisent pour commencer. Les photos et précisions complémentaires restent facultatives.</p>
-                <button type="submit" id="devis-submit-btn" class="w-full md:w-auto bg-teal hover:bg-teal-dark disabled:opacity-70 disabled:cursor-wait text-white px-10 py-4 rounded-md font-bold text-lg transition-all shadow-md shadow-teal/20 inline-flex items-center justify-center gap-2">
-                    <i class="ph ph-paper-plane-right text-xl" id="devis-submit-icon"></i>
-                    <span id="devis-submit-label">Envoyer ma demande</span>
-                </button>
-                <p class="text-xs text-slate-500 mt-5 flex flex-col md:flex-row items-center justify-center gap-1.5 max-w-lg mx-auto">
-                    <i class="ph-fill ph-lock-key text-slate-400 text-sm hidden md:block"></i>
-                    Vos données restent strictement confidentielles. Intervention sur Mazamet, Aiguefonde et les communes voisines (rayon de 20 km).
-                </p>
-            </div>
-
-        </form>
-    </div>
-
-</section>
+        </section>
 
         <!-- ==================== PAGE : CONTACT ==================== -->
         <section id="page-contact" class="page-view relative py-12 lg:py-24">
@@ -896,7 +889,7 @@
                         <h3 class="font-bold text-slate-900 text-lg mb-2">1. Éditeur du site</h3>
                         <p><strong>Sylvain Séverac, entrepreneur individuel (Le bon geste)</strong><br>
                         10 Chemin d'Aupillac, 81200 Aiguefonde<br>
-                        Téléphone : <a href="tel:+33610669435" class="text-teal hover:underline">06 10 66 94 35</a><br>
+                        Téléphone : <a href="tel:0610669435" class="text-teal hover:underline">06 10 66 94 35</a><br>
                         Email : <a href="mailto:contact.lebongeste@gmail.com" class="text-teal hover:underline">contact.lebongeste@gmail.com</a><br>
                         SIREN : 919 151 902 • SIRET : 919 151 902 00054<br>
                         Directeur de la publication : Sylvain Séverac<br>
@@ -904,12 +897,12 @@
                     </div>
 
                     <div>
-                        <h3 class="font-bold text-slate-900 text-lg mb-2">2. Activité & Coopérative</h3>
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">2. Activité &amp; Coopérative</h3>
                         <p>Sylvain Séverac exerce son activité en partenariat avec la coopérative <strong>Unipros</strong> (unipros.coop). À ce titre, la facturation des prestations permettant une déduction de 50 % est émise directement par la coopérative Unipros.</p>
                     </div>
 
                     <div>
-                        <h3 class="font-bold text-slate-900 text-lg mb-2">3. Assurance professionnelle & médiation</h3>
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">3. Assurance professionnelle &amp; médiation</h3>
                         <p><strong>Assurance Responsabilité Civile Professionnelle :</strong> les informations relatives à la couverture professionnelle sont communiquées sur demande. Couverture géographique : France métropolitaine.</p>
                         <p><strong>Médiateur de la consommation :</strong> La Société Médiation Professionnelle, Alteritae, 5 rue Salvaing, 12000 Rodez, France (<a href="https://www.mediateur-consommation-smp.fr" target="_blank" rel="noopener noreferrer" class="text-teal hover:underline">https://www.mediateur-consommation-smp.fr</a>).</p>
                     </div>
@@ -928,7 +921,7 @@
                     </div>
 
                     <div>
-                        <h3 class="font-bold text-slate-900 text-lg mb-2">6. Données personnelles & cookies</h3>
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">6. Données personnelles &amp; cookies</h3>
                         <p>Les données transmises via les formulaires de contact et de devis sont utilisées uniquement pour traiter votre demande et ne sont ni revendues ni cédées à des tiers. Conformément au RGPD et à la loi « Informatique et Libertés », vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition sur vos données, exerçable par email à <a href="mailto:contact.lebongeste@gmail.com" class="text-teal hover:underline">contact.lebongeste@gmail.com</a>.</p>
                         <p class="mt-2">Le détail des traitements est disponible dans notre <a href="https://le-bon-geste.fr/politique-de-confidentialite" data-nav="confidentialite" class="text-teal hover:underline font-medium">Politique de confidentialité</a>, et le détail des cookies utilisés dans notre <a href="https://le-bon-geste.fr/politique-de-cookies" data-nav="cookies" class="text-teal hover:underline font-medium">Politique de cookies</a>.</p>
                     </div>
@@ -959,8 +952,8 @@
 
                     <div>
                         <h3 class="font-bold text-slate-900 text-lg mb-2">3. Tarifs et paiement</h3>
-                        <p>Hors recours à la coopérative Unipros, les tarifs de l'entreprise individuelle sont exprimés en euros, TVA non applicable (article 293 B du CGI), et le règlement s'effectue à l'issue de la prestation par espèces, virement ou chèque, sauf accord contraire mentionné sur le devis.</p>
-                        <p class="mt-2">Pour bénéficier de la déduction de 50 %, la facturation et le paiement s'effectuent obligatoirement via la coopérative Unipros (unipros.coop). Dans ce cas, le client règle uniquement 50 % du montant total directement à la coopérative selon les modalités de paiement acceptées par celle-ci.</p>
+                        <p>Les tarifs sont exprimés en euros, TVA non applicable (article 293 B du CGI). Le règlement s'effectue à l'issue de la prestation, par espèces, virement ou chèque, sauf accord contraire mentionné sur le devis.</p>
+                        <p class="mt-2">Pour bénéficier de la déduction de 50 %, la facturation et le paiement s'effectuent obligatoirement via la coopérative Unipros (unipros.coop). Dans ce cas, le client règle uniquement 50 % du montant total directement à la coopérative via leur plateforme sécurisée.</p>
                     </div>
 
                     <div>
@@ -1006,12 +999,14 @@
 
                     <div>
                         <h3 class="font-bold text-slate-900 text-lg mb-2">2. Données collectées</h3>
-                        <p>Lorsque vous utilisez le formulaire de devis ou de contact, ou que vous nous appelez / écrivez par email, les données suivantes peuvent être collectées : nom, prénom, adresse, téléphone, email, et le contenu de votre demande. Aucune donnée bancaire n'est collectée via le site.</p>
+                        <p>Lorsque vous utilisez le formulaire de devis ou de contact, ou que vous nous appelez / écrivez par email, les données suivantes peuvent être collectées : nom, prénom, adresse, téléphone, email, photos éventuelles du chantier et le contenu de votre demande. Aucune donnée bancaire n'est collectée via le site.</p>
+                        <p class="mt-2">En outre, uniquement si vous acceptez les cookies de mesure d'audience via le bandeau dédié, des données de navigation anonymisées (pages consultées, clics, défilement, type d'appareil) sont collectées via l'outil <strong>Microsoft Clarity</strong>.</p>
                     </div>
 
                     <div>
                         <h3 class="font-bold text-slate-900 text-lg mb-2">3. Finalité et base légale</h3>
-                        <p>Ces données sont utilisées exclusivement pour établir un devis, organiser une intervention et assurer le suivi de la relation client. La base légale du traitement est l'exécution de mesures précontractuelles prises à votre demande (article 6.1.b du RGPD) et, le cas échéant, notre intérêt légitime à vous répondre.</p>
+                        <p>Vos coordonnées et demandes de devis sont utilisées exclusivement pour établir un devis, organiser une intervention et assurer le suivi de la relation client. La base légale est l'exécution de mesures précontractuelles prises à votre demande (article 6.1.b du RGPD) et notre intérêt légitime à vous répondre.</p>
+                        <p class="mt-2">Les données de mesure d'audience (via Microsoft Clarity) servent uniquement à analyser la fréquentation et améliorer l'ergonomie du site. Ce traitement repose exclusivement sur votre <strong>consentement préalable</strong> (article 6.1.a du RGPD), que vous pouvez retirer à tout moment.</p>
                     </div>
 
                     <div>
@@ -1021,7 +1016,8 @@
 
                     <div>
                         <h3 class="font-bold text-slate-900 text-lg mb-2">5. Destinataires</h3>
-                        <p>Vos données ne sont jamais vendues ni cédées à des tiers. Elles peuvent être transmises à la coopérative Unipros dans le cadre de la facturation, et sont hébergées via l'infrastructure de notre hébergeur Cloudflare, Inc. (voir <a href="https://le-bon-geste.fr/mentions-legales" data-nav="mentions" class="text-teal hover:underline">mentions légales</a>).</p>
+                        <p>Vos données ne sont jamais vendues ni cédées à des tiers à des fins commerciales. Elles peuvent être transmises à la coopérative <strong>Unipros</strong> dans le cadre de la facturation, à <strong>FormSubmit</strong> pour l'acheminement sécurisé des demandes de devis par email, et sont hébergées via l'infrastructure de notre hébergeur <strong>Cloudflare, Inc.</strong> (voir <a href="https://le-bon-geste.fr/mentions-legales" data-nav="mentions" class="text-teal hover:underline">mentions légales</a>).</p>
+                        <p class="mt-2">Si vous avez consenti aux cookies de mesure d'audience, les données techniques de navigation anonymisées sont traitées par <strong>Microsoft Corporation (Microsoft Clarity)</strong> conformément à la <a href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer" class="text-teal hover:underline">déclaration de confidentialité de Microsoft</a>.</p>
                     </div>
 
                     <div>
@@ -1051,8 +1047,8 @@
                     <div>
                         <h3 class="font-bold text-slate-900 text-lg mb-2">2. Cookies utilisés sur ce site</h3>
                         <ul class="space-y-3 mt-2">
-                            <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong>Cookies strictement nécessaires :</strong> notamment le cookie de mémorisation de votre choix de consentement (<code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">lbg_cookie_consent</code>). Indispensables au fonctionnement du site, ils ne peuvent pas être désactivés et ne nécessitent pas de consentement.</span></li>
-                            <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong>Cookies de mesure d'audience (Microsoft Clarity) :</strong> utilisés uniquement après votre consentement explicite via le bandeau cookies, afin de mesurer la fréquentation du site et de comprendre les clics et parcours de navigation de manière anonymisée.</span></li>
+                            <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong>Cookies strictement nécessaires :</strong> notamment la mémorisation de votre choix de consentement (<code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">lbg_cookie_consent</code>). Indispensables au fonctionnement du site, ils ne peuvent pas être désactivés et ne nécessitent pas de consentement.</span></li>
+                            <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong>Cookies de mesure d'audience (Microsoft Clarity) :</strong> déposés uniquement après votre consentement explicite via le bandeau cookies (notamment <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">_clck</code> et <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">_clsk</code>). Ils permettent d'établir des statistiques anonymes de fréquentation, de clics et d'ergonomie afin d'améliorer le site. Aucun script Clarity n'est chargé si vous refusez ou ignorez le bandeau.</span></li>
                         </ul>
                     </div>
 
@@ -1130,19 +1126,19 @@
         </div>
     </footer>
 
-    <!-- ==================== BANDEAU COOKIES ==================== -->
     <!-- Barre d'appel fixe (mobile uniquement) -->
     <div class="lp-callbar">
         <a href="tel:+33610669435" class="lp-btn lp-btn-primary"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg> Appeler Sylvain</a>
         <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lp-btn lp-btn-ghost">Rendez-vous</a>
     </div>
 
+    <!-- ==================== BANDEAU COOKIES ==================== -->
     <div id="cookie-banner" class="fixed inset-x-0 bottom-0 z-[100] hidden px-4 pb-4 sm:px-6">
         <div class="max-w-4xl mx-auto bg-white border border-gray-200 rounded-xl shadow-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <div class="flex items-start gap-3">
                 <i class="ph-fill ph-cookie text-teal text-2xl shrink-0 mt-0.5"></i>
                 <p class="text-sm text-slate-600 leading-relaxed">
-                    Nous utilisons des cookies strictement nécessaires au fonctionnement du site, et (avec votre accord) des cookies de mesure d'audience (Microsoft Clarity) pour améliorer le site. Vous pouvez choisir librement.
+                    Nous utilisons des cookies strictement nécessaires au fonctionnement du site, et (avec votre accord) des cookies de mesure d'audience via Microsoft Clarity pour améliorer votre expérience. Vous pouvez choisir librement.
                     <a href="https://le-bon-geste.fr/politique-de-cookies" data-nav="cookies" class="text-teal hover:underline font-medium">En savoir plus</a>
                 </p>
             </div>
@@ -1175,7 +1171,7 @@
                 <div class="flex items-center justify-between border border-gray-200 rounded-lg p-4">
                     <div class="pr-4">
                         <p class="font-semibold text-slate-800 text-sm">Mesure d'audience (Microsoft Clarity)</p>
-                        <p class="text-xs text-slate-500 mt-1">Statistiques anonymes de visite et de clics pour nous aider à améliorer le site.</p>
+                        <p class="text-xs text-slate-500 mt-1">Statistiques anonymes de visite et d'ergonomie pour nous aider à améliorer le site (activées uniquement avec votre accord).</p>
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer shrink-0">
                         <input type="checkbox" id="cookie-analytics-toggle" class="sr-only peer">
