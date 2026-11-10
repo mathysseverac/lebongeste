@@ -31,48 +31,52 @@ function photoError(files) {
 function compressImageFile(file) {
     return new Promise(function(resolve) {
         // Si l'image fait déjà moins de 400 Ko, on la garde telle quelle
-        if (file.size <= 400 * 1024 || typeof DataTransfer === 'undefined') {
+        if (file.size <= 400 * 1024 || typeof DataTransfer === 'undefined' || typeof FileReader === 'undefined') {
             resolve(file);
             return;
         }
-        const img = new Image();
-        const objectUrl = URL.createObjectURL(file);
-        img.onload = function() {
-            URL.revokeObjectURL(objectUrl);
-            let width = img.naturalWidth || img.width;
-            let height = img.naturalHeight || img.height;
-            if (width > MAX_IMAGE_DIMENSION || height > MAX_IMAGE_DIMENSION) {
-                const ratio = Math.min(MAX_IMAGE_DIMENSION / width, MAX_IMAGE_DIMENSION / height);
-                width = Math.round(width * ratio);
-                height = Math.round(height * ratio);
-            }
-            const canvas = document.createElement('canvas');
-            canvas.width = width;
-            canvas.height = height;
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                resolve(file);
-                return;
-            }
-            ctx.drawImage(img, 0, 0, width, height);
-            canvas.toBlob(function(blob) {
-                if (!blob || blob.size >= file.size) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = new Image();
+            img.onload = function() {
+                let width = img.naturalWidth || img.width;
+                let height = img.naturalHeight || img.height;
+                if (width > MAX_IMAGE_DIMENSION || height > MAX_IMAGE_DIMENSION) {
+                    const ratio = Math.min(MAX_IMAGE_DIMENSION / width, MAX_IMAGE_DIMENSION / height);
+                    width = Math.round(width * ratio);
+                    height = Math.round(height * ratio);
+                }
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
                     resolve(file);
                     return;
                 }
-                const cleanName = file.name.replace(/\.(png|jpe?g)$/i, '') + '.jpg';
-                const compressedFile = new File([blob], cleanName, {
-                    type: 'image/jpeg',
-                    lastModified: Date.now()
-                });
-                resolve(compressedFile);
-            }, 'image/jpeg', JPEG_QUALITY);
+                ctx.drawImage(img, 0, 0, width, height);
+                canvas.toBlob(function(blob) {
+                    if (!blob || blob.size >= file.size) {
+                        resolve(file);
+                        return;
+                    }
+                    const cleanName = file.name.replace(/\.(png|jpe?g)$/i, '') + '.jpg';
+                    const compressedFile = new File([blob], cleanName, {
+                        type: 'image/jpeg',
+                        lastModified: Date.now()
+                    });
+                    resolve(compressedFile);
+                }, 'image/jpeg', JPEG_QUALITY);
+            };
+            img.onerror = function() {
+                resolve(file);
+            };
+            img.src = e.target.result;
         };
-        img.onerror = function() {
-            URL.revokeObjectURL(objectUrl);
+        reader.onerror = function() {
             resolve(file);
         };
-        img.src = objectUrl;
+        reader.readAsDataURL(file);
     });
 }
 
@@ -220,6 +224,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (pInput && (!pInput.files || pInput.files.length === 0)) {
                 pInput.removeAttribute('name');
             }
+
+            // Suivi de l'événement d'envoi de devis dans Microsoft Clarity
+            trackClarityEvent('envoi_devis');
 
             // Formulaire valide : on affiche l'état de chargement pendant l'envoi
             const btn = document.getElementById('devis-submit-btn');
@@ -452,11 +459,43 @@ function navigateTo(event, pageId) {
             console.warn("pushState bloqué dans cet environnement de prévisualisation.");
         }
     }
+
+    // Indiquer à Microsoft Clarity quelle page virtuelle est consultée
+    if (typeof window.clarity === 'function') {
+        window.clarity('set', 'page', pageId);
+    }
 }
 
-// ==================== GESTION DU CONSENTEMENT COOKIES ====================
+// ==================== GESTION DU CONSENTEMENT COOKIES & MICROSOFT CLARITY ====================
 const COOKIE_CONSENT_KEY = 'lbg_cookie_consent';
 const COOKIE_CONSENT_DAYS = 182; // ~6 mois, recommandation CNIL
+
+// Identifiant du projet Microsoft Clarity
+const CLARITY_PROJECT_ID = 'zbmt1jjzns';
+let clarityLoaded = false;
+
+function loadMicrosoftClarity() {
+    if (clarityLoaded || !CLARITY_PROJECT_ID) return;
+    clarityLoaded = true;
+
+    window.clarity = window.clarity || function() {
+        (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.clarity.ms/tag/' + encodeURIComponent(CLARITY_PROJECT_ID);
+    document.head.appendChild(script);
+
+    // Signale à Clarity que l'utilisateur a accepté les cookies
+    window.clarity('consent');
+}
+
+function trackClarityEvent(eventName) {
+    if (typeof window.clarity === 'function') {
+        window.clarity('event', eventName);
+    }
+}
 
 function getCookieConsent() {
     try {
@@ -497,7 +536,10 @@ function saveCustomCookieConsent() {
 
 function applyCookieConsent(data) {
     if (data && data.analytics) {
-        // Point d'accroche pour un futur outil de statistiques
+        loadMicrosoftClarity();
+    } else if (typeof window.clarity === 'function') {
+        // Si le visiteur retire son consentement par la suite, on coupe les cookies Clarity
+        window.clarity('consent', false);
     }
 }
 
@@ -625,9 +667,23 @@ if (document.readyState === 'loading') {
 
 // ==================== ÉVÈNEMENTS GLOBAUX ====================
 document.addEventListener('click', function(event) {
+    // Suivi des clics sur les boutons d'appel téléphonique (tel:) et d'email (mailto:)
+    const telLink = event.target.closest('a[href^="tel:"]');
+    if (telLink) {
+        trackClarityEvent('clic_telephone');
+    }
+    const mailLink = event.target.closest('a[href^="mailto:"]');
+    if (mailLink) {
+        trackClarityEvent('clic_email');
+    }
+
     const el = event.target.closest('[data-nav], [data-nav-service], [data-action]');
     if (!el) return;
     if (el.hasAttribute('data-nav')) {
+        const targetNav = el.getAttribute('data-nav');
+        if (targetNav === 'devis') {
+            trackClarityEvent('ouverture_page_devis');
+        }
         // Si le bouton contient data-prestation, on pré-coche la prestation dans le formulaire de devis
         const presetPrestation = el.getAttribute('data-prestation');
         if (presetPrestation) {
