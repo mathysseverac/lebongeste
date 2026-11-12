@@ -8,6 +8,8 @@
     <link rel="canonical" id="page-canonical" href="https://le-bon-geste.fr/">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#007271">
+    <!-- Clé publique du captcha Cloudflare Turnstile (mail de confirmation). Vide = fonction désactivée. -->
+    <meta name="lbg-turnstile" content="">
 
     <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["LocalBusiness", "HomeAndConstructionBusiness"], "@id": "https://le-bon-geste.fr/#entreprise", "name": "Le bon geste", "alternateName": "Le bon geste Multiservices", "description": "Jardinage et petits travaux à domicile à Mazamet, Aiguefonde et dans les communes voisines : taille de haies, tonte, débroussaillage, entretien des terrasses, petit bricolage et assistance informatique. 50 % déduits via la coopérative Unipros.", "url": "https://le-bon-geste.fr/", "telephone": "+33610669435", "email": "contact.lebongeste@gmail.com", "logo": "https://le-bon-geste.fr/web-app-manifest-512x512.png", "image": "https://le-bon-geste.fr/assets/img/partage.png", "founder": {"@type": "Person", "name": "Sylvain Séverac"}, "address": {"@type": "PostalAddress", "addressLocality": "Aiguefonde", "postalCode": "81200", "addressRegion": "Occitanie", "addressCountry": "FR"}, "areaServed": [{"@type": "City", "name": "Mazamet"}, {"@type": "City", "name": "Aiguefonde"}, {"@type": "GeoCircle", "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 43.4917, "longitude": 2.3742}, "geoRadius": "20000"}], "knowsLanguage": "fr", "currenciesAccepted": "EUR", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Prestations de Le bon geste", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Taille de haies", "areaServed": "Mazamet et alentours"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tonte et entretien des pelouses", "areaServed": "Mazamet et alentours"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Débroussaillage et fauchage", "areaServed": "Mazamet et alentours"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Entretien des terrasses et allées", "areaServed": "Mazamet et alentours"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Petit bricolage", "areaServed": "Mazamet et alentours"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Assistance informatique et multimédia à domicile", "areaServed": "Mazamet et alentours"}}]}}, {"@type": "WebSite", "@id": "https://le-bon-geste.fr/#site", "url": "https://le-bon-geste.fr/", "name": "Le bon geste", "inLanguage": "fr-FR", "publisher": {"@id": "https://le-bon-geste.fr/#entreprise"}}]}</script>
 
@@ -36,7 +38,7 @@
 
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
-    <link rel="stylesheet" href="/assets/marque.css?v=5">
+    <link rel="stylesheet" href="/assets/marque.css?v=6">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -117,6 +119,7 @@
                 <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Guide Unipros</a>
                 <a href="https://le-bon-geste.fr/contact" data-nav="contact" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Contact</a>
                 <a href="https://le-bon-geste.fr/faq" data-nav="faq" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">FAQ</a>
+                <a href="https://le-bon-geste.fr/guide-urssaf#espace-unipros" data-nav="guide" data-scroll="espace-unipros" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Mon espace Unipros</a>
                 <a href="tel:+33610669435" class="mobile-link block px-3 py-3 text-base font-medium text-white bg-teal rounded-md mt-4 text-center">Appeler Sylvain au 06 10 66 94 35</a>
                 <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="mobile-link block px-3 py-3 text-base font-medium text-teal border border-teal/40 rounded-md mt-2 text-center">Prendre rendez-vous</a>
             </div>
@@ -624,6 +627,7 @@
                     <!-- 5. Envoi -->
                     <div class="pt-4 text-center">
                         <p class="text-sm text-slate-600 mb-4">Les informations indispensables suffisent pour commencer. Les photos et précisions complémentaires restent facultatives.</p>
+                        <div class="lb-turnstile" id="lb-turnstile" hidden></div>
                         <button type="submit" id="devis-submit-btn" class="w-full md:w-auto bg-teal hover:bg-teal-dark disabled:opacity-70 disabled:cursor-wait text-white px-10 py-4 rounded-md font-bold text-lg transition-all shadow-md shadow-teal/20 inline-flex items-center justify-center gap-2">
                             <i class="ph ph-paper-plane-right text-xl" id="devis-submit-icon"></i>
                             <span id="devis-submit-label">Envoyer ma demande</span>
@@ -712,6 +716,19 @@
                     <li><span class="lb-step-num">4</span><div><h2>Votre règlement</h2><p>Vous recevez la facture d'Unipros et vous réglez uniquement 50 % du montant total directement sur leur plateforme dédiée.</p></div></li>
                     <li><span class="lb-step-num">5</span><div><h2>Suivez votre historique</h2><p>Vous conservez les devis et factures transmis par la coopérative de manière centralisée et officielle.</p></div></li>
                 </ol>
+                                <div class="lb-block lb-block-mint lb-unipros" id="espace-unipros">
+                    <div class="lb-unipros-art"><img src="/assets/img/marque/scene-informatique.svg" alt="Illustration : Sylvain montre comment accéder à son espace sur un ordinateur" width="480" height="330" loading="lazy"></div>
+                    <div>
+                        <h2 class="lb-h2">Retrouver vos factures sur votre espace Unipros</h2>
+                        <ol class="lb-mini-steps">
+                            <li><strong>Le mail d'Unipros.</strong> Après l'intervention, Unipros vous envoie votre facture par mail, avec un lien pour la régler. Pensez à regarder dans les courriers indésirables.</li>
+                            <li><strong>Votre espace.</strong> Pour retrouver vos factures plus tard, connectez-vous sur le site d'Unipros avec l'adresse mail que vous avez donnée à Sylvain.</li>
+                            <li><strong>Mot de passe oublié ?</strong> Utilisez le lien prévu pour cela sur la page de connexion d'Unipros : vous recevez un mail pour en choisir un nouveau.</li>
+                            <li><strong>Toujours bloqué ?</strong> Appelez Sylvain au <a href="tel:+33610669435" class="lb-link">06 10 66 94 35</a>, il vous aide.</li>
+                        </ol>
+                        <a href="https://unipros.coop/" target="_blank" rel="noopener noreferrer" class="lb-btn lb-btn-main" data-unipros-link>Ouvrir mon espace Unipros</a>
+                    </div>
+                </div>
                 <div class="lb-two">
                     <div class="lb-block lb-block-mint lb-block-pad">
                         <h2 class="lb-h3">Conditions d'utilisation</h2>
@@ -908,7 +925,7 @@
 
                     <div>
                         <h2 class="font-bold text-slate-900 text-lg mb-2">5. Destinataires</h2>
-                        <p>Vos données ne sont jamais vendues ni cédées à des tiers à des fins commerciales. Elles peuvent être transmises à la coopérative <strong>Unipros</strong> dans le cadre de la facturation, à <strong>FormSubmit</strong> pour l'acheminement sécurisé des demandes de devis par email, et sont hébergées via l'infrastructure de notre hébergeur <strong>Cloudflare, Inc.</strong> (voir <a href="https://le-bon-geste.fr/mentions-legales" data-nav="mentions" class="text-teal hover:underline">mentions légales</a>).</p>
+                        <p>Vos données ne sont jamais vendues ni cédées à des tiers à des fins commerciales. Elles peuvent être transmises à la coopérative <strong>Unipros</strong> dans le cadre de la facturation, à <strong>FormSubmit</strong> pour l'acheminement sécurisé des demandes de devis par email, à <strong>Brevo</strong> (Sendinblue SAS, France) pour l'envoi du mail de confirmation à l'adresse que vous indiquez dans le formulaire, à <strong>Cloudflare Turnstile</strong> pour vérifier que la demande ne vient pas d'un robot, et sont hébergées via l'infrastructure de notre hébergeur <strong>Cloudflare, Inc.</strong> (voir <a href="https://le-bon-geste.fr/mentions-legales" data-nav="mentions" class="text-teal hover:underline">mentions légales</a>).</p>
                         <p class="mt-2">Si vous avez consenti aux cookies de mesure d'audience, les données techniques de navigation anonymisées sont traitées par <strong>Microsoft Corporation (Microsoft Clarity)</strong> conformément à la <a href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer" class="text-teal hover:underline">déclaration de confidentialité de Microsoft</a>.</p>
                     </div>
 
@@ -1012,6 +1029,7 @@
                 <a href="https://le-bon-geste.fr/cgv" data-nav="cgv" class="text-sm hover:text-teal-light transition-colors">CGV</a>
                 <a href="https://le-bon-geste.fr/politique-de-confidentialite" data-nav="confidentialite" class="text-sm hover:text-teal-light transition-colors">Confidentialité</a>
                 <a href="https://le-bon-geste.fr/faq" data-nav="faq" class="text-sm hover:text-teal-light transition-colors">FAQ</a>
+                <a href="https://le-bon-geste.fr/guide-urssaf#espace-unipros" data-nav="guide" data-scroll="espace-unipros" class="text-sm hover:text-teal-light transition-colors">Mon espace Unipros</a>
                 <a href="https://le-bon-geste.fr/politique-de-cookies" data-nav="cookies" class="text-sm hover:text-teal-light transition-colors">Cookies</a>
                 <button data-action="cookie-open" class="text-sm hover:text-teal-light transition-colors underline decoration-dotted">Gérer mes cookies</button>
             </div>
@@ -1036,6 +1054,7 @@
                 <a href="tel:+33610669435" class="lb-btn lb-btn-main lb-btn-sm">Appeler Sylvain</a>
                 <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-soft lb-btn-sm">Prendre rendez-vous</a>
                 <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="lb-link">Comment marche le −50 % ?</a>
+                <a href="https://le-bon-geste.fr/guide-urssaf#espace-unipros" data-nav="guide" data-scroll="espace-unipros" class="lb-link">Mon espace Unipros (factures)</a>
             </div>
         </div>
         <button type="button" class="lb-assist-btn" aria-expanded="false" aria-controls="lb-assist-panel" aria-label="Ouvrir l'aide de Sylvain"><svg xmlns="http://www.w3.org/2000/svg" class="sylvain-tete" focusable="false" viewBox="44 8 112 138" role="img" aria-label="Sylvain"><g class="sylvain"><path d="M62 330h36v10a8 8 0 0 1-8 8H58a6 6 0 0 1-6-6c0-7 4-12 10-12z" fill="#7f878b"/><rect x="52" y="342" width="46" height="7" rx="3.5" fill="#dfe3e1"/>
@@ -1121,6 +1140,6 @@
         </div>
     </div>
 
-    <script src="/assets/app.js?v=seo1" defer></script>
+    <script src="/assets/app.js?v=unipros-mail1" defer></script>
 </body>
 </html>

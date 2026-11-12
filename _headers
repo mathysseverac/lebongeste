@@ -1,7 +1,7 @@
 # En-têtes de sécurité envoyés par Cloudflare Pages sur TOUTES les pages et fichiers.
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.clarity.ms https://*.clarity.ms https://c.bing.com; style-src 'self'; img-src 'self' data: blob: https://www.clarity.ms https://*.clarity.ms https://c.bing.com; font-src 'self'; connect-src 'self' https://geo.api.gouv.fr https://www.clarity.ms https://*.clarity.ms https://c.bing.com; form-action 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com; style-src 'self'; img-src 'self' data: blob: https://www.clarity.ms https://*.clarity.ms https://c.bing.com; font-src 'self'; connect-src 'self' https://geo.api.gouv.fr https://www.clarity.ms https://*.clarity.ms https://c.bing.com; form-action 'self' https://formsubmit.co; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Cross-Origin-Resource-Policy: same-origin
   X-Content-Type-Options: nosniff

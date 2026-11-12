@@ -323,3 +323,14 @@ footer.bg-\[\#032a28\]{border-radius:var(--r-grand) var(--r-grand) 0 0;margin-to
 .lb-kicker,.lb-label{gap:.5rem}
 /* pas de décor devant les étiquettes */
 .lb-kicker::before,.lb-label::before{content:none;display:none}
+.lb-turnstile{display:flex;justify-content:center;margin:0 0 1rem}
+.lb-turnstile[hidden]{display:none}
+/* espace Unipros (guide) */
+.lb-unipros{display:grid;gap:1.5rem;align-items:center;margin-top:1.5rem;scroll-margin-top:6.5rem}
+@media(min-width:900px){.lb-unipros{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:2.5rem}}
+.lb-unipros>*{min-width:0}
+.lb-unipros-art img{display:block;width:100%;height:auto;border-radius:var(--r-moyen);background:#fff}
+.lb-mini-steps{list-style:none;counter-reset:etape;margin:0 0 1.4rem;padding:0;display:grid;gap:.7rem}
+.lb-mini-steps li{counter-increment:etape;position:relative;padding-left:2.6rem;font-size:.95rem;line-height:1.6;color:var(--texte)}
+.lb-mini-steps li::before{content:counter(etape);position:absolute;left:0;top:0;display:flex;width:1.9rem;height:1.9rem;align-items:center;justify-content:center;border-radius:999px;background:var(--teal);color:#fff;font-weight:600;font-size:.85rem}
+.lb-mini-steps strong{color:var(--nuit)}

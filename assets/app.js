@@ -228,6 +228,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Suivi de l'événement d'envoi de devis dans Microsoft Clarity
             trackClarityEvent('envoi_devis');
 
+            // Mail de confirmation au client (Brevo, via /api/confirmation), sans bloquer l'envoi
+            sendConfirmationMail();
+
             // Formulaire valide : on affiche l'état de chargement pendant l'envoi
             const btn = document.getElementById('devis-submit-btn');
             const icon = document.getElementById('devis-submit-icon');
@@ -699,6 +702,14 @@ document.addEventListener('click', function(event) {
             }
         }
         navigateTo(event, el.getAttribute('data-nav'));
+        // Lien vers un endroit précis de la page (ex. espace Unipros du guide)
+        const scrollTarget = el.getAttribute('data-scroll');
+        if (scrollTarget) {
+            setTimeout(function () {
+                const t = document.getElementById(scrollTarget);
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 350);
+        }
     } else if (el.hasAttribute('data-nav-service')) {
         navigateToService(event, el.getAttribute('data-nav-service'));
     } else {
@@ -902,4 +913,60 @@ if (dropzoneLabel && photoInput) {
             setTimeout(function () { wave(); say(PHRASES[0]); }, 700);
         }
     });
+})();
+
+
+// ==================== MAIL DE CONFIRMATION (Brevo + Turnstile) ====================
+// Activé seulement quand la clé publique Turnstile est renseignée dans <meta name="lbg-turnstile">.
+const TURNSTILE_SITEKEY = (document.querySelector('meta[name="lbg-turnstile"]') || {}).content || '';
+let turnstileToken = '';
+
+function initTurnstile() {
+    const box = document.getElementById('lb-turnstile');
+    if (!TURNSTILE_SITEKEY || !box || box.dataset.ready) return;
+    box.dataset.ready = '1';
+    box.hidden = false;
+    window.lbTurnstileReady = function () {
+        if (!window.turnstile) return;
+        window.turnstile.render(box, {
+            sitekey: TURNSTILE_SITEKEY,
+            appearance: 'interaction-only',
+            language: 'fr',
+            callback: function (token) { turnstileToken = token; },
+            'expired-callback': function () { turnstileToken = ''; }
+        });
+    };
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=lbTurnstileReady&render=explicit';
+    script.async = true;
+    document.head.appendChild(script);
+}
+
+function sendConfirmationMail() {
+    if (!TURNSTILE_SITEKEY || !turnstileToken) return;
+    const val = function (id) { const el = document.getElementById(id); return el ? el.value : ''; };
+    const checked = document.querySelector('input[name="prestation"]:checked');
+    try {
+        fetch('/api/confirmation', {
+            method: 'POST',
+            keepalive: true,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: val('email'),
+                nom: val('nom'),
+                ville: val('ville'),
+                prestation: checked ? checked.value : '',
+                token: turnstileToken
+            })
+        }).catch(function () {});
+    } catch (e) { /* l'envoi de la demande continue quoi qu'il arrive */ }
+}
+
+// Le captcha ne se charge que lorsque le formulaire est affiché
+(function () {
+    const devis = document.getElementById('page-devis');
+    if (!devis || !TURNSTILE_SITEKEY) return;
+    const start = function () { if (devis.classList.contains('active-page')) initTurnstile(); };
+    new MutationObserver(start).observe(devis, { attributes: true, attributeFilter: ['class'] });
+    document.addEventListener('DOMContentLoaded', start);
 })();
