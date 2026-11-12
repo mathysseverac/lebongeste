@@ -317,3 +317,7 @@ footer.bg-\[\#032a28\]{border-radius:var(--r-grand) var(--r-grand) 0 0;margin-to
 .lb-step h2{font-size:1.08rem;color:var(--nuit);margin:.7rem 0 .4rem}
 .lb-timeline h2{font-size:1.05rem;color:var(--nuit);margin:.2rem 0 .3rem}
 .lb-faq-q{font-size:1rem;font-weight:600;color:var(--nuit);margin:0;line-height:1.4}
+
+/* feuille du logo devant les étiquettes (remplace le petit trait) */
+.lb-kicker::before,.lb-label::before{width:1rem;height:.85rem;border-radius:0;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22186%20-2%2059%2049%22%3E%3Cpath%20d%3D%22M190.355%2044.34C190.355%2044.34%20212.06%2051.76%20232.78%2027.02C237.48%2021.41%20240.125%2014.336%20242.03%207.27C242.64%205.02%20243.078%202.926%20243.035%201.699C221.582-3.656%20202.297%205.996%20196.012%209.672C209%2014%20206%2026%20190.355%2044.34Z%22/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22186%20-2%2059%2049%22%3E%3Cpath%20d%3D%22M190.355%2044.34C190.355%2044.34%20212.06%2051.76%20232.78%2027.02C237.48%2021.41%20240.125%2014.336%20242.03%207.27C242.64%205.02%20243.078%202.926%20243.035%201.699C221.582-3.656%20202.297%205.996%20196.012%209.672C209%2014%20206%2026%20190.355%2044.34Z%22/%3E%3C/svg%3E") center/contain no-repeat;flex:none}
+.lb-kicker,.lb-label{gap:.5rem}
