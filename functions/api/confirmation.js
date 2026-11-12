@@ -38,6 +38,7 @@ export async function onRequestPost({ request, env }) {
   const ville = String(body.ville || '').trim().slice(0, 80);
   const prestation = PRESTATIONS[body.prestation] || '';
   const token = String(body.token || '');
+  const isContact = body.type === 'contact';
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254 || !token) {
     return json({ ok: false }, 400);
@@ -67,7 +68,7 @@ export async function onRequestPost({ request, env }) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
 <td valign="top" style="font-size:16px;line-height:1.6;color:#0f172a">
 <p style="margin:0 0 14px">${bonjour}</p>
-<p style="margin:0 0 14px">Votre demande de rendez-vous est bien arrivée. Sylvain la regarde et vous rappelle <strong>sous 24 à 48 h</strong> pour en parler et prévoir son passage pour le devis, qui est gratuit.</p>
+<p style="margin:0 0 14px">${isContact ? 'Votre message est bien arrivé. Sylvain le lit et vous répond <strong>sous 24 à 48 h</strong>.' : 'Votre demande de rendez-vous est bien arrivée. Sylvain la regarde et vous rappelle <strong>sous 24 à 48 h</strong> pour en parler et prévoir son passage pour le devis, qui est gratuit.'}</p>
 </td>
 <td width="110" valign="bottom" align="right"><img src="https://le-bon-geste.fr/assets/img/email-sylvain.png" width="100" alt="" style="display:block;border:0"></td>
 </tr></table></td></tr>
@@ -82,7 +83,7 @@ ${details ? `<tr><td style="padding:6px 28px 0"><div style="background:#e3f2f0;b
 
   const text = `${nom ? 'Bonjour ' + nom + ',' : 'Bonjour,'}
 
-Votre demande de rendez-vous est bien arrivée. Sylvain la regarde et vous rappelle sous 24 à 48 h pour en parler et prévoir son passage pour le devis, qui est gratuit.
+${isContact ? 'Votre message est bien arrivé. Sylvain le lit et vous répond sous 24 à 48 h.' : 'Votre demande de rendez-vous est bien arrivée. Sylvain la regarde et vous rappelle sous 24 à 48 h pour en parler et prévoir son passage pour le devis, qui est gratuit.'}
 ${prestation ? '\nPrestation : ' + prestation : ''}${ville ? '\nCommune : ' + ville : ''}
 
 Besoin de lui parler avant ? Appelez-le au 06 10 66 94 35, ou répondez simplement à ce mail.
@@ -100,10 +101,10 @@ https://le-bon-geste.fr/`;
       sender: { name: 'Sylvain, Le bon geste', email: env.BREVO_SENDER_EMAIL },
       to: [{ email, name: nom || undefined }],
       replyTo: { email: 'contact.lebongeste@gmail.com', name: 'Sylvain, Le bon geste' },
-      subject: 'Bien reçu ! Sylvain vous rappelle sous 24 à 48 h',
+      subject: isContact ? 'Bien reçu ! Sylvain vous répond sous 24 à 48 h' : 'Bien reçu ! Sylvain vous rappelle sous 24 à 48 h',
       htmlContent: html,
       textContent: text,
-      tags: ['confirmation-rendez-vous']
+      tags: [isContact ? 'confirmation-message' : 'confirmation-rendez-vous']
     })
   });
 

@@ -38,7 +38,7 @@
 
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
-    <link rel="stylesheet" href="/assets/marque.css?v=6">
+    <link rel="stylesheet" href="/assets/marque.css?v=7">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -627,7 +627,7 @@
                     <!-- 5. Envoi -->
                     <div class="pt-4 text-center">
                         <p class="text-sm text-slate-600 mb-4">Les informations indispensables suffisent pour commencer. Les photos et précisions complémentaires restent facultatives.</p>
-                        <div class="lb-turnstile" id="lb-turnstile" hidden></div>
+                        <div class="lb-turnstile" id="lb-turnstile" data-turnstile hidden></div>
                         <button type="submit" id="devis-submit-btn" class="w-full md:w-auto bg-teal hover:bg-teal-dark disabled:opacity-70 disabled:cursor-wait text-white px-10 py-4 rounded-md font-bold text-lg transition-all shadow-md shadow-teal/20 inline-flex items-center justify-center gap-2">
                             <i class="ph ph-paper-plane-right text-xl" id="devis-submit-icon"></i>
                             <span id="devis-submit-label">Envoyer ma demande</span>
@@ -659,11 +659,47 @@
                         <span class="lb-contact-label">Appelez-moi</span>
                         <span class="lb-contact-value">06 10 66 94 35</span>
                     </a>
-                    <a href="mailto:contact.lebongeste@gmail.com" class="lb-contact">
+                    <a href="#ecrire" class="lb-contact">
                         <span class="lb-contact-ico lb-ico-soft"><img src="/assets/img/marque/picto-courrier.svg" alt="" width="26" height="26"></span>
                         <span class="lb-contact-label">Écrivez-moi</span>
                         <span class="lb-contact-value">contact.lebongeste@gmail.com</span>
                     </a>
+                </div>
+                <div class="lb-block lb-block-white lb-contact-form-wrap" id="ecrire">
+                    <h2 class="lb-h2">Écrire un message à Sylvain</h2>
+                    <p class="lb-body">Une question, une précision ? Écrivez ici, le message arrive directement dans sa boîte mail.</p>
+                    <form id="contact-form" class="lb-form" action="https://formsubmit.co/contact.lebongeste@gmail.com" method="POST" novalidate>
+                        <input type="hidden" name="_subject" value="Nouveau message de contact - Le bon geste">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://le-bon-geste.fr/?envoye=1#envoye">
+                        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <div class="lb-form-row">
+                            <label class="lb-field">
+                                <span>Nom et prénom *</span>
+                                <input type="text" id="contact-nom" name="nom" maxlength="80" required autocomplete="name">
+                                <em class="lb-field-error" hidden>Indiquez votre nom.</em>
+                            </label>
+                            <label class="lb-field">
+                                <span>Adresse mail *</span>
+                                <input type="email" id="contact-email" name="email" maxlength="254" required autocomplete="email">
+                                <em class="lb-field-error" hidden>Indiquez une adresse mail valide.</em>
+                            </label>
+                        </div>
+                        <label class="lb-field">
+                            <span>Téléphone <small>(facultatif)</small></span>
+                            <input type="tel" id="contact-tel" name="tel" maxlength="20" autocomplete="tel">
+                        </label>
+                        <label class="lb-field">
+                            <span>Votre message *</span>
+                            <textarea id="contact-message" name="message" rows="5" maxlength="2000" required></textarea>
+                            <em class="lb-field-error" hidden>Écrivez votre message.</em>
+                        </label>
+                        <div class="lb-turnstile" data-turnstile hidden></div>
+                        <p class="lb-form-wait" data-turnstile-wait hidden>Vérification anti-robot en cours, réessayez dans un instant.</p>
+                        <button type="submit" class="lb-btn lb-btn-main" id="contact-submit">Envoyer mon message</button>
+                        <p class="lb-form-note">Vos coordonnées servent uniquement à vous répondre. Voir la <a href="https://le-bon-geste.fr/politique-de-confidentialite" data-nav="confidentialite" class="lb-link">politique de confidentialité</a>.</p>
+                    </form>
                 </div>
                 <div class="lb-steps lb-steps-top">
                     <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-lieu.svg" alt="" width="26" height="26"></span><h2>Zone d'intervention</h2><p>Mazamet, Aiguefonde et communes voisines dans un rayon de 20 km.</p></div>
@@ -1140,6 +1176,6 @@
         </div>
     </div>
 
-    <script src="/assets/app.js?v=unipros-mail1" defer></script>
+    <script src="/assets/app.js?v=contact1" defer></script>
 </body>
 </html>

@@ -229,7 +229,13 @@ document.addEventListener('DOMContentLoaded', function() {
             trackClarityEvent('envoi_devis');
 
             // Mail de confirmation au client (Brevo, via /api/confirmation), sans bloquer l'envoi
-            sendConfirmationMail();
+            (function () {
+                const checkedP = document.querySelector('input[name="prestation"]:checked');
+                const v = function (id) { const el = document.getElementById(id); return el ? el.value : ''; };
+                sendConfirmationMail('rendez-vous', document.getElementById('devis-form'), {
+                    email: v('email'), nom: v('nom'), ville: v('ville'), prestation: checkedP ? checkedP.value : ''
+                });
+            })();
 
             // Formulaire valide : on affiche l'état de chargement pendant l'envoi
             const btn = document.getElementById('devis-submit-btn');
@@ -916,57 +922,113 @@ if (dropzoneLabel && photoInput) {
 })();
 
 
-// ==================== MAIL DE CONFIRMATION (Brevo + Turnstile) ====================
+// ==================== CAPTCHA TURNSTILE + MAIL DE CONFIRMATION (Brevo) ====================
 // Activé seulement quand la clé publique Turnstile est renseignée dans <meta name="lbg-turnstile">.
 const TURNSTILE_SITEKEY = (document.querySelector('meta[name="lbg-turnstile"]') || {}).content || '';
-let turnstileToken = '';
+let turnstileLoading = false;
 
-function initTurnstile() {
-    const box = document.getElementById('lb-turnstile');
-    if (!TURNSTILE_SITEKEY || !box || box.dataset.ready) return;
-    box.dataset.ready = '1';
-    box.hidden = false;
-    window.lbTurnstileReady = function () {
-        if (!window.turnstile) return;
+function renderTurnstiles() {
+    if (!window.turnstile) return;
+    document.querySelectorAll('.page-view.active-page [data-turnstile]').forEach(function (box) {
+        if (box.dataset.ready) return;
+        box.dataset.ready = '1';
+        box.hidden = false;
         window.turnstile.render(box, {
             sitekey: TURNSTILE_SITEKEY,
             appearance: 'interaction-only',
             language: 'fr',
-            callback: function (token) { turnstileToken = token; },
-            'expired-callback': function () { turnstileToken = ''; }
+            callback: function (token) { box.dataset.token = token; },
+            'expired-callback': function () { box.dataset.token = ''; },
+            'error-callback': function () { box.dataset.token = ''; }
         });
-    };
+    });
+}
+
+function initTurnstile() {
+    if (!TURNSTILE_SITEKEY) return;
+    if (window.turnstile) { renderTurnstiles(); return; }
+    if (turnstileLoading) return;
+    turnstileLoading = true;
+    window.lbTurnstileReady = renderTurnstiles;
     const script = document.createElement('script');
     script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=lbTurnstileReady&render=explicit';
     script.async = true;
     document.head.appendChild(script);
 }
 
-function sendConfirmationMail() {
-    if (!TURNSTILE_SITEKEY || !turnstileToken) return;
-    const val = function (id) { const el = document.getElementById(id); return el ? el.value : ''; };
-    const checked = document.querySelector('input[name="prestation"]:checked');
+function turnstileTokenIn(form) {
+    const box = form ? form.querySelector('[data-turnstile]') : null;
+    return box && box.dataset.token ? box.dataset.token : '';
+}
+
+function sendConfirmationMail(type, form, fields) {
+    const token = turnstileTokenIn(form);
+    if (!TURNSTILE_SITEKEY || !token) return;
+    fields.type = type;
+    fields.token = token;
     try {
         fetch('/api/confirmation', {
             method: 'POST',
             keepalive: true,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                email: val('email'),
-                nom: val('nom'),
-                ville: val('ville'),
-                prestation: checked ? checked.value : '',
-                token: turnstileToken
-            })
+            body: JSON.stringify(fields)
         }).catch(function () {});
-    } catch (e) { /* l'envoi de la demande continue quoi qu'il arrive */ }
+    } catch (e) { /* l'envoi du formulaire continue quoi qu'il arrive */ }
 }
 
-// Le captcha ne se charge que lorsque le formulaire est affiché
+// Le captcha ne se charge que lorsqu'une page avec formulaire est affichée
 (function () {
-    const devis = document.getElementById('page-devis');
-    if (!devis || !TURNSTILE_SITEKEY) return;
-    const start = function () { if (devis.classList.contains('active-page')) initTurnstile(); };
-    new MutationObserver(start).observe(devis, { attributes: true, attributeFilter: ['class'] });
-    document.addEventListener('DOMContentLoaded', start);
+    if (!TURNSTILE_SITEKEY) return;
+    ['page-devis', 'page-contact'].forEach(function (id) {
+        const page = document.getElementById(id);
+        if (!page) return;
+        const start = function () { if (page.classList.contains('active-page')) initTurnstile(); };
+        new MutationObserver(start).observe(page, { attributes: true, attributeFilter: ['class'] });
+        document.addEventListener('DOMContentLoaded', start);
+    });
+})();
+
+// ==================== FORMULAIRE DE CONTACT ====================
+(function () {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const wait = form.querySelector('[data-turnstile-wait]');
+    function check(field) {
+        const ok = field.checkValidity() && field.value.trim() !== '' || (!field.required && field.checkValidity());
+        const err = field.parentNode.querySelector('.lb-field-error');
+        field.classList.toggle('is-invalid', !ok);
+        if (err) err.hidden = ok;
+        return ok;
+    }
+    ['contact-nom', 'contact-email', 'contact-message'].forEach(function (id) {
+        const f = document.getElementById(id);
+        if (f) f.addEventListener('blur', function () { check(f); });
+    });
+    form.addEventListener('submit', function (event) {
+        let first = null;
+        ['contact-nom', 'contact-email', 'contact-message'].forEach(function (id) {
+            const f = document.getElementById(id);
+            if (f && !check(f) && !first) first = f;
+        });
+        if (first) {
+            event.preventDefault();
+            first.focus();
+            return;
+        }
+        // Anti-robot : on attend que Turnstile ait validé le visiteur
+        if (TURNSTILE_SITEKEY && !turnstileTokenIn(form)) {
+            event.preventDefault();
+            if (wait) wait.hidden = false;
+            initTurnstile();
+            return;
+        }
+        if (wait) wait.hidden = true;
+        trackClarityEvent('envoi_message_contact');
+        sendConfirmationMail('contact', form, {
+            email: document.getElementById('contact-email').value,
+            nom: document.getElementById('contact-nom').value
+        });
+        const btn = document.getElementById('contact-submit');
+        if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
+    });
 })();
