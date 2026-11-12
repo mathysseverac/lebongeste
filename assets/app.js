@@ -320,38 +320,38 @@ document.addEventListener('DOMContentLoaded', function() {
 const PAGES = {
     'accueil': {
         url: 'https://le-bon-geste.fr/',
-        title: "Jardinier à Mazamet : haies, pelouses, petits travaux | Le bon geste",
-        description: "Taille de haies, tonte et petits travaux à domicile à Mazamet et alentours. Appelez Sylvain. 50 % de déduction via la coopérative Unipros."
+        title: "Jardinier et petits travaux à Mazamet (Tarn) | Le bon geste",
+        description: "Taille de haies, tonte, débroussaillage et petit bricolage à Mazamet, Aiguefonde et alentours. Devis gratuit, 50 % déduits via Unipros. Appelez Sylvain."
     },
     'services': {
         url: 'https://le-bon-geste.fr/catalogue',
-        title: "Catalogue des prestations : petits travaux et jardinage | Le bon geste",
-        description: "Catalogue des prestations à Mazamet : taille de haies, tonte, petit bricolage, entretien des terrasses et assistance à domicile. Devis gratuit."
+        title: "Taille de haies, tonte, bricolage à Mazamet | Le bon geste",
+        description: "Les prestations de Le bon geste à Mazamet et Aiguefonde : haies, pelouses, débroussaillage, terrasses, petit bricolage, aide informatique. 50 % déduits."
     },
     'sap': {
         url: 'https://le-bon-geste.fr/avantage-sap',
-        title: "50 % de déduction avec la coopérative Unipros | Le bon geste",
-        description: "Comment fonctionne la déduction de 50 % avec Unipros : vous ne réglez que la moitié de la facture, la coopérative se charge du reste."
+        title: "50 % déduits sur vos travaux à domicile | Le bon geste",
+        description: "Jardinage et petits travaux à Mazamet : avec la coopérative Unipros, vous ne réglez que la moitié de la facture, sans avance de frais."
     },
     'guide': {
         url: 'https://le-bon-geste.fr/guide-urssaf',
-        title: "Guide d'activation Unipros | Le bon geste à Mazamet",
-        description: "Guide simple pour comprendre et activer la facturation via la coopérative Unipros à Mazamet."
+        title: "Facturation Unipros : le mode d'emploi | Le bon geste",
+        description: "Comment fonctionne la facturation via la coopérative Unipros pour vos travaux à domicile avec Le bon geste à Mazamet : étapes et conditions."
     },
     'devis': {
         url: 'https://le-bon-geste.fr/devis',
-        title: "Prendre rendez-vous | Le bon geste, Mazamet",
-        description: "Décrivez votre besoin de jardinage ou de petit service à domicile : réponse sous 24 à 48 h et devis gratuit avant toute intervention."
+        title: "Rendez-vous et devis gratuit à Mazamet | Le bon geste",
+        description: "Décrivez vos travaux de jardinage ou de bricolage à Mazamet, Aiguefonde et alentours. Sylvain vous répond sous 24 à 48 h avec un devis gratuit."
     },
     'contact': {
         url: 'https://le-bon-geste.fr/contact',
-        title: "Contact | Le bon geste, Mazamet",
-        description: "Téléphone, email et devis gratuit : contactez Le bon geste pour vos travaux et petits services à Mazamet et ses environs."
+        title: "Contact : jardinier à Mazamet et Aiguefonde | Le bon geste",
+        description: "Appelez Sylvain au 06 10 66 94 35 ou écrivez-lui. Jardinage et petits travaux à Mazamet, Aiguefonde et communes voisines, dans un rayon de 20 km."
     },
     'faq': {
         url: 'https://le-bon-geste.fr/faq',
-        title: "FAQ travaux à domicile à Mazamet | Le bon geste",
-        description: "Réponses aux questions fréquentes sur les prestations à domicile, le devis gratuit et la facturation via Unipros à Mazamet."
+        title: "FAQ jardinage et petits travaux à Mazamet | Le bon geste",
+        description: "Prestations, devis gratuit, déduction de 50 % via Unipros, zone d'intervention autour de Mazamet : les réponses aux questions fréquentes."
     },
     'mentions': {
         url: 'https://le-bon-geste.fr/mentions-legales',

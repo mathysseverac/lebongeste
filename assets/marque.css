@@ -312,3 +312,8 @@ footer.bg-\[\#032a28\]{border-radius:var(--r-grand) var(--r-grand) 0 0;margin-to
 @media(min-width:900px){.lb-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .lb-wrap+.lb-wrap,.lb-band+.lb-wrap>.lb-block{margin-top:1.25rem}
 .lb-hero>*,.lb-pagehead>*,.lb-split>*,.lb-about>*,.lb-final>*,.lb-cta>*{min-width:0}
+/* titres passés en H2 pour le SEO : même apparence qu'avant */
+.lb-service h2{font-size:1.45rem;line-height:1.2;color:var(--nuit);margin:.8rem 0 .3rem}
+.lb-step h2{font-size:1.08rem;color:var(--nuit);margin:.7rem 0 .4rem}
+.lb-timeline h2{font-size:1.05rem;color:var(--nuit);margin:.2rem 0 .3rem}
+.lb-faq-q{font-size:1rem;font-weight:600;color:var(--nuit);margin:0;line-height:1.4}
