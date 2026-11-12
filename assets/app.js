@@ -225,6 +225,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 pInput.removeAttribute('name');
             }
 
+            // Anti-robot obligatoire : on attend que Turnstile ait validé le visiteur
+            if (TURNSTILE_SITEKEY && !turnstileTokenIn(devisForm)) {
+                event.preventDefault();
+                const waitDevis = devisForm.querySelector('[data-turnstile-wait]');
+                if (waitDevis) waitDevis.hidden = false;
+                initTurnstile();
+                if (pInput && !pInput.getAttribute('name')) pInput.setAttribute('name', 'photos');
+                return;
+            }
+            const waitOk = devisForm.querySelector('[data-turnstile-wait]');
+            if (waitOk) waitOk.hidden = true;
+
             // Suivi de l'événement d'envoi de devis dans Microsoft Clarity
             trackClarityEvent('envoi_devis');
 
@@ -246,6 +258,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.className = 'ph ph-circle-notch text-xl animate-spin';
                 label.textContent = 'Envoi en cours…';
             }
+
+            // Envoi en arrière-plan (sans quitter le site)
+            event.preventDefault();
+            submitInBackground(devisForm, resetSubmitButton);
         });
     }
 
@@ -1030,5 +1046,51 @@ function sendConfirmationMail(type, form, fields) {
         });
         const btn = document.getElementById('contact-submit');
         if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
+        event.preventDefault();
+        submitInBackground(form, function () {
+            if (btn) { btn.disabled = false; btn.textContent = 'Envoyer mon message'; }
+        });
     });
 })();
+
+
+// ==================== ENVOI DES FORMULAIRES EN ARRIÈRE-PLAN (FormSubmit) ====================
+// La page ne quitte plus le site : on envoie à FormSubmit, puis on affiche la page « merci ».
+// En cas d'erreur ou de délai trop long, on retombe sur l'envoi classique : aucune demande perdue.
+const FORMSUBMIT_AJAX = 'https://formsubmit.co/ajax/contact.lebongeste@gmail.com';
+
+function submitInBackground(form, onFailReset) {
+    const data = new FormData(form);
+    data.delete('cf-turnstile-response');   // le jeton du captcha n'a rien à faire dans le mail
+    data.delete('_next');
+    const controller = ('AbortController' in window) ? new AbortController() : null;
+    const timer = setTimeout(function () { if (controller) controller.abort(); }, 30000);
+    let done = false;
+
+    function fallback() {
+        if (done) return;
+        done = true;
+        clearTimeout(timer);
+        // Envoi classique, sans repasser par nos contrôles
+        HTMLFormElement.prototype.submit.call(form);
+    }
+
+    fetch(FORMSUBMIT_AJAX, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' },
+        signal: controller ? controller.signal : undefined
+    }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (json) {
+            const ok = res.ok && (json.success === true || json.success === 'true');
+            if (!ok) return fallback();
+            done = true;
+            clearTimeout(timer);
+            form.reset();
+            if (typeof onFailReset === 'function') onFailReset();
+            const box = form.querySelector('[data-turnstile]');
+            if (box) { box.dataset.token = ''; if (window.turnstile) { try { window.turnstile.reset(box); } catch (e) {} } }
+            navigateTo(null, 'merci');
+        });
+    }).catch(fallback);
+}
