@@ -1,0 +1,314 @@
+/* =====================================================================
+   Le bon geste : nouvelle identité (charte graphique v1)
+   Couleurs du logo, Manrope, arrondi partout, illustrations et
+   mascotte Sylvain. Ce fichier se charge après style.css.
+   ===================================================================== */
+:root{
+  --teal:#007271;--teal-fonce:#005554;--nuit:#032a28;--menthe:#9fd3cd;--menthe-clair:#e3f2f0;
+  --soleil:#f4b740;--soleil-fonce:#e3a52c;--fond:#f5f7f9;--blanc:#fff;--texte:#475569;--titre:#0f172a;--filet:#dce8e6;
+  --r-petit:12px;--r-moyen:20px;--r-grand:28px;--ombre:0 10px 30px rgba(3,42,40,.12)
+}
+body.bg-gray-light{background:var(--fond)}
+main.pt-24{padding-top:6rem}
+
+/* ---------- Gabarits ---------- */
+.lb-wrap{max-width:76rem;margin:0 auto;padding:0 1.25rem}
+.lb-wrap-narrow{max-width:58rem}
+.lb-wrap-last{padding-bottom:3rem}
+.lb-band{padding:4rem 0}
+.lb-center{text-align:center;margin-top:2rem}
+
+/* ---------- Typo ---------- */
+.lb-kicker,.lb-label{display:flex;align-items:center;gap:.6rem;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin:0 0 .9rem}
+.lb-label::before,.lb-kicker::before{content:"";width:1.6rem;height:4px;border-radius:4px;background:currentColor}
+.lb-label-light{color:var(--menthe)}
+.lb-h1{font-size:2.4rem;line-height:1.08;letter-spacing:-.02em;color:var(--nuit);margin:0 0 1.1rem}
+.lb-h1 span{color:var(--teal)}
+.lb-h1-page{font-size:2.1rem}
+.lb-h2{font-size:1.8rem;line-height:1.15;letter-spacing:-.01em;color:var(--nuit);margin:0 0 .8rem}
+.lb-h3{font-size:1.15rem;color:var(--nuit);margin:0 0 .6rem}
+.lb-light{color:#fff}
+.lb-lead{font-size:1.08rem;line-height:1.65;color:var(--texte);max-width:36rem;margin:0 0 1.6rem}
+.lb-sub{font-size:1.02rem;line-height:1.6;color:var(--texte);max-width:42rem;margin:0 0 2rem}
+.lb-body{font-size:1rem;line-height:1.7;color:var(--texte);margin:0 0 1.2rem}
+.lb-body-light{font-size:1rem;line-height:1.7;color:#d7ece9;margin:0 0 1.4rem;max-width:34rem}
+.lb-strong{font-size:1.1rem;color:#fff}
+@media(min-width:768px){.lb-h1{font-size:3.4rem}.lb-h1-page{font-size:2.8rem}.lb-h2{font-size:2.3rem}}
+
+/* ---------- Boutons : toujours en pastille ---------- */
+.lb-actions{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.lb-actions-center{justify-content:center}
+.lb-btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3.1rem;padding:.85rem 1.5rem;border-radius:999px;font-weight:600;font-size:.98rem;line-height:1.25;text-align:center;border:1.5px solid transparent;transition:background-color .2s,color .2s,border-color .2s,transform .15s}
+.lb-btn img{width:1.15rem;height:1.15rem}
+.lb-btn-sm{min-height:2.7rem;padding:.6rem 1.15rem;font-size:.9rem}
+.lb-btn-main{background:var(--teal);color:#fff}
+.lb-btn-main:hover{background:var(--teal-fonce)}
+.lb-btn-soft{background:#fff;color:var(--nuit);border-color:var(--menthe)}
+.lb-btn-soft:hover{border-color:var(--teal);color:var(--teal)}
+.lb-btn-white{background:#fff;color:var(--nuit)}
+.lb-btn-white:hover{background:var(--menthe-clair)}
+.lb-btn-ghost-light{color:#fff;border-color:rgba(255,255,255,.55)}
+.lb-btn-ghost-light:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.lb-btn:active{transform:scale(.97)}
+.lb-link{color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.lb-link:hover{color:var(--teal-fonce)}
+.lb-more{margin:1.75rem 0 0}
+
+/* ---------- Haut de l'accueil ---------- */
+.lb-hero{display:grid;gap:1.5rem;align-items:center;padding-top:1.5rem;padding-bottom:1rem}
+@media(min-width:1024px){.lb-hero{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:3rem;padding-top:3rem}}
+.lb-chips{list-style:none;margin:1.6rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
+.lb-chips li,.lb-chips li>a{display:flex;align-items:center;gap:.6rem}
+.lb-chips li{background:#fff;border:1.5px solid var(--filet);border-radius:999px;padding:.45rem 1rem .45rem .5rem}
+.lb-chips strong{background:var(--menthe-clair);color:var(--teal);border-radius:999px;padding:.3rem .7rem;font-size:.95rem;white-space:nowrap}
+.lb-chips span{font-size:.82rem;color:var(--texte);line-height:1.3}
+.lb-chips li:first-child strong{background:var(--soleil);color:var(--nuit)}
+.lb-hero-scene{position:relative;background:var(--menthe-clair);border-radius:var(--r-grand);aspect-ratio:960/620;overflow:hidden}
+.lb-hero-illu{position:absolute;left:0;right:0;bottom:-2%;width:100%;height:auto}
+.lb-sylvain{position:absolute;left:4%;bottom:2%;width:34%;max-width:15rem;padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.lb-sylvain svg{display:block;width:100%;height:auto;overflow:visible}
+.lb-sylvain:focus-visible{outline:3px solid var(--teal);outline-offset:4px;border-radius:var(--r-moyen)}
+
+/* bulle de Sylvain */
+.lb-bulle{position:absolute;left:62%;top:-4%;z-index:2;width:max-content;max-width:13rem;background:#fff;color:var(--nuit);font-size:.88rem;font-weight:600;line-height:1.4;text-align:left;padding:.7rem .95rem;border-radius:18px 18px 18px 4px;box-shadow:var(--ombre);opacity:0;transform:translateY(8px) scale(.96);transform-origin:left bottom;transition:opacity .25s,transform .25s;pointer-events:none}
+.lb-bulle.is-on{opacity:1;transform:none}
+@media(max-width:600px){.lb-bulle{max-width:10.5rem;font-size:.8rem;left:58%}}
+
+/* animations de la mascotte (désactivées si l'appareil demande moins de mouvement) */
+.sylvain-live .avantbras-d{transform-box:view-box;transform-origin:138px 198px;transform:rotate(-25deg)}
+.sylvain-live .tete{transform-box:view-box;transform-origin:100px 130px}
+.sylvain-live .yeux{transform-box:fill-box;transform-origin:center}
+.sylvain-live .sylvain{transform-box:view-box;transform-origin:100px 350px}
+@media(prefers-reduced-motion:no-preference){
+  .sylvain-live .sylvain{animation:lbRespire 4s ease-in-out infinite}
+  .sylvain-live .yeux{animation:lbCligne 5s infinite}
+  .lb-sylvain.is-waving .avantbras-d{animation:lbCoucou .5s ease-in-out 4}
+  .lb-sylvain.is-waving .tete{animation:lbHoche 2s ease-in-out}
+  .lb-assist-btn .sylvain-tete .yeux{animation:lbCligne 6s infinite}
+}
+@keyframes lbRespire{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes lbCligne{0%,93%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes lbCoucou{0%,100%{transform:rotate(-25deg)}50%{transform:rotate(-52deg)}}
+@keyframes lbHoche{0%,100%{transform:rotate(0)}30%{transform:rotate(-4deg)}60%{transform:rotate(3deg)}}
+
+/* ---------- Cartes des prestations ---------- */
+.lb-cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}
+.lb-card{display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-grand);padding:.75rem .75rem 1.25rem;transition:transform .2s,box-shadow .2s}
+.lb-card:hover{transform:translateY(-3px);box-shadow:var(--ombre)}
+.lb-card-illu{border-radius:var(--r-moyen);overflow:hidden;background:#fff;margin-bottom:.9rem}
+.lb-card-illu img{display:block;width:100%;height:auto}
+.lb-card h3{font-size:1.15rem;color:var(--nuit);margin:0 .5rem .35rem}
+.lb-card p{flex:1;font-size:.93rem;line-height:1.55;color:var(--texte);margin:0 .5rem 1rem}
+.lb-card-foot{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;margin:0 .5rem}
+
+/* ---------- Grands blocs arrondis ---------- */
+.lb-block{border-radius:var(--r-grand);padding:2rem 1.4rem}
+@media(min-width:768px){.lb-block{padding:3rem}}
+.lb-block-teal{background:var(--teal)}
+.lb-block-night{background:var(--nuit)}
+.lb-block-mint{background:var(--menthe-clair)}
+.lb-block-white{background:#fff;border:1.5px solid var(--filet)}
+.lb-block-pad{padding:1.6rem}
+.lb-split{display:grid;gap:2rem;align-items:center}
+@media(min-width:900px){.lb-split{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:3rem}}
+.lb-two{display:grid;gap:1rem;margin-top:1.5rem}
+@media(min-width:768px){.lb-two{grid-template-columns:1fr 1fr}}
+
+/* ticket « vous ne payez que la moitié » */
+.lb-ticket{background:#fff;border-radius:var(--r-grand);padding:.75rem .75rem 1.3rem}
+.lb-ticket>img{display:block;width:100%;height:auto;border-radius:var(--r-moyen);background:var(--menthe-clair)}
+.lb-ticket-rows{padding:.4rem .9rem 0}
+.lb-ticket-rows>div{display:flex;justify-content:space-between;gap:1rem;padding:.65rem 0;border-bottom:2px dotted var(--filet);font-size:.98rem;color:var(--titre)}
+.lb-ticket-rows .lb-minus{color:var(--teal)}
+.lb-ticket-rows .lb-total{border:0;font-size:1.35rem;color:var(--nuit)}
+.lb-ticket-solo{background:#fff;border-radius:var(--r-grand);padding:1.5rem}
+.lb-ticket-note{font-size:.8rem;line-height:1.55;color:var(--texte);margin:.5rem .9rem 0}
+
+/* étapes */
+.lb-steps{display:grid;gap:1rem;margin-top:1.5rem}
+@media(min-width:768px){.lb-steps{grid-template-columns:repeat(3,1fr)}}
+.lb-steps-top{margin:1.5rem 0}
+.lb-step{position:relative;background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-moyen);padding:1.4rem}
+.lb-step h3{font-size:1.08rem;color:var(--nuit);margin:.7rem 0 .4rem}
+.lb-step p{font-size:.93rem;line-height:1.6;color:var(--texte);margin:0}
+.lb-step-ico{display:inline-flex;width:3rem;height:3rem;align-items:center;justify-content:center;background:var(--menthe-clair);border-radius:16px}
+.lb-step-num{display:inline-flex;width:2.2rem;height:2.2rem;align-items:center;justify-content:center;border-radius:999px;background:var(--teal);color:#fff;font-weight:600;font-size:.95rem}
+.lb-step .lb-step-ico+.lb-step-num{position:absolute;top:1.1rem;right:1.1rem;background:var(--soleil);color:var(--nuit)}
+
+/* qui vient chez vous */
+.lb-about{display:grid;gap:1.5rem;align-items:center}
+@media(min-width:900px){.lb-about{grid-template-columns:minmax(0,.6fr) minmax(0,1.4fr);gap:3rem}}
+.lb-about-art{display:flex;justify-content:center}
+.lb-about-art img{width:100%;max-width:15rem;height:auto}
+.lb-facts{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.lb-facts li{display:flex;gap:.8rem;align-items:flex-start;background:#fff;border-radius:var(--r-moyen);padding:.8rem 1rem}
+.lb-facts img{margin-top:.15rem;flex:none}
+.lb-facts strong,.lb-facts span{display:block}
+.lb-facts strong{color:var(--nuit);font-size:.95rem}
+.lb-facts span{font-size:.85rem;color:var(--texte)}
+
+/* appel final */
+.lb-final{position:relative;display:grid;gap:1rem;align-items:end;overflow:hidden}
+@media(min-width:900px){.lb-final{grid-template-columns:1fr auto}}
+.lb-bigphone{display:inline-block;font-size:2.6rem;line-height:1;font-weight:600;letter-spacing:-.02em;color:#fff;margin:.2rem 0 1.2rem}
+.lb-bigphone:hover{color:var(--menthe)}
+@media(min-width:768px){.lb-bigphone{font-size:4.8rem}}
+.lb-final-art{width:11rem;height:auto;justify-self:end;margin:-1rem -.5rem -3.2rem 0}
+@media(min-width:900px){.lb-final-art{width:15rem;margin-bottom:-4rem}}
+
+/* galerie photos (si ajoutées) */
+.lb-gallery{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.lb-photo{margin:0;border-radius:var(--r-moyen);overflow:hidden;aspect-ratio:4/3}
+.lb-photo[hidden]{display:none}
+.lb-photo img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- En-tête des pages intérieures ---------- */
+.lb-pagehead{display:grid;gap:1rem;align-items:end;padding-top:2rem;padding-bottom:1.5rem}
+@media(min-width:900px){.lb-pagehead{grid-template-columns:minmax(0,1fr) auto;padding-top:3.5rem}}
+.lb-pagehead-art{width:9rem;height:auto;justify-self:end;margin-bottom:-1.6rem}
+@media(min-width:900px){.lb-pagehead-art{width:13rem}}
+.lb-pagehead-devis{padding-left:0;padding-right:0}
+
+/* encadré d'info */
+.lb-note-box{display:flex;gap:.8rem;align-items:flex-start;background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-moyen);padding:1rem 1.2rem;font-size:.9rem;line-height:1.6;color:var(--texte);margin:0 0 1.5rem}
+.lb-note-box img{flex:none;margin-top:.1rem}
+.lb-note-teal{background:var(--teal);border-color:var(--teal);color:#e6f4f2}
+.lb-note-teal strong{color:#fff}
+.lb-note-big{background:var(--menthe-clair);border:0;padding:1.4rem;align-items:center}
+.lb-note-big img{width:5rem;height:auto}
+.lb-note-big strong{display:block;color:var(--nuit);font-size:1.05rem;margin-bottom:.3rem}
+.lb-note-big p{margin:0}
+
+/* ---------- Catalogue ---------- */
+.lb-services{display:grid;gap:1.25rem}
+.lb-service{display:grid;background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-grand);overflow:hidden;scroll-margin-top:7rem}
+@media(min-width:900px){.lb-service{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.lb-service:nth-child(even) .lb-service-illu{order:2}}
+.lb-service-illu{background:var(--menthe-clair);display:flex;align-items:center;justify-content:center;padding:.75rem}
+.lb-service-illu img{display:block;width:100%;height:auto;border-radius:var(--r-moyen)}
+.lb-service-illu-double{flex-direction:column;gap:.6rem}
+.lb-service-body{padding:1.5rem}
+@media(min-width:900px){.lb-service-body{padding:2.2rem}}
+.lb-service h3{font-size:1.45rem;line-height:1.2;color:var(--nuit);margin:.8rem 0 .3rem}
+.lb-service-sub{color:var(--teal);font-size:.95rem;margin:0 0 1rem}
+.lb-plafond{display:inline-block;background:var(--menthe-clair);color:var(--texte);border-radius:999px;padding:.35rem .9rem;font-size:.78rem}
+.lb-plafond strong{color:var(--teal)}
+.lb-checks{list-style:none;margin:0 0 1rem;padding:0;display:grid;gap:.5rem}
+.lb-checks li{position:relative;padding-left:1.8rem;font-size:.93rem;line-height:1.55;color:var(--texte)}
+.lb-checks li::before{content:"";position:absolute;left:0;top:.15rem;width:1.2rem;height:1.2rem;border-radius:999px;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center/70% no-repeat}
+.lb-checks strong{color:var(--titre)}
+.lb-coop{background:var(--menthe-clair);border-radius:var(--r-petit);padding:.75rem 1rem;font-size:.88rem;line-height:1.5;color:var(--titre);margin:0 0 1.1rem}
+.lb-legal{font-size:.75rem;color:#94a3b8;margin:1rem 0 0}
+
+/* tampon −50 % */
+.lb-stamp{justify-self:start;display:flex;flex-direction:column;align-items:center;background:var(--soleil);color:var(--nuit);border-radius:999px;width:9.5rem;height:9.5rem;justify-content:center;transform:rotate(-8deg);box-shadow:var(--ombre);margin-bottom:.5rem}
+.lb-stamp strong{font-size:2.3rem;line-height:1}
+.lb-stamp span{font-size:.72rem;text-align:center;max-width:6.5rem;margin-top:.3rem}
+@media(min-width:900px){.lb-stamp{justify-self:end;width:11rem;height:11rem}.lb-stamp strong{font-size:2.8rem}}
+
+/* bloc d'appel en bas des pages */
+.lb-cta{display:grid;gap:1.2rem;align-items:center}
+@media(min-width:900px){.lb-cta{grid-template-columns:1fr auto}}
+.lb-cta .lb-body-light{margin-bottom:0}
+
+/* guide : frise */
+.lb-timeline{list-style:none;margin:1.5rem 0;padding:0;display:grid;gap:.75rem}
+.lb-timeline li{display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-moyen);padding:1.1rem 1.2rem}
+.lb-timeline .lb-step-num{flex:none}
+.lb-timeline h3{font-size:1.05rem;color:var(--nuit);margin:.2rem 0 .3rem}
+.lb-timeline p{margin:0;font-size:.93rem;line-height:1.6;color:var(--texte)}
+
+/* contact */
+.lb-contact-cards{display:grid;gap:1rem}
+@media(min-width:768px){.lb-contact-cards{grid-template-columns:1fr 1fr}}
+.lb-contact{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:1rem;align-items:center;background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-grand);padding:1.3rem 1.4rem;transition:transform .2s,box-shadow .2s}
+.lb-contact:hover{transform:translateY(-2px);box-shadow:var(--ombre)}
+.lb-contact-main{background:var(--teal);border-color:var(--teal)}
+.lb-contact-ico{grid-row:span 2;display:flex;width:3.4rem;height:3.4rem;align-items:center;justify-content:center;border-radius:999px;background:rgba(255,255,255,.18)}
+.lb-ico-soft{background:var(--menthe-clair)}
+.lb-contact-label{font-size:.8rem;color:var(--texte)}
+.lb-contact-value{font-size:1.15rem;font-weight:600;color:var(--nuit);word-break:break-word}
+.lb-contact-main .lb-contact-label{color:#cfe9e5}
+.lb-contact-main .lb-contact-value{color:#fff;font-size:1.5rem}
+
+/* FAQ */
+.lb-faq details{background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-moyen);margin-bottom:.7rem;overflow:hidden}
+.lb-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:1.1rem 1.3rem;font-weight:600;color:var(--nuit);font-size:1rem}
+.lb-faq summary::-webkit-details-marker{display:none}
+.lb-faq summary::after{content:"+";flex:none;display:flex;width:2rem;height:2rem;align-items:center;justify-content:center;border-radius:999px;background:var(--menthe-clair);color:var(--teal);font-size:1.3rem;transition:transform .2s}
+.lb-faq details[open] summary::after{transform:rotate(45deg);background:var(--teal);color:#fff}
+.lb-faq details p{margin:0;padding:0 1.3rem 1.2rem;font-size:.95rem;line-height:1.65;color:var(--texte)}
+
+/* merci / 404 */
+.lb-solo{display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:2rem}
+.lb-solo>img{width:10rem;height:auto;margin-bottom:1rem}
+.lb-solo .lb-kicker{justify-content:center}
+.lb-solo .lb-lead{margin-left:auto;margin-right:auto}
+
+/* ---------- Formulaire de rendez-vous (même code, nouvelle apparence) ---------- */
+.lb-devis #devis-form{background:#fff!important;border:1.5px solid var(--filet)!important;border-radius:var(--r-grand)!important;box-shadow:none!important}
+.lb-devis #devis-form h3{color:var(--nuit)}
+.lb-devis input:not([type=checkbox]):not([type=radio]),.lb-devis select,.lb-devis textarea{border-radius:var(--r-petit)!important;border-color:var(--filet)!important;background:var(--fond)}
+.lb-devis input:focus,.lb-devis textarea:focus,.lb-devis select:focus{border-color:var(--teal)!important;background:#fff}
+.lb-devis label.rounded-md,.lb-devis label.rounded-lg,.lb-devis label.rounded-xl{border-radius:var(--r-moyen)!important}
+.lb-devis #devis-submit-btn{border-radius:999px!important;min-height:3.2rem}
+
+/* ---------- Pages légales : posées dans une carte ---------- */
+#page-mentions>div,#page-cgv>div,#page-confidentialite>div,#page-cookies>div{background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-grand);padding:1.6rem}
+@media(min-width:768px){#page-mentions>div,#page-cgv>div,#page-confidentialite>div,#page-cookies>div{padding:3rem}}
+
+/* ---------- En-tête et pied de page ---------- */
+#header .hdr-call{background:var(--teal)}
+footer.bg-\[\#032a28\]{border-radius:var(--r-grand) var(--r-grand) 0 0;margin-top:2rem}
+
+/* ---------- Sylvain l'assistant (bouton flottant) ---------- */
+.lb-assist{position:fixed;right:1rem;bottom:1rem;z-index:55;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem}
+.lb-assist-btn{width:4.4rem;height:4.4rem;border-radius:999px;background:var(--menthe-clair);border:3px solid #fff;box-shadow:var(--ombre);padding:0;overflow:hidden;cursor:pointer;transition:transform .2s}
+.lb-assist-btn:hover{transform:scale(1.06)}
+.lb-assist-btn svg{display:block;width:100%;height:100%;transform:translateY(6%)}
+.lb-assist-panel{width:min(19rem,calc(100vw - 2rem));background:#fff;border-radius:22px 22px 6px 22px;box-shadow:var(--ombre);padding:1.1rem}
+.lb-assist-panel[hidden]{display:none}
+.lb-assist-msg{margin:0 0 .9rem;font-size:.93rem;line-height:1.5;color:var(--nuit)}
+.lb-assist-actions{display:grid;gap:.5rem}
+.lb-assist-actions .lb-btn{width:100%}
+.lb-assist-actions .lb-link{text-align:center;font-size:.88rem;margin-top:.2rem}
+@media(prefers-reduced-motion:no-preference){
+  .lb-assist-panel:not([hidden]){animation:lbOuvre .22s ease-out}
+  .lb-assist.is-new .lb-assist-btn{animation:lbSautille 1.4s ease-in-out 2}
+}
+@keyframes lbOuvre{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes lbSautille{0%,100%{transform:translateY(0)}30%{transform:translateY(-8px)}55%{transform:translateY(0)}70%{transform:translateY(-4px)}}
+
+/* ---------- Téléphone : comme une application ---------- */
+@media(max-width:767px){
+  main.pt-24{padding-top:5rem}
+  .lb-wrap{padding:0 .9rem}
+  .lb-band{padding:2.5rem 0}
+  .lb-hero{padding-top:.75rem}
+  .lb-hero-scene{order:-1}
+  .lb-h1{font-size:2.1rem}
+  .lb-h1-page{font-size:1.85rem}
+  .lb-actions .lb-btn{width:100%}
+  .lb-chips{flex-wrap:nowrap;overflow-x:auto;margin:1.2rem -.9rem 0;padding:0 .9rem .3rem;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .lb-chips::-webkit-scrollbar{display:none}
+  .lb-chips li{flex:none;scroll-snap-align:start}
+  .lb-cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -.9rem;padding:0 .9rem .5rem;scrollbar-width:none}
+  .lb-cards::-webkit-scrollbar{display:none}
+  .lb-card{flex:0 0 84%;scroll-snap-align:center}
+  .lb-card-foot{flex-direction:column;align-items:stretch;text-align:center}
+  .lb-block{border-radius:var(--r-grand)}
+  .lb-wrap-last{padding-bottom:1.5rem}
+  .lb-pagehead{grid-template-columns:1fr auto;align-items:end;padding-top:1rem}
+  .lb-pagehead>div{grid-column:1/-1}
+  .lb-pagehead-art{grid-row:1;grid-column:2;width:6.5rem;margin:0}
+  .lb-pagehead .lb-kicker{grid-row:1}
+  .lb-stamp{width:7.5rem;height:7.5rem}.lb-stamp strong{font-size:1.9rem}
+  .lb-final-art{width:8rem;margin-bottom:-2.6rem}
+  .lb-assist{right:.75rem;bottom:calc(5.6rem + env(safe-area-inset-bottom))}
+  .lb-assist-btn{width:3.6rem;height:3.6rem}
+  footer.bg-\[\#032a28\]{border-radius:var(--r-grand);margin:1rem .6rem 0}
+}
+/* sur ordinateur, à l'accueil, le grand Sylvain suffit */
+@media(min-width:1024px){.lb-assist.is-home .lb-assist-btn{opacity:0;pointer-events:none;transform:scale(.6)}.lb-assist.is-home{pointer-events:none}}
+@media(min-width:900px){.lb-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.lb-wrap+.lb-wrap,.lb-band+.lb-wrap>.lb-block{margin-top:1.25rem}
+.lb-hero>*,.lb-pagehead>*,.lb-split>*,.lb-about>*,.lb-final>*,.lb-cta>*{min-width:0}

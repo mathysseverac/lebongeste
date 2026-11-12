@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-label="Maison avec jardin entretenu"><title>Maison avec jardin entretenu</title><path d="M60 250C40 140 160 60 330 70c150 9 260-30 400 10 150 42 210 140 180 230-28 86-170 120-420 116-260-4-460-40-430-176Z" fill="#e3f2f0"/>
+<circle cx="790" cy="110" r="34" fill="#f4b740"/><circle cx="790" cy="110" r="46" fill="#f4b740" opacity=".25"/>
+<rect x="40" y="420" width="880" height="34" rx="17" fill="#9fd3cd"/>
+<path d="M120 452Q480 380 860 452Z" fill="#5bb8aa"/>
+<g transform="translate(330 170)"><path d="M0 110L130 10Q150-6 170 10L300 110" fill="none" stroke="#032a28" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="28" y="100" width="244" height="160" rx="18" fill="#ffffff"/><rect x="118" y="160" width="64" height="100" rx="30" fill="#007271"/><circle cx="168" cy="214" r="5" fill="#f4b740"/>
+<rect x="48" y="134" width="50" height="50" rx="12" fill="#9fd3cd"/><rect x="202" y="134" width="50" height="50" rx="12" fill="#9fd3cd"/>
+<rect x="212" y="20" width="28" height="56" rx="8" fill="#005554"/></g>
+<g transform="translate(150 230)"><rect x="40" y="90" width="18" height="110" rx="9" fill="#1f6f63"/><circle cx="50" cy="70" r="72" fill="#2c8a7c"/><circle cx="80" cy="40" r="40" fill="#5bb8aa"/></g>
+<rect x="620" y="330" width="230" height="100" rx="30" fill="#2c8a7c"/><rect x="620" y="330" width="230" height="28" rx="14" fill="#5bb8aa"/>
+<path d="M478 430Q470 440 500 450H460Q446 440 452 430Z" fill="#ffffff" opacity=".9"/>
+<path transform="translate(560 140) rotate(-25) scale(0.9)" d="M0 0C10-14 34-16 46-2C34 12 12 14 0 0Z" fill="#007271"/><path transform="translate(600 180) rotate(30) scale(0.6)" d="M0 0C10-14 34-16 46-2C34 12 12 14 0 0Z" fill="#5bb8aa"/><path transform="translate(120 170) rotate(-60) scale(0.7)" d="M0 0C10-14 34-16 46-2C34 12 12 14 0 0Z" fill="#5bb8aa"/></svg>

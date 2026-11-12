@@ -30,6 +30,7 @@
 
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
+    <link rel="stylesheet" href="/assets/marque.css?v=2">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -119,484 +120,389 @@
     <main class="pt-24 flex-grow">
         
         <!-- ==================== PAGE : ACCUEIL (landing) ==================== -->
-        <section id="page-accueil" class="page-view active-page relative border-b border-gray-200">
+        <section id="page-accueil" class="page-view active-page relative">
 
-            <div class="lp-hero" data-photo-host>
-                <figure class="lp-hero-bg" data-photo hidden>
-                    <img src="/assets/img/hero.jpg" alt="Sylvain au travail dans un jardin à Mazamet" width="1600" height="900" data-photo-img>
-                </figure>
-                <div class="lp-hero-veil" aria-hidden="true"></div>
-                <div class="lp-wrap lp-hero-inner">
-                    <p class="lp-kicker">Mazamet · Aiguefonde · communes voisines</p>
-                    <h1 class="font-arboria lp-h1">Jardinage et petits travaux chez vous, <span class="lp-accent">à Mazamet.</span></h1>
-                    <p class="lp-lead">Sylvain s'occupe de vos haies, de votre pelouse et de vos petits travaux. Un seul interlocuteur, du premier appel à la facture.</p>
-
-                    <div class="lp-actions">
-                        <a href="tel:+33610669435" class="lp-btn lp-btn-primary">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+            <!-- Haut de page : Sylvain dit bonjour -->
+            <div class="lb-wrap lb-hero">
+                <div class="lb-hero-text">
+                    <p class="lb-kicker">Mazamet · Aiguefonde · communes voisines</p>
+                    <h1 class="lb-h1">Jardinage et petits travaux chez vous, <span>à Mazamet.</span></h1>
+                    <p class="lb-lead">Sylvain s'occupe de vos haies, de votre pelouse et de vos petits travaux. Un seul interlocuteur, du premier appel à la facture.</p>
+                    <div class="lb-actions">
+                        <a href="tel:+33610669435" class="lb-btn lb-btn-main">
+                            <img src="/assets/img/marque/picto-telephone-blanc.svg" alt="" width="20" height="20">
                             Appeler Sylvain · 06 10 66 94 35
                         </a>
-                        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lp-btn lp-btn-ghost">Prendre rendez-vous</a>
+                        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-soft">Prendre rendez-vous</a>
                     </div>
-
-                    <ul class="lp-glass">
-                        <li>
-                            <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap">
-                                <strong>50 %</strong>
-                                <span>de réduction immédiate via la coopérative Unipros</span>
-                            </a>
-                        </li>
-                        <li>
-                            <strong>24-48 h</strong>
-                            <span>pour recevoir une réponse de Sylvain</span>
-                        </li>
-                        <li>
-                            <strong>20 km</strong>
-                            <span>autour de Mazamet, devis clair avant chaque intervention</span>
-                        </li>
+                    <ul class="lb-chips">
+                        <li><a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap"><strong>−50 %</strong><span>déduits de la facture via Unipros</span></a></li>
+                        <li><strong>24-48 h</strong><span>pour une réponse de Sylvain</span></li>
+                        <li><strong>20 km</strong><span>autour de Mazamet</span></li>
                     </ul>
+                </div>
+                <div class="lb-hero-scene">
+                    <img class="lb-hero-illu" src="/assets/img/marque/illu-hero-maison.svg" alt="" width="960" height="500">
+                    <button type="button" class="lb-sylvain" data-sylvain aria-label="Sylvain vous dit bonjour. Touchez-le pour un conseil.">
+                        <span class="lb-bulle" data-sylvain-bulle role="status" aria-live="polite">Bonjour ! Moi c'est Sylvain.</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="sylvain-live" focusable="false" viewBox="-40 0 280 360" role="img" aria-label="Sylvain"><g class="sylvain"><path d="M62 330h36v10a8 8 0 0 1-8 8H58a6 6 0 0 1-6-6c0-7 4-12 10-12z" fill="#7f878b"/><rect x="52" y="342" width="46" height="7" rx="3.5" fill="#dfe3e1"/>
+<path d="M102 330h36c6 0 10 5 10 12a6 6 0 0 1-6 6h-32a8 8 0 0 1-8-8z" fill="#7f878b"/><rect x="102" y="342" width="46" height="7" rx="3.5" fill="#dfe3e1"/><rect x="70" y="236" width="26" height="92" rx="12" fill="#f0c3a1"/><rect x="104" y="236" width="26" height="92" rx="12" fill="#f0c3a1"/>
+<rect x="72" y="318" width="22" height="12" rx="4" fill="#fff"/><rect x="106" y="318" width="22" height="12" rx="4" fill="#fff"/>
+<path d="M64 218h72l6 50c1 6-3 8-8 8h-24l-10-24-10 24H66c-5 0-9-2-8-8z" fill="#5d6650"/><path d="M100 232v20" stroke="#4c5442" stroke-width="3" stroke-linecap="round"/><g class="bras-g" transform="rotate(8 62 152)">
+<rect x="53" y="160" width="18" height="46" rx="9" fill="#f0c3a1"/>
+<g class="avantbras-g" transform="rotate(0 62 198)"><rect x="53" y="190" width="18" height="52" rx="9" fill="#f0c3a1"/><circle cx="62" cy="244" r="12" fill="#f0c3a1"/></g>
+<rect x="50" y="146" width="24" height="40" rx="12" fill="#005554"/></g><g class="bras-d" transform="rotate(-150 138 152)">
+<rect x="129" y="160" width="18" height="46" rx="9" fill="#f0c3a1"/>
+<g class="avantbras-d"><rect x="129" y="190" width="18" height="52" rx="9" fill="#f0c3a1"/><rect x="128" y="226" width="20" height="9" rx="4" fill="#032a28"/><g><circle cx="138" cy="246" r="12" fill="#f0c3a1"/><rect x="129" y="248" width="5.5" height="14" rx="2.75" fill="#f0c3a1"/><rect x="135" y="248" width="5.5" height="14" rx="2.75" fill="#f0c3a1"/><rect x="141" y="248" width="5.5" height="14" rx="2.75" fill="#f0c3a1"/><rect x="147" y="248" width="5.5" height="14" rx="2.75" fill="#f0c3a1"/><rect x="146" y="236" width="6" height="13" rx="3" fill="#f0c3a1" transform="rotate(-40 149 242)"/></g></g>
+<rect x="126" y="146" width="24" height="40" rx="12" fill="#005554"/></g><rect x="88" y="120" width="24" height="24" rx="8" fill="#dfa684"/>
+<path d="M60 152c0-12 10-18 22-20l18 6 18-6c12 2 22 8 22 20v72c0 4-3 6-6 6H66c-3 0-6-2-6-6z" fill="#007271"/>
+<path d="M84 134q16 12 32 0" stroke="#005554" stroke-width="5" fill="none" stroke-linecap="round"/><g transform="translate(104 160) scale(0.09836065573770492)"><path fill="#fff" d="M 120.246094 26.492188 C 118.921875 26.394531 107.058594 25.839844 96.765625 35.414062 C 93.421875 38.523438 90.691406 42.296875 88.558594 46.703125 C 79.117188 33.675781 63.40625 25.464844 45.878906 26.570312 C 21.113281 28.132812 1.289062 48.40625 0.257812 73.1875 C -0.925781 101.765625 22.628906 125.257812 51.234375 123.992188 C 77.40625 122.832031 97.636719 100.804688 97.832031 74.617188 C 97.925781 61.613281 100.980469 51.878906 106.675781 46.4375 C 112.339844 41.027344 118.996094 41.265625 119.273438 41.273438 L 119.179688 41.269531 Z M 52.121094 109.085938 C 30.953125 110.96875 13.289062 93.316406 15.175781 72.15625 C 16.625 55.933594 29.691406 42.871094 45.921875 41.425781 C 67.089844 39.539062 84.753906 57.195312 82.867188 78.355469 C 81.417969 94.578125 68.351562 107.640625 52.121094 109.085938 Z M 52.121094 109.085938 " fill-opacity="1" fill-rule="nonzero"/><path fill="#fff" d="M 196.011719 9.675781 C 195.910156 9.726562 195.8125 9.789062 195.71875 9.84375 C 194.789062 10.394531 194.191406 10.785156 193.960938 10.941406 C 193.894531 10.980469 193.859375 11.007812 193.859375 11.007812 C 180.902344 19.257812 164.921875 33.226562 146.566406 56.730469 C 108.394531 105.59375 75.425781 125.816406 40.519531 147.234375 C 34.945312 150.65625 29.179688 154.191406 23.464844 157.808594 C 13.484375 164.132812 6.363281 172.464844 2.867188 181.914062 C -0.40625 190.75 -0.460938 200.097656 2.71875 208.945312 C 8.789062 225.835938 25.203125 236.632812 43.847656 236.632812 C 45.855469 236.632812 47.890625 236.507812 49.945312 236.25 C 67.671875 234.035156 81.613281 222.152344 90.257812 201.886719 C 92.507812 196.628906 94.113281 191.46875 95.246094 187.003906 C 96.105469 183.648438 96.753906 180.242188 97.183594 176.808594 C 97.617188 173.371094 97.832031 169.910156 97.832031 166.449219 L 97.832031 126.734375 C 117.097656 111.816406 137.089844 92.9375 158.25 65.84375 C 185.613281 30.808594 206.347656 19.507812 217.742188 15.902344 C 217.902344 15.917969 217.984375 15.929688 217.984375 15.929688 C 217.984375 15.929688 201.035156 27.738281 190.355469 44.339844 C 190.355469 44.339844 212.0625 51.761719 232.78125 27.023438 C 237.480469 21.410156 240.125 14.335938 242.03125 7.269531 C 242.640625 5.019531 243.078125 2.925781 243.035156 1.699219 C 221.582031 -3.65625 202.296875 5.996094 196.011719 9.671875 Z M 83.007812 164.074219 C 83.007812 173.78125 81.414062 183.445312 78.054688 192.550781 C 73.363281 205.269531 64.5 219.496094 48.105469 221.546875 C 31.503906 223.621094 20.359375 214.199219 16.671875 203.941406 C 13.238281 194.378906 15.296875 180.523438 31.402344 170.328125 C 37.019531 166.765625 42.742188 163.257812 48.273438 159.863281 C 59.6875 152.859375 71.230469 145.777344 83.007812 137.589844 Z M 83.007812 164.074219 " fill-opacity="1" fill-rule="nonzero"/></g><g class="tete">
+<ellipse cx="58" cy="80" rx="7" ry="10" fill="#dfa684"/><ellipse cx="142" cy="80" rx="7" ry="10" fill="#dfa684"/>
+<path d="M62 64c0-24 16-38 38-38s38 14 38 38v24c0 26-16 42-38 42s-38-16-38-42z" fill="#f0c3a1"/>
+<path d="M60 92c0 26 16 44 40 44s40-18 40-44c-8 10-20 14-40 14s-32-4-40-14z" fill="#8b5b3d"/>
+<path d="M84 124c4 9 10 12 16 12s12-3 16-12c-6 3-11 4-16 4s-10-1-16-4z" fill="#b9b1a8"/>
+<path d="M84 102c6-5 26-5 32 0-5 4-27 4-32 0z" fill="#8b5b3d"/>
+<path d="M90 112c6 5 14 5 20 0" stroke="#032a28" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M60 74c-2-12-1-22 3-30 2 10 4 18 5 30z" fill="#a39d97"/><path d="M140 74c2-12 1-22-3-30-2 10-4 18-5 30z" fill="#a39d97"/><path d="M62 56c-2-24 16-40 40-40 26 0 42 14 38 40-4-8-10-12-16-14-14-6-36-6-50 0-6 3-10 8-12 14z" fill="#3a2e28"/>
+<path d="M76 28c10-6 30-8 44-2M72 36c14-8 38-8 54-2" stroke="#55453c" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M66 44c-2-6 0-12 4-16" stroke="#a39d97" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<path d="M76 72q8-5 16 0M108 72q8-5 16 0" stroke="#3a2e28" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<g class="yeux"><ellipse cx="84" cy="84" rx="6.5" ry="5" fill="#fff"/><g class="pupille"><circle cx="84" cy="84" r="3.6" fill="#5e9470"/><circle cx="84" cy="84" r="1.6" fill="#032a28"/></g>
+<ellipse cx="116" cy="84" rx="6.5" ry="5" fill="#fff"/><g class="pupille"><circle cx="116" cy="84" r="3.6" fill="#5e9470"/><circle cx="116" cy="84" r="1.6" fill="#032a28"/></g></g>
+<path d="M98 88q2 8 6 9" stroke="#dfa684" stroke-width="3" fill="none" stroke-linecap="round"/></g></g></svg>
+                    </button>
                 </div>
             </div>
 
             <!-- Prestations -->
-            <div class="lp-band lp-band-white">
-                <div class="lp-wrap">
-                    <h2 class="font-arboria lp-h2">Ce que Sylvain fait chez vous</h2>
-                    <p class="lp-sub">Des travaux courants, réalisés à votre domicile, avec le matériel qu'il faut.</p>
-                    <div class="lp-grid-2">
-                        <div class="lp-service">
-                            <div class="lp-service-ico"><i class="ph ph-tree" aria-hidden="true"></i></div>
+            <div class="lb-band">
+                <div class="lb-wrap">
+                    <p class="lb-label">Les prestations</p>
+                    <h2 class="lb-h2">Ce que Sylvain fait chez vous</h2>
+                    <p class="lb-sub">Des travaux du quotidien, faits chez vous avec le matériel qu'il faut. Toutes ces prestations donnent droit aux 50 % déduits.</p>
+                    <div class="lb-cards">
+                        <article class="lb-card">
+                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-haie.svg" alt="Sylvain taille une haie haute depuis le sol" width="480" height="330" loading="lazy"></div>
                             <h3>Taille de haies</h3>
-                            <p>Haies basses, moyennes ou hautes (jusqu'à 3 m, depuis le sol), avec une taille soignée.</p>
-                            <div class="lp-service-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour ma haie</a>
-                                <a href="https://le-bon-geste.fr/catalogue#service-haies" data-nav-service="service-haies" class="lp-link">Voir le détail</a>
+                            <p>Basses, moyennes ou hautes, jusqu'à 3 m. Toujours depuis le sol, avec une perche.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour ma haie</a>
+                                <a href="https://le-bon-geste.fr/catalogue#service-haies" data-nav-service="service-haies" class="lb-link">Le détail</a>
                             </div>
-                        </div>
-                        <div class="lp-service">
-                            <div class="lp-service-ico"><i class="ph ph-plant" aria-hidden="true"></i></div>
-                            <h3>Pelouses et tonte</h3>
-                            <p>Tonte soignée et finitions des bordures, pour un jardin net toute la saison.</p>
-                            <div class="lp-service-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour ma pelouse</a>
-                                <a href="https://le-bon-geste.fr/catalogue#service-pelouses" data-nav-service="service-pelouses" class="lp-link">Voir le détail</a>
+                        </article>
+                        <article class="lb-card">
+                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-pelouse.svg" alt="Sylvain tond une pelouse" width="480" height="330" loading="lazy"></div>
+                            <h3>Pelouse, tonte et débroussaillage</h3>
+                            <p>Tonte soignée, finitions des bordures, herbes hautes et talus.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour ma pelouse</a>
+                                <a href="https://le-bon-geste.fr/catalogue#service-pelouses" data-nav-service="service-pelouses" class="lb-link">Le détail</a>
                             </div>
-                        </div>
-                        <div class="lp-service">
-                            <div class="lp-service-ico"><i class="ph ph-hammer" aria-hidden="true"></i></div>
-                            <h3>Petit bricolage</h3>
-                            <p>Fixer une étagère, accrocher un cadre, monter un petit meuble : des interventions de 2 h maximum.</p>
-                            <div class="lp-service-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="bricolage" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour un petit travail</a>
-                                <a href="https://le-bon-geste.fr/catalogue#service-bricolage" data-nav-service="service-bricolage" class="lp-link">Voir le détail</a>
-                            </div>
-                        </div>
-                        <div class="lp-service">
-                            <div class="lp-service-ico"><i class="ph ph-drop" aria-hidden="true"></i></div>
+                        </article>
+                        <article class="lb-card">
+                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-terrasse.svg" alt="Sylvain nettoie une terrasse" width="480" height="330" loading="lazy"></div>
                             <h3>Terrasses et allées</h3>
-                            <p>Entretien courant des terrasses, allées et margelles de votre jardin.</p>
-                            <div class="lp-service-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="nettoyage" class="lp-btn lp-btn-primary lp-btn-sm">Prendre rendez-vous pour mes allées</a>
-                                <a href="https://le-bon-geste.fr/catalogue#service-nettoyage" data-nav-service="service-nettoyage" class="lp-link">Voir le détail</a>
+                            <p>Nettoyage des mousses et salissures sur terrasses, allées et margelles.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="nettoyage" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour mes allées</a>
+                                <a href="https://le-bon-geste.fr/catalogue#service-nettoyage" data-nav-service="service-nettoyage" class="lb-link">Le détail</a>
                             </div>
+                        </article>
+                        <article class="lb-card">
+                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-bricolage.svg" alt="Sylvain fixe une étagère" width="480" height="330" loading="lazy"></div>
+                            <h3>Petit bricolage</h3>
+                            <p>Une étagère à fixer, un meuble à monter, un cadre à accrocher. 2 h maximum.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="bricolage" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour un petit travail</a>
+                                <a href="https://le-bon-geste.fr/catalogue#service-bricolage" data-nav-service="service-bricolage" class="lb-link">Le détail</a>
+                            </div>
+                        </article>
+                        <article class="lb-card">
+                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-informatique.svg" alt="Sylvain aide sur un ordinateur" width="480" height="330" loading="lazy"></div>
+                            <h3>Assistance multimédia</h3>
+                            <p>Box, Wi-Fi, ordinateur, tablette, imprimante : il installe et vous montre.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="assistance" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour une assistance</a>
+                                <a href="https://le-bon-geste.fr/catalogue#service-assistance" data-nav-service="service-assistance" class="lb-link">Le détail</a>
+                            </div>
+                        </article>
+                    </div>
+                    <p class="lb-more"><a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="lb-link">Voir le catalogue complet</a></p>
+                </div>
+            </div>
+
+            <!-- La moitié de la facture -->
+            <div class="lb-wrap">
+                <div class="lb-block lb-block-teal lb-split">
+                    <div>
+                        <p class="lb-label lb-label-light">L'avantage</p>
+                        <h2 class="lb-h2 lb-light">Vous ne réglez que la moitié de la facture</h2>
+                        <p class="lb-body-light">Sylvain est adhérent de la coopérative Unipros. C'est elle qui édite la facture et déduit tout de suite les 50 % : vous ne payez que votre reste à charge.</p>
+                        <div class="lb-actions">
+                            <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="lb-btn lb-btn-white">Comprendre l'avantage</a>
+                            <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="lb-btn lb-btn-ghost-light">Voir le fonctionnement</a>
                         </div>
                     </div>
-                    <p class="lp-more"><a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="lp-link">Voir le catalogue complet <i class="ph ph-arrow-right" aria-hidden="true"></i></a></p>
+                    <div class="lb-ticket">
+                        <img src="/assets/img/marque/illu-moitie.svg" alt="Une facture coupée en deux : la moitié est déduite" width="480" height="330" loading="lazy">
+                        <div class="lb-ticket-rows">
+                            <div><span>Prestation</span><span>100,00 €</span></div>
+                            <div class="lb-minus"><span>Déduction de 50 %</span><span>− 50,00 €</span></div>
+                            <div class="lb-total"><span>Vous payez</span><span>50,00 €</span></div>
+                        </div>
+                        <p class="lb-ticket-note">Dans la limite des plafonds annuels par foyer : 5 000 € pour le petit jardinage, 500 € pour le petit bricolage, 3 000 € pour l'assistance informatique.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Déroulé -->
-            <div class="lp-band">
-                <div class="lp-wrap">
-                    <h2 class="font-arboria lp-h2">Comment ça se passe</h2>
-                    <p class="lp-sub">Simple, et sans surprise.</p>
-                    <div class="lp-steps">
-                        <div class="lp-step">
-                            <span class="lp-step-num">01</span>
+            <div class="lb-band">
+                <div class="lb-wrap">
+                    <p class="lb-label">Comment ça se passe</p>
+                    <h2 class="lb-h2">Simple, et sans surprise</h2>
+                    <div class="lb-steps">
+                        <div class="lb-step">
+                            <span class="lb-step-ico"><img src="/assets/img/marque/picto-telephone.svg" alt="" width="26" height="26"></span>
+                            <span class="lb-step-num">1</span>
                             <h3>Vous appelez</h3>
-                            <p>Un coup de fil ou une demande en ligne : vous dites ce dont vous avez besoin. Sylvain vous répond sous 24 à 48 h.</p>
+                            <p>Un coup de fil ou une demande en ligne. Sylvain vous répond sous 24 à 48 h.</p>
                         </div>
-                        <div class="lp-step">
-                            <span class="lp-step-num">02</span>
+                        <div class="lb-step">
+                            <span class="lb-step-ico"><img src="/assets/img/marque/picto-valide.svg" alt="" width="26" height="26"></span>
+                            <span class="lb-step-num">2</span>
                             <h3>Vous recevez un devis clair</h3>
-                            <p>Sylvain précise ce qu'il y a à faire et vous remet un devis gratuit avant de commencer. Rien n'est fait sans votre accord.</p>
+                            <p>Gratuit, avant de commencer. Rien n'est fait sans votre accord.</p>
                         </div>
-                        <div class="lp-step">
-                            <span class="lp-step-num">03</span>
+                        <div class="lb-step">
+                            <span class="lb-step-ico"><img src="/assets/img/marque/picto-feuille.svg" alt="" width="26" height="26"></span>
+                            <span class="lb-step-num">3</span>
                             <h3>Il intervient, puis la facture</h3>
-                            <p>Une fois le travail terminé, la facture est émise par la coopérative Unipros. Vous ne réglez que la moitié.</p>
+                            <p>La facture arrive par la coopérative Unipros, avec la moitié déjà déduite.</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Avantage Unipros -->
-            <div class="lp-band lp-band-tint">
-                <div class="lp-wrap lp-split">
-                    <div>
-                        <h2 class="font-arboria lp-h2">Vous ne réglez que la moitié de la facture</h2>
-                        <p class="lp-body">Les prestations bénéficient d'une déduction de 50 %. En passant par la coopérative Unipros (unipros.coop), ce montant est déduit tout de suite de votre facture.</p>
-                        <p class="lp-body">C'est la coopérative qui édite la facture et gère le règlement, ce qui vous permet de ne payer que votre reste à charge, en toute simplicité.</p>
-                        <div class="lp-actions">
-                            <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="lp-btn lp-btn-primary">Comprendre l'avantage</a>
-                            <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="lp-btn lp-btn-ghost">Voir le fonctionnement</a>
-                        </div>
-                    </div>
-                    <div class="lp-plafonds">
-                        <h3>À savoir sur les plafonds</h3>
-                        <p>La déduction s'applique dans la limite de plafonds annuels de dépenses par foyer. Ce sont des plafonds fixés par l'administration, pas des tarifs.</p>
-                        <ul>
-                            <li><strong>5 000 €</strong><span>par an pour le petit jardinage</span></li>
-                            <li><strong>3 000 €</strong><span>par an pour l'assistance informatique</span></li>
-                            <li><strong>500 €</strong><span>par an pour le petit bricolage</span></li>
-                        </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Qui vient chez vous -->
-            <div class="lp-band lp-band-white">
-                <div class="lp-wrap">
-                    <div class="lp-about" data-photo-host>
-                        <figure class="lp-photo lp-portrait" data-photo hidden>
-                            <img src="/assets/img/sylvain.jpg" alt="Portrait de Sylvain Séverac" width="800" height="800" data-photo-img>
-                        </figure>
-                        <div>
-                            <h2 class="font-arboria lp-h2">Qui vient chez vous ?</h2>
-                            <p class="lp-body">C'est Sylvain Séverac, qui vit à Aiguefonde et intervient à Mazamet et dans les communes voisines. Haies, pelouse, petits travaux : c'est toujours le même interlocuteur qui répond au téléphone, passe chez vous et réalise le devis.</p>
-                            <div class="lp-trust">
-                                <div>
-                                    <strong>Adhérent Unipros</strong>
-                                    <span>Membre de la coopérative Unipros (unipros.coop) pour vous faire bénéficier de -50%</span>
-                                </div>
-                                <div>
-                                    <strong>Entreprise individuelle</strong>
-                                    <span>SIRET 919 151 902 00054, à Aiguefonde</span>
-                                </div>
-                                <div>
-                                    <strong>Devis et facturation</strong>
-                                    <span>Devis clair avant travaux, facturation sécurisée via la coopérative</span>
-                                </div>
-                            </div>
-                        </div>
+            <div class="lb-wrap">
+                <div class="lb-block lb-block-mint lb-about">
+                    <div class="lb-about-art"><img src="/assets/img/marque/sylvain-travail.svg" alt="Sylvain en tenue de travail" width="280" height="360" loading="lazy"></div>
+                    <div>
+                        <p class="lb-label">Qui vient chez vous ?</p>
+                        <h2 class="lb-h2">Toujours Sylvain</h2>
+                        <p class="lb-body">Sylvain Séverac vit à Aiguefonde et intervient à Mazamet et dans les communes voisines. C'est toujours lui qui répond au téléphone, passe chez vous, fait le devis et réalise le travail.</p>
+                        <ul class="lb-facts">
+                            <li><img src="/assets/img/marque/picto-pourcent.svg" alt="" width="22" height="22"><div><strong>Adhérent Unipros</strong><span>Coopérative unipros.coop, pour vos 50 % déduits</span></div></li>
+                            <li><img src="/assets/img/marque/picto-maison.svg" alt="" width="22" height="22"><div><strong>Entreprise individuelle</strong><span>SIRET 919 151 902 00054, à Aiguefonde</span></div></li>
+                            <li><img src="/assets/img/marque/picto-valide.svg" alt="" width="22" height="22"><div><strong>Devis et facturation</strong><span>Devis clair avant travaux, facture via la coopérative</span></div></li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Réalisations : visible seulement quand des photos sont ajoutées dans /assets/img/ -->
-            <div class="lp-band" data-photo-group hidden>
-                <div class="lp-wrap">
-                    <h2 class="font-arboria lp-h2">Quelques réalisations</h2>
-                    <p class="lp-sub">Des jardins entretenus à Mazamet et alentours.</p>
-                    <div class="lp-gallery">
-                        <figure class="lp-photo lp-thumb" data-photo hidden><img src="/assets/img/realisation-1.jpg" alt="Réalisation Le bon geste : jardin entretenu" width="900" height="675" data-photo-img></figure>
-                        <figure class="lp-photo lp-thumb" data-photo hidden><img src="/assets/img/realisation-2.jpg" alt="Réalisation Le bon geste : haie taillée" width="900" height="675" data-photo-img></figure>
-                        <figure class="lp-photo lp-thumb" data-photo hidden><img src="/assets/img/realisation-3.jpg" alt="Réalisation Le bon geste : pelouse tondue" width="900" height="675" data-photo-img></figure>
+            <div class="lb-band" data-photo-group hidden>
+                <div class="lb-wrap">
+                    <p class="lb-label">Réalisations</p>
+                    <h2 class="lb-h2">Quelques jardins du coin</h2>
+                    <div class="lb-gallery">
+                        <figure class="lb-photo" data-photo hidden><img src="/assets/img/realisation-1.jpg" alt="Réalisation Le bon geste : jardin entretenu" width="900" height="675" data-photo-img></figure>
+                        <figure class="lb-photo" data-photo hidden><img src="/assets/img/realisation-2.jpg" alt="Réalisation Le bon geste : haie taillée" width="900" height="675" data-photo-img></figure>
+                        <figure class="lb-photo" data-photo hidden><img src="/assets/img/realisation-3.jpg" alt="Réalisation Le bon geste : pelouse tondue" width="900" height="675" data-photo-img></figure>
                     </div>
                 </div>
             </div>
 
             <!-- Appel final -->
-            <div class="lp-band lp-final">
-                <div class="lp-wrap">
-                    <h2 class="font-arboria lp-h2">Une haie à tailler, une pelouse à tondre ?</h2>
-                    <p class="lp-sub">Interventions à Mazamet, Aiguefonde et dans les communes voisines, dans un rayon indicatif de 20 km.</p>
-                    <div class="lp-actions">
-                        <a href="tel:+33610669435" class="lp-btn lp-btn-light">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-                            Appeler Sylvain · 06 10 66 94 35
-                        </a>
-                        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lp-btn lp-btn-outline-light">Prendre rendez-vous en ligne</a>
+            <div class="lb-wrap lb-wrap-last">
+                <div class="lb-block lb-block-night lb-final">
+                    <div>
+                        <p class="lb-label lb-label-light">Une haie à tailler, une pelouse à tondre ?</p>
+                        <a href="tel:+33610669435" class="lb-bigphone">06 10 66 94 35</a>
+                        <p class="lb-body-light">Mazamet, Aiguefonde et les communes voisines, dans un rayon d'environ 20 km.</p>
+                        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-white">Prendre rendez-vous en ligne</a>
                     </div>
+                    <img class="lb-final-art" src="/assets/img/marque/sylvain-travail-coucou.svg" alt="" width="280" height="360" loading="lazy">
                 </div>
             </div>
 
         </section>
 
 
-        <!-- ==================== PAGE : LE CATALOGUE ==================== -->
-        <section id="page-services" class="page-view relative py-12 lg:py-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="text-center mb-12">
-                    <h2 class="font-arboria text-3xl sm:text-4xl text-teal mb-4">Catalogue des prestations</h2>
-                    <p class="text-slate-600 max-w-2xl mx-auto text-lg">Toutes les prestations proposées par Le bon geste bénéficient de la déduction de 50 % via la coopérative Unipros.</p>
-                </div>
-
-                <div id="catalog-sap" class="catalog-content">
-                    <div class="border border-gray-200 bg-white p-5 rounded-lg mb-8 text-center max-w-3xl mx-auto">
-                        <p class="text-sm text-slate-700 mb-2">Le tarif est précisé dans un devis gratuit, remis avant toute intervention.</p>
-                        <p class="text-xs text-slate-500 mb-4">Les montants « jusqu'à … € / an » indiqués sur les fiches sont les plafonds de dépenses annuelles par foyer fiscal retenus pour la déduction. Ce ne sont pas des tarifs.</p>
-                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                            <a href="tel:+33610669435" class="inline-flex items-center justify-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3 rounded-md font-semibold text-sm transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg> Appeler Sylvain</a>
-                            <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-6 py-3 rounded-md font-semibold text-sm transition-colors">Prendre rendez-vous</a>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
-                        
-                        <!-- CARTE 1 : Taille de haies -->
-                        <div id="service-haies" class="bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
-                            <div class="flex items-center justify-between mb-6">
-                                <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
-                                    <i class="ph ph-tree"></i>
-                                </div>
-                                <div class="text-right">
-                                    <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Dépenses éligibles jusqu'à</span>
-                                    <span class="inline-block bg-teal-light text-teal-dark px-3 py-1 rounded-md text-sm font-bold">5 000 € / an</span>
-                                </div>
-                            </div>
-                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Taille de haies</h3>
-                            <p class="text-teal font-medium text-sm mb-4">Taille d'entretien courant de haies et arbustes.</p>
-
-                            <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
-                                <strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation, grâce à la coopérative.
-                            </div>
-
-                            <ul class="text-slate-600 space-y-2 text-sm flex-grow border-t border-gray-100 pt-4">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Haies basses (&lt; 1,50 m)</span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Haies moyennes (1,50 m à 2,00 m)</span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Taille de haies hautes (jusqu'à 3 m, travail sur perche depuis le sol)</span></li>
-                            </ul>
-
-                            <ul class="text-slate-600 space-y-2 text-sm mt-5 pt-4 border-t border-gray-50">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Travaux réalisés exclusivement depuis le sol.</span></li>
-                            </ul>
-
-                            <div class="mt-5 pt-4 border-t border-gray-100">
-                                <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour ma haie</a>
-                            </div>
-
-                            <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
-                        </div>
-
-                        <!-- CARTE 2 : Entretien des pelouses & Tonte -->
-                        <div id="service-pelouses" class="bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
-                            <div class="flex items-center justify-between mb-6">
-                                <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
-                                    <i class="ph ph-plant"></i>
-                                </div>
-                                <div class="text-right">
-                                    <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Dépenses éligibles jusqu'à</span>
-                                    <span class="inline-block bg-teal-light text-teal-dark px-3 py-1 rounded-md text-sm font-bold">5 000 € / an</span>
-                                </div>
-                            </div>
-                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Entretien des pelouses &amp; tonte</h3>
-                            <p class="text-teal font-medium text-sm mb-4">Tonte soignée et finitions des bordures.</p>
-
-                            <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
-                                <strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation, grâce à la coopérative.
-                            </div>
-
-                            <ul class="text-slate-600 space-y-3 text-sm flex-grow border-t border-gray-100 pt-4">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong class="font-medium text-slate-800">Tonte classique &amp; finitions au coupe-bordure</strong> <span class="block font-normal text-slate-400 text-xs">selon relief et configuration</span></span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong class="font-medium text-slate-800">Tonte mécanisée moyennes et grandes surfaces</strong></span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span><strong class="font-medium text-slate-800 no-hyphens">Débroussaillage&nbsp;&amp;&nbsp;fauchage</strong> <span class="block font-normal text-slate-400 text-xs">Entretien courant : herbes hautes, terrains en friche, talus et abords de jardin</span></span></li>
-                            </ul>
-
-                            <ul class="text-slate-600 space-y-2 text-sm mt-5 pt-4 border-t border-gray-50">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Mulching : l'herbe est broyée et laissée sur place.</span></li>
-                            </ul>
-
-                            <div class="mt-5 pt-4 border-t border-gray-100">
-                                <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour ma pelouse</a>
-                            </div>
-
-                            <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
-                        </div>
-
-                        <!-- CARTE 3 : Petit Bricolage -->
-                        <div id="service-bricolage" class="lg:order-3 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
-                            <div class="flex items-center justify-between mb-6">
-                                <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
-                                    <i class="ph ph-hammer"></i>
-                                </div>
-                                <div class="text-right">
-                                    <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Dépenses éligibles jusqu'à</span>
-                                    <span class="inline-block bg-teal-light text-teal-dark px-3 py-1 rounded-md text-sm font-bold">500 € / an</span>
-                                </div>
-                            </div>
-                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Petit bricolage</h3>
-                            <p class="text-teal font-medium text-sm mb-4"><i class="ph-fill ph-clock"></i> Interventions de 2 h maximum</p>
-
-                            <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
-                                <strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation, grâce à la coopérative.
-                            </div>
-                            
-                            <ul class="text-slate-600 space-y-2 text-sm flex-grow border-t border-gray-100 pt-4">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Montage de meubles et petits équipements.</span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Fixations, étagères, tringles et cadres.</span></li>
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Petits dépannages et remplacements simples.</span></li>
-                            </ul>
-
-                            <div class="mt-5 pt-4 border-t border-gray-100">
-                                <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre besoin.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="bricolage" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour un petit travail</a>
-                            </div>
-
-                            <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
-                        </div>
-
-                        <!-- CARTE 4 : Entretien des terrasses et allées -->
-                        <div id="service-nettoyage" class="lg:order-5 lg:col-span-2 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
-                            <div class="flex items-center justify-between mb-6">
-                                <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
-                                    <i class="ph ph-drop"></i>
-                                </div>
-                                <div class="text-right">
-                                    <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Dépenses éligibles jusqu'à</span>
-                                    <span class="inline-block bg-teal-light text-teal-dark px-3 py-1 rounded-md text-sm font-bold">5 000 € / an</span>
-                                </div>
-                            </div>
-                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Entretien courant des terrasses et allées de jardin</h3>
-                            <p class="text-teal font-medium text-sm mb-4"><i class="ph-fill ph-check-circle"></i> Terrasses, allées et margelles</p>
-
-                            <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
-                                <strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation, grâce à la coopérative.
-                            </div>
-                            
-                            <ul class="text-slate-600 space-y-4 text-sm flex-grow border-t border-gray-100 pt-4">
-                                <li class="flex items-start gap-3"><i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i><span>Nettoyage et rinçage de surface des salissures végétales et mousses courantes sur terrasses, allées et margelles.</span></li>
-                            </ul>
-
-                            <div class="mt-5 pt-4 border-t border-gray-100">
-                                <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre terrain.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="nettoyage" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour mes allées et terrasses</a>
-                            </div>
-
-                            <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
-                        </div>
-
-                        <!-- CARTE 5 : Assistance Informatique & Confort -->
-                        <div id="service-assistance" class="lg:order-4 bg-white rounded-lg p-8 shadow-none hover:border-teal/40 transition-colors border border-gray-200 flex flex-col h-full">
-                            <div class="flex items-center justify-between mb-6">
-                                <div class="w-11 h-11 border border-gray-200 text-teal rounded-md flex items-center justify-center text-xl shrink-0">
-                                    <i class="ph ph-laptop"></i>
-                                </div>
-                                <div class="text-right">
-                                    <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Dépenses éligibles jusqu'à</span>
-                                    <span class="inline-block bg-teal-light text-teal-dark px-3 py-1 rounded-md text-sm font-bold">3 000 € / an</span>
-                                </div>
-                            </div>
-                            <h3 class="font-arboria text-2xl text-slate-900 mb-1">Assistance multimédia &amp; confort</h3>
-                            <p class="text-teal font-medium text-sm mb-4"><i class="ph-fill ph-check-circle"></i> Aide simple et pratique à domicile</p>
-
-                            <div class="bg-teal-light border border-teal/20 rounded-md px-4 py-3 mb-5 text-sm text-teal-dark">
-                                <strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation, grâce à la coopérative.
-                            </div>
-                            
-                            <ul class="text-slate-600 space-y-3 text-sm flex-grow border-t border-gray-100 pt-4">
-                                <li class="flex items-start gap-3">
-                                    <i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i>
-                                    <span><strong>Informatique &amp; Box :</strong> Mise en service PC, tablettes, smartphones, imprimantes, configuration Wi-Fi et initiation numérique.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="ph-fill ph-check-circle text-teal mt-0.5 text-lg"></i>
-                                    <span><strong>Vigilance &amp; Petites tâches :</strong> Relevé de courrier, arrosage d'intérieur, entretien des filtres VMC et climatisations lavables.</span>
-                                </li>
-                            </ul>
-
-                            <div class="mt-5 pt-4 border-t border-gray-100">
-                                <p class="text-sm text-slate-600 mb-3">Tarifs sur devis gratuit et personnalisé selon votre besoin.</p>
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="assistance" class="inline-flex items-center justify-center gap-2 border border-teal/40 text-teal hover:bg-teal hover:text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors"><i class="ph ph-chat-circle-text text-lg" aria-hidden="true"></i> Prendre rendez-vous pour une assistance</a>
-                            </div>
-
-                            <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-gray-100 leading-relaxed">TVA non applicable, art. 293 B du CGI. Devis gratuit préalable.</p>
-                        </div>
-
+        <section id="page-services" class="page-view relative">
+            <div class="lb-wrap lb-pagehead">
+                <div>
+                    <p class="lb-kicker">Catalogue</p>
+                    <h2 class="lb-h1 lb-h1-page">Les prestations de Sylvain</h2>
+                    <p class="lb-lead">Toutes les prestations de Le bon geste donnent droit à la déduction de 50 % via la coopérative Unipros. Le tarif est précisé dans un devis gratuit, remis avant toute intervention.</p>
+                    <div class="lb-actions">
+                        <a href="tel:+33610669435" class="lb-btn lb-btn-main"><img src="/assets/img/marque/picto-telephone-blanc.svg" alt="" width="20" height="20"> Appeler Sylvain</a>
+                        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-soft">Prendre rendez-vous</a>
                     </div>
                 </div>
+                <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-montre.svg" alt="" width="280" height="360">
+            </div>
+            <div class="lb-wrap" id="catalog-sap">
+                <p class="lb-note-box"><img src="/assets/img/marque/picto-pourcent.svg" alt="" width="22" height="22"><span>Les montants « jusqu'à … € / an » sont les plafonds de dépenses annuelles par foyer fiscal retenus pour la déduction. Ce ne sont pas des tarifs.</span></p>
+                <div class="lb-services">
 
-                <div class="mt-16 text-center">
-                    <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="bg-teal hover:bg-teal-dark text-white px-8 py-4 rounded-md font-semibold transition-all inline-flex items-center gap-2">
-                        <i class="ph ph-chat-circle-text text-xl"></i> Prendre rendez-vous avec Sylvain
-                    </a>
+                    <article class="lb-service" id="service-haies">
+                        <div class="lb-service-illu"><img src="/assets/img/marque/scene-haie.svg" alt="Sylvain taille une haie haute depuis le sol, avec une perche" width="480" height="330" loading="lazy"></div>
+                        <div class="lb-service-body">
+                            <span class="lb-plafond">Dépenses éligibles jusqu'à <strong>5 000 € / an</strong></span>
+                            <h3>Taille de haies</h3>
+                            <p class="lb-service-sub">Taille d'entretien courant de haies et arbustes.</p>
+                            <ul class="lb-checks">
+                                <li>Haies basses (&lt; 1,50 m)</li>
+                                <li>Haies moyennes (1,50 m à 2,00 m)</li>
+                                <li>Haies hautes (jusqu'à 3 m, travail sur perche depuis le sol)</li>
+                                <li>Travaux réalisés exclusivement depuis le sol</li>
+                            </ul>
+                            <p class="lb-coop"><strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-main lb-btn-sm">Prendre rendez-vous pour ma haie</a>
+                            </div>
+                            <p class="lb-legal">Tarifs sur devis gratuit et personnalisé selon votre terrain. TVA non applicable, art. 293 B du CGI.</p>
+                        </div>
+                    </article>
+
+                    <article class="lb-service" id="service-pelouses">
+                        <div class="lb-service-illu lb-service-illu-double">
+                            <img src="/assets/img/marque/scene-pelouse.svg" alt="Sylvain tond une pelouse" width="480" height="330" loading="lazy">
+                            <img src="/assets/img/marque/scene-debroussaillage.svg" alt="Sylvain débroussaille avec son harnais" width="480" height="330" loading="lazy">
+                        </div>
+                        <div class="lb-service-body">
+                            <span class="lb-plafond">Dépenses éligibles jusqu'à <strong>5 000 € / an</strong></span>
+                            <h3>Entretien des pelouses &amp; tonte</h3>
+                            <p class="lb-service-sub">Tonte soignée et finitions des bordures.</p>
+                            <ul class="lb-checks">
+                                <li><strong>Tonte classique &amp; finitions au coupe-bordure</strong>, selon relief et configuration</li>
+                                <li><strong>Tonte mécanisée</strong> des moyennes et grandes surfaces</li>
+                                <li><strong>Débroussaillage &amp; fauchage</strong> : herbes hautes, terrains en friche, talus et abords de jardin</li>
+                                <li>Mulching : l'herbe est broyée et laissée sur place</li>
+                            </ul>
+                            <p class="lb-coop"><strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-main lb-btn-sm">Prendre rendez-vous pour ma pelouse</a>
+                            </div>
+                            <p class="lb-legal">Tarifs sur devis gratuit et personnalisé selon votre terrain. TVA non applicable, art. 293 B du CGI.</p>
+                        </div>
+                    </article>
+
+                    <article class="lb-service" id="service-nettoyage">
+                        <div class="lb-service-illu"><img src="/assets/img/marque/scene-terrasse.svg" alt="Sylvain nettoie une terrasse" width="480" height="330" loading="lazy"></div>
+                        <div class="lb-service-body">
+                            <span class="lb-plafond">Dépenses éligibles jusqu'à <strong>5 000 € / an</strong></span>
+                            <h3>Entretien courant des terrasses et allées de jardin</h3>
+                            <p class="lb-service-sub">Terrasses, allées et margelles.</p>
+                            <ul class="lb-checks">
+                                <li>Nettoyage et rinçage de surface des salissures végétales et mousses courantes sur terrasses, allées et margelles</li>
+                            </ul>
+                            <p class="lb-coop"><strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="nettoyage" class="lb-btn lb-btn-main lb-btn-sm">Prendre rendez-vous pour mes allées et terrasses</a>
+                            </div>
+                            <p class="lb-legal">Tarifs sur devis gratuit et personnalisé selon votre terrain. TVA non applicable, art. 293 B du CGI.</p>
+                        </div>
+                    </article>
+
+                    <article class="lb-service" id="service-bricolage">
+                        <div class="lb-service-illu"><img src="/assets/img/marque/scene-bricolage.svg" alt="Sylvain fixe une étagère à la perceuse" width="480" height="330" loading="lazy"></div>
+                        <div class="lb-service-body">
+                            <span class="lb-plafond">Dépenses éligibles jusqu'à <strong>500 € / an</strong></span>
+                            <h3>Petit bricolage</h3>
+                            <p class="lb-service-sub">Interventions de 2 h maximum.</p>
+                            <ul class="lb-checks">
+                                <li>Montage de meubles et petits équipements</li>
+                                <li>Fixations, étagères, tringles et cadres</li>
+                                <li>Petits dépannages et remplacements simples</li>
+                            </ul>
+                            <p class="lb-coop"><strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="bricolage" class="lb-btn lb-btn-main lb-btn-sm">Prendre rendez-vous pour un petit travail</a>
+                            </div>
+                            <p class="lb-legal">Tarifs sur devis gratuit et personnalisé selon votre besoin. TVA non applicable, art. 293 B du CGI.</p>
+                        </div>
+                    </article>
+
+                    <article class="lb-service" id="service-assistance">
+                        <div class="lb-service-illu"><img src="/assets/img/marque/scene-informatique.svg" alt="Sylvain aide sur un ordinateur" width="480" height="330" loading="lazy"></div>
+                        <div class="lb-service-body">
+                            <span class="lb-plafond">Dépenses éligibles jusqu'à <strong>3 000 € / an</strong></span>
+                            <h3>Assistance multimédia &amp; confort</h3>
+                            <p class="lb-service-sub">Aide simple et pratique à domicile.</p>
+                            <ul class="lb-checks">
+                                <li><strong>Informatique &amp; box</strong> : mise en service PC, tablettes, smartphones, imprimantes, configuration Wi-Fi et initiation numérique</li>
+                                <li><strong>Vigilance &amp; petites tâches</strong> : relevé de courrier, arrosage d'intérieur, entretien des filtres VMC et climatisations lavables</li>
+                            </ul>
+                            <p class="lb-coop"><strong>Coopérative Unipros</strong> : vous ne réglez que 50 % de la facture lors de la prestation.</p>
+                            <div class="lb-card-foot">
+                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="assistance" class="lb-btn lb-btn-main lb-btn-sm">Prendre rendez-vous pour une assistance</a>
+                            </div>
+                            <p class="lb-legal">Tarifs sur devis gratuit et personnalisé selon votre besoin. TVA non applicable, art. 293 B du CGI.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- ==================== PAGE : AVANTAGE 50% ==================== -->
-        <section id="page-sap" class="page-view sap-page relative py-12 lg:py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="sap-hero grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-16">
-                    <div class="lg:col-span-7">
-                        <p class="sap-kicker">Le bon geste · Coopérative Unipros</p>
-                        <h2 class="font-arboria text-4xl sm:text-5xl lg:text-6xl text-slate-900 mt-5 mb-6 leading-[1.06]">
-                            La déduction de 50 % se fait <span class="text-teal">dès maintenant.</span>
-                        </h2>
-                        <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
-                            Pour vos prestations, le passage par la coopérative Unipros réduit directement de moitié le montant réglé après l'intervention.
-                        </p>
-                    </div>
-                    <div class="lg:col-span-5">
-                        <div class="sap-highlight">
-                            <span class="sap-highlight-label">Votre avantage</span>
-                            <strong>50<span>%</span></strong>
-                            <p>de déduction appliquée immédiatement sur les factures.</p>
-                        </div>
+        <section id="page-sap" class="page-view relative">
+            <div class="lb-wrap lb-pagehead">
+                <div>
+                    <p class="lb-kicker">Le bon geste · Coopérative Unipros</p>
+                    <h2 class="lb-h1 lb-h1-page">La déduction de 50 % se fait <span>dès la facture.</span></h2>
+                    <p class="lb-lead">En passant par la coopérative Unipros, le montant que vous réglez après l'intervention est directement réduit de moitié.</p>
+                </div>
+                <div class="lb-stamp" aria-hidden="true"><strong>−50 %</strong><span>déduits tout de suite</span></div>
+            </div>
+            <div class="lb-wrap">
+                <div class="lb-block lb-block-mint lb-split">
+                    <img src="/assets/img/marque/illu-moitie.svg" alt="Une facture coupée en deux : la moitié est déduite" width="480" height="330" loading="lazy">
+                    <div class="lb-ticket-rows lb-ticket-solo">
+                        <p class="lb-label">Exemple de facture</p>
+                        <div><span>Prestation</span><span>100,00 €</span></div>
+                        <div class="lb-minus"><span>Déduction de 50 %</span><span>− 50,00 €</span></div>
+                        <div class="lb-total"><span>Vous payez</span><span>50,00 €</span></div>
                     </div>
                 </div>
-
-                <div class="sap-benefits grid lg:grid-cols-3 gap-8 mb-16">
-                    <article class="sap-benefit">
-                        <span class="sap-benefit-number">01</span>
-                        <div>
-                            <h3 class="font-arboria text-xl text-slate-900 mb-2">Un montant réduit dès la facture</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">Vous réglez uniquement la moitié, la coopérative gère le reste.</p>
-                        </div>
-                    </article>
-                    <article class="sap-benefit">
-                        <span class="sap-benefit-number">02</span>
-                        <div>
-                            <h3 class="font-arboria text-xl text-slate-900 mb-2">Une démarche simple</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">Unipros édite la facture, vous la recevez et la réglez via leur plateforme sécurisée.</p>
-                        </div>
-                    </article>
-                    <article class="sap-benefit">
-                        <span class="sap-benefit-number">03</span>
-                        <div>
-                            <h3 class="font-arboria text-xl text-slate-900 mb-2">Un encaissement officiel</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">La coopérative Unipros gère la facturation et l'encaissement de manière sécurisée et officielle.</p>
-                        </div>
-                    </article>
+                <div class="lb-steps lb-steps-top">
+                    <div class="lb-step"><span class="lb-step-num">1</span><h3>Un montant réduit dès la facture</h3><p>Vous réglez uniquement la moitié, la coopérative gère le reste.</p></div>
+                    <div class="lb-step"><span class="lb-step-num">2</span><h3>Une démarche simple</h3><p>Unipros édite la facture, vous la recevez et la réglez via leur plateforme sécurisée.</p></div>
+                    <div class="lb-step"><span class="lb-step-num">3</span><h3>Un encaissement officiel</h3><p>La coopérative Unipros gère la facturation et l'encaissement de manière sécurisée et officielle.</p></div>
                 </div>
-
-                <div class="guide-intro mb-16">
-                    <div class="guide-intro-icon"><i class="ph ph-info" aria-hidden="true"></i></div>
+                <div class="lb-note-box lb-note-big">
+                    <img src="/assets/img/marque/sylvain-face.svg" alt="" width="90" height="116">
+                    <div><strong>La facturation par Unipros : comment ça marche ?</strong>
+                    <p>Sylvain réalise les travaux, mais c'est la coopérative Unipros (unipros.coop) qui vous facture. C'est ce fonctionnement qui vous permet d'obtenir les 50 % de déduction de manière transparente et légale. Le devis est établi par Sylvain, et pour toute question technique, il reste votre interlocuteur direct.</p></div>
+                </div>
+            </div>
+            <div class="lb-wrap lb-wrap-last">
+                <div class="lb-block lb-block-teal lb-cta">
                     <div>
-                        <strong>La facturation par Unipros : comment ça marche ?</strong>
-                        <p>Sylvain réalise les travaux, mais c'est la coopérative Unipros (unipros.coop) qui vous facture. C'est ce fonctionnement qui vous permet d'obtenir les 50 % de déduction de manière transparente et légale. Le devis est établi par Sylvain, et pour toute question technique, il reste votre interlocuteur direct.</p>
+                        <p class="lb-label lb-label-light">En pratique</p>
+                        <h3 class="lb-h2 lb-light">Un devis gratuit, avant toute intervention.</h3>
+                        <p class="lb-body-light">Le tarif est établi sur devis gratuit et personnalisé, selon la configuration de votre terrain.</p>
                     </div>
-                </div>
-
-                <div class="sap-invoice grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-8">
-                        <p class="sap-kicker mb-4">En pratique</p>
-                        <h3 class="font-arboria text-3xl sm:text-4xl text-slate-900 mb-4">Un devis gratuit, avant toute intervention.</h3>
-                        <p class="text-slate-600 leading-relaxed max-w-xl mb-6">Le tarif est établi sur devis gratuit et personnalisé, selon la configuration de votre terrain.</p>
-                        <div class="flex flex-wrap gap-3">
-                            <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="sap-cta inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3.5 rounded-md font-semibold text-sm">
-                                Prendre rendez-vous <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
-                            </a>
-                            <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="inline-flex items-center gap-2 border border-teal/30 text-teal hover:bg-white px-6 py-3.5 rounded-md font-semibold text-sm">
-                                Voir le guide Unipros <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                    <div class="lb-actions">
+                        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-white">Prendre rendez-vous</a>
+                        <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="lb-btn lb-btn-ghost-light">Voir le guide Unipros</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ==================== PAGE : DEVIS ==================== -->
-        <section id="page-devis" class="page-view relative py-12 lg:py-24 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="page-devis" class="page-view relative lb-devis">
+            <div class="lb-wrap lb-wrap-narrow">
                 
-                <div class="text-center mb-12">
-                    <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-3">Rendez-vous</p>
-                    <h2 class="font-arboria text-4xl md:text-5xl text-slate-900 mb-4">Prendre rendez-vous avec Sylvain</h2>
-                    <p class="text-slate-600 text-lg">Décrivez votre besoin. Sylvain vous répond sous 24 à 48 h et vous remet un devis gratuit avant toute intervention.</p>
+                <div class="lb-pagehead lb-pagehead-devis">
+                    <div>
+                        <p class="lb-kicker">Rendez-vous</p>
+                        <h2 class="lb-h1 lb-h1-page">Prendre rendez-vous avec Sylvain</h2>
+                        <p class="lb-lead">Décrivez votre besoin. Sylvain vous répond sous 24 à 48 h et vous remet un devis gratuit avant toute intervention.</p>
+                    </div>
+                    <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-travail.svg" alt="" width="280" height="360">
                 </div>
 
                 <form id="devis-form" action="https://formsubmit.co/contact.lebongeste@gmail.com" method="POST" enctype="multipart/form-data" class="bg-gray-light p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm space-y-8" novalidate>
@@ -727,157 +633,137 @@
         </section>
 
         <!-- ==================== PAGE : CONTACT ==================== -->
-        <section id="page-contact" class="page-view relative py-12 lg:py-24">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-5">Contact</p>
-
-                <h2 class="font-arboria text-4xl md:text-5xl text-slate-900 mb-6">Prêt à me confier vos travaux ?</h2>
-                
-                <p class="text-slate-600 mb-12 text-lg max-w-2xl mx-auto leading-relaxed">
-                    Contactez-moi directement pour me parler de votre besoin. Pour vos travaux de jardinage et services à domicile, un devis clair et gratuit sera établi avant toute intervention.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="tel:+33610669435" class="flex items-center justify-center gap-4 bg-white border border-gray-300 text-slate-800 hover:border-teal hover:text-teal px-8 py-5 rounded-lg font-semibold text-lg transition-colors">
-                        <div class="text-left leading-tight">
-                            <span class="block text-xs font-normal text-slate-500 uppercase tracking-wider">Appelez-moi</span>
-                            <span>06 10 66 94 35</span>
-                        </div>
+        <section id="page-contact" class="page-view relative">
+            <div class="lb-wrap lb-pagehead">
+                <div>
+                    <p class="lb-kicker">Contact</p>
+                    <h2 class="lb-h1 lb-h1-page">Prêt à me confier vos travaux ?</h2>
+                    <p class="lb-lead">Contactez-moi directement pour me parler de votre besoin. Un devis clair et gratuit sera établi avant toute intervention.</p>
+                </div>
+                <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-travail-coucou.svg" alt="" width="280" height="360">
+            </div>
+            <div class="lb-wrap">
+                <div class="lb-contact-cards">
+                    <a href="tel:+33610669435" class="lb-contact lb-contact-main">
+                        <span class="lb-contact-ico"><img src="/assets/img/marque/picto-telephone-blanc.svg" alt="" width="26" height="26"></span>
+                        <span class="lb-contact-label">Appelez-moi</span>
+                        <span class="lb-contact-value">06 10 66 94 35</span>
                     </a>
-                    <a href="mailto:contact.lebongeste@gmail.com" class="flex items-center justify-center gap-4 bg-teal text-white hover:bg-teal-dark px-8 py-5 rounded-lg font-semibold text-lg transition-colors">
-                        <div class="text-left leading-tight">
-                            <span class="block text-xs font-normal text-teal-light uppercase tracking-wider">Écrivez-moi</span>
-                            <span>contact.lebongeste@gmail.com</span>
-                        </div>
+                    <a href="mailto:contact.lebongeste@gmail.com" class="lb-contact">
+                        <span class="lb-contact-ico lb-ico-soft"><img src="/assets/img/marque/picto-courrier.svg" alt="" width="26" height="26"></span>
+                        <span class="lb-contact-label">Écrivez-moi</span>
+                        <span class="lb-contact-value">contact.lebongeste@gmail.com</span>
                     </a>
                 </div>
-                
-                <div class="contact-practical-grid mt-12">
-                    <div><i class="ph ph-map-pin" aria-hidden="true"></i><strong>Zone d’intervention</strong><span>Mazamet, Aiguefonde et communes voisines dans un rayon de 20 km.</span></div>
-                    <div><i class="ph ph-clock" aria-hidden="true"></i><strong>Réponse sous 24 à 48 h</strong><span>Un retour rapide après votre appel, email ou demande de devis.</span></div>
-                    <div><i class="ph ph-file-text" aria-hidden="true"></i><strong>Devis gratuit</strong><span>Chaque intervention est confirmée par un devis clair avant réalisation.</span></div>
+                <div class="lb-steps lb-steps-top">
+                    <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-lieu.svg" alt="" width="26" height="26"></span><h3>Zone d'intervention</h3><p>Mazamet, Aiguefonde et communes voisines dans un rayon de 20 km.</p></div>
+                    <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-horloge.svg" alt="" width="26" height="26"></span><h3>Réponse sous 24 à 48 h</h3><p>Un retour rapide après votre appel, email ou demande de rendez-vous.</p></div>
+                    <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-valide.svg" alt="" width="26" height="26"></span><h3>Devis gratuit</h3><p>Chaque intervention est confirmée par un devis clair avant réalisation.</p></div>
                 </div>
-
-                <p class="mt-10 text-sm text-slate-500 max-w-lg mx-auto">
-                    En cas d'absence, laissez un message vocal avec vos coordonnées et l'objet de votre demande. Je vous rappellerai dans les plus brefs délais.
-                </p>
-                <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="inline-flex items-center gap-2 mt-8 bg-teal text-white hover:bg-teal-dark px-6 py-3.5 rounded-md font-semibold transition-colors">
-                    Prendre rendez-vous en ligne <i class="ph ph-arrow-right" aria-hidden="true"></i>
-                </a>
+                <p class="lb-note-box"><img src="/assets/img/marque/picto-telephone.svg" alt="" width="22" height="22"><span>En cas d'absence, laissez un message vocal avec vos coordonnées et l'objet de votre demande. Je vous rappellerai dans les plus brefs délais.</span></p>
+                <div class="lb-center"><a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-main">Prendre rendez-vous en ligne</a></div>
             </div>
         </section>
 
-
         <!-- ==================== PAGE : FAQ ==================== -->
-        <section id="page-faq" class="page-view relative py-12 lg:py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-4">Questions fréquentes</p>
-                    <h2 class="font-arboria text-4xl sm:text-5xl text-slate-900 mb-5">Tout savoir avant de demander un devis</h2>
-                    <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">Les réponses essentielles sur les prestations à domicile, le devis gratuit et la facturation via Unipros.</p>
+        <section id="page-faq" class="page-view relative">
+            <div class="lb-wrap lb-pagehead">
+                <div>
+                    <p class="lb-kicker">Questions fréquentes</p>
+                    <h2 class="lb-h1 lb-h1-page">Tout savoir avant de demander un devis</h2>
+                    <p class="lb-lead">Les réponses essentielles sur les prestations à domicile, le devis gratuit et la facturation via Unipros.</p>
                 </div>
-                <div class="faq-list">
-                    <details open><summary>Quelles prestations propose Le bon geste ?</summary><p>Jardinage, taille de haies, tonte, petit bricolage, entretien courant des terrasses et allées de jardin, et assistance multimédia ou de confort à domicile.</p></details>
-                    <details><summary>Comment fonctionne la déduction de 50 % ?</summary><p>Sylvain est adhérent à la coopérative Unipros. C'est elle qui édite la facture et encaisse le paiement, ce qui vous permet de ne régler que 50 % du montant total de la facture, de façon immédiate.</p></details>
-                    <details><summary>Dois-je faire des démarches compliquées ?</summary><p>Non. Sylvain s'occupe de transmettre les éléments du devis à Unipros, qui vous envoie ensuite un lien pour régler uniquement votre reste à charge en toute sécurité.</p></details>
-                    <details><summary>Dans quelles communes intervenez-vous ?</summary><p>Les interventions sont proposées à Mazamet, Aiguefonde et dans les communes voisines, dans un rayon indicatif de 20 km. La zone est confirmée avec le devis.</p></details>
-                    <details><summary>Le devis est-il gratuit ?</summary><p>Oui. Un devis clair et gratuit est établi avant toute intervention, avec les éventuelles contraintes de terrain, d’accès ou de fourniture.</p></details>
-                    <details><summary>Comment sont établis les tarifs ?</summary><p>Les tarifs sont établis sur devis gratuit et personnalisé, selon la configuration de votre terrain.</p></details>
-                    <details><summary>Comment préparer ma demande ?</summary><p>Indiquez la commune, la prestation souhaitée, les dimensions ou la surface si vous les connaissez, puis ajoutez quelques photos lorsque cela peut aider à évaluer le besoin.</p></details>
-                </div>
-                <div class="text-center mt-12"><a href="https://le-bon-geste.fr/devis" data-nav="devis" class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white px-7 py-3.5 rounded-md font-semibold">Décrire mon projet <i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>
+                <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-montre.svg" alt="" width="280" height="360">
+            </div>
+            <div class="lb-wrap lb-faq">
+                <details open><summary>Quelles prestations propose Le bon geste ?</summary><p>Jardinage, taille de haies, tonte, petit bricolage, entretien courant des terrasses et allées de jardin, et assistance multimédia ou de confort à domicile.</p></details>
+                <details><summary>Comment fonctionne la déduction de 50 % ?</summary><p>Sylvain est adhérent à la coopérative Unipros. C'est elle qui édite la facture et encaisse le paiement, ce qui vous permet de ne régler que 50 % du montant total de la facture, de façon immédiate.</p></details>
+                <details><summary>Dois-je faire des démarches compliquées ?</summary><p>Non. Sylvain s'occupe de transmettre les éléments du devis à Unipros, qui vous envoie ensuite un lien pour régler uniquement votre reste à charge en toute sécurité.</p></details>
+                <details><summary>Dans quelles communes intervenez-vous ?</summary><p>Les interventions sont proposées à Mazamet, Aiguefonde et dans les communes voisines, dans un rayon indicatif de 20 km. La zone est confirmée avec le devis.</p></details>
+                <details><summary>Le devis est-il gratuit ?</summary><p>Oui. Un devis clair et gratuit est établi avant toute intervention, avec les éventuelles contraintes de terrain, d'accès ou de fourniture.</p></details>
+                <details><summary>Comment sont établis les tarifs ?</summary><p>Les tarifs sont établis sur devis gratuit et personnalisé, selon la configuration de votre terrain.</p></details>
+                <details><summary>Comment préparer ma demande ?</summary><p>Indiquez la commune, la prestation souhaitée, les dimensions ou la surface si vous les connaissez, puis ajoutez quelques photos lorsque cela peut aider à évaluer le besoin.</p></details>
+                <div class="lb-center"><a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-main">Décrire mon projet</a></div>
             </div>
         </section>
 
         <!-- ==================== PAGE : GUIDE UNIPROS ==================== -->
-        <section id="page-guide" class="page-view relative py-12 lg:py-20 bg-white">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <p class="text-xs font-semibold text-teal uppercase tracking-[0.15em] mb-4">Activer la facturation Unipros</p>
-                    <h2 class="font-arboria text-4xl sm:text-5xl text-slate-900 mb-5">Mode d'emploi client</h2>
-                    <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">Vous souhaitez faire intervenir Le bon geste chez vous ? Voici comment fonctionne la déduction de 50 % avec la coopérative Unipros.</p>
+        <section id="page-guide" class="page-view relative">
+            <div class="lb-wrap lb-pagehead">
+                <div>
+                    <p class="lb-kicker">Activer la facturation Unipros</p>
+                    <h2 class="lb-h1 lb-h1-page">Mode d'emploi client</h2>
+                    <p class="lb-lead">Vous souhaitez faire intervenir Le bon geste chez vous ? Voici comment fonctionne la déduction de 50 % avec la coopérative Unipros.</p>
                 </div>
-
-                <div class="guide-intro mb-10">
-                    <div class="guide-intro-icon"><i class="ph ph-lightbulb" aria-hidden="true"></i></div>
-                    <div>
-                        <strong>Le principe en une phrase</strong>
-                        <p>Pour bénéficier de la déduction immédiate de 50 % sur votre facture, le règlement passe obligatoirement par la coopérative Unipros (unipros.coop), dont Sylvain est adhérent.</p>
+                <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-pouce.svg" alt="" width="280" height="360">
+            </div>
+            <div class="lb-wrap">
+                <p class="lb-note-box lb-note-teal"><img src="/assets/img/marque/picto-pourcent-blanc.svg" alt="" width="22" height="22"><span><strong>Le principe en une phrase :</strong> pour bénéficier de la déduction immédiate de 50 % sur votre facture, le règlement passe obligatoirement par la coopérative Unipros (unipros.coop), dont Sylvain est adhérent.</span></p>
+                <ol class="lb-timeline" aria-label="Étapes de la facturation">
+                    <li><span class="lb-step-num">1</span><div><h3>Un dispositif simple</h3><p>Toutes les prestations proposées par Le bon geste sont facturables via Unipros, afin de vous faire bénéficier des 50 % de déduction.</p></div></li>
+                    <li><span class="lb-step-num">2</span><div><h3>Votre devis</h3><p>Sylvain vous établit un devis clair. Une fois validé, il réalise les travaux comme convenu ensemble.</p></div></li>
+                    <li><span class="lb-step-num">3</span><div><h3>La facturation</h3><p>Unipros prend le relais pour éditer la facture correspondante et vous l'envoyer de façon sécurisée.</p></div></li>
+                    <li><span class="lb-step-num">4</span><div><h3>Votre règlement</h3><p>Vous recevez la facture d'Unipros et vous réglez uniquement 50 % du montant total directement sur leur plateforme dédiée.</p></div></li>
+                    <li><span class="lb-step-num">5</span><div><h3>Suivez votre historique</h3><p>Vous conservez les devis et factures transmis par la coopérative de manière centralisée et officielle.</p></div></li>
+                </ol>
+                <div class="lb-two">
+                    <div class="lb-block lb-block-mint lb-block-pad">
+                        <h3 class="lb-h3">Conditions d'utilisation</h3>
+                        <ul class="lb-checks">
+                            <li>Faire appel à Sylvain pour une prestation de jardinage ou de petit bricolage éligible.</li>
+                            <li>Accepter la facturation via la coopérative Unipros.</li>
+                            <li>Régler la facture directement à la coopérative selon ses conditions.</li>
+                        </ul>
+                    </div>
+                    <div class="lb-block lb-block-white lb-block-pad">
+                        <h3 class="lb-h3">Une question ? Votre interlocuteur reste Le bon geste</h3>
+                        <p class="lb-body">Pour toute question sur une prestation technique ou un devis en cours, vous restez en contact direct avec Sylvain.</p>
+                        <a href="https://le-bon-geste.fr/contact" data-nav="contact" class="lb-link">Contacter Le bon geste</a>
                     </div>
                 </div>
-
-                <div class="guide-steps" aria-label="Étapes de la facturation">
-                    <article class="guide-step"><span class="guide-step-number">01</span><div><h3>Un dispositif simple</h3><p>Toutes les prestations proposées par Le bon geste sont facturables via Unipros, afin de vous faire bénéficier des 50 % de déduction.</p></div></article>
-                    <article class="guide-step"><span class="guide-step-number">02</span><div><h3>Votre devis</h3><p>Sylvain vous établit un devis clair. Une fois validé, il réalise les travaux comme convenu ensemble.</p></div></article>
-                    <article class="guide-step"><span class="guide-step-number">03</span><div><h3>La facturation</h3><p>Unipros prend le relais pour éditer la facture correspondante et vous l'envoyer de façon sécurisée.</p></div></article>
-                    <article class="guide-step"><span class="guide-step-number">04</span><div><h3>Votre règlement</h3><p>Vous recevez la facture d'Unipros et vous réglez uniquement 50 % du montant total directement sur leur plateforme dédiée.</p></div></article>
-                    <article class="guide-step"><span class="guide-step-number">05</span><div><h3>Suivez votre historique</h3><p>Vous conservez les devis et factures transmis par la coopérative de manière centralisée et officielle.</p></div></article>
-                </div>
-
-                <div class="guide-section mt-10">
-                    <h3>Conditions d'utilisation</h3>
-                    <ul class="guide-list">
-                        <li><i class="ph ph-check-circle" aria-hidden="true"></i><span>Faire appel à Sylvain pour une prestation de jardinage ou de petit bricolage éligible.</span></li>
-                        <li><i class="ph ph-check-circle" aria-hidden="true"></i><span>Accepter la facturation via la coopérative Unipros.</span></li>
-                        <li><i class="ph ph-check-circle" aria-hidden="true"></i><span>Régler la facture directement à la coopérative selon ses conditions.</span></li>
-                    </ul>
-                </div>
-
-                <div class="guide-intro mt-10">
-                    <div class="guide-intro-icon"><i class="ph ph-chat-circle-text" aria-hidden="true"></i></div>
+            </div>
+            <div class="lb-wrap lb-wrap-last">
+                <div class="lb-block lb-block-teal lb-cta">
                     <div>
-                        <strong>Une question ? Votre interlocuteur reste Le bon geste</strong>
-                        <p>Pour toute question sur une prestation technique ou un devis en cours, vous restez en contact direct avec Sylvain.</p>
-                        <a href="https://le-bon-geste.fr/contact" data-nav="contact" class="guide-link">Contacter Le bon geste <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                        <p class="lb-label lb-label-light">À retenir</p>
+                        <p class="lb-body-light lb-strong">La facturation via Unipros est le seul moyen de bénéficier de la déduction de 50 % sur les prestations de Sylvain. Elle est encadrée et parfaitement légale.</p>
                     </div>
-                </div>
-
-                <div class="guide-warning mt-10">
-                    <i class="ph ph-info" aria-hidden="true"></i>
-                    <div><strong>À retenir</strong><p>La facturation via Unipros est le seul moyen de bénéficier de la déduction de 50 % sur les prestations de Sylvain. Elle est encadrée et parfaitement légale.</p></div>
-                </div>
-
-                <div class="guide-actions mt-10">
-                    <a href="https://unipros.coop/avantage-fiscal/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-teal hover:bg-teal-dark text-white px-6 py-3.5 rounded-md font-semibold">Découvrir Unipros <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-                    <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-slate-800 hover:border-teal hover:text-teal px-6 py-3.5 rounded-md font-semibold">Prendre rendez-vous <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                    <div class="lb-actions">
+                        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-white">Prendre rendez-vous</a>
+                        <a href="https://unipros.coop/avantage-fiscal/" target="_blank" rel="noopener noreferrer" class="lb-btn lb-btn-ghost-light">Découvrir Unipros</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ==================== PAGE : CONFIRMATION DEVIS ==================== -->
-        <section id="page-merci" class="page-view relative py-20 lg:py-32">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="w-16 h-16 rounded-full bg-teal-light text-teal flex items-center justify-center text-3xl mx-auto mb-6">
-                    <i class="ph-fill ph-check"></i>
+        <section id="page-merci" class="page-view relative">
+            <div class="lb-wrap lb-wrap-last">
+                <div class="lb-block lb-block-mint lb-solo">
+                    <img src="/assets/img/marque/sylvain-pouce.svg" alt="Sylvain lève le pouce" width="280" height="360">
+                    <h2 class="lb-h1 lb-h1-page">Votre demande a bien été envoyée</h2>
+                    <p class="lb-lead">Merci. Je reviens vers vous par téléphone ou par email sous 24 à 48 h avec un premier retour sur votre projet.</p>
+                    <a href="https://le-bon-geste.fr/" data-nav="accueil" class="lb-btn lb-btn-main">Retour à l'accueil</a>
                 </div>
-                <h2 class="font-arboria text-3xl sm:text-4xl text-slate-900 mb-4">Votre demande a bien été envoyée</h2>
-                <p class="text-slate-600 text-lg mb-10 leading-relaxed">
-                    Merci. Je reviens vers vous par téléphone ou par email sous 24 à 48h avec un premier retour sur votre projet.
-                </p>
-                <a href="https://le-bon-geste.fr/" data-nav="accueil" class="inline-flex items-center justify-center gap-2 bg-teal hover:bg-teal-dark text-white px-7 py-3.5 rounded-md font-semibold text-base transition-colors">
-                    Retour à l'accueil
-                </a>
             </div>
         </section>
 
         <!-- ==================== PAGE : 404 ==================== -->
-        <section id="page-404" class="page-view relative py-20 lg:py-32">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p class="font-arboria text-6xl text-teal mb-4">404</p>
-                <h2 class="font-arboria text-3xl sm:text-4xl text-slate-900 mb-4">Cette page n'existe pas</h2>
-                <p class="text-slate-600 text-lg mb-10 leading-relaxed">
-                    Le lien est peut-être ancien ou mal orthographié. Vous trouverez le catalogue et mes coordonnées depuis l'accueil.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://le-bon-geste.fr/" data-nav="accueil" class="bg-teal hover:bg-teal-dark text-white px-7 py-3.5 rounded-md font-semibold text-base transition-colors">
-                        Retour à l'accueil
-                    </a>
-                    <a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="bg-white hover:border-teal text-slate-800 hover:text-teal border border-gray-300 px-7 py-3.5 rounded-md font-semibold text-base transition-colors">
-                        Voir le catalogue
-                    </a>
+        <section id="page-404" class="page-view relative">
+            <div class="lb-wrap lb-wrap-last">
+                <div class="lb-block lb-block-mint lb-solo">
+                    <img src="/assets/img/marque/sylvain-montre.svg" alt="" width="280" height="360">
+                    <p class="lb-kicker">Erreur 404</p>
+                    <h2 class="lb-h1 lb-h1-page">Cette page n'existe pas</h2>
+                    <p class="lb-lead">Le lien est peut-être ancien ou mal orthographié. Vous trouverez le catalogue et mes coordonnées depuis l'accueil.</p>
+                    <div class="lb-actions lb-actions-center">
+                        <a href="https://le-bon-geste.fr/" data-nav="accueil" class="lb-btn lb-btn-main">Retour à l'accueil</a>
+                        <a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="lb-btn lb-btn-soft">Voir le catalogue</a>
+                    </div>
                 </div>
             </div>
         </section>
+
 
         <!-- ==================== PAGE : MENTIONS LÉGALES ==================== -->
         <section id="page-mentions" class="page-view relative py-12 lg:py-24">
@@ -1136,6 +1022,43 @@
         <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="mobile-link app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Rendez-vous</span></a>
     </nav>
 
+    <!-- ==================== SYLVAIN, L'ASSISTANT ==================== -->
+    <div class="lb-assist" data-assist>
+        <div class="lb-assist-panel" id="lb-assist-panel" hidden>
+            <p class="lb-assist-msg" data-assist-msg>Bonjour ! Je suis Sylvain. Je peux vous aider ?</p>
+            <div class="lb-assist-actions">
+                <a href="tel:+33610669435" class="lb-btn lb-btn-main lb-btn-sm">Appeler Sylvain</a>
+                <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-soft lb-btn-sm">Prendre rendez-vous</a>
+                <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="lb-link">Comment marche le −50 % ?</a>
+            </div>
+        </div>
+        <button type="button" class="lb-assist-btn" aria-expanded="false" aria-controls="lb-assist-panel" aria-label="Ouvrir l'aide de Sylvain"><svg xmlns="http://www.w3.org/2000/svg" class="sylvain-tete" focusable="false" viewBox="44 8 112 138" role="img" aria-label="Sylvain"><g class="sylvain"><path d="M62 330h36v10a8 8 0 0 1-8 8H58a6 6 0 0 1-6-6c0-7 4-12 10-12z" fill="#7f878b"/><rect x="52" y="342" width="46" height="7" rx="3.5" fill="#dfe3e1"/>
+<path d="M102 330h36c6 0 10 5 10 12a6 6 0 0 1-6 6h-32a8 8 0 0 1-8-8z" fill="#7f878b"/><rect x="102" y="342" width="46" height="7" rx="3.5" fill="#dfe3e1"/><rect x="70" y="236" width="26" height="92" rx="12" fill="#f0c3a1"/><rect x="104" y="236" width="26" height="92" rx="12" fill="#f0c3a1"/>
+<rect x="72" y="318" width="22" height="12" rx="4" fill="#fff"/><rect x="106" y="318" width="22" height="12" rx="4" fill="#fff"/>
+<path d="M64 218h72l6 50c1 6-3 8-8 8h-24l-10-24-10 24H66c-5 0-9-2-8-8z" fill="#5d6650"/><path d="M100 232v20" stroke="#4c5442" stroke-width="3" stroke-linecap="round"/><g class="bras-g" transform="rotate(8 62 152)">
+<rect x="53" y="160" width="18" height="46" rx="9" fill="#f0c3a1"/>
+<g class="avantbras-g" transform="rotate(0 62 198)"><rect x="53" y="190" width="18" height="52" rx="9" fill="#f0c3a1"/><circle cx="62" cy="244" r="12" fill="#f0c3a1"/></g>
+<rect x="50" y="146" width="24" height="40" rx="12" fill="#005554"/></g><g class="bras-d" transform="rotate(-8 138 152)">
+<rect x="129" y="160" width="18" height="46" rx="9" fill="#f0c3a1"/>
+<g class="avantbras-d"><rect x="129" y="190" width="18" height="52" rx="9" fill="#f0c3a1"/><rect x="128" y="226" width="20" height="9" rx="4" fill="#032a28"/><circle cx="138" cy="244" r="12" fill="#f0c3a1"/></g>
+<rect x="126" y="146" width="24" height="40" rx="12" fill="#005554"/></g><rect x="88" y="120" width="24" height="24" rx="8" fill="#dfa684"/>
+<path d="M60 152c0-12 10-18 22-20l18 6 18-6c12 2 22 8 22 20v72c0 4-3 6-6 6H66c-3 0-6-2-6-6z" fill="#007271"/>
+<path d="M84 134q16 12 32 0" stroke="#005554" stroke-width="5" fill="none" stroke-linecap="round"/><g transform="translate(104 160) scale(0.09836065573770492)"><path fill="#fff" d="M 120.246094 26.492188 C 118.921875 26.394531 107.058594 25.839844 96.765625 35.414062 C 93.421875 38.523438 90.691406 42.296875 88.558594 46.703125 C 79.117188 33.675781 63.40625 25.464844 45.878906 26.570312 C 21.113281 28.132812 1.289062 48.40625 0.257812 73.1875 C -0.925781 101.765625 22.628906 125.257812 51.234375 123.992188 C 77.40625 122.832031 97.636719 100.804688 97.832031 74.617188 C 97.925781 61.613281 100.980469 51.878906 106.675781 46.4375 C 112.339844 41.027344 118.996094 41.265625 119.273438 41.273438 L 119.179688 41.269531 Z M 52.121094 109.085938 C 30.953125 110.96875 13.289062 93.316406 15.175781 72.15625 C 16.625 55.933594 29.691406 42.871094 45.921875 41.425781 C 67.089844 39.539062 84.753906 57.195312 82.867188 78.355469 C 81.417969 94.578125 68.351562 107.640625 52.121094 109.085938 Z M 52.121094 109.085938 " fill-opacity="1" fill-rule="nonzero"/><path fill="#fff" d="M 196.011719 9.675781 C 195.910156 9.726562 195.8125 9.789062 195.71875 9.84375 C 194.789062 10.394531 194.191406 10.785156 193.960938 10.941406 C 193.894531 10.980469 193.859375 11.007812 193.859375 11.007812 C 180.902344 19.257812 164.921875 33.226562 146.566406 56.730469 C 108.394531 105.59375 75.425781 125.816406 40.519531 147.234375 C 34.945312 150.65625 29.179688 154.191406 23.464844 157.808594 C 13.484375 164.132812 6.363281 172.464844 2.867188 181.914062 C -0.40625 190.75 -0.460938 200.097656 2.71875 208.945312 C 8.789062 225.835938 25.203125 236.632812 43.847656 236.632812 C 45.855469 236.632812 47.890625 236.507812 49.945312 236.25 C 67.671875 234.035156 81.613281 222.152344 90.257812 201.886719 C 92.507812 196.628906 94.113281 191.46875 95.246094 187.003906 C 96.105469 183.648438 96.753906 180.242188 97.183594 176.808594 C 97.617188 173.371094 97.832031 169.910156 97.832031 166.449219 L 97.832031 126.734375 C 117.097656 111.816406 137.089844 92.9375 158.25 65.84375 C 185.613281 30.808594 206.347656 19.507812 217.742188 15.902344 C 217.902344 15.917969 217.984375 15.929688 217.984375 15.929688 C 217.984375 15.929688 201.035156 27.738281 190.355469 44.339844 C 190.355469 44.339844 212.0625 51.761719 232.78125 27.023438 C 237.480469 21.410156 240.125 14.335938 242.03125 7.269531 C 242.640625 5.019531 243.078125 2.925781 243.035156 1.699219 C 221.582031 -3.65625 202.296875 5.996094 196.011719 9.671875 Z M 83.007812 164.074219 C 83.007812 173.78125 81.414062 183.445312 78.054688 192.550781 C 73.363281 205.269531 64.5 219.496094 48.105469 221.546875 C 31.503906 223.621094 20.359375 214.199219 16.671875 203.941406 C 13.238281 194.378906 15.296875 180.523438 31.402344 170.328125 C 37.019531 166.765625 42.742188 163.257812 48.273438 159.863281 C 59.6875 152.859375 71.230469 145.777344 83.007812 137.589844 Z M 83.007812 164.074219 " fill-opacity="1" fill-rule="nonzero"/></g><g class="tete">
+<ellipse cx="58" cy="80" rx="7" ry="10" fill="#dfa684"/><ellipse cx="142" cy="80" rx="7" ry="10" fill="#dfa684"/>
+<path d="M62 64c0-24 16-38 38-38s38 14 38 38v24c0 26-16 42-38 42s-38-16-38-42z" fill="#f0c3a1"/>
+<path d="M60 92c0 26 16 44 40 44s40-18 40-44c-8 10-20 14-40 14s-32-4-40-14z" fill="#8b5b3d"/>
+<path d="M84 124c4 9 10 12 16 12s12-3 16-12c-6 3-11 4-16 4s-10-1-16-4z" fill="#b9b1a8"/>
+<path d="M84 102c6-5 26-5 32 0-5 4-27 4-32 0z" fill="#8b5b3d"/>
+<path d="M90 112c6 5 14 5 20 0" stroke="#032a28" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M60 74c-2-12-1-22 3-30 2 10 4 18 5 30z" fill="#a39d97"/><path d="M140 74c2-12 1-22-3-30-2 10-4 18-5 30z" fill="#a39d97"/><path d="M62 56c-2-24 16-40 40-40 26 0 42 14 38 40-4-8-10-12-16-14-14-6-36-6-50 0-6 3-10 8-12 14z" fill="#3a2e28"/>
+<path d="M76 28c10-6 30-8 44-2M72 36c14-8 38-8 54-2" stroke="#55453c" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M66 44c-2-6 0-12 4-16" stroke="#a39d97" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<path d="M76 72q8-5 16 0M108 72q8-5 16 0" stroke="#3a2e28" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<g class="yeux"><ellipse cx="84" cy="84" rx="6.5" ry="5" fill="#fff"/><g class="pupille"><circle cx="84" cy="84" r="3.6" fill="#5e9470"/><circle cx="84" cy="84" r="1.6" fill="#032a28"/></g>
+<ellipse cx="116" cy="84" rx="6.5" ry="5" fill="#fff"/><g class="pupille"><circle cx="116" cy="84" r="3.6" fill="#5e9470"/><circle cx="116" cy="84" r="1.6" fill="#032a28"/></g></g>
+<path d="M98 88q2 8 6 9" stroke="#dfa684" stroke-width="3" fill="none" stroke-linecap="round"/></g></g></svg></button>
+    </div>
+
     <!-- ==================== BANDEAU COOKIES ==================== -->
     <div id="cookie-banner" class="fixed inset-x-0 bottom-0 z-[100] hidden px-4 pb-4 sm:px-6">
         <div class="max-w-4xl mx-auto bg-white border border-gray-200 rounded-xl shadow-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3">
@@ -1192,6 +1115,6 @@
         </div>
     </div>
 
-    <script src="/assets/app.js?v=unipros2" defer></script>
+    <script src="/assets/app.js?v=marque1" defer></script>
 </body>
 </html>

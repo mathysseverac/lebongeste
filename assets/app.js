@@ -464,6 +464,11 @@ function navigateTo(event, pageId) {
     if (typeof window.clarity === 'function') {
         window.clarity('set', 'page', pageId);
     }
+
+    // La mascotte Sylvain adapte son message à la page
+    if (typeof window.lbSylvainPage === 'function') {
+        window.lbSylvainPage(pageId);
+    }
 }
 
 // ==================== GESTION DU CONSENTEMENT COOKIES & MICROSOFT CLARITY ====================
@@ -685,7 +690,7 @@ document.addEventListener('click', function(event) {
             trackClarityEvent('ouverture_page_devis');
         }
         // Si le bouton contient data-prestation, on pré-coche la prestation dans le formulaire de devis
-        const presetPrestation = el.getAttribute('data-prestation');
+        const presetPrestation = el.getAttribute('data-devis-prestation') || el.getAttribute('data-prestation');
         if (presetPrestation) {
             const radio = document.querySelector('input[name="prestation"][value="' + presetPrestation + '"]');
             if (radio) {
@@ -753,5 +758,148 @@ if (dropzoneLabel && photoInput) {
         }
         if (img.complete && img.naturalWidth > 0) show();
         else img.addEventListener('load', function () { if (img.naturalWidth > 0) show(); });
+    });
+})();
+// ==================== MASCOTTE SYLVAIN (interactive) ====================
+(function () {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Phrases de Sylvain quand on le touche, sur l'accueil
+    var PHRASES = [
+        "Bonjour ! Moi c'est Sylvain.",
+        "Une haie à tailler ? Je passe faire le devis, c'est gratuit.",
+        "Avec Unipros, vous ne payez que la moitié de la facture.",
+        "Je réponds sous 24 à 48 h. Promis.",
+        "Mazamet, Aiguefonde et alentours : j'arrive !",
+        "Pelouse, terrasse, étagère à fixer : on en parle ?"
+    ];
+
+    // Message de l'assistant selon la page
+    var MESSAGES = {
+        accueil: "Bonjour ! Je suis Sylvain. Je peux vous aider ?",
+        services: "Toutes ces prestations donnent droit aux 50 % déduits. Une question sur l'une d'elles ?",
+        sap: "Avec Unipros, vous ne réglez que la moitié. Je m'occupe du reste avec la coopérative.",
+        guide: "Pas de démarche compliquée : je transmets le devis, Unipros vous envoie la facture.",
+        devis: "Quelques infos et une photo si vous pouvez, et je vous rappelle sous 24 à 48 h.",
+        contact: "Le plus simple, c'est de m'appeler. Sinon, laissez-moi un message.",
+        faq: "Vous ne trouvez pas votre réponse ? Appelez-moi, ce sera plus rapide.",
+        merci: "Merci ! Je reviens vers vous très vite.",
+        '404': "Oups, cette page n'existe pas. Je vous ramène à l'accueil ?"
+    };
+
+    // --- Les yeux suivent le doigt ou la souris ---
+    var pupils = [];
+    function collectPupils() {
+        pupils = Array.prototype.slice.call(document.querySelectorAll('.sylvain-live .pupille, .sylvain-tete .pupille'));
+    }
+    var pending = null;
+    function lookAt(x, y) {
+        pupils.forEach(function (p) {
+            var eye = p.parentNode.getBoundingClientRect();
+            if (!eye.width) return;
+            var dx = x - (eye.left + eye.width / 2);
+            var dy = y - (eye.top + eye.height / 2);
+            var d = Math.sqrt(dx * dx + dy * dy) || 1;
+            var k = Math.min(1, d / 160);
+            p.setAttribute('transform', 'translate(' + (dx / d * 2.4 * k).toFixed(2) + ' ' + (dy / d * 1.6 * k).toFixed(2) + ')');
+        });
+    }
+    function onPointer(e) {
+        var pt = e.touches ? e.touches[0] : e;
+        if (!pt) return;
+        if (pending) return;
+        pending = window.requestAnimationFrame(function () {
+            pending = null;
+            lookAt(pt.clientX, pt.clientY);
+        });
+    }
+
+    // --- Bulle et coucou du Sylvain de l'accueil ---
+    var hero = document.querySelector('[data-sylvain]');
+    var bulle = document.querySelector('[data-sylvain-bulle]');
+    var phraseIndex = 0;
+    var bulleTimer = null;
+    function say(text) {
+        if (!bulle) return;
+        bulle.textContent = text;
+        bulle.classList.add('is-on');
+        clearTimeout(bulleTimer);
+        bulleTimer = setTimeout(function () { bulle.classList.remove('is-on'); }, 4500);
+    }
+    function wave() {
+        if (!hero || reduceMotion) return;
+        hero.classList.remove('is-waving');
+        void hero.offsetWidth; // relance l'animation
+        hero.classList.add('is-waving');
+    }
+    if (hero) {
+        hero.addEventListener('click', function () {
+            phraseIndex = (phraseIndex + 1) % PHRASES.length;
+            say(PHRASES[phraseIndex]);
+            wave();
+            if (typeof trackClarityEvent === 'function') trackClarityEvent('clic_mascotte');
+        });
+        hero.addEventListener('animationend', function (e) {
+            if (e.animationName === 'lbHoche') hero.classList.remove('is-waving');
+        });
+    }
+
+    // --- Sylvain l'assistant (bouton flottant) ---
+    var assist = document.querySelector('[data-assist]');
+    var assistBtn = assist ? assist.querySelector('.lb-assist-btn') : null;
+    var panel = document.getElementById('lb-assist-panel');
+    var msg = assist ? assist.querySelector('[data-assist-msg]') : null;
+    function closePanel() {
+        if (!panel) return;
+        panel.hidden = true;
+        assistBtn.setAttribute('aria-expanded', 'false');
+        assistBtn.setAttribute('aria-label', "Ouvrir l'aide de Sylvain");
+    }
+    if (assistBtn && panel) {
+        assistBtn.addEventListener('click', function () {
+            var open = panel.hidden;
+            panel.hidden = !open;
+            assistBtn.setAttribute('aria-expanded', String(open));
+            assistBtn.setAttribute('aria-label', open ? "Fermer l'aide de Sylvain" : "Ouvrir l'aide de Sylvain");
+            assist.classList.remove('is-new');
+            if (open && typeof trackClarityEvent === 'function') trackClarityEvent('ouverture_assistant');
+        });
+        panel.addEventListener('click', function (e) {
+            if (e.target.closest('a')) closePanel();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closePanel();
+        });
+    }
+
+    // Appelé par navigateTo à chaque changement de page
+    window.lbSylvainPage = function (pageId) {
+        if (msg) msg.textContent = MESSAGES[pageId] || MESSAGES.accueil;
+        closePanel();
+        // Sur l'accueil, le grand Sylvain est déjà là : on cache le petit sur ordinateur
+        if (assist) assist.classList.toggle('is-home', pageId === 'accueil');
+        if (pageId === 'accueil') {
+            setTimeout(function () { wave(); say(PHRASES[0]); phraseIndex = 0; }, 400);
+        }
+        collectPupils();
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        collectPupils();
+        window.addEventListener('mousemove', onPointer, { passive: true });
+        window.addEventListener('touchstart', onPointer, { passive: true });
+        window.addEventListener('touchmove', onPointer, { passive: true });
+        var current = document.querySelector('.page-view.active-page');
+        var pageId = current ? current.id.replace('page-', '') : 'accueil';
+        if (msg) msg.textContent = MESSAGES[pageId] || MESSAGES.accueil;
+        if (assist) {
+            assist.classList.toggle('is-home', pageId === 'accueil');
+            if (!reduceMotion) {
+                assist.classList.add('is-new');
+            }
+        }
+        if (pageId === 'accueil') {
+            setTimeout(function () { wave(); say(PHRASES[0]); }, 700);
+        }
     });
 })();
