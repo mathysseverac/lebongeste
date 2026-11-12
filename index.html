@@ -29,7 +29,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
-    <link rel="stylesheet" href="/assets/style.css?v=27328d79">
+    <link rel="stylesheet" href="/assets/style.css?v=app-1">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -1127,10 +1127,14 @@
     </footer>
 
     <!-- Barre d'appel fixe (mobile uniquement) -->
-    <div class="lp-callbar">
-        <a href="tel:+33610669435" class="lp-btn lp-btn-primary"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg> Appeler Sylvain</a>
-        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lp-btn lp-btn-ghost">Rendez-vous</a>
-    </div>
+    <!-- Barre d'onglets façon application (mobile uniquement) -->
+    <nav class="app-tabbar" aria-label="Navigation rapide">
+        <a href="https://le-bon-geste.fr/" data-nav="accueil" class="mobile-link app-tab active-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg><span>Accueil</span></a>
+        <a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="mobile-link app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-4-3-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-3 8-7 11z"/><path d="M12 21V9"/><path d="M12 14l-3-2.5M12 12l3-2.5"/></svg><span>Prestations</span></a>
+        <a href="tel:+33610669435" class="app-tab app-tab-call" aria-label="Appeler Sylvain au 06 10 66 94 35"><span class="app-call-bubble"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><span>Appeler</span></a>
+        <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="mobile-link app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/><path d="M18 6 6 18"/></svg><span>-50 %</span></a>
+        <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="mobile-link app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Rendez-vous</span></a>
+    </nav>
 
     <!-- ==================== BANDEAU COOKIES ==================== -->
     <div id="cookie-banner" class="fixed inset-x-0 bottom-0 z-[100] hidden px-4 pb-4 sm:px-6">

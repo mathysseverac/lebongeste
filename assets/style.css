@@ -319,3 +319,107 @@ body.bg-gray-light{background-color:#f5f7f9}
 
 @media(max-width:767px){.lp-hero{min-height:0;padding:7.5rem 0 5.5rem}.lp-hero .lp-h1{font-size:2.15rem}.lp-hero .lp-actions{margin-bottom:1.5rem}}
 
+
+
+/* =====================================================================
+   v3 : arrondi partout, plus d'effet verre, version « appli » sur mobile
+   Police d'origine (Manrope, celle du logo) inchangée.
+   ===================================================================== */
+
+/* --- 1. Une seule famille de formes : tout est arrondi --- */
+.rounded,.rounded-md{border-radius:.9rem}
+.rounded-lg{border-radius:1.1rem}
+.rounded-xl,.rounded-2xl{border-radius:1.4rem}
+input,select,textarea{border-radius:.9rem!important}
+/* tous les boutons et liens-boutons en pastille */
+a.rounded,a.rounded-md,a.rounded-lg,button.rounded,button.rounded-md,button.rounded-lg,button[type=submit],.lp-btn,#header .hdr-call{border-radius:999px!important}
+label.rounded-md,label.rounded-lg{border-radius:1rem}
+
+/* filets droits remplacés par des blocs arrondis */
+.lp-plafonds li{border-left:0;padding:.7rem .9rem;background:#edf7f6;border-radius:.8rem}
+.lp-trust>div{border-left:0;padding:.8rem 1rem;background:#f1f7f6;border-radius:1rem}
+.lp-step{border-top:0;background:#fff;border:1px solid #dce8e6;border-radius:1.25rem;padding:1.4rem}
+.lp-step-num{display:inline-flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;border-radius:999px;background:#007271;color:#fff;font-size:.85rem;letter-spacing:0}
+.lp-service-ico{border-radius:.9rem}
+
+/* --- 2. Plus d'effet « verre » --- */
+#header>div:first-child{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 6px 24px rgba(3,42,40,.12)}
+.lp-glass li{background:#fff;border:0;-webkit-backdrop-filter:none;backdrop-filter:none;border-radius:1.25rem}
+.lp-glass strong{color:#007271}
+.lp-glass span{color:#475569}
+.lp-glass li>a:hover strong{color:#005554}
+
+/* --- 3. Barre d'onglets : cachée sur ordinateur --- */
+.app-tabbar{display:none}
+.lp-callbar{display:none!important}
+
+/* --- 4. Version « application » : téléphone uniquement --- */
+@media(max-width:767px){
+  html{-webkit-tap-highlight-color:transparent}
+  body{padding-bottom:calc(5.25rem + env(safe-area-inset-bottom))}
+
+  /* en-tête compact flottant */
+  #header{top:.5rem!important;padding:0 .6rem}
+  #header>div:first-child{padding:0 .5rem 0 1rem}
+  #header>div:first-child>div{height:3.6rem}
+  #header a.w-48{width:7.2rem}
+  #mobile-menu{border-radius:1.4rem;box-shadow:0 12px 32px rgba(3,42,40,.18)}
+
+  /* pages qui apparaissent en douceur, comme un écran d'appli */
+  .page-view.active-page{animation:appIn .28s ease-out}
+  @keyframes appIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* hero : écran d'accueil arrondi en bas */
+  .lp-hero{border-radius:0 0 2rem 2rem;padding:6.5rem 0 1.75rem}
+  .lp-hero .lp-h1{font-size:2.05rem;line-height:1.12}
+  .lp-hero .lp-lead{font-size:1rem}
+  .lp-hero .lp-actions{margin-bottom:1.25rem}
+  /* chiffres clés : petites cartes qu'on fait glisser */
+  .lp-glass{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.6rem;margin:0 -1rem;padding:0 1rem .25rem;scrollbar-width:none}
+  .lp-glass::-webkit-scrollbar{display:none}
+  .lp-glass li{flex:0 0 72%;scroll-snap-align:start;padding:1rem 1.1rem}
+  .lp-glass strong{font-size:1.6rem}
+  .lp-glass span{font-size:.82rem}
+
+  /* sections en cartes posées sur le fond */
+  .lp-band{padding:2.25rem 0}
+  .lp-band-white{margin:.9rem .6rem 0;border-radius:1.75rem}
+  .lp-band-tint{margin:.9rem .6rem 0;border-radius:1.75rem}
+  .lp-final{margin:.9rem .6rem 0;border-radius:1.75rem}
+  .lp-h2{font-size:1.55rem}
+  .lp-sub{font-size:.98rem;margin-bottom:1.25rem}
+
+  /* prestations : carrousel horizontal */
+  .lp-grid-2{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.75rem;margin:0 -1rem;padding:0 1rem .5rem;scrollbar-width:none}
+  .lp-grid-2::-webkit-scrollbar{display:none}
+  .lp-service{flex:0 0 82%;scroll-snap-align:start;border-radius:1.5rem;padding:1.3rem}
+  .lp-service-foot{flex-direction:column;align-items:stretch}
+  .lp-service-foot .lp-link{text-align:center}
+
+  /* étapes en cartes */
+  .lp-steps{gap:.75rem}
+
+  /* boutons : grands, faciles à toucher */
+  .lp-actions{gap:.6rem}
+  .lp-btn{width:100%;min-height:3.25rem}
+  .lp-btn-sm{min-height:2.9rem}
+  a,button,.lp-btn,.lp-service{transition:transform .12s ease}
+  .lp-btn:active,.app-tab:active,.lp-service:active,button:active{transform:scale(.97)}
+
+  /* formulaires confortables */
+  input:not([type=checkbox]):not([type=radio]),select{min-height:3.1rem;font-size:16px}
+  textarea{font-size:16px}
+
+  /* bandeau cookies au-dessus de la barre d'onglets */
+  #cookie-banner{bottom:calc(5rem + env(safe-area-inset-bottom))}
+
+  /* la barre d'onglets */
+  .app-tabbar{display:grid;grid-template-columns:repeat(5,1fr);align-items:end;position:fixed;left:.6rem;right:.6rem;bottom:calc(.6rem + env(safe-area-inset-bottom));z-index:60;height:4.25rem;padding:0 .35rem;background:#fff;border-radius:1.6rem;box-shadow:0 10px 30px rgba(3,42,40,.18),0 0 0 1px rgba(3,42,40,.05)}
+  .app-tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;height:100%;color:#64748b;font-size:.66rem;font-weight:600;letter-spacing:.01em}
+  .app-tab svg{width:1.45rem;height:1.45rem}
+  .app-tab.active-link{color:#007271}
+  .app-tab.active-link svg{stroke-width:2.2}
+  .app-tab-call{justify-content:flex-end;padding-bottom:.55rem;color:#007271}
+  .app-call-bubble{display:flex;align-items:center;justify-content:center;width:3.4rem;height:3.4rem;margin-top:-1.6rem;margin-bottom:.15rem;border-radius:999px;background:#007271;color:#fff;box-shadow:0 8px 20px rgba(0,114,113,.35);border:4px solid #fff}
+  .app-call-bubble svg{width:1.35rem;height:1.35rem}
+}
