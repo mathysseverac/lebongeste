@@ -68,13 +68,13 @@ export async function onRequestPost({ request, env }) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
 <td valign="top" style="font-size:16px;line-height:1.6;color:#0f172a">
 <p style="margin:0 0 14px">${bonjour}</p>
-<p style="margin:0 0 14px">${isContact ? 'Votre message est bien arrivé. Sylvain le lit et vous répond <strong>sous 24 à 48 h</strong>.' : 'Votre demande de rendez-vous est bien arrivée. Sylvain la regarde et vous rappelle <strong>sous 24 à 48 h</strong> pour en parler et prévoir son passage pour le devis, qui est gratuit.'}</p>
+<p style="margin:0 0 14px">${isContact ? 'Votre message est bien arrivé. Je le lis et je vous réponds <strong>sous 24 à 48 h</strong>.' : 'Votre demande de rendez-vous est bien arrivée. Je la regarde et je vous rappelle <strong>sous 24 à 48 h</strong> pour en parler et prévoir mon passage pour le devis, qui est gratuit.'}</p>
 </td>
 <td width="110" valign="bottom" align="right"><img src="https://le-bon-geste.fr/assets/img/email-sylvain.png" width="100" alt="" style="display:block;border:0"></td>
 </tr></table></td></tr>
 ${details ? `<tr><td style="padding:6px 28px 0"><div style="background:#e3f2f0;border-radius:16px;padding:14px 18px;font-size:14px;line-height:1.7;color:#0f172a">${details}</div></td></tr>` : ''}
 <tr><td style="padding:18px 28px 0;font-size:15px;line-height:1.6;color:#475569">
-<p style="margin:0 0 14px">Besoin de lui parler avant ? Appelez-le au <a href="tel:+33610669435" style="color:#007271;font-weight:bold;text-decoration:none">06 10 66 94 35</a>, ou répondez simplement à ce mail.</p>
+<p style="margin:0 0 14px">Besoin de me parler avant ? Appelez-moi au <a href="tel:+33610669435" style="color:#007271;font-weight:bold;text-decoration:none">06 10 66 94 35</a>, ou répondez simplement à ce mail.</p>
 <p style="margin:0 0 14px">Pour rappel, la facture passe par la coopérative Unipros : vous ne réglez que la moitié du montant.</p>
 <p style="margin:0 0 24px;color:#0f172a">À très vite,<br><strong>Sylvain, Le bon geste</strong></p>
 </td></tr>
@@ -83,10 +83,10 @@ ${details ? `<tr><td style="padding:6px 28px 0"><div style="background:#e3f2f0;b
 
   const text = `${nom ? 'Bonjour ' + nom + ',' : 'Bonjour,'}
 
-${isContact ? 'Votre message est bien arrivé. Sylvain le lit et vous répond sous 24 à 48 h.' : 'Votre demande de rendez-vous est bien arrivée. Sylvain la regarde et vous rappelle sous 24 à 48 h pour en parler et prévoir son passage pour le devis, qui est gratuit.'}
+${isContact ? 'Votre message est bien arrivé. Je le lis et je vous réponds sous 24 à 48 h.' : 'Votre demande de rendez-vous est bien arrivée. Je la regarde et je vous rappelle sous 24 à 48 h pour en parler et prévoir mon passage pour le devis, qui est gratuit.'}
 ${prestation ? '\nPrestation : ' + prestation : ''}${ville ? '\nCommune : ' + ville : ''}
 
-Besoin de lui parler avant ? Appelez-le au 06 10 66 94 35, ou répondez simplement à ce mail.
+Besoin de me parler avant ? Appelez-moi au 06 10 66 94 35, ou répondez simplement à ce mail.
 
 Pour rappel, la facture passe par la coopérative Unipros : vous ne réglez que la moitié du montant.
 
@@ -101,7 +101,7 @@ https://le-bon-geste.fr/`;
       sender: { name: 'Sylvain, Le bon geste', email: env.BREVO_SENDER_EMAIL },
       to: [{ email, name: nom || undefined }],
       replyTo: { email: 'contact.lebongeste@gmail.com', name: 'Sylvain, Le bon geste' },
-      subject: isContact ? 'Bien reçu ! Sylvain vous répond sous 24 à 48 h' : 'Bien reçu ! Sylvain vous rappelle sous 24 à 48 h',
+      subject: isContact ? 'Bien reçu ! Je vous réponds sous 24 à 48 h' : 'Bien reçu ! Je vous rappelle sous 24 à 48 h',
       htmlContent: html,
       textContent: text,
       tags: [isContact ? 'confirmation-message' : 'confirmation-rendez-vous']

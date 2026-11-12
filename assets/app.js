@@ -346,7 +346,7 @@ const PAGES = {
     'accueil': {
         url: 'https://le-bon-geste.fr/',
         title: "Jardinier et petits travaux à Mazamet (Tarn) | Le bon geste",
-        description: "Taille de haies, tonte, débroussaillage et petit bricolage à Mazamet, Aiguefonde et alentours. Devis gratuit, 50 % déduits via Unipros. Appelez Sylvain."
+        description: "Taille de haies, tonte, débroussaillage et petit bricolage à Mazamet, Aiguefonde et alentours. Devis gratuit, 50 % déduits via Unipros. Appelez-moi."
     },
     'services': {
         url: 'https://le-bon-geste.fr/catalogue',
@@ -366,12 +366,12 @@ const PAGES = {
     'devis': {
         url: 'https://le-bon-geste.fr/devis',
         title: "Rendez-vous et devis gratuit à Mazamet | Le bon geste",
-        description: "Décrivez vos travaux de jardinage ou de bricolage à Mazamet, Aiguefonde et alentours. Sylvain vous répond sous 24 à 48 h avec un devis gratuit."
+        description: "Décrivez vos travaux de jardinage ou de bricolage à Mazamet, Aiguefonde et alentours. Je vous réponds sous 24 à 48 h avec un devis gratuit."
     },
     'contact': {
         url: 'https://le-bon-geste.fr/contact',
         title: "Contact : jardinier à Mazamet et Aiguefonde | Le bon geste",
-        description: "Appelez Sylvain au 06 10 66 94 35 ou écrivez-lui. Jardinage et petits travaux à Mazamet, Aiguefonde et communes voisines, dans un rayon de 20 km."
+        description: "Appelez-moi au 06 10 66 94 35 ou écrivez-moi. Jardinage et petits travaux à Mazamet, Aiguefonde et communes voisines, dans un rayon de 20 km."
     },
     'faq': {
         url: 'https://le-bon-geste.fr/faq',
