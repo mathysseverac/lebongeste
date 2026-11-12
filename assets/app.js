@@ -240,14 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Suivi de l'événement d'envoi de devis dans Microsoft Clarity
             trackClarityEvent('envoi_devis');
 
-            // Mail de confirmation au client (Brevo, via /api/confirmation), sans bloquer l'envoi
-            (function () {
-                const checkedP = document.querySelector('input[name="prestation"]:checked');
-                const v = function (id) { const el = document.getElementById(id); return el ? el.value : ''; };
-                sendConfirmationMail('rendez-vous', document.getElementById('devis-form'), {
-                    email: v('email'), nom: v('nom'), ville: v('ville'), prestation: checkedP ? checkedP.value : ''
-                });
-            })();
+
 
             // Formulaire valide : on affiche l'état de chargement pendant l'envoi
             const btn = document.getElementById('devis-submit-btn');
@@ -977,20 +970,6 @@ function turnstileTokenIn(form) {
     return box && box.dataset.token ? box.dataset.token : '';
 }
 
-function sendConfirmationMail(type, form, fields) {
-    const token = turnstileTokenIn(form);
-    if (!TURNSTILE_SITEKEY || !token) return;
-    fields.type = type;
-    fields.token = token;
-    try {
-        fetch('/api/confirmation', {
-            method: 'POST',
-            keepalive: true,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(fields)
-        }).catch(function () {});
-    } catch (e) { /* l'envoi du formulaire continue quoi qu'il arrive */ }
-}
 
 // Le captcha ne se charge que lorsqu'une page avec formulaire est affichée
 (function () {
@@ -1040,10 +1019,7 @@ function sendConfirmationMail(type, form, fields) {
         }
         if (wait) wait.hidden = true;
         trackClarityEvent('envoi_message_contact');
-        sendConfirmationMail('contact', form, {
-            email: document.getElementById('contact-email').value,
-            nom: document.getElementById('contact-nom').value
-        });
+
         const btn = document.getElementById('contact-submit');
         if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
         event.preventDefault();
@@ -1054,43 +1030,36 @@ function sendConfirmationMail(type, form, fields) {
 })();
 
 
-// ==================== ENVOI DES FORMULAIRES EN ARRIÈRE-PLAN (FormSubmit) ====================
-// La page ne quitte plus le site : on envoie à FormSubmit, puis on affiche la page « merci ».
-// En cas d'erreur ou de délai trop long, on retombe sur l'envoi classique : aucune demande perdue.
-const FORMSUBMIT_AJAX = 'https://formsubmit.co/ajax/contact.lebongeste@gmail.com';
-
-function submitInBackground(form, onFailReset) {
+// ==================== ENVOI DES FORMULAIRES ====================
+// 1. On envoie à notre fonction Cloudflare (/api/demande) : captcha vérifié côté serveur, mail à Sylvain
+//    et confirmation au client via Brevo. Réponse en une ou deux secondes.
+// 2. Si elle échoue ou ne répond pas en 20 s, on retombe sur l'envoi classique FormSubmit : aucune demande perdue.
+function submitInBackground(form, onReset) {
     const data = new FormData(form);
-    data.delete('cf-turnstile-response');   // le jeton du captcha n'a rien à faire dans le mail
-    data.delete('_next');
+    data.append('type', form.id === 'contact-form' ? 'contact' : 'rendez-vous');
     const controller = ('AbortController' in window) ? new AbortController() : null;
-    const timer = setTimeout(function () { if (controller) controller.abort(); }, 30000);
+    const timer = setTimeout(function () { if (controller) controller.abort(); }, 20000);
     let done = false;
 
     function fallback() {
         if (done) return;
         done = true;
         clearTimeout(timer);
-        // Envoi classique, sans repasser par nos contrôles
-        HTMLFormElement.prototype.submit.call(form);
+        HTMLFormElement.prototype.submit.call(form);   // envoi classique vers FormSubmit
     }
 
-    fetch(FORMSUBMIT_AJAX, {
+    fetch('/api/demande', {
         method: 'POST',
         body: data,
-        headers: { 'Accept': 'application/json' },
         signal: controller ? controller.signal : undefined
     }).then(function (res) {
-        return res.json().catch(function () { return {}; }).then(function (json) {
-            const ok = res.ok && (json.success === true || json.success === 'true');
-            if (!ok) return fallback();
-            done = true;
-            clearTimeout(timer);
-            form.reset();
-            if (typeof onFailReset === 'function') onFailReset();
-            const box = form.querySelector('[data-turnstile]');
-            if (box) { box.dataset.token = ''; if (window.turnstile) { try { window.turnstile.reset(box); } catch (e) {} } }
-            navigateTo(null, 'merci');
-        });
+        if (!res.ok) return fallback();
+        done = true;
+        clearTimeout(timer);
+        form.reset();
+        if (typeof onReset === 'function') onReset();
+        const box = form.querySelector('[data-turnstile]');
+        if (box) { box.dataset.token = ''; if (window.turnstile) { try { window.turnstile.reset(box); } catch (e) {} } }
+        navigateTo(null, 'merci');
     }).catch(fallback);
 }
