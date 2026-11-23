@@ -94,7 +94,7 @@ main.pt-24{padding-top:6rem}
 /* ---------- Cartes des prestations ---------- */
 .lb-cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}
 .lb-card{display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-grand);padding:.75rem .75rem 1.25rem;transition:transform .2s,box-shadow .2s}
-.lb-card:hover{transform:translateY(-3px);box-shadow:var(--ombre)}
+.lb-card:hover{border-color:var(--menthe)}
 .lb-card-illu{border-radius:var(--r-moyen);overflow:hidden;background:#fff;margin-bottom:.9rem}
 .lb-card-illu img{display:block;width:100%;height:auto}
 .lb-card h3{font-size:1.15rem;color:var(--nuit);margin:0 .5rem .35rem}
@@ -221,7 +221,7 @@ main.pt-24{padding-top:6rem}
 .lb-contact-cards{display:grid;gap:1rem}
 @media(min-width:768px){.lb-contact-cards{grid-template-columns:1fr 1fr}}
 .lb-contact{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:1rem;align-items:center;background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-grand);padding:1.3rem 1.4rem;transition:transform .2s,box-shadow .2s}
-.lb-contact:hover{transform:translateY(-2px);box-shadow:var(--ombre)}
+.lb-contact:hover{border-color:var(--menthe)}
 .lb-contact-main{background:var(--teal);border-color:var(--teal)}
 .lb-contact-ico{grid-row:span 2;display:flex;width:3.4rem;height:3.4rem;align-items:center;justify-content:center;border-radius:999px;background:rgba(255,255,255,.18)}
 .lb-ico-soft{background:var(--menthe-clair)}
@@ -406,3 +406,6 @@ footer.bg-\[\#032a28\]{border-radius:var(--r-grand) var(--r-grand) 0 0;margin-to
   #header #mobile-menu.md\:hidden:not(.hidden){display:block}
   #header div.md\:flex{margin-left:auto;margin-right:.75rem}
 }
+
+/* accueil allégé : la carte n'a plus de paragraphe, le bouton se cale en bas */
+.lb-card h3{flex:1}
