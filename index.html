@@ -38,7 +38,7 @@
 
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
-    <link rel="stylesheet" href="/assets/marque.css?v=8">
+    <link rel="stylesheet" href="/assets/marque.css?v=9">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -87,6 +87,7 @@
                 <nav class="hidden md:flex space-x-8 relative">
                     <a href="https://le-bon-geste.fr/" data-nav="accueil" class="nav-link active-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Accueil</a>
                     <a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Catalogue</a>
+                    <a href="https://le-bon-geste.fr/realisations" data-nav="realisations" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Réalisations</a>
                     <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Avantage -50%</a>
                     <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Guide Unipros</a>
                     <a href="https://le-bon-geste.fr/contact" data-nav="contact" class="nav-link text-sm font-semibold text-slate-600 hover:text-teal transition-colors relative py-2">Contact</a>
@@ -115,6 +116,7 @@
             <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
                 <a href="https://le-bon-geste.fr/" data-nav="accueil" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Accueil</a>
                 <a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Catalogue</a>
+                <a href="https://le-bon-geste.fr/realisations" data-nav="realisations" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Réalisations</a>
                 <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Avantage -50%</a>
                 <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Guide Unipros</a>
                 <a href="https://le-bon-geste.fr/contact" data-nav="contact" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-teal hover:bg-teal-light rounded-md">Contact</a>
@@ -309,16 +311,26 @@
                 </div>
             </div>
 
-            <!-- Réalisations : visible seulement quand des photos sont ajoutées dans /assets/img/ -->
-            <div class="lb-band" data-photo-group hidden>
+            <!-- Réalisations : un avant/après -->
+            <div class="lb-band">
                 <div class="lb-wrap">
-                    <p class="lb-label">Réalisations</p>
-                    <h2 class="lb-h2">Quelques jardins du coin</h2>
-                    <div class="lb-gallery">
-                        <figure class="lb-photo" data-photo hidden><img src="/assets/img/realisation-1.jpg" alt="Réalisation Le bon geste : jardin entretenu" width="900" height="675" data-photo-img></figure>
-                        <figure class="lb-photo" data-photo hidden><img src="/assets/img/realisation-2.jpg" alt="Réalisation Le bon geste : haie taillée" width="900" height="675" data-photo-img></figure>
-                        <figure class="lb-photo" data-photo hidden><img src="/assets/img/realisation-3.jpg" alt="Réalisation Le bon geste : pelouse tondue" width="900" height="675" data-photo-img></figure>
+                    <div class="lb-real-head">
+                        <div>
+                            <p class="lb-label">Réalisations</p>
+                            <h2 class="lb-h2">Avant, après</h2>
+                            <p class="lb-sub">Une haie qui recouvrait le composteur, rabattue en une intervention. Photos prises sur place, sans retouche.</p>
+                        </div>
+                        <a href="https://le-bon-geste.fr/realisations" data-nav="realisations" class="lb-btn lb-btn-soft">Voir les chantiers</a>
                     </div>
+<div class="lb-ba" data-ba data-state="avant">
+<div class="lb-ba-stage">
+<div class="lb-ba-frames" data-ba-frames>
+<figure class="lb-ba-fig is-avant"><img src="/assets/img/realisations/haie-1-avant-l.webp" srcset="/assets/img/realisations/haie-1-avant-m.webp 560w, /assets/img/realisations/haie-1-avant-l.webp 1000w" sizes="(min-width: 900px) 36rem, 100vw" alt="Avant : haie trop haute et trop épaisse qui déborde sur un composteur en bois, dans un jardin près de Mazamet" width="1000" height="750" loading="lazy" decoding="async" data-ba-img="avant"><figcaption>Avant</figcaption></figure>
+<figure class="lb-ba-fig is-apres"><img src="/assets/img/realisations/haie-1-apres-l.webp" srcset="/assets/img/realisations/haie-1-apres-m.webp 560w, /assets/img/realisations/haie-1-apres-l.webp 1000w" sizes="(min-width: 900px) 36rem, 100vw" alt="Après : la même haie rabattue en hauteur et en épaisseur, le composteur dégagé" width="1000" height="750" loading="lazy" decoding="async" data-ba-img="apres"><figcaption>Après</figcaption></figure>
+</div>
+<div class="lb-ba-switch" role="group" aria-label="Photo affichée"><button type="button" data-ba-show="avant" aria-pressed="true">Avant</button><button type="button" data-ba-show="apres" aria-pressed="false">Après</button></div>
+</div>
+</div>
                 </div>
             </div>
 
@@ -451,6 +463,91 @@
                             <p class="lb-legal">Tarifs sur devis gratuit et personnalisé selon votre besoin. TVA non applicable, art. 293 B du CGI.</p>
                         </div>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PAGE : RÉALISATIONS ==================== -->
+        <section id="page-realisations" class="page-view relative">
+            <div class="lb-wrap lb-pagehead">
+                <div>
+                    <p class="lb-kicker">Réalisations</p>
+                    <h1 class="lb-h1 lb-h1-page">Avant, après : des jardins taillés autour de Mazamet</h1>
+                    <p class="lb-lead">Je prends les photos moi-même sur place, juste avant de commencer et une fois le travail fini. Elles sont seulement recadrées, sans retouche.</p>
+                </div>
+                <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-pouce.svg" alt="" width="280" height="360">
+            </div>
+
+            <div class="lb-wrap">
+                <article class="lb-chantier" id="chantier-haie">
+                    <div class="lb-chantier-head">
+                        <div>
+                            <h2 class="lb-h2">Une haie qui avait doublé de volume</h2>
+                            <p class="lb-body">Elle passait par-dessus la clôture et recouvrait le composteur. Je l'ai rabattue nettement, en hauteur comme en épaisseur, pour redonner de la place tout autour.</p>
+                        </div>
+                        <dl class="lb-chantier-meta">
+                            <div><dt>Prestation</dt><dd>Taille de haie</dd></div>
+                            <div><dt>Secteur</dt><dd>Mazamet et alentours</dd></div>
+                        </dl>
+                    </div>
+<div class="lb-ba" data-ba data-state="avant">
+<div class="lb-ba-stage">
+<div class="lb-ba-frames" data-ba-frames>
+<figure class="lb-ba-fig is-avant"><img src="/assets/img/realisations/haie-1-avant-l.webp" srcset="/assets/img/realisations/haie-1-avant-m.webp 560w, /assets/img/realisations/haie-1-avant-l.webp 1000w" sizes="(min-width: 900px) 36rem, 100vw" alt="Avant : haie trop haute et trop épaisse qui déborde sur un composteur en bois, dans un jardin près de Mazamet" width="1000" height="750" loading="lazy" decoding="async" data-ba-img="avant"><figcaption>Avant</figcaption></figure>
+<figure class="lb-ba-fig is-apres"><img src="/assets/img/realisations/haie-1-apres-l.webp" srcset="/assets/img/realisations/haie-1-apres-m.webp 560w, /assets/img/realisations/haie-1-apres-l.webp 1000w" sizes="(min-width: 900px) 36rem, 100vw" alt="Après : la même haie rabattue en hauteur et en épaisseur, le composteur dégagé" width="1000" height="750" loading="lazy" decoding="async" data-ba-img="apres"><figcaption>Après</figcaption></figure>
+</div>
+<div class="lb-ba-switch" role="group" aria-label="Photo affichée"><button type="button" data-ba-show="avant" aria-pressed="true">Avant</button><button type="button" data-ba-show="apres" aria-pressed="false">Après</button></div>
+</div>
+<div class="lb-ba-foot">
+<p class="lb-ba-legend" data-ba-legend aria-live="polite">Côté composteur</p>
+<div class="lb-ba-thumbs" role="group" aria-label="Autres vues du même chantier">
+<button type="button" class="lb-ba-thumb" data-ba-pair="haie-1" data-ba-portrait="0" data-ba-legend-text="Côté composteur" data-ba-alt-avant="Avant : haie trop haute et trop épaisse qui déborde sur un composteur en bois, dans un jardin près de Mazamet" data-ba-alt-apres="Après : la même haie rabattue en hauteur et en épaisseur, le composteur dégagé" aria-pressed="true" aria-label="Voir : Côté composteur"><img src="/assets/img/realisations/haie-1-apres-s.webp" alt="" width="200" height="150" loading="lazy" decoding="async"></button>
+<button type="button" class="lb-ba-thumb" data-ba-pair="haie-2" data-ba-portrait="0" data-ba-legend-text="Le long du grillage" data-ba-alt-avant="Avant : haie touffue le long d&#x27;un grillage, les branches retombent jusqu&#x27;au sol" data-ba-alt-apres="Après : la haie rabattue le long du grillage, les pieds bien dégagés" aria-pressed="false" aria-label="Voir : Le long du grillage"><img src="/assets/img/realisations/haie-2-apres-s.webp" alt="" width="200" height="150" loading="lazy" decoding="async"></button>
+<button type="button" class="lb-ba-thumb" data-ba-pair="haie-3" data-ba-portrait="1" data-ba-legend-text="Derrière la clôture" data-ba-alt-avant="Avant : la haie dépasse largement au-dessus de la clôture" data-ba-alt-apres="Après : la haie ramenée juste au-dessus de la clôture" aria-pressed="false" aria-label="Voir : Derrière la clôture"><img src="/assets/img/realisations/haie-3-apres-s.webp" alt="" width="150" height="200" loading="lazy" decoding="async"></button>
+</div></div>
+</div>
+                </article>
+
+                <article class="lb-chantier" id="chantier-jardin">
+                    <div class="lb-chantier-head">
+                        <div>
+                            <h2 class="lb-h2">Les haies et les massifs d'un grand terrain</h2>
+                            <p class="lb-body">Une longue haie au bord du pré, une autre sous les pins et les arbustes qui débordaient sur l'allée. J'ai tout repris dans la même intervention.</p>
+                        </div>
+                        <dl class="lb-chantier-meta">
+                            <div><dt>Prestation</dt><dd>Haies et arbustes</dd></div>
+                            <div><dt>Secteur</dt><dd>Mazamet et alentours</dd></div>
+                        </dl>
+                    </div>
+<div class="lb-ba" data-ba data-state="avant">
+<div class="lb-ba-stage">
+<div class="lb-ba-frames" data-ba-frames>
+<figure class="lb-ba-fig is-avant"><img src="/assets/img/realisations/jardin-1-avant-l.webp" srcset="/assets/img/realisations/jardin-1-avant-m.webp 560w, /assets/img/realisations/jardin-1-avant-l.webp 1000w" sizes="(min-width: 900px) 36rem, 100vw" alt="Avant : longue haie au bord d&#x27;un pré, avec un dessus irrégulier" width="1000" height="750" loading="lazy" decoding="async" data-ba-img="avant"><figcaption>Avant</figcaption></figure>
+<figure class="lb-ba-fig is-apres"><img src="/assets/img/realisations/jardin-1-apres-l.webp" srcset="/assets/img/realisations/jardin-1-apres-m.webp 560w, /assets/img/realisations/jardin-1-apres-l.webp 1000w" sizes="(min-width: 900px) 36rem, 100vw" alt="Après : la haie taillée droite sur toute sa longueur" width="1000" height="750" loading="lazy" decoding="async" data-ba-img="apres"><figcaption>Après</figcaption></figure>
+</div>
+<div class="lb-ba-switch" role="group" aria-label="Photo affichée"><button type="button" data-ba-show="avant" aria-pressed="true">Avant</button><button type="button" data-ba-show="apres" aria-pressed="false">Après</button></div>
+</div>
+<div class="lb-ba-foot">
+<p class="lb-ba-legend" data-ba-legend aria-live="polite">La haie au bord du pré</p>
+<div class="lb-ba-thumbs" role="group" aria-label="Autres vues du même chantier">
+<button type="button" class="lb-ba-thumb" data-ba-pair="jardin-1" data-ba-portrait="0" data-ba-legend-text="La haie au bord du pré" data-ba-alt-avant="Avant : longue haie au bord d&#x27;un pré, avec un dessus irrégulier" data-ba-alt-apres="Après : la haie taillée droite sur toute sa longueur" aria-pressed="true" aria-label="Voir : La haie au bord du pré"><img src="/assets/img/realisations/jardin-1-apres-s.webp" alt="" width="200" height="150" loading="lazy" decoding="async"></button>
+<button type="button" class="lb-ba-thumb" data-ba-pair="jardin-2" data-ba-portrait="0" data-ba-legend-text="Les massifs de l&#x27;allée" data-ba-alt-avant="Avant : arbustes en massif qui débordent au bord d&#x27;une allée gravillonnée" data-ba-alt-apres="Après : les massifs de l&#x27;allée taillés, la bordure de nouveau visible" aria-pressed="false" aria-label="Voir : Les massifs de l&#x27;allée"><img src="/assets/img/realisations/jardin-2-apres-s.webp" alt="" width="200" height="150" loading="lazy" decoding="async"></button>
+<button type="button" class="lb-ba-thumb" data-ba-pair="jardin-3" data-ba-portrait="0" data-ba-legend-text="La haie sous les pins" data-ba-alt-avant="Avant : haie épaisse et irrégulière au pied de grands pins" data-ba-alt-apres="Après : la haie sous les pins taillée plus basse et régulière" aria-pressed="false" aria-label="Voir : La haie sous les pins"><img src="/assets/img/realisations/jardin-3-apres-s.webp" alt="" width="200" height="150" loading="lazy" decoding="async"></button>
+</div></div>
+</div>
+                </article>
+            </div>
+
+            <div class="lb-wrap lb-wrap-last">
+                <div class="lb-block lb-block-teal lb-cta">
+                    <div>
+                        <h2 class="lb-h2 lb-light">Votre haie ressemble plutôt à la photo de gauche ?</h2>
+                        <p class="lb-body-light">Je passe la voir et je vous fais un devis gratuit. Avec Unipros, vous ne réglez que la moitié de la facture.</p>
+                    </div>
+                    <div class="lb-actions">
+                        <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-white">Demander un devis</a>
+                        <a href="tel:+33610669435" class="lb-btn lb-btn-ghost-light">06 10 66 94 35</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1065,6 +1162,7 @@
                 <a href="https://le-bon-geste.fr/mentions-legales" data-nav="mentions" class="text-sm hover:text-teal-light transition-colors">Mentions légales</a>
                 <a href="https://le-bon-geste.fr/cgv" data-nav="cgv" class="text-sm hover:text-teal-light transition-colors">CGV</a>
                 <a href="https://le-bon-geste.fr/politique-de-confidentialite" data-nav="confidentialite" class="text-sm hover:text-teal-light transition-colors">Confidentialité</a>
+                <a href="https://le-bon-geste.fr/realisations" data-nav="realisations" class="text-sm hover:text-teal-light transition-colors">Réalisations</a>
                 <a href="https://le-bon-geste.fr/faq" data-nav="faq" class="text-sm hover:text-teal-light transition-colors">FAQ</a>
                 <a href="https://le-bon-geste.fr/guide-urssaf#espace-unipros" data-nav="guide" data-scroll="espace-unipros" class="text-sm hover:text-teal-light transition-colors">Mon espace Unipros</a>
                 <a href="https://le-bon-geste.fr/politique-de-cookies" data-nav="cookies" class="text-sm hover:text-teal-light transition-colors">Cookies</a>
@@ -1177,6 +1275,6 @@
         </div>
     </div>
 
-    <script src="/assets/app.js?v=demande1" defer></script>
+    <script src="/assets/app.js?v=real1" defer></script>
 </body>
 </html>

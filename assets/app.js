@@ -356,6 +356,11 @@ const PAGES = {
         title: "Facturation Unipros : le mode d'emploi | Le bon geste",
         description: "Comment fonctionne la facturation via la coopérative Unipros pour vos travaux à domicile avec Le bon geste à Mazamet : étapes et conditions."
     },
+    'realisations': {
+        url: 'https://le-bon-geste.fr/realisations',
+        title: "Avant, après : haies taillées autour de Mazamet | Le bon geste",
+        description: "Photos avant et après de mes chantiers de taille de haies et d'arbustes à Mazamet et alentours. Devis gratuit, 50 % déduits via Unipros."
+    },
     'devis': {
         url: 'https://le-bon-geste.fr/devis',
         title: "Rendez-vous et devis gratuit à Mazamet | Le bon geste",
@@ -632,6 +637,7 @@ function resolvePathToPageId(path) {
     if (path.indexOf('catalogue') !== -1) return 'services';
     if (path.indexOf('avantage-sap') !== -1 || path.indexOf('avantage-unipros') !== -1) return 'sap';
     if (path.indexOf('guide-urssaf') !== -1 || path.indexOf('guide-unipros') !== -1) return 'guide';
+    if (path.indexOf('realisations') !== -1) return 'realisations';
     if (path.indexOf('devis') !== -1) return 'devis';
     if (path.indexOf('merci') !== -1) return 'merci';
     if (path.indexOf('contact') !== -1) return 'contact';
@@ -804,6 +810,7 @@ if (dropzoneLabel && photoInput) {
     var MESSAGES = {
         accueil: "Bonjour ! Je suis Sylvain. Je peux vous aider ?",
         services: "Toutes ces prestations donnent droit aux 50 % déduits. Une question sur l'une d'elles ?",
+        realisations: "Votre jardin ressemble aux photos de gauche ? Je passe faire le devis.",
         sap: "Avec Unipros, vous ne réglez que la moitié. Je m'occupe du reste avec la coopérative.",
         guide: "Pas de démarche compliquée : je transmets le devis, Unipros vous envoie la facture.",
         devis: "Quelques infos et une photo si vous pouvez, et je vous rappelle sous 24 à 48 h.",
@@ -1063,3 +1070,49 @@ function submitInBackground(form, onReset) {
         navigateTo(null, 'merci');
     }).catch(fallback);
 }
+
+// ==================== RÉALISATIONS : avant / après ====================
+(function () {
+    var BASE = '/assets/img/realisations/';
+    function setState(box, state) {
+        box.setAttribute('data-state', state);
+        box.querySelectorAll('[data-ba-show]').forEach(function (b) {
+            b.setAttribute('aria-pressed', String(b.getAttribute('data-ba-show') === state));
+        });
+    }
+    function setPair(box, btn) {
+        var name = btn.getAttribute('data-ba-pair');
+        var portrait = btn.getAttribute('data-ba-portrait') === '1';
+        box.classList.toggle('is-portrait', portrait);
+        ['avant', 'apres'].forEach(function (t) {
+            var img = box.querySelector('[data-ba-img="' + t + '"]');
+            if (!img) return;
+            img.width = portrait ? 750 : 1000;
+            img.height = portrait ? 1000 : 750;
+            img.srcset = portrait
+                ? BASE + name + '-' + t + '-m.webp 420w, ' + BASE + name + '-' + t + '-l.webp 750w'
+                : BASE + name + '-' + t + '-m.webp 560w, ' + BASE + name + '-' + t + '-l.webp 1000w';
+            img.src = BASE + name + '-' + t + '-l.webp';
+            img.alt = btn.getAttribute('data-ba-alt-' + t) || '';
+        });
+        var legend = box.querySelector('[data-ba-legend]');
+        if (legend) legend.textContent = btn.getAttribute('data-ba-legend-text') || '';
+        box.querySelectorAll('[data-ba-pair]').forEach(function (b) {
+            b.setAttribute('aria-pressed', String(b === btn));
+        });
+        setState(box, 'avant');
+        if (typeof trackClarityEvent === 'function') trackClarityEvent('realisation_vue_' + name);
+    }
+    document.querySelectorAll('[data-ba]').forEach(function (box) {
+        box.addEventListener('click', function (e) {
+            var show = e.target.closest('[data-ba-show]');
+            if (show) { setState(box, show.getAttribute('data-ba-show')); return; }
+            var pair = e.target.closest('[data-ba-pair]');
+            if (pair) { if (pair.getAttribute('aria-pressed') !== 'true') setPair(box, pair); return; }
+            // Sur mobile, toucher la photo fait passer de l'avant à l'après
+            if (e.target.closest('[data-ba-frames]') && window.matchMedia('(max-width: 899px)').matches) {
+                setState(box, box.getAttribute('data-state') === 'avant' ? 'apres' : 'avant');
+            }
+        });
+    });
+})();
