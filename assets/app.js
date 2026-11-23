@@ -1073,7 +1073,7 @@ function submitInBackground(form, onReset) {
 
 // ==================== RÉALISATIONS : avant / après ====================
 (function () {
-    var BASE = '/assets/img/realisations/';
+    var BASE = '/assets/realisations/';
     function setState(box, state) {
         box.setAttribute('data-state', state);
         box.querySelectorAll('[data-ba-show]').forEach(function (b) {
@@ -1093,6 +1093,10 @@ function submitInBackground(form, onReset) {
                 ? BASE + name + '-' + t + '-m.webp 420w, ' + BASE + name + '-' + t + '-l.webp 750w'
                 : BASE + name + '-' + t + '-m.webp 560w, ' + BASE + name + '-' + t + '-l.webp 1000w';
             img.src = BASE + name + '-' + t + '-l.webp';
+            var src = box.querySelector('[data-ba-src="' + t + '"]');
+            if (src) src.srcset = portrait
+                ? BASE + name + '-' + t + '-m.avif 420w, ' + BASE + name + '-' + t + '-l.avif 750w'
+                : BASE + name + '-' + t + '-m.avif 560w, ' + BASE + name + '-' + t + '-l.avif 1000w';
             img.alt = btn.getAttribute('data-ba-alt-' + t) || '';
         });
         var legend = box.querySelector('[data-ba-legend]');

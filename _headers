@@ -13,3 +13,8 @@
 # Photos : revérifiées toutes les 5 minutes (ajout/suppression visibles sans purge)
 /assets/img/*
   Cache-Control: public, max-age=300, must-revalidate
+
+# Photos des réalisations : nom de fichier fixe pour chaque photo, mise en cache longue.
+# Pour remplacer une photo, lui donner un nouveau nom de fichier.
+/assets/realisations/*
+  Cache-Control: public, max-age=31536000, immutable
