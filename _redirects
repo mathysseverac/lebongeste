@@ -2,3 +2,6 @@
 # Le site est une application d'une seule page : sans fichier 404.html, Cloudflare Pages sert
 # automatiquement index.html pour /catalogue, /devis, /merci, etc., sans changer l'adresse.
 # Les anciennes règles « /catalogue /index.html 200 » renvoyaient les visiteurs vers l'accueil.
+# Les fichiers catalogue.html, faq.html, realisations.html… sont générés par outils/generer-pages.py :
+# Cloudflare sert /catalogue avec catalogue.html, qui a déjà le bon titre pour Google.
+# Les adresses inconnues continuent d'afficher index.html (page 404 du site en JavaScript).
