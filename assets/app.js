@@ -338,18 +338,18 @@ document.addEventListener('DOMContentLoaded', function() {
 const PAGES = {
     'accueil': {
         url: 'https://le-bon-geste.fr/',
-        title: "Jardinier et petits travaux à Mazamet (Tarn) | Le bon geste",
-        description: "Taille de haies, tonte, débroussaillage et petit bricolage à Mazamet, Aiguefonde et alentours. Devis gratuit, 50 % déduits via Unipros. Appelez-moi."
+        title: "Le bon geste, jardinier à Mazamet (Tarn)",
+        description: "Jardinier et multiservices à Mazamet et Aiguefonde : taille de haies, tonte, débroussaillage, petit bricolage. Services à la personne : 50 % de crédit d'impôt déduits tout de suite."
     },
     'services': {
         url: 'https://le-bon-geste.fr/catalogue',
-        title: "Taille de haies, tonte, bricolage à Mazamet | Le bon geste",
-        description: "Les prestations de Le bon geste à Mazamet et Aiguefonde : haies, pelouses, débroussaillage, terrasses, petit bricolage, aide informatique. 50 % déduits."
+        title: "Entretien de jardin, taille de haies, bricolage à Mazamet | Le bon geste",
+        description: "Jardinier à domicile à Mazamet et Aiguefonde : taille de haies, tonte, débroussaillage, nettoyage de terrasses, petit bricolage, assistance informatique. 50 % déduits."
     },
     'sap': {
         url: 'https://le-bon-geste.fr/avantage-sap',
-        title: "50 % déduits sur vos travaux à domicile | Le bon geste",
-        description: "Jardinage et petits travaux à Mazamet : avec la coopérative Unipros, vous ne réglez que la moitié de la facture, sans avance de frais."
+        title: "Crédit d'impôt jardinage : 50 % déduits tout de suite | Le bon geste",
+        description: "Services à la personne à Mazamet : le crédit d'impôt de 50 % sur le jardinage et les petits travaux est déduit tout de suite de la facture, via Unipros."
     },
     'guide': {
         url: 'https://le-bon-geste.fr/guide-urssaf',
