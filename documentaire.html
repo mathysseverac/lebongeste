@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le bon geste, Sylvain, jardinier et homme toutes mains à Mazamet</title>
+<meta name="description" content="Sylvain, jardinier et homme toutes mains à Mazamet et Aiguefonde : taille de haies, tonte, débroussaillage, terrasses, petit bricolage et assistance informatique. 50 % déduits de la facture.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#06110f">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:Manrope;src:url(/Manrope-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Manrope;src:url(/Manrope-SemiBold.ttf) format("truetype");font-weight:500 800;font-display:swap}
+:root{--teal:#007271;--menthe:#9fd3cd;--soleil:#f4b740;--noir:#06110f}
+*{box-sizing:border-box}
+html{background:var(--noir)}
+body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#fff;background:var(--noir);overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--soleil);outline-offset:3px;border-radius:4px}
+
+/* en-tête discret, posé sur l'image */
+.tete{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:1rem clamp(1rem,4vw,2.5rem);
+  background:linear-gradient(rgba(6,17,15,.55),rgba(6,17,15,0))}
+.logo img{width:8.5rem;height:auto;display:block;filter:brightness(0) invert(1)}
+.tete nav{display:none;gap:1.75rem;font-weight:500;font-size:.95rem}
+.tete nav a{text-decoration:none;opacity:.85}.tete nav a:hover{opacity:1}
+.tel{font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,.6);border-radius:999px;padding:.5rem 1rem;font-size:.9rem}
+@media(min-width:900px){.tete nav{display:flex}}
+
+/* l'heure de la journée, en bas, comme un compteur de film */
+.horloge{position:fixed;left:clamp(1rem,4vw,2.5rem);bottom:calc(1rem + env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:.8rem;
+  font-variant-numeric:tabular-nums;font-size:.85rem;font-weight:600;letter-spacing:.02em}
+.horloge .barre{width:clamp(5rem,16vw,11rem);height:2px;background:rgba(255,255,255,.25);position:relative;border-radius:2px;overflow:hidden}
+.horloge .barre i{position:absolute;inset:0;background:var(--soleil);transform-origin:left;transform:scaleX(var(--g,0))}
+
+/* plans */
+.plan{position:relative;height:var(--h,240svh)}
+.cadre{position:sticky;top:0;height:100svh;overflow:hidden}
+.cadre picture,.cadre .img{position:absolute;inset:0;display:block}
+.cadre img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(calc(1.04 + var(--p,0) * .14)) translate(var(--px,0),0);transform-origin:var(--o,50% 50%);will-change:transform}
+.cadre::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,17,15,.35) 0%,rgba(6,17,15,.05) 35%,rgba(6,17,15,.25) 60%,rgba(6,17,15,.85) 100%);pointer-events:none}
+.apres{opacity:var(--fondu,0)}
+
+/* textes */
+.titre{position:absolute;z-index:2;left:clamp(1rem,5vw,4rem);right:clamp(1rem,5vw,4rem);bottom:clamp(5rem,14svh,9rem)}
+.lieu{display:flex;gap:.9rem;font-size:.85rem;font-weight:600;margin:0 0 1rem;opacity:.9}
+.lieu span+span::before{content:"";display:inline-block;width:1.2rem;height:1px;background:#fff;vertical-align:middle;margin-right:.9rem;opacity:.6}
+h1,h2{margin:0;font-weight:600;letter-spacing:-.035em;line-height:.95}
+h1{font-size:clamp(3.4rem,12vw,10rem)}
+h1 small{display:block;font-size:clamp(1.25rem,3.2vw,2.4rem);letter-spacing:-.02em;line-height:1.15;font-weight:500;margin-top:.8rem;max-width:22ch}
+h2{font-size:clamp(2.4rem,7vw,5.5rem);max-width:12ch}
+.ligne{opacity:var(--o,1);transform:translateY(calc((1 - var(--o,1)) * 18px))}
+.sous-titre{position:absolute;z-index:2;left:50%;bottom:clamp(5rem,12svh,7.5rem);transform:translate(-50%,calc((1 - var(--o,1)) * 12px));width:max-content;max-width:min(88vw,36rem);
+  text-align:center;font-size:clamp(1.05rem,2.4vw,1.4rem);line-height:1.4;font-weight:500;background:rgba(6,17,15,.62);padding:.45rem .9rem;border-radius:6px;opacity:var(--o,0)}
+.etiquette{position:absolute;z-index:2;top:calc(4.5rem + 2svh);left:clamp(1rem,5vw,4rem);font-size:.85rem;font-weight:600;display:flex;gap:.6rem;align-items:center}
+.etiquette::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--soleil)}
+.voir{position:absolute;z-index:2;right:clamp(1rem,5vw,4rem);top:calc(4.5rem + 2svh);font-size:.9rem;font-weight:600;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--soleil);text-decoration-thickness:2px}
+
+/* plan noir : l'intérieur, photos à venir */
+.noir .cadre{background:var(--noir);display:grid;place-items:center}
+.noir .cadre::after{display:none}
+.dedans{text-align:center;padding:0 1.25rem}
+.dedans h2{margin:0 auto}
+.dedans ul{list-style:none;padding:0;margin:2rem 0 0;font-size:clamp(1.3rem,3.4vw,2.2rem);font-weight:500;line-height:1.35;color:#cfe7e3}
+.attente{display:inline-block;margin-top:2rem;font-size:.85rem;border:1.5px dashed rgba(255,255,255,.4);border-radius:8px;padding:.6rem 1rem;color:#a9c9c4}
+
+/* fin */
+.fin .titre{bottom:auto;top:50%;transform:translateY(-50%)}
+.fin h2{max-width:14ch}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;align-items:center;margin-top:2rem}
+.appel{background:var(--soleil);color:var(--noir);text-decoration:none;font-weight:700;font-size:1.1rem;padding:1rem 1.6rem;border-radius:999px}
+.devis{font-weight:600;text-decoration:underline;text-underline-offset:6px}
+.moitie{margin:1.4rem 0 0;font-size:1rem;color:#d7ebe8}.moitie b{color:var(--soleil)}
+.pied{position:relative;z-index:1;background:var(--noir);color:#9fbab6;padding:2rem clamp(1rem,5vw,4rem) calc(4rem + env(safe-area-inset-bottom));font-size:.85rem}
+.pied nav{display:flex;flex-wrap:wrap;gap:.5rem 1.3rem;margin-bottom:.8rem}.pied a{color:#fff;text-decoration:none}
+
+@media(prefers-reduced-motion:reduce){.plan{height:auto}.cadre{position:relative}.cadre img{transform:none}}
+</style>
+</head>
+<body>
+<header class="tete">
+  <a class="logo" href="/"><img src="/assets/img/logo.svg" alt="Le bon geste" width="150" height="56"></a>
+  <nav aria-label="Principal"><a href="/catalogue">Ce que je fais</a><a href="/realisations">Chantiers</a><a href="/avantage-sap">Les 50 %</a></nav>
+  <a class="tel" href="tel:+33610669435">06 10 66 94 35</a>
+</header>
+
+<main>
+<section class="plan" data-plan style="--h:200svh;--o:50% 60%">
+  <div class="cadre">
+    <picture class="img"><img src="/assets/doc/0726.webp" alt="Une longue haie fraîchement taillée sous un ciel bleu, près de Mazamet" width="1092" height="819" fetchpriority="high"></picture>
+    <div class="titre">
+      <p class="lieu ligne" data-a="0" data-b=".01"><span>Mazamet, Tarn</span><span>8 h 30</span></p>
+      <h1 class="ligne" data-a="0" data-b=".01">Sylvain.<small class="ligne" data-a=".12" data-b=".3">Jardinier et homme toutes mains. Le matin dans votre jardin, l'après-midi dans votre maison.</small></h1>
+    </div>
+  </div>
+</section>
+
+<section class="plan" data-plan data-fondu=".44,.56">
+  <div class="cadre">
+    <picture class="img"><img src="/assets/realisations/haie-1-avant-l.webp" alt="Une haie qui avait doublé de volume, avant la taille" width="1092" height="819" loading="lazy"></picture>
+    <picture class="img apres"><img src="/assets/realisations/haie-1-apres-l.webp" alt="La même haie après la taille" width="1092" height="819" loading="lazy"></picture>
+    <p class="etiquette">Taille de haies</p><a class="voir" href="/catalogue#service-haies">En savoir plus</a>
+    <p class="sous-titre" data-a=".05" data-b=".15" data-z=".33">Cette haie avait doublé de volume.</p>
+    <p class="sous-titre" data-a=".72" data-b=".82">Après mon passage. Toujours depuis le sol, jusqu'à 3&nbsp;m.</p>
+  </div>
+</section>
+
+<section class="plan" data-plan data-fondu=".44,.56">
+  <div class="cadre">
+    <picture class="img"><img src="/assets/realisations/jardin-2-avant-l.webp" alt="Les massifs d'un grand terrain, avant l'entretien" width="1092" height="819" loading="lazy"></picture>
+    <picture class="img apres"><img src="/assets/realisations/jardin-2-apres-l.webp" alt="Les mêmes massifs après l'entretien" width="1092" height="819" loading="lazy"></picture>
+    <p class="etiquette">Tonte et débroussaillage</p><a class="voir" href="/catalogue#service-pelouses">En savoir plus</a>
+    <p class="sous-titre" data-a=".05" data-b=".15" data-z=".33">Un grand terrain, des massifs qui débordent.</p>
+    <p class="sous-titre" data-a=".72" data-b=".82">Tonte, débroussaillage, bordures. On voit de nouveau le jardin.</p>
+  </div>
+</section>
+
+<section class="plan" data-plan style="--h:180svh;--o:50% 40%">
+  <div class="cadre">
+    <picture class="img"><img src="/assets/doc/0718.webp" alt="Un arbuste taillé en boule" width="819" height="1092" loading="lazy"></picture>
+    <p class="etiquette">Taille d'arbustes</p>
+    <p class="sous-titre" data-a=".1" data-b=".25">Chaque arbuste a sa forme. Je la garde.</p>
+  </div>
+</section>
+
+<section class="plan noir" data-plan style="--h:200svh">
+  <div class="cadre">
+    <div class="dedans">
+      <p class="lieu ligne" data-a="0" data-b=".1" style="justify-content:center"><span>Chez vous</span><span>15 h</span></p>
+      <h2 class="ligne" data-a=".05" data-b=".18">L'après-midi, je rentre.</h2>
+      <ul>
+        <li class="ligne" data-a=".25" data-b=".35">Un meuble à monter.</li>
+        <li class="ligne" data-a=".35" data-b=".45">Une étagère à poser.</li>
+        <li class="ligne" data-a=".45" data-b=".55">Une box qui ne capte plus.</li>
+        <li class="ligne" data-a=".55" data-b=".65">Le courrier à relever pendant vos vacances.</li>
+      </ul>
+      <p class="attente ligne" data-a=".7" data-b=".8">Ici, dans la version finale : les vidéos de Sylvain au travail chez vous</p>
+    </div>
+  </div>
+</section>
+
+<section class="plan fin" data-plan style="--h:130svh;--o:50% 70%">
+  <div class="cadre">
+    <picture class="img"><img src="/assets/doc/1461.webp" alt="Un jardin entretenu en fin de journée" width="819" height="1092" loading="lazy" style="filter:brightness(.55) saturate(.9)"></picture>
+    <div class="titre">
+      <p class="lieu"><span>Mazamet, Aiguefonde et 20 km autour</span><span>19 h</span></p>
+      <h2>Et chez vous, il y a quoi à faire&nbsp;?</h2>
+      <div class="actions"><a class="appel" href="tel:+33610669435">Appeler Sylvain</a><a class="devis" href="/devis">Demander un devis</a></div>
+      <p class="moitie"><b>−50 %</b> déduits directement de la facture, grâce aux services à la personne.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pied">
+  <nav aria-label="Pied de page"><a href="/catalogue">Prestations</a><a href="/realisations">Réalisations</a><a href="/avantage-sap">Avantage −50 %</a><a href="/faq">FAQ</a><a href="/contact">Contact</a><a href="/mentions-legales">Mentions légales</a></nav>
+  <p>Le bon geste, Sylvain Séverac, entreprise individuelle. TVA non applicable, art. 293 B du CGI.</p>
+</footer>
+
+<div class="horloge" aria-hidden="true"><span data-heure>8 h 30</span><span class="barre"><i></i></span></div>
+
+<script>
+(function(){
+  var calme=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var plans=[].slice.call(document.querySelectorAll('[data-plan]'));
+  var root=document.documentElement, heure=document.querySelector('[data-heure]');
+  var c=function(v){return Math.max(0,Math.min(1,v))};
+  function maj(){
+    var h=innerHeight, max=root.scrollHeight-h, g=calme?1:c(scrollY/Math.max(1,max));
+    root.style.setProperty('--g',g);
+    var m=Math.round((8.5+g*10.5)*60/15)*15; heure.textContent=Math.floor(m/60)+' h '+String(m%60).padStart(2,'0');
+    plans.forEach(function(s){
+      var r=s.getBoundingClientRect(); if(r.bottom<-h||r.top>2*h)return;
+      var course=s.offsetHeight-h, p=calme?1:c(-r.top/Math.max(1,course));
+      s.style.setProperty('--p',p);
+      if(s.dataset.fondu){var f=s.dataset.fondu.split(',');s.style.setProperty('--fondu',c((p-f[0])/(f[1]-f[0])));}
+      s.querySelectorAll('[data-a]').forEach(function(e){
+        var o=c((p-e.dataset.a)/(e.dataset.b-e.dataset.a));
+        if(e.dataset.z&&p>+e.dataset.z)o=c(1-(p-e.dataset.z)/.08);
+        if(calme)o=1;
+        e.style.setProperty('--o',o);
+      });
+    });
+  }
+  var att=false;addEventListener('scroll',function(){if(!att){att=true;requestAnimationFrame(function(){att=false;maj()})}},{passive:true});
+  addEventListener('resize',maj);maj();
+})();
+</script>
+</body>
+</html>
