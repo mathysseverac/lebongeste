@@ -238,3 +238,6 @@ body h1,body h2,body h3{font-family:inherit}
 .lb-block-teal .lb-btn-main,.lb-block-night .lb-btn-main{background:var(--jaune)!important;color:var(--nuit)!important}
 .lb-block-teal .lb-btn-soft,.lb-block-night .lb-btn-soft{background:transparent!important;color:#fff!important;border-color:#fff!important}
 .n-col picture{display:block}
+.n-carte picture{display:block}
+.n-carte picture img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 70%}
+.n-carte:nth-child(3) picture img{object-position:50% 96%}
