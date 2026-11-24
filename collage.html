@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le bon geste, jardinier et homme toutes mains à Mazamet</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#007271">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:Manrope;src:url(/Manrope-SemiBold.ttf) format("truetype");font-weight:500 800;font-display:swap}
+@font-face{font-family:Manrope;src:url(/Manrope-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Caveat;src:url(/assets/fonts/caveat-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+:root{--teal:#007271;--teal-f:#005554;--nuit:#032a28;--menthe:#9fd3cd;--soleil:#f4b740}
+*{box-sizing:border-box}
+body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#fff;background:var(--teal);overflow-x:clip}
+/* grain du papier */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.22;mix-blend-mode:multiply;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+.tete{display:flex;align-items:center;justify-content:space-between;padding:1.1rem clamp(1.1rem,4vw,3rem);position:relative;z-index:30}
+.logo{display:inline-flex;background:#fff;border-radius:14px;padding:.45rem .8rem;transform:rotate(-2deg)}
+.logo img{width:8rem;height:auto;display:block}
+.tete nav{display:none;gap:1.6rem;font-weight:600}
+.tete nav a{text-decoration:none}
+.tete nav a:hover{text-decoration:underline;text-decoration-color:var(--soleil);text-decoration-thickness:3px;text-underline-offset:6px}
+@media(min-width:900px){.tete nav{display:flex}}
+.main{font-family:Caveat,cursive;font-weight:700}
+
+.hero{position:relative;display:grid;gap:2rem;padding:1rem clamp(1.1rem,4vw,3rem) 4rem;max-width:90rem;margin:0 auto;min-height:calc(100svh - 5rem)}
+@media(min-width:960px){.hero{grid-template-columns:1.05fr 1fr;align-items:center}}
+h1{margin:0;font-weight:800;letter-spacing:-.04em;line-height:.92;font-size:clamp(3rem,8.4vw,7.4rem)}
+h1 .l{display:block}
+h1 .l:nth-child(2){padding-left:.6em}
+h1 .l:nth-child(4){padding-left:.25em}
+h1 .sous{display:block;font-size:clamp(1.05rem,1.7vw,1.3rem);letter-spacing:0;line-height:1.4;font-weight:500;margin-top:1.6rem;max-width:26rem;color:#d9f0ec}
+.note{font-family:Caveat,cursive;font-weight:700;color:var(--soleil);font-size:clamp(1.5rem,2.4vw,2rem);line-height:1}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:2rem}
+.appel{display:inline-flex;flex-direction:column;background:var(--soleil);color:var(--nuit);text-decoration:none;border-radius:18px;padding:.8rem 1.4rem;transform:rotate(-1.5deg);box-shadow:4px 5px 0 var(--nuit)}
+.appel b{font-size:1.25rem}.appel span{font-size:.9rem;font-weight:600}
+.appel:hover{transform:rotate(0) translateY(-2px)}
+.devis{font-weight:700;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--menthe)}
+
+/* le collage */
+.collage{position:relative;isolation:isolate;min-height:30rem;aspect-ratio:1/1.02;width:100%;max-width:40rem;justify-self:center}
+.piece{position:absolute;margin:0}
+.photo{inset:6% 8% 18% 4%;transform:rotate(-3deg)}
+.photo .p{width:100%;height:100%;background:#fff;padding:10px;clip-path:polygon(0.0% 0.4%,2.9% 0.9%,5.9% 0.6%,8.8% 1.0%,11.8% 1.0%,14.7% 0.1%,17.6% 0.0%,20.6% 1.3%,23.5% 0.4%,26.5% 0.4%,29.4% 1.6%,32.4% 0.8%,35.3% 1.3%,38.2% 0.8%,41.2% 1.0%,44.1% 0.2%,47.1% 1.0%,50.0% 1.4%,52.9% 0.8%,55.9% 1.2%,58.8% 1.1%,61.8% 0.1%,64.7% 1.2%,67.6% 0.9%,70.6% 0.5%,73.5% 0.0%,76.5% 1.4%,79.4% 0.8%,82.4% 1.2%,85.3% 1.4%,88.2% 1.1%,91.2% 1.5%,94.1% 0.6%,97.1% 1.3%,100.0% 0.7%,98.5% 2.9%,98.6% 5.9%,99.8% 8.8%,99.8% 11.8%,99.7% 14.7%,98.5% 17.6%,99.3% 20.6%,99.0% 23.5%,99.5% 26.5%,99.2% 29.4%,99.4% 32.4%,99.4% 35.3%,99.1% 38.2%,99.1% 41.2%,98.6% 44.1%,98.9% 47.1%,98.5% 50.0%,98.6% 52.9%,98.4% 55.9%,98.9% 58.8%,99.7% 61.8%,98.6% 64.7%,98.5% 67.6%,98.6% 70.6%,99.1% 73.5%,98.9% 76.5%,99.7% 79.4%,98.7% 82.4%,99.1% 85.3%,99.5% 88.2%,99.9% 91.2%,98.6% 94.1%,98.4% 97.1%,99.9% 100.0%,97.1% 98.7%,94.1% 99.3%,91.2% 99.8%,88.2% 99.5%,85.3% 98.8%,82.4% 98.6%,79.4% 99.9%,76.5% 99.0%,73.5% 99.9%,70.6% 98.9%,67.6% 99.5%,64.7% 98.6%,61.8% 98.4%,58.8% 99.2%,55.9% 98.4%,52.9% 99.5%,50.0% 99.9%,47.1% 99.0%,44.1% 99.9%,41.2% 99.7%,38.2% 99.3%,35.3% 99.0%,32.4% 99.8%,29.4% 99.9%,26.5% 98.6%,23.5% 99.5%,20.6% 98.5%,17.6% 98.6%,14.7% 99.4%,11.8% 99.3%,8.8% 99.2%,5.9% 99.0%,2.9% 99.0%,0.0% 99.1%,1.0% 97.1%,1.5% 94.1%,0.8% 91.2%,0.7% 88.2%,1.2% 85.3%,0.4% 82.4%,0.5% 79.4%,1.6% 76.5%,0.8% 73.5%,0.9% 70.6%,0.0% 67.6%,0.7% 64.7%,0.9% 61.8%,0.0% 58.8%,1.0% 55.9%,1.0% 52.9%,0.1% 50.0%,1.0% 47.1%,0.7% 44.1%,1.1% 41.2%,0.6% 38.2%,1.1% 35.3%,1.2% 32.4%,0.0% 29.4%,0.1% 26.5%,1.1% 23.5%,1.5% 20.6%,0.4% 17.6%,0.7% 14.7%,0.9% 11.8%,0.5% 8.8%,0.6% 5.9%,0.5% 2.9%);box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.scotch{position:absolute;width:7.5rem;height:2rem;background:rgba(255,247,214,.72);box-shadow:0 1px 2px rgba(0,0,0,.12);clip-path:polygon(2% 8%,98% 0,100% 92%,0 100%)}
+.s1{top:2%;left:42%;transform:rotate(-6deg)}
+.s2{bottom:16%;right:3%;transform:rotate(38deg);width:5.5rem}
+.polaroid{top:-3%;right:-2%;width:34%;background:#fff;padding:8px 8px 2.2rem;transform:rotate(7deg);box-shadow:0 14px 26px rgba(0,0,0,.28)}
+.polaroid img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.polaroid figcaption{position:absolute;left:0;right:0;bottom:.35rem;text-align:center;color:var(--nuit);font-family:Caveat,cursive;font-weight:700;font-size:1.4rem}
+.boule{left:-8%;bottom:-6%;width:44%;z-index:2;filter:drop-shadow(0 18px 18px rgba(0,0,0,.35))}
+.boule img{width:100%;height:auto;display:block}
+.sylvain{right:4%;bottom:-4%;width:30%;filter:drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(0 12px 14px rgba(0,0,0,.3))}
+.sylvain img{width:100%;height:auto;display:block}
+.pastille{right:-3%;top:44%;width:7.6rem;aspect-ratio:1;border-radius:50%;background:var(--soleil);color:var(--nuit);display:grid;place-content:center;text-align:center;transform:rotate(12deg);box-shadow:3px 4px 0 var(--nuit);text-decoration:none}
+.pastille b{font-size:1.9rem;line-height:1;letter-spacing:-.03em}.pastille span{font-size:.78rem;font-weight:700;line-height:1.15;padding:0 .6rem}
+.fleche{left:20%;bottom:32%;width:34%;z-index:3}
+.fleche .note{display:block;transform:rotate(-6deg);margin:0 0 -.2rem 2.4rem}
+.fleche svg{width:7rem;height:auto;overflow:visible}
+
+@media(max-width:959px){
+ .collage{order:-1;max-width:30rem;min-height:0;aspect-ratio:1/.95;margin-top:.5rem}
+ .pastille{width:6rem}.pastille b{font-size:1.5rem}
+}
+/* l'entrée : on pose les pièces sur la table */
+@media(prefers-reduced-motion:no-preference){
+ .piece{animation:pose .7s cubic-bezier(.2,.9,.25,1.15) both}
+ .photo{animation-delay:.05s}.polaroid{animation-delay:.25s}.boule{animation-delay:.4s}.sylvain{animation-delay:.55s}.pastille{animation-delay:.75s}.fleche{animation-delay:.95s}.scotch{animation:pose .5s .35s both}
+ h1 .l{animation:monte .8s cubic-bezier(.2,.8,.2,1) both}h1 .l:nth-child(2){animation-delay:.08s}h1 .l:nth-child(3){animation-delay:.16s}h1 .l:nth-child(4){animation-delay:.24s}
+}
+@keyframes pose{from{opacity:0;translate:0 -40px;scale:1.08}to{opacity:1;translate:0 0;scale:1}}
+@keyframes monte{from{opacity:0;transform:translateY(.4em)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="tete">
+  <a class="logo" href="/"><img src="/assets/img/logo.svg" alt="Le bon geste" width="150" height="56"></a>
+  <nav aria-label="Principal"><a href="/catalogue">Ce que je fais</a><a href="/realisations">Mes chantiers</a><a href="/avantage-sap">Les 50 %</a><a href="/contact">Me joindre</a></nav>
+</header>
+<main class="hero">
+  <div>
+    <p class="note">Bonjour, moi c'est Sylvain.</p>
+    <h1><span class="l">Je taille,</span><span class="l">je tonds,</span><span class="l">je visse,</span><span class="l">je branche.</span>
+      <span class="sous">Jardinier et homme toutes mains à Mazamet, Aiguefonde et 20 km autour. Le jardin le matin, la maison l'après-midi.</span></h1>
+    <div class="actions">
+      <a class="appel" href="tel:+33610669435"><b>Appelez-moi</b><span>06 10 66 94 35</span></a>
+      <a class="devis" href="/devis">ou demandez un devis</a>
+    </div>
+  </div>
+  <div class="collage" aria-hidden="true">
+    <div class="piece boule"><img src="/assets/collage/boule.webp" alt=""></div>
+    <figure class="piece photo"><div class="p"><img src="/assets/realisations/hero-haie-l.webp" alt=""></div></figure>
+    <span class="piece scotch s1"></span>
+    <figure class="piece polaroid"><img src="/assets/realisations/haie-1-avant-m.webp" alt=""><figcaption>avant…</figcaption></figure>
+    <span class="piece scotch s2"></span>
+    
+    <div class="piece fleche"><span class="note">taillée en boule</span><svg viewBox="0 0 120 70" fill="none" stroke="#f4b740" stroke-width="4" stroke-linecap="round"><path d="M110 8C80 6 40 14 22 52"/><path d="M10 40l12 14 14-10"/></svg></div>
+    <div class="piece sylvain"><img src="/assets/img/marque/sylvain-pouce.svg" alt=""></div>
+    <a class="piece pastille" href="/avantage-sap" aria-hidden="false"><b>−50 %</b><span>déduits de la facture</span></a>
+  </div>
+</main>
+</body>
+</html>
