@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#06110f">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/doc/doc.css?v=1">
+<link rel="stylesheet" href="/assets/doc/doc.css?v=2">
 </head>
 <body>
 <header class="tete">
@@ -18,7 +18,7 @@
 </header>
 
 <main>
-<section class="plan p-ouv" data-plan>
+<section class="plan p-ouv" data-plan data-heure="8 h">
   <div class="cadre">
     <picture class="img"><img src="/assets/doc/0726.webp" alt="Une longue haie fraîchement taillée sous un ciel bleu, près de Mazamet" width="1092" height="819" fetchpriority="high"></picture>
     <div class="titre">
@@ -28,35 +28,53 @@
   </div>
 </section>
 
-<section class="plan" data-plan data-fondu=".44,.56">
+<section class="plan carton" data-plan data-heure="8 h 30">
+  <div class="cadre"><div class="carton-in">
+    <p class="carton-h ligne" data-a="0" data-b=".25">8 h 30</p>
+    <p class="carton-t ligne" data-a=".15" data-b=".4">Première haie de la journée.</p>
+  </div></div>
+</section>
+<section class="plan" data-plan data-heure="9 h" data-fondu=".44,.56">
   <div class="cadre">
     <picture class="img"><img src="/assets/realisations/haie-1-avant-l.webp" alt="Une haie qui avait doublé de volume, avant la taille" width="1092" height="819" loading="lazy"></picture>
     <picture class="img apres"><img src="/assets/realisations/haie-1-apres-l.webp" alt="La même haie après la taille" width="1092" height="819" loading="lazy"></picture>
     <p class="etiquette">Taille de haies</p><a class="voir" href="/catalogue#service-haies">En savoir plus</a>
-    <p class="sous-titre" data-a=".05" data-b=".15" data-z=".33">Cette haie avait doublé de volume.</p>
-    <p class="sous-titre" data-a=".72" data-b=".82">Après mon passage. Toujours depuis le sol, jusqu'à 3&nbsp;m.</p>
+    <p class="dit" data-a=".05" data-b=".15" data-z=".33">Avant&nbsp;: elle avait doublé de volume.</p>
+    <p class="dit" data-a=".72" data-b=".82">Après mon passage. Toujours depuis le sol, jusqu'à 3&nbsp;m.</p>
   </div>
 </section>
 
-<section class="plan" data-plan data-fondu=".44,.56">
+<section class="plan carton" data-plan data-heure="10 h">
+  <div class="cadre"><div class="carton-in">
+    <p class="carton-h ligne" data-a="0" data-b=".25">10 h</p>
+    <p class="carton-t ligne" data-a=".15" data-b=".4">Un grand terrain, des massifs qui débordent.</p>
+  </div></div>
+</section>
+<section class="plan" data-plan data-heure="10 h 15" data-fondu=".44,.56">
   <div class="cadre">
     <picture class="img"><img src="/assets/realisations/jardin-2-avant-l.webp" alt="Les massifs d'un grand terrain, avant l'entretien" width="1092" height="819" loading="lazy"></picture>
     <picture class="img apres"><img src="/assets/realisations/jardin-2-apres-l.webp" alt="Les mêmes massifs après l'entretien" width="1092" height="819" loading="lazy"></picture>
     <p class="etiquette">Tonte et débroussaillage</p><a class="voir" href="/catalogue#service-pelouses">En savoir plus</a>
-    <p class="sous-titre" data-a=".05" data-b=".15" data-z=".33">Un grand terrain, des massifs qui débordent.</p>
-    <p class="sous-titre" data-a=".72" data-b=".82">Tonte, débroussaillage, bordures. On voit de nouveau le jardin.</p>
+    <p class="dit" data-a=".05" data-b=".15" data-z=".33">Avant&nbsp;: on ne voyait plus le jardin.</p>
+    <p class="dit" data-a=".72" data-b=".82">Tonte, débroussaillage, bordures. On voit de nouveau le jardin.</p>
   </div>
 </section>
 
-<section class="plan p-boule" data-plan>
+<section class="plan carton citation" data-plan data-heure="11 h">
+  <div class="cadre"><div class="carton-in">
+    <p class="carton-q ligne" data-a="0" data-b=".3">« Ici, une phrase de Sylvain, avec ses mots à lui. »</p>
+    <p class="carton-s ligne" data-a=".2" data-b=".45">Sylvain, à compléter</p>
+  </div></div>
+</section>
+<section class="plan p-boule" data-plan data-heure="11 h 30">
   <div class="cadre">
     <picture class="img"><img src="/assets/doc/0718.webp" alt="Un arbuste taillé en boule" width="819" height="1092" loading="lazy"></picture>
     <p class="etiquette">Taille d'arbustes</p>
-    <p class="sous-titre" data-a=".1" data-b=".25">Chaque arbuste a sa forme. Je la garde.</p>
+    <p class="dit" data-a=".1" data-b=".25">Chaque arbuste a sa forme. Je la garde.</p>
   </div>
 </section>
 
-<section class="plan noir p-dedans" data-plan>
+<section class="plan noir p-dedans" data-plan data-heure="15 h">
   <div class="cadre">
     <div class="dedans">
       <p class="lieu ligne centre" data-a="0" data-b=".1"><span>Chez vous</span><span>15 h</span></p>
@@ -72,7 +90,7 @@
   </div>
 </section>
 
-<section class="plan fin p-fin" data-plan>
+<section class="plan fin p-fin" data-plan data-heure="19 h">
   <div class="cadre">
     <picture class="img"><img src="/assets/doc/1461.webp" alt="Un jardin entretenu en fin de journée" width="819" height="1092" loading="lazy" class="fin-img"></picture>
     <div class="titre">
@@ -90,8 +108,8 @@
   <p>Le bon geste, Sylvain Séverac, entreprise individuelle. TVA non applicable, art. 293 B du CGI.</p>
 </footer>
 
-<div class="horloge" aria-hidden="true"><span data-heure>8 h 30</span><span class="barre"><i></i></span></div>
+<div class="horloge" aria-hidden="true"><span data-horloge>8 h</span><span class="barre"><i></i></span></div>
 
-<script src="/assets/doc/doc.js?v=1" defer></script>
+<script src="/assets/doc/doc.js?v=2" defer></script>
 </body>
 </html>

@@ -1,12 +1,12 @@
 (function(){
   var calme=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var plans=[].slice.call(document.querySelectorAll('[data-plan]'));
-  var root=document.documentElement, heure=document.querySelector('[data-heure]');
+  var root=document.documentElement, heure=document.querySelector('[data-horloge]');
   var c=function(v){return Math.max(0,Math.min(1,v))};
   function maj(){
     var h=innerHeight, max=root.scrollHeight-h, g=calme?1:c(scrollY/Math.max(1,max));
     root.style.setProperty('--g',g);
-    var m=Math.round((8.5+g*10.5)*60/15)*15; heure.textContent=Math.floor(m/60)+' h '+String(m%60).padStart(2,'0');
+    var cur=plans[0];plans.forEach(function(s){if(s.getBoundingClientRect().top<=h*.5)cur=s});if(heure.textContent!==cur.dataset.heure)heure.textContent=cur.dataset.heure;
     plans.forEach(function(s){
       var r=s.getBoundingClientRect(); if(r.bottom<-h||r.top>2*h)return;
       var course=s.offsetHeight-h, p=calme?1:c(-r.top/Math.max(1,course));
