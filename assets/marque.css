@@ -468,3 +468,29 @@ footer.bg-\[\#032a28\]{border-radius:var(--r-grand) var(--r-grand) 0 0;margin-to
 .lb-service .lb-card-foot{margin-top:1.25rem;padding-top:0}
 .lb-service-illu img{max-height:20rem;width:auto;max-width:100%}
 @media(max-width:767px){#page-services .lb-pagehead-art{display:none}.lb-service-illu img{max-height:13rem}}
+
+/* ---------- Hero : photo d'une vraie haie + Sylvain ---------- */
+.lb-hero .lb-h1{max-width:13ch}
+.lb-hero .lb-lead{max-width:30rem}
+.lb-hero-scene{aspect-ratio:auto;overflow:visible;background:none;border-radius:0;padding-bottom:0}
+.lb-hero-scene picture{display:block}
+.lb-hero-photo{display:block;width:100%;height:auto;aspect-ratio:1092/819;object-fit:cover;border-radius:var(--r-grand)}
+.lb-hero-legende{position:absolute;left:1rem;top:1rem;margin:0;background:rgba(255,255,255,.92);color:var(--nuit);font-size:.8rem;font-weight:600;padding:.4rem .8rem;border-radius:999px}
+.lb-hero .lb-sylvain{left:auto;right:3%;bottom:-6%;width:30%;max-width:12rem;filter:drop-shadow(0 6px 10px rgba(3,42,40,.18))}
+.lb-hero .lb-bulle{left:auto;right:78%;top:-2%;border-radius:18px 18px 4px 18px}
+.lb-hero-sap{display:inline-flex;align-items:center;gap:.7rem;margin-top:1.75rem;color:var(--nuit);font-weight:600}
+.lb-hero-sap strong{background:var(--soleil);color:var(--nuit);border-radius:999px;padding:.35rem .8rem;font-size:1.05rem}
+.lb-hero-sap span{text-decoration:underline;text-decoration-color:var(--filet);text-underline-offset:4px;text-decoration-thickness:2px}
+.lb-hero-sap:hover span{text-decoration-color:var(--teal)}
+.lb-hero-info{margin:.7rem 0 0;font-size:.92rem;color:var(--texte)}
+@media(min-width:960px){.lb-hero{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);padding-top:3.5rem;padding-bottom:3rem}.lb-hero .lb-h1{font-size:3.6rem}}
+@media(max-width:767px){.lb-hero-scene{order:0;margin-top:.5rem;margin-bottom:2rem}.lb-hero .lb-sylvain{width:34%;bottom:-10%}.lb-hero-legende{font-size:.72rem;left:.7rem;top:.7rem}}
+.lb-hero .lb-h1{max-width:15ch}
+.lb-hero .lb-sylvain{filter:none}
+@media(max-width:767px){
+  .lb-hero{padding-top:1rem}
+  .lb-hero-scene{order:-1;margin:0 0 1.25rem}
+  .lb-hero .lb-sylvain{width:28%;right:2%;bottom:-8%}
+  .lb-hero .lb-bulle{right:82%;top:8%;max-width:9rem}
+  .lb-hero-sap{margin-top:1.4rem}
+}

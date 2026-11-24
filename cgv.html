@@ -38,7 +38,7 @@
 
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
-    <link rel="stylesheet" href="/assets/marque.css?v=20">
+    <link rel="stylesheet" href="/assets/marque.css?v=22">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -133,12 +133,11 @@
         <!-- ==================== PAGE : ACCUEIL (landing) ==================== -->
         <section id="page-accueil" class="page-view relative">
 
-            <!-- Haut de page : Sylvain dit bonjour -->
+            <!-- Haut de page : une vraie haie taillée, et Sylvain -->
             <div class="lb-wrap lb-hero">
                 <div class="lb-hero-text">
-                    <p class="lb-kicker">Jardinier et multiservices à Mazamet et Aiguefonde</p>
-                    <h1 class="lb-h1">Jardinage et petits travaux chez vous, <span>à Mazamet.</span></h1>
-                    <p class="lb-lead">Je m'appelle Sylvain, jardinier et homme toutes mains. Haies, pelouse, petits travaux : je m'en occupe, du devis à la facture.</p>
+                    <h1 class="lb-h1">Jardinier et homme toutes mains à Mazamet.</h1>
+                    <p class="lb-lead">Je m'appelle Sylvain. Haies, pelouse, terrasses et petits travaux : je m'en occupe, du devis à la facture.</p>
                     <div class="lb-actions">
                         <a href="tel:+33610669435" class="lb-btn lb-btn-main">
                             <img src="/assets/img/marque/picto-telephone-blanc.svg" alt="" width="20" height="20">
@@ -146,14 +145,15 @@
                         </a>
                         <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-soft">Prendre rendez-vous</a>
                     </div>
-                    <ul class="lb-chips">
-                        <li><a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap"><strong>−50 %</strong><span>déduits de la facture via Unipros</span></a></li>
-                        <li><strong>24-48 h</strong><span>pour vous répondre</span></li>
-                        <li><strong>20 km</strong><span>autour de Mazamet</span></li>
-                    </ul>
+                    <a class="lb-hero-sap" href="https://le-bon-geste.fr/avantage-sap" data-nav="sap"><strong>−50 %</strong><span>déduits directement de la facture</span></a>
+                    <p class="lb-hero-info">Réponse sous 48 h. J'interviens jusqu'à 20 km autour de Mazamet.</p>
                 </div>
                 <div class="lb-hero-scene">
-                    <img class="lb-hero-illu" src="/assets/img/marque/illu-hero-maison.svg" alt="" width="960" height="500">
+                    <picture>
+                        <source type="image/avif" srcset="/assets/realisations/hero-haie-m.avif 720w, /assets/realisations/hero-haie-l.avif 1092w" sizes="(min-width:960px) 600px, 100vw">
+                        <img class="lb-hero-photo" src="/assets/realisations/hero-haie-l.webp" srcset="/assets/realisations/hero-haie-m.webp 720w, /assets/realisations/hero-haie-l.webp 1092w" sizes="(min-width:960px) 600px, 100vw" alt="Une longue haie fraîchement taillée, le long d'un terrain près de Mazamet" width="1092" height="819" fetchpriority="high">
+                    </picture>
+                    <p class="lb-hero-legende">Une haie que j'ai taillée, près de Mazamet</p>
                     <button type="button" class="lb-sylvain" data-sylvain aria-label="Sylvain vous dit bonjour. Touchez-le pour un conseil.">
                         <span class="lb-bulle" data-sylvain-bulle role="status" aria-live="polite">Bonjour ! Moi c'est Sylvain.</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="sylvain-live" focusable="false" viewBox="-40 0 280 360" role="img" aria-label="Sylvain"><g class="sylvain"><path d="M62 330h36v10a8 8 0 0 1-8 8H58a6 6 0 0 1-6-6c0-7 4-12 10-12z" fill="#7f878b"/><rect x="52" y="342" width="46" height="7" rx="3.5" fill="#dfe3e1"/>
