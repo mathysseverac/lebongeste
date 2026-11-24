@@ -117,3 +117,15 @@ h1,h2{font-weight:700;letter-spacing:-.01em;line-height:1.1;margin:0}
   .js .revele{clip-path:none}
 }
 .aide{margin:-.75rem var(--marge) 1rem;color:#a9c4c0;font-size:.95rem}
+
+/* fondus doux : les grandes photos se fondent dans le fond, plus de ligne droite */
+.ouverture::after{background:linear-gradient(180deg,rgba(7,22,19,.55) 0%,rgba(7,22,19,0) 28%,rgba(7,22,19,.15) 52%,rgba(7,22,19,.8) 82%,#071613 100%)}
+.moitie-img,.fin-img{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 26%,#000 74%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 26%,#000 74%,transparent 100%)}
+.moitie,.fin{background:var(--noir)}
+.moitie{margin:clamp(2rem,6vw,4rem) 0;height:min(95svh,52rem)}
+.fin{margin-top:clamp(3rem,8vw,6rem)}
+.moitie::after,.fin::after{background:radial-gradient(ellipse at 30% 50%,rgba(7,22,19,.55),rgba(7,22,19,.2) 70%)}
+.fin::after{background:radial-gradient(ellipse at 50% 50%,rgba(7,22,19,.7),rgba(7,22,19,.25) 70%)}
+.pied{background:var(--noir);border-top:1px solid rgba(255,255,255,.08)}
+.moitie-img,.fin-img{-webkit-mask-image:none;mask-image:none}
+.moitie,.fin{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 78%,transparent 100%)}
