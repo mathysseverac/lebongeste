@@ -431,3 +431,22 @@ footer.bg-\[\#032a28\]{border-radius:var(--r-grand) var(--r-grand) 0 0;margin-to
 .lb-avis-google{margin-top:auto;font-size:.85rem;color:var(--texte);text-decoration:underline;text-underline-offset:2px}
 .lb-avis-source{margin:1rem 0 0;font-size:.85rem;color:var(--texte)}
 .lb-avis-lien a{text-decoration:underline;text-underline-offset:2px;font-weight:700;color:inherit}
+
+/* ---------- Accueil : liste des prestations ---------- */
+.lb-presta{display:grid;gap:1.75rem}
+@media(min-width:960px){.lb-presta{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:3.5rem;align-items:center}}
+.lb-presta-intro .lb-sub{max-width:28rem}
+.lb-presta-list{list-style:none;margin:0;padding:0;overflow:hidden;background:#fff;border:1.5px solid var(--filet);border-radius:var(--r-grand)}
+.lb-presta-list li+li{border-top:1.5px solid var(--filet)}
+.lb-presta-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:1rem;padding:1rem 1.25rem;color:var(--nuit);transition:background-color .2s}
+.lb-presta-row:hover{background:var(--menthe-clair)}
+.lb-presta-row:focus-visible{outline:3px solid var(--soleil);outline-offset:-3px;border-radius:var(--r-moyen)}
+.lb-presta-ico{width:2.75rem;height:2.75rem;border-radius:999px;background:var(--menthe-clair);display:grid;place-items:center}
+.lb-presta-row:hover .lb-presta-ico{background:#fff}
+.lb-presta-txt{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.lb-presta-txt strong{font-weight:700;font-size:1.05rem;line-height:1.3}
+.lb-presta-txt span{font-size:.92rem;color:var(--texte);line-height:1.4}
+.lb-presta-chev{width:1.25rem;height:1.25rem;fill:none;stroke:var(--teal);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.lb-presta-row:hover .lb-presta-chev{transform:translateX(3px)}
+@media(max-width:599px){.lb-presta-row{padding:.9rem 1rem;gap:.85rem}.lb-presta-intro .lb-actions .lb-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){.lb-presta-row,.lb-presta-chev{transition:none}}

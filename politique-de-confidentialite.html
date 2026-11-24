@@ -38,7 +38,7 @@
 
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
-    <link rel="stylesheet" href="/assets/marque.css?v=13">
+    <link rel="stylesheet" href="/assets/marque.css?v=15">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -209,46 +209,22 @@
 
             <!-- Prestations -->
             <div class="lb-band">
-                <div class="lb-wrap">
-                    <h2 class="lb-h2">Ce que je fais chez vous</h2>
-                    <div class="lb-cards">
-                        <article class="lb-card">
-                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-haie.svg" alt="Illustration : Sylvain, jardinier à Mazamet, taille une haie haute depuis le sol avec une perche" width="480" height="330" loading="lazy"></div>
-                            <h3>Taille de haies</h3>
-                            <div class="lb-card-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour ma haie</a>
-                            </div>
-                        </article>
-                        <article class="lb-card">
-                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-pelouse.svg" alt="Illustration : Sylvain tond une pelouse à la tondeuse" width="480" height="330" loading="lazy"></div>
-                            <h3>Pelouse, tonte et débroussaillage</h3>
-                            <div class="lb-card-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour ma pelouse</a>
-                            </div>
-                        </article>
-                        <article class="lb-card">
-                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-terrasse.svg" alt="Illustration : Sylvain nettoie les mousses d'une terrasse au nettoyeur" width="480" height="330" loading="lazy"></div>
-                            <h3>Nettoyage de terrasses et allées</h3>
-                            <div class="lb-card-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="nettoyage" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour mes allées</a>
-                            </div>
-                        </article>
-                        <article class="lb-card">
-                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-bricolage.svg" alt="Illustration : Sylvain fixe une étagère à la perceuse" width="480" height="330" loading="lazy"></div>
-                            <h3>Petit bricolage</h3>
-                            <div class="lb-card-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="bricolage" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour un petit travail</a>
-                            </div>
-                        </article>
-                        <article class="lb-card">
-                            <div class="lb-card-illu"><img src="/assets/img/marque/scene-informatique.svg" alt="Illustration : Sylvain installe un ordinateur et aide à son utilisation" width="480" height="330" loading="lazy"></div>
-                            <h3>Assistance informatique</h3>
-                            <div class="lb-card-foot">
-                                <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="assistance" class="lb-btn lb-btn-main lb-btn-sm">Rendez-vous pour une assistance</a>
-                            </div>
-                        </article>
+                <div class="lb-wrap lb-presta">
+                    <div class="lb-presta-intro">
+                        <h2 class="lb-h2">Ce que je fais chez vous</h2>
+                        <p class="lb-sub">Le jardin, les petits travaux et un coup de main pour l'informatique. Toutes ces prestations donnent droit aux 50 % déduits.</p>
+                        <div class="lb-actions">
+                            <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-main">Demander un devis</a>
+                            <a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="lb-btn lb-btn-soft">Voir le détail des prestations</a>
+                        </div>
                     </div>
-                    <p class="lb-more"><a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="lb-link">Voir le catalogue complet</a></p>
+                    <ul class="lb-presta-list">
+                            <li><a href="https://le-bon-geste.fr/catalogue#service-haies" data-nav-service="service-haies" class="lb-presta-row"><span class="lb-presta-ico"><img src="/assets/img/marque/picto-haie.svg" alt="" width="24" height="24"></span><span class="lb-presta-txt"><strong>Taille de haies</strong><span>Haies basses à hautes, jusqu'à 3&nbsp;m, depuis le sol</span></span><svg class="lb-presta-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+                            <li><a href="https://le-bon-geste.fr/catalogue#service-pelouses" data-nav-service="service-pelouses" class="lb-presta-row"><span class="lb-presta-ico"><img src="/assets/img/marque/picto-pelouse.svg" alt="" width="24" height="24"></span><span class="lb-presta-txt"><strong>Tonte et débroussaillage</strong><span>Pelouses, herbes hautes, talus et terrains en friche</span></span><svg class="lb-presta-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+                            <li><a href="https://le-bon-geste.fr/catalogue#service-nettoyage" data-nav-service="service-nettoyage" class="lb-presta-row"><span class="lb-presta-ico"><img src="/assets/img/marque/picto-terrasse.svg" alt="" width="24" height="24"></span><span class="lb-presta-txt"><strong>Terrasses et allées</strong><span>Démoussage et nettoyage des terrasses, allées, margelles</span></span><svg class="lb-presta-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+                            <li><a href="https://le-bon-geste.fr/catalogue#service-bricolage" data-nav-service="service-bricolage" class="lb-presta-row"><span class="lb-presta-ico"><img src="/assets/img/marque/picto-outil.svg" alt="" width="24" height="24"></span><span class="lb-presta-txt"><strong>Petit bricolage</strong><span>Montage de meubles, fixations, petits dépannages</span></span><svg class="lb-presta-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+                            <li><a href="https://le-bon-geste.fr/catalogue#service-assistance" data-nav-service="service-assistance" class="lb-presta-row"><span class="lb-presta-ico"><img src="/assets/img/marque/picto-ordinateur.svg" alt="" width="24" height="24"></span><span class="lb-presta-txt"><strong>Assistance informatique</strong><span>Box, Wi-Fi, ordinateur, tablette, imprimante</span></span><svg class="lb-presta-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+                    </ul>
                 </div>
             </div>
 
@@ -695,7 +671,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <p class="text-sm text-slate-600 pt-1">Taille d'entretien courant jusqu'à 3 m, depuis le sol.</p>
+                            <p class="text-sm text-slate-600 pt-1">Taille d'entretien courant jusqu'à 3&nbsp;m, depuis le sol.</p>
                         </div>
 
                         <div>
