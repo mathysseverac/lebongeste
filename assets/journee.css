@@ -1,0 +1,156 @@
+/* =====================================================================
+   Le bon geste : « Une journée avec Sylvain » (page d'essai)
+   Le scroll fait passer la journée : jardin le matin, maison l'après-midi,
+   soir pour finir. Les animations sont pilotées par journee.js.
+   ===================================================================== */
+@font-face{font-family:"Manrope";src:url("/Manrope-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Manrope";src:url("/Manrope-SemiBold.ttf") format("truetype");font-weight:600 800;font-display:swap}
+:root{
+  --teal:#007271;--teal-fonce:#005554;--nuit:#032a28;--menthe:#9fd3cd;--menthe-clair:#e3f2f0;
+  --soleil:#f4b740;--creme:#fff7e8;--texte:#2d4a47;
+  --ciel:#dff1f4;--nuit-op:0;--tete-h:4.25rem
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
+body{margin:0;font-family:Manrope,system-ui,sans-serif;color:var(--nuit);background:var(--ciel);line-height:1.5;overflow-x:clip}
+a{color:inherit}
+img,svg{display:block}
+.evite{position:absolute;left:-999px;top:0;background:#fff;padding:.6rem 1rem;z-index:100;border-radius:999px}
+.evite:focus{left:1rem;top:1rem}
+:focus-visible{outline:3px solid var(--soleil);outline-offset:3px;border-radius:6px}
+
+/* ---------- Ciel, soleil, étoiles ---------- */
+.ciel{position:fixed;inset:0;z-index:0;background:var(--ciel);pointer-events:none}
+.etoiles{position:absolute;inset:0;opacity:var(--nuit-op)}
+.soleil{position:absolute;left:0;top:0;width:clamp(64px,9vw,110px);aspect-ratio:1;border-radius:50%;
+  background:var(--soleil);box-shadow:0 0 0 14px rgba(244,183,64,.22),0 0 0 30px rgba(244,183,64,.1);
+  transform:translate(var(--sx,10vw),var(--sy,30vh));will-change:transform}
+
+/* ---------- En-tête ---------- */
+.tete{position:fixed;inset:0 0 auto;z-index:50;height:var(--tete-h);display:flex;align-items:center;gap:1rem;
+  padding:0 max(1.25rem,env(safe-area-inset-left));background:#fff;border-bottom:1px solid #dce8e6}
+.logo img{width:8.6rem;height:auto}
+.tete nav{display:none;gap:1.75rem;margin-left:auto;font-weight:600;font-size:.95rem}
+.tete nav a{text-decoration:none}
+.tete nav a:hover{color:var(--teal)}
+.appel{margin-left:auto;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;padding:.6rem 1.2rem;border-radius:999px}
+@media(min-width:860px){.tete nav{display:flex}.appel{margin-left:1rem}}
+
+main{position:relative;z-index:1}
+
+/* ---------- Boutons ---------- */
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3.1rem;padding:0 1.5rem;border-radius:999px;
+  font-weight:600;text-decoration:none;border:2px solid var(--nuit);color:var(--nuit);background:rgba(255,255,255,.6)}
+.btn.plein{background:var(--nuit);color:#fff}
+.btn:hover{transform:translateY(-1px)}
+.btn.clair{border-color:#fff;color:#fff;background:transparent}
+.btn.plein.clair{background:var(--soleil);border-color:var(--soleil);color:var(--nuit)}
+
+/* ---------- Haut de page ---------- */
+.hero{min-height:100svh;padding:calc(var(--tete-h) + 2rem) 1.25rem 4rem;display:grid;align-content:center;gap:1rem;
+  max-width:78rem;margin:0 auto;position:relative}
+.hero h1{font-size:clamp(2.7rem,9.5vw,6.2rem);line-height:.98;letter-spacing:-.035em;font-weight:600;margin:0;max-width:11ch}
+.lead{font-size:clamp(1.1rem,2.2vw,1.35rem);max-width:30rem;margin:1.25rem 0 0;color:var(--texte)}
+.hero-perso{justify-self:end;width:min(46vw,15rem);margin-top:-1rem}
+.hero-perso img{width:100%;height:auto}
+.descendez{position:absolute;left:50%;bottom:1.25rem;transform:translateX(-50%);margin:0;font-size:.85rem;font-weight:600;color:var(--teal);white-space:nowrap}
+.descendez::after{content:"";display:block;width:2px;height:2.2rem;margin:.5rem auto 0;background:currentColor;border-radius:2px;animation:fil 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes fil{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media(min-width:860px){
+  .hero{grid-template-columns:1fr auto;align-items:end;padding-top:calc(var(--tete-h) + 3rem)}
+  .hero-perso{width:clamp(14rem,22vw,20rem);margin:0}
+}
+/* une seule entrée orchestrée, au chargement */
+@media(prefers-reduced-motion:no-preference){
+  .hero h1,.hero .lead,.hero .actions{animation:monte .9s cubic-bezier(.2,.8,.2,1) both}
+  .hero .lead{animation-delay:.12s}.hero .actions{animation-delay:.22s}
+  .hero-perso{animation:arrive 1s .3s cubic-bezier(.2,.8,.2,1) both}
+}
+@keyframes monte{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes arrive{from{opacity:0;transform:translateX(40px) rotate(4deg)}to{opacity:1;transform:none}}
+
+/* ---------- Chapitres collants ---------- */
+.chap{position:relative;height:260svh}
+.chap.court{height:200svh}
+.chap.porte{height:280svh}
+.chap.soir{height:auto;min-height:100svh}
+.scene{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;overflow:hidden;padding-top:var(--tete-h)}
+.txt{padding:1.25rem 1.25rem 0;max-width:30rem;position:relative;z-index:2;
+  opacity:var(--txt-o,1);transform:translateY(var(--txt-y,0))}
+.heure{display:inline-block;margin:0 0 .5rem;font-weight:600;font-size:.85rem;color:var(--teal);background:#fff;border-radius:999px;padding:.2rem .7rem}
+.txt h2{font-size:clamp(1.9rem,5.5vw,3.4rem);line-height:1.02;letter-spacing:-.03em;font-weight:600;margin:0 0 .6rem}
+.txt p{margin:0;font-size:1.02rem;color:var(--texte)}
+.lien{display:inline-block;margin-top:.9rem;font-weight:600;color:var(--teal);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.vue{flex:1;display:flex;align-items:flex-end;justify-content:center;min-height:0}
+.art{width:100%;height:100%;max-height:100%}
+@media(min-width:860px){
+  .scene{flex-direction:row;align-items:stretch}
+  .txt{flex:0 0 30rem;align-self:center;padding:0 2rem 0 max(2.5rem,calc((100vw - 78rem)/2 + 1.25rem))}
+  .vue{align-items:flex-end}
+}
+
+/* intérieur : on couvre le ciel */
+.dedans .scene{background:var(--creme)}
+.dedans .heure{background:var(--menthe-clair)}
+.porte .scene::after{content:"";position:absolute;inset:0;background:var(--creme);opacity:var(--fondu,0);pointer-events:none;z-index:3}
+
+/* marche */
+.pas{animation:none}
+html.bouge .pas{animation:pas .38s ease-in-out infinite alternate}
+@keyframes pas{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+.vole{opacity:0}
+html.bouge .vole{animation:vole 1s linear infinite}
+.vole.v1{animation-delay:-.2s!important}.vole.v2{animation-delay:-.4s!important}.vole.v3{animation-delay:-.6s!important}.vole.v4{animation-delay:-.8s!important}
+@keyframes vole{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(60px,120px) rotate(220deg)}}
+.jet,.brins{opacity:.2}
+html.bouge .jet,html.bouge .brins{opacity:1}
+.etape{transform-box:fill-box;transform-origin:50% 100%}
+
+/* ---------- Avant / après au scroll ---------- */
+.ba{position:relative;width:min(92%,46rem);aspect-ratio:4/3;margin:auto auto 6vh;border-radius:24px;overflow:hidden;background:#fff;
+  box-shadow:0 0 0 8px #fff,0 18px 40px rgba(3,42,40,.18);transform:rotate(-1.5deg)}
+.ba img{width:100%;height:100%;object-fit:cover}
+.ba picture{display:block;height:100%}
+.ba-avant{position:absolute;inset:0;clip-path:inset(0 var(--cache,0%) 0 0)}
+.ba-trait{position:absolute;top:0;bottom:0;left:calc(100% - var(--cache,0%));width:4px;margin-left:-2px;background:#fff}
+.ba-tag{position:absolute;bottom:.9rem;background:#fff;color:var(--nuit);font-weight:600;font-size:.85rem;padding:.3rem .8rem;border-radius:999px}
+.ba-tag.t1{left:.9rem}.ba-tag.t2{right:.9rem}
+
+/* ---------- Soir ---------- */
+.soir .scene{position:relative;height:auto;min-height:100svh}
+.soir .txt{color:#fff}
+.soir .txt p{color:#d6ebe8}
+.soir .heure{background:var(--soleil);color:var(--nuit)}
+.soir .vue{min-height:45svh}
+.moitie{margin-top:1.25rem!important}
+.moitie a{text-decoration:none;color:#fff;font-weight:600}
+.moitie strong{background:var(--soleil);color:var(--nuit);border-radius:999px;padding:.25rem .7rem;margin-right:.4rem}
+.petit{margin-top:1.25rem!important;font-size:.9rem!important}
+.fenetre{filter:drop-shadow(0 0 18px rgba(244,183,64,.7))}
+
+/* ---------- Pied ---------- */
+.pied{position:relative;z-index:1;background:#021f1d;color:#bfe3df;padding:2.5rem 1.25rem calc(2rem + env(safe-area-inset-bottom));font-size:.88rem}
+.pied nav{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin-bottom:1rem}
+.pied a{color:#fff;text-decoration:none}
+.pied p{margin:0;max-width:40rem}
+
+/* ---------- Mouvement réduit : tout est posé, rien ne bouge ---------- */
+html.calme .chap{height:auto}
+html.calme .scene{position:relative;height:auto;min-height:80svh}
+html.calme .pas,html.calme .vole,html.calme .descendez::after{animation:none!important}
+
+/* --- correctifs v2 : sol sur toute la largeur, scène qui remplit l'écran --- */
+.art{overflow:visible}
+@media(min-width:860px){
+  .vue{position:absolute;inset:var(--tete-h) 0 0 clamp(18rem,30vw,30rem);align-items:flex-end}
+  .art{height:min(100%,62vw);width:auto;max-width:100%}
+  .txt{position:relative;z-index:2}
+  .vue:has(.ba){left:34vw;align-items:center}
+}
+@media(max-width:859px){
+  .vue{flex:0 0 auto;margin-top:auto}
+  .art{height:54svh;width:100%}
+  .vue:has(.ba){flex:1;align-items:center;margin-top:0}
+  .ba{margin:0 auto}
+}
