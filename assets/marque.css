@@ -462,3 +462,9 @@ footer.bg-\[\#032a28\]{border-radius:var(--r-grand) var(--r-grand) 0 0;margin-to
   .app-call-bubble{box-shadow:none;margin-top:-1.4rem}
   body{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
 }
+.lb-services-note{margin:2rem auto 0;max-width:42rem;text-align:center;font-size:.85rem;color:var(--texte);line-height:1.5}
+.lb-service-body{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.lb-service h2{margin:0 0 1rem}
+.lb-service .lb-card-foot{margin-top:1.25rem;padding-top:0}
+.lb-service-illu img{max-height:20rem;width:auto;max-width:100%}
+@media(max-width:767px){#page-services .lb-pagehead-art{display:none}.lb-service-illu img{max-height:13rem}}
