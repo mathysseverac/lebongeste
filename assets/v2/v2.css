@@ -1,0 +1,112 @@
+/* Le bon geste : accueil v2, magazine + affiche. Scroll normal, rien de caché. */
+@font-face{font-family:Manrope;src:url(/Manrope-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Manrope;src:url(/Manrope-SemiBold.ttf) format("truetype");font-weight:500 800;font-display:swap}
+:root{
+  --vert:#007271;--vert-fonce:#005554;--nuit:#032a28;--menthe:#9fd3cd;--menthe-clair:#e8f4f2;
+  --jaune:#f4b740;--blanc:#fff;--texte:#33504c;--filet:#d6e6e3;
+  --marge:clamp(1.25rem,5vw,4.5rem);--max:84rem
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Manrope,system-ui,sans-serif;color:var(--nuit);background:var(--blanc);line-height:1.6;font-size:1.0625rem}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--jaune);outline-offset:3px;border-radius:6px}
+.evite{position:absolute;left:-999px}.evite:focus{left:1rem;top:1rem;z-index:99;background:#fff;padding:.6rem 1rem;border-radius:8px}
+h1,h2,h3{font-weight:700;letter-spacing:-.01em;line-height:1.12;margin:0}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3.2rem;padding:0 1.6rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;transition:background-color .2s,color .2s}
+.btn-vert{background:var(--vert);color:#fff}.btn-vert:hover{background:var(--vert-fonce)}
+.btn-contour{border-color:var(--nuit);color:var(--nuit)}.btn-contour:hover{background:var(--nuit);color:#fff}
+.btn-jaune{background:var(--jaune);color:var(--nuit)}.btn-jaune:hover{background:#e9a92c}
+.btn-petit{min-height:2.7rem;padding:0 1.15rem;font-size:.95rem}
+.lien{font-weight:600;color:var(--vert);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.lien-fonce{color:var(--nuit)}.lien-clair{color:#fff;text-decoration-color:var(--jaune)}
+
+/* en-tête */
+.tete{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--filet)}
+.tete-in{max-width:var(--max);margin:0 auto;padding:.7rem var(--marge);display:flex;align-items:center;gap:1.5rem}
+.logo img{width:8.4rem}
+.nav{display:none;gap:1.6rem;margin-left:auto;font-weight:500;font-size:.98rem}
+.nav a{text-decoration:none}.nav a:hover{color:var(--vert)}
+.tete .btn{margin-left:auto}
+@media(min-width:960px){.nav{display:flex}.tete .btn{margin-left:0}}
+@media(max-width:420px){.tete .btn{font-size:.85rem;padding:0 .9rem}}
+
+/* 1. la une */
+.une{max-width:var(--max);margin:0 auto;padding:clamp(1.75rem,4vw,3.5rem) var(--marge) clamp(3rem,6vw,5rem);display:grid;gap:2rem;align-items:center}
+@media(min-width:900px){.une{grid-template-columns:1fr 1.05fr;gap:clamp(2.5rem,5vw,5rem)}}
+.une h1{font-size:clamp(2.5rem,5.4vw,4.4rem);max-width:15ch}
+.chapo{font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--texte);max-width:34rem;margin:1.25rem 0 0}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.faits{list-style:none;padding:0;margin:1.75rem 0 0;display:flex;flex-wrap:wrap;gap:.4rem 1.75rem;font-size:.95rem;color:var(--texte)}
+.faits strong{color:var(--nuit);font-weight:600}
+.une-photo{position:relative;margin:0}
+.une-photo img{width:100%;aspect-ratio:4/3.4;object-fit:cover;border-radius:6px}
+.une-photo figcaption{font-size:.85rem;color:var(--texte);margin-top:.6rem}
+.macaron{position:absolute;left:-1.25rem;bottom:2.4rem;width:7.2rem;aspect-ratio:1;border-radius:50%;background:var(--jaune);color:var(--nuit);display:grid;place-content:center;text-align:center;text-decoration:none;transform:rotate(-8deg)}
+.macaron b{font-size:1.85rem;line-height:1;letter-spacing:-.02em}.macaron span{font-size:.78rem;font-weight:600}
+@media(max-width:899px){.macaron{left:auto;right:.75rem;bottom:2.6rem;width:6rem}.macaron b{font-size:1.5rem}}
+
+/* 2. l'affiche verte */
+.affiche{background:var(--vert);color:#fff}
+.bloc{max-width:var(--max);margin:0 auto;padding:clamp(3rem,7vw,6rem) var(--marge)}
+.affiche h2{font-size:clamp(1.1rem,1.6vw,1.25rem);font-weight:600;color:var(--menthe);margin-bottom:1.25rem}
+.liste{list-style:none;padding:0;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.liste li{border-bottom:1px solid rgba(255,255,255,.25)}
+.liste a{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.25rem 1.5rem;padding:clamp(.9rem,2vw,1.4rem) 0;text-decoration:none}
+.nom{font-size:clamp(1.9rem,5vw,3.8rem);font-weight:700;letter-spacing:-.015em;line-height:1.1}
+.detail{font-size:1rem;color:#cfe8e4}
+.liste a:hover .nom{color:var(--jaune)}
+
+/* 3. la double page avant / après */
+.double{max-width:var(--max);margin:0 auto;padding:clamp(3.5rem,7vw,6rem) var(--marge)}
+.double-tete{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:.5rem 2rem;margin-bottom:1.75rem}
+.double-tete h2{font-size:clamp(2.4rem,6vw,4.4rem)}
+.double-tete p{margin:0;color:var(--texte);max-width:24rem}
+.paire{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;position:relative}
+.paire figure{margin:0;position:relative}
+.paire img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+.paire figcaption{position:absolute;left:.75rem;top:.75rem;background:#fff;color:var(--nuit);font-weight:600;font-size:.85rem;padding:.2rem .7rem;border-radius:999px}
+.paire figure:last-child figcaption{background:var(--jaune)}
+.paire-petite{margin-top:clamp(1.5rem,4vw,3rem);width:min(100%,46rem);margin-left:auto}
+.legende{grid-column:1/-1;margin:.3rem 0 0;font-size:.9rem;color:var(--texte)}
+.suite{margin:2rem 0 0}
+
+/* 4. l'affiche jaune */
+.moitie{background:var(--jaune)}
+.moitie-in{max-width:var(--max);margin:0 auto;padding:clamp(3rem,7vw,5.5rem) var(--marge);display:grid;gap:1rem 3rem;align-items:center}
+@media(min-width:900px){.moitie-in{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
+.enorme{margin:0;font-size:clamp(6rem,17vw,12.5rem);font-weight:800;white-space:nowrap;line-height:.85;letter-spacing:-.04em;color:var(--nuit)}
+.moitie h2{font-size:clamp(1.6rem,3vw,2.4rem);max-width:18ch}
+.moitie p{color:#3a3215;max-width:34rem}
+
+/* 5. étapes */
+.etapes{max-width:var(--max);margin:0 auto;padding:clamp(3.5rem,7vw,6rem) var(--marge)}
+.etapes h2{font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:2rem}
+.etapes ol{list-style:none;padding:0;margin:0;display:grid;gap:2rem}
+@media(min-width:800px){.etapes ol{grid-template-columns:repeat(3,1fr);gap:3rem}}
+.etapes b{display:block;font-size:3rem;line-height:1;color:var(--vert);font-weight:700;margin-bottom:.6rem}
+.etapes h3{font-size:1.35rem;margin-bottom:.4rem}
+.etapes p{margin:0;color:var(--texte)}
+
+/* 6. le numéro en affiche */
+.appel{background:var(--nuit);color:#fff;text-align:center;padding:clamp(3.5rem,8vw,6.5rem) var(--marge)}
+.appel h2{font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:600;color:var(--menthe)}
+.numero{display:block;margin:1rem auto .75rem;font-size:clamp(2.8rem,11vw,8.5rem);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--jaune);text-decoration:none;white-space:nowrap}
+.numero:hover{color:#fff}
+.appel p{margin:0;color:#cfe3e0}
+
+/* pied */
+.pied{background:#021f1d;color:#a9c4c0;font-size:.9rem}
+.pied-in{max-width:var(--max);margin:0 auto;padding:2.5rem var(--marge) 3rem}
+.pied-logo{width:7.5rem;filter:brightness(0) invert(1);opacity:.9;margin-bottom:1.25rem}
+.pied nav{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-bottom:1rem}
+.pied a{color:#fff;text-decoration:none}.pied a:hover{text-decoration:underline}
+.pied p{margin:0;max-width:44rem}
+
+/* une seule apparition douce, à l'arrivée des blocs (jamais de texte caché si le script ne tourne pas) */
+.js .apparait{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.js .apparait.vu{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .apparait{opacity:1;transform:none;transition:none}}
