@@ -450,3 +450,15 @@ footer.bg-\[\#032a28\]{border-radius:var(--r-grand) var(--r-grand) 0 0;margin-to
 .lb-presta-row:hover .lb-presta-chev{transform:translateX(3px)}
 @media(max-width:599px){.lb-presta-row{padding:.9rem 1rem;gap:.85rem}.lb-presta-intro .lb-actions .lb-btn{width:100%}}
 @media(prefers-reduced-motion:reduce){.lb-presta-row,.lb-presta-chev{transition:none}}
+
+/* ---------- En-tête et barre d'onglets posés, plus de pastille flottante ---------- */
+#header{top:0!important;padding:0!important;background:#fff!important;border-bottom:1px solid var(--filet);box-shadow:none!important;pointer-events:auto}
+#header>div:first-child{max-width:76rem;margin:0 auto;padding:0 1.25rem;background:transparent!important;border-radius:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+#header.shadow-md{box-shadow:none!important}
+#mobile-menu{left:0;right:0;top:100%;border-radius:0 0 var(--r-grand) var(--r-grand);border-top:1px solid var(--filet);box-shadow:0 14px 24px rgba(3,42,40,.08)}
+@media(max-width:767px){
+  #header>div:first-child{padding:0 .5rem 0 1rem}
+  .app-tabbar{left:0;right:0;bottom:0;height:calc(4rem + env(safe-area-inset-bottom));padding:0 .35rem env(safe-area-inset-bottom);border-radius:0;border-top:1px solid var(--filet);box-shadow:none}
+  .app-call-bubble{box-shadow:none;margin-top:-1.4rem}
+  body{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
+}
