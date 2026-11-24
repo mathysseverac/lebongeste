@@ -237,3 +237,4 @@ body h1,body h2,body h3{font-family:inherit}
 .lb-block-teal .lb-sub,.lb-block-night .lb-sub,.lb-block-teal .lb-lead,.lb-block-night .lb-lead{color:#d4e9e6!important}
 .lb-block-teal .lb-btn-main,.lb-block-night .lb-btn-main{background:var(--jaune)!important;color:var(--nuit)!important}
 .lb-block-teal .lb-btn-soft,.lb-block-night .lb-btn-soft{background:transparent!important;color:#fff!important;border-color:#fff!important}
+.n-col picture{display:block}
