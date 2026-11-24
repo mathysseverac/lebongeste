@@ -1120,3 +1120,82 @@ function submitInBackground(form, onReset) {
         });
     });
 })();
+
+// ==================== AVIS GOOGLE ====================
+// Les avis viennent de /api/avis (fonction Cloudflare qui interroge Google).
+// Ils sont affichés tels quels : nom, note, date et texte d'origine, avec un lien vers Google.
+(function () {
+    var bloc = document.querySelector('[data-avis]');
+    if (!bloc || !('fetch' in window)) return;
+    var liste = bloc.querySelector('[data-avis-liste]');
+    var note = bloc.querySelector('[data-avis-note]');
+    var tous = bloc.querySelector('[data-avis-tous]');
+
+    function el(tag, cls, texte) {
+        var e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (texte != null) e.textContent = texte;
+        return e;
+    }
+    function lien(href, cls, texte) {
+        var a = el('a', cls, texte);
+        a.href = href; a.target = '_blank'; a.rel = 'noopener';
+        return a;
+    }
+    function etoiles(n) {
+        var s = el('div', 'lb-etoiles');
+        s.setAttribute('role', 'img');
+        s.setAttribute('aria-label', 'Note : ' + n + ' sur 5');
+        for (var i = 1; i <= 5; i++) {
+            var span = el('span', i <= n ? '' : 'vide', '★');
+            span.setAttribute('aria-hidden', 'true');
+            s.appendChild(span);
+        }
+        return s;
+    }
+    function carte(a) {
+        var c = el('article', 'lb-avis-card');
+        var qui = el('div', 'lb-avis-qui');
+        if (a.photo) {
+            var img = el('img', 'lb-avis-photo');
+            img.src = a.photo; img.alt = ''; img.width = 40; img.height = 40;
+            img.loading = 'lazy'; img.referrerPolicy = 'no-referrer';
+            qui.appendChild(img);
+        } else {
+            qui.appendChild(el('span', 'lb-avis-initiale', (a.author || '?').trim().charAt(0).toUpperCase()));
+        }
+        var id = el('div');
+        id.appendChild(a.authorUri ? lien(a.authorUri, 'lb-avis-nom', a.author) : el('span', 'lb-avis-nom', a.author));
+        if (a.relativeTime) id.appendChild(el('span', 'lb-avis-date', a.relativeTime));
+        qui.appendChild(id);
+        c.appendChild(qui);
+        c.appendChild(etoiles(Math.round(a.rating)));
+        if (a.text) {
+            var p = el('p', 'lb-avis-texte', a.text);
+            c.appendChild(p);
+            if (a.text.length > 320) {
+                p.classList.add('is-court');
+                var plus = el('button', 'lb-avis-plus', 'Lire la suite');
+                plus.type = 'button';
+                plus.addEventListener('click', function () {
+                    var court = p.classList.toggle('is-court');
+                    plus.textContent = court ? 'Lire la suite' : 'Réduire';
+                });
+                c.appendChild(plus);
+            }
+        }
+        if (a.reviewUri) c.appendChild(lien(a.reviewUri, 'lb-avis-google', 'Voir cet avis sur Google'));
+        return c;
+    }
+
+    fetch('/api/avis').then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+        if (!d || !d.reviews || !d.reviews.length) return;
+        d.reviews.forEach(function (a) { liste.appendChild(carte(a)); });
+        if (d.rating && d.count) {
+            note.textContent = 'Note Google : ' + d.rating.toLocaleString('fr-FR', { maximumFractionDigits: 1 }) +
+                ' sur 5, ' + d.count + (d.count > 1 ? ' avis' : ' avis') + '.';
+        }
+        if (d.mapsUri && tous) tous.href = d.mapsUri;
+        bloc.hidden = false;
+    }).catch(function () { /* pas d'avis affichés : le reste du site marche normalement */ });
+})();

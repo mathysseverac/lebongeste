@@ -38,7 +38,7 @@
 
     <!-- Feuille de style locale : Tailwind compilé + icônes Phosphor + styles du site -->
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
-    <link rel="stylesheet" href="/assets/marque.css?v=11">
+    <link rel="stylesheet" href="/assets/marque.css?v=13">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -298,6 +298,24 @@
                 </div>
             </div>
 
+            <!-- Avis Google : le bloc reste caché tant qu'il n'y a pas d'avis -->
+            <div class="lb-band lb-avis" id="avis" data-avis hidden>
+                <div class="lb-wrap">
+                    <div class="lb-real-head">
+                        <div>
+                            <h2 class="lb-h2">Ce que disent mes clients</h2>
+                            <p class="lb-sub" data-avis-note>Avis publiés sur Google.</p>
+                        </div>
+                        <div class="lb-actions">
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=Le+bon+geste+Aiguefonde" class="lb-btn lb-btn-soft" data-avis-tous target="_blank" rel="noopener">Voir tous les avis sur Google</a>
+                            <a href="https://le-bon-geste.fr/avis" class="lb-btn lb-btn-main" target="_blank" rel="noopener">Laisser un avis</a>
+                        </div>
+                    </div>
+                    <div class="lb-avis-grid" data-avis-liste></div>
+                    <p class="lb-avis-source">Avis repris de Google tels qu'ils ont été publiés, sans retouche. Google n'en transmet que 5 au maximum : tous les avis sont sur la fiche Google.</p>
+                </div>
+            </div>
+
             <!-- Qui vient chez vous -->
             <div class="lb-wrap">
                 <div class="lb-block lb-block-mint lb-about">
@@ -523,6 +541,7 @@
                     <div>
                         <h2 class="lb-h2 lb-light">Votre haie ressemble plutôt à la photo de gauche ?</h2>
                         <p class="lb-body-light">Je passe la voir et je vous fais un devis gratuit. Avec Unipros, vous ne réglez que la moitié de la facture.</p>
+                        <p class="lb-body-light lb-avis-lien">Déjà client ? <a href="https://le-bon-geste.fr/avis" target="_blank" rel="noopener">Laissez un avis sur Google</a>, ça m'aide beaucoup.</p>
                     </div>
                     <div class="lb-actions">
                         <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-white">Demander un devis</a>
@@ -741,6 +760,11 @@
                         <span class="lb-contact-ico lb-ico-soft"><img src="/assets/img/marque/picto-courrier.svg" alt="" width="26" height="26"></span>
                         <span class="lb-contact-label">Écrivez-moi</span>
                         <span class="lb-contact-value">contact.lebongeste@gmail.com</span>
+                    </a>
+                    <a href="https://le-bon-geste.fr/avis" class="lb-contact" target="_blank" rel="noopener">
+                        <span class="lb-contact-ico lb-ico-soft"><img src="/assets/img/marque/picto-etoile.svg" alt="" width="26" height="26"></span>
+                        <span class="lb-contact-label">Vous êtes client ?</span>
+                        <span class="lb-contact-value">Laisser un avis Google</span>
                     </a>
                 </div>
                 <div class="lb-block lb-block-white lb-contact-form-wrap" id="ecrire">
@@ -1043,6 +1067,7 @@
                     <div>
                         <h2 class="font-bold text-slate-900 text-lg mb-2">5. Destinataires</h2>
                         <p>Vos données ne sont jamais vendues ni cédées à des tiers à des fins commerciales. Elles peuvent être transmises à la coopérative <strong>Unipros</strong> dans le cadre de la facturation, à <strong>FormSubmit</strong> pour l'acheminement sécurisé des demandes de devis par email, à <strong>Brevo</strong> (Sendinblue SAS, France) pour l'envoi du mail de confirmation à l'adresse que vous indiquez dans le formulaire, à <strong>Cloudflare Turnstile</strong> pour vérifier que la demande ne vient pas d'un robot, et sont hébergées via l'infrastructure de notre hébergeur <strong>Cloudflare, Inc.</strong> (voir <a href="https://le-bon-geste.fr/mentions-legales" data-nav="mentions" class="text-teal hover:underline">mentions légales</a>).</p>
+                        <p>Les avis clients affichés sur la page d'accueil proviennent de la fiche <strong>Google</strong> de l'entreprise. Pour les afficher, votre navigateur charge depuis les serveurs de Google la photo de profil des personnes qui ont laissé un avis, ce qui transmet à Google votre adresse IP.</p>
                         <p class="mt-2">Si vous avez consenti aux cookies de mesure d'audience, les données techniques de navigation anonymisées sont traitées par <strong>Microsoft Corporation (Microsoft Clarity)</strong> conformément à la <a href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer" class="text-teal hover:underline">déclaration de confidentialité de Microsoft</a>.</p>
                     </div>
 
@@ -1147,6 +1172,7 @@
                 <a href="https://le-bon-geste.fr/politique-de-confidentialite" data-nav="confidentialite" class="text-sm hover:text-teal-light transition-colors">Confidentialité</a>
                 <a href="https://le-bon-geste.fr/realisations" data-nav="realisations" class="text-sm hover:text-teal-light transition-colors">Réalisations</a>
                 <a href="https://le-bon-geste.fr/faq" data-nav="faq" class="text-sm hover:text-teal-light transition-colors">FAQ</a>
+                <a href="https://le-bon-geste.fr/avis" target="_blank" rel="noopener" class="text-sm hover:text-teal-light transition-colors">Laisser un avis</a>
                 <a href="https://le-bon-geste.fr/guide-urssaf#espace-unipros" data-nav="guide" data-scroll="espace-unipros" class="text-sm hover:text-teal-light transition-colors">Mon espace Unipros</a>
                 <a href="https://le-bon-geste.fr/politique-de-cookies" data-nav="cookies" class="text-sm hover:text-teal-light transition-colors">Cookies</a>
                 <button data-action="cookie-open" class="text-sm hover:text-teal-light transition-colors underline decoration-dotted">Gérer mes cookies</button>
@@ -1258,6 +1284,6 @@
         </div>
     </div>
 
-    <script src="/assets/app.js?v=seo3" defer></script>
+    <script src="/assets/app.js?v=avis1" defer></script>
 </body>
 </html>

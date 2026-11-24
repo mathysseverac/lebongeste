@@ -1,4 +1,5 @@
-# Volontairement sans règle.
+/avis https://g.page/r/CcQ5huGWCo2nECE/review 302
+# Une seule règle (ligne 1) : /avis renvoie vers la page Google pour laisser un avis (lien à donner aux clients par SMS).
 # Le site est une application d'une seule page : sans fichier 404.html, Cloudflare Pages sert
 # automatiquement index.html pour /catalogue, /devis, /merci, etc., sans changer l'adresse.
 # Les anciennes règles « /catalogue /index.html 200 » renvoyaient les visiteurs vers l'accueil.
