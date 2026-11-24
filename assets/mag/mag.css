@@ -1,13 +1,9 @@
 /* Le bon geste : version « magazine de jardinage ». */
-@font-face{font-family:Fraunces;src:url(/assets/fonts/fraunces-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:Fraunces;src:url(/assets/fonts/fraunces-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:Fraunces;src:url(/assets/fonts/fraunces-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:Fraunces;src:url(/assets/fonts/fraunces-latin-500-italic.woff2) format("woff2");font-weight:500;font-style:italic;font-display:swap}
 @font-face{font-family:Manrope;src:url(/Manrope-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
 @font-face{font-family:Manrope;src:url(/Manrope-SemiBold.ttf) format("truetype");font-weight:500 700;font-display:swap}
 :root{
-  --papier:#f3f5f1;--blanc:#fbfcfa;--encre:#0f2b27;--doux:#4b615d;--vert:#007271;--vert-f:#005554;--jaune:#f4b740;--filet:#cfdcd7;
-  --serif:Fraunces,Georgia,serif;--sans:Manrope,system-ui,sans-serif;--marge:clamp(1.15rem,4.5vw,4rem);--max:80rem
+  --papier:#f5f7f9;--blanc:#fff;--encre:#032a28;--doux:#475569;--vert:#007271;--vert-f:#005554;--menthe:#9fd3cd;--menthe-clair:#e3f2f0;--jaune:#f4b740;--filet:#dce8e6;--r:20px;
+  --serif:Manrope,system-ui,sans-serif;--sans:Manrope,system-ui,sans-serif;--marge:clamp(1.15rem,4.5vw,4rem);--max:80rem
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:5rem}
@@ -183,3 +179,35 @@ details[open] .panneau{animation:ouvre .45s ease both}
 @media(prefers-reduced-motion:reduce){.js .monte{opacity:1;transform:none;transition:none}details[open] .panneau{animation:none}}
 
 @media(max-width:799px){.une h1{font-size:2.5rem}.avant-titre{margin-bottom:.6rem}}
+
+/* --- Charte Le bon geste : Manrope, vert du logo, coins arrondis --- */
+h1,h2,h3{font-weight:700;letter-spacing:-.02em}
+em{font-style:normal;color:var(--vert)}
+figcaption,.legende{font-style:normal;font-size:.9rem}
+figcaption span,.legende span{font-weight:600;color:var(--vert)}
+.sommaire-titre{font-style:normal;font-weight:700;color:var(--vert)}
+.mois b{font-weight:700;font-size:1.1rem}
+.mois li.maintenant{background:var(--menthe-clair);border-radius:12px;padding-left:.8rem;padding-right:.8rem}
+.mois li.maintenant b{font-style:normal}
+.titre{font-weight:700}
+.temps .recu{font-style:normal;font-weight:600;color:var(--vert)}
+.grand{font-weight:500}
+.faq summary{font-weight:600}
+.centre text{font:700 18px var(--sans)}
+.une-img img,.panneau img,.planche img,.ba-photos,.carte{border-radius:var(--r)}
+.btn-plein{background:var(--vert)}.btn-plein:hover{background:var(--vert-f)}
+.btn-ligne{border-color:var(--vert);color:var(--vert)}.btn-ligne:hover{background:var(--vert);color:#fff}
+.ba-boutons{border-color:var(--vert)}.ba-boutons button{color:var(--vert)}.ba-boutons button[aria-pressed="true"]{background:var(--vert);color:#fff}
+.page-tete,.sommaire{border-top-color:var(--vert)}
+.moitie{max-width:none;padding-left:0;padding-right:0}
+.moitie .page-tete{display:none}
+.moitie-in{max-width:var(--max);margin:0 auto;background:var(--vert);color:#fff;border-radius:28px;padding:clamp(2rem,5vw,4rem)}
+@media(max-width:799px){.moitie-in{margin:0 var(--marge)}}
+.moitie .cinquante{color:var(--jaune);font-weight:800}
+.moitie .grand{color:#fff}.moitie .lien{color:#fff;text-decoration-color:var(--jaune)}
+.numero{font-weight:800;color:var(--vert)}.numero:hover{color:var(--encre)}
+.tete{background:rgba(255,255,255,.96)}
+.barre-mobile{background:rgba(255,255,255,.97)}
+.barre-mobile a{border-color:var(--vert);color:var(--vert)}.barre-mobile a:last-child{background:var(--vert);color:#fff}
+.pied{background:#032a28}
+.moitie .cinquante em{color:var(--jaune)}
