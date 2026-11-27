@@ -1,6 +1,7 @@
 // API de l'appli de gestion (espace admin). Tout passe par ici.
 // Protégée deux fois : Cloudflare Access devant, et la vérification du jeton ci-dessous.
 import { utilisateur } from '../../_lib/acces.js';
+import { iaPrete, proposerIdees, redigerArticle, nettoyer } from '../../_lib/ia.js';
 import { configure, prepare, json, lireReglage, ecrireReglage, PRESTATIONS, supprimerPhoto } from '../../_lib/base.js';
 
 const TAILLE_MAX = 5 * 1024 * 1024; // 5 Mo par fichier, largement assez après redimensionnement
@@ -14,6 +15,23 @@ function id() {
 
 function texte(v, max) {
   return String(v == null ? '' : v).replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, max);
+}
+
+function adresseWeb(t) {
+  return String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80).replace(/-+$/, '') || 'conseil';
+}
+
+async function adresseLibre(env, voulue, sauf) {
+  let s = adresseWeb(voulue), n = 2;
+  while (await env.DB.prepare('SELECT id FROM articles WHERE slug = ? AND id != ?').bind(s, sauf || '').first()) s = adresseWeb(voulue) + '-' + n++;
+  return s;
+}
+
+function moisActuel() {
+  const m = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+  const d = new Date();
+  return m[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
 }
 
 function base(v) {
@@ -196,6 +214,80 @@ export async function onRequest(context) {
       await ecrireReglage(env, 'caches', tous);
       await viderCache(request);
       return json({ ok: true });
+    }
+
+    // ---------- blog « Conseils » ----------
+    if (ressource === 'blog') {
+      const sous = chemin[1];
+      if (methode === 'GET' && !sous) {
+        const { results } = await env.DB.prepare('SELECT id, slug, titre, description, photo, statut, cree, maj, publie_le FROM articles ORDER BY cree DESC').all();
+        return json({ ia: iaPrete(env), articles: results });
+      }
+      if (methode === 'POST' && sous === 'idees') {
+        if (!env.ANTHROPIC_API_KEY) return json({ erreur: 'La clé Claude n’est pas encore ajoutée dans Cloudflare.' }, 503);
+        if (!env.PERPLEXITY_API_KEY) return json({ erreur: 'La clé Perplexity n’est pas encore ajoutée dans Cloudflare. Tu peux quand même écrire ton idée toi-même.' }, 503);
+        const { results } = await env.DB.prepare('SELECT titre FROM articles ORDER BY cree DESC LIMIT 40').all();
+        try {
+          const idees = await proposerIdees(env, { mois: moisActuel(), existants: results.map((r) => r.titre) });
+          return json({ idees: idees.map((i) => ({ titre: nettoyer(i.titre), pourquoi: nettoyer(i.pourquoi) })) });
+        } catch (e) {
+          return json({ erreur: 'Les idées n’ont pas pu être trouvées. Réessaie dans une minute.', detail: String(e.message || e).slice(0, 200) }, 502);
+        }
+      }
+      if (methode === 'POST' && sous === 'rediger') {
+        if (!env.ANTHROPIC_API_KEY) return json({ erreur: 'La clé Claude n’est pas encore ajoutée dans Cloudflare.' }, 503);
+        const d = await request.json();
+        const sujet = texte(d.sujet, 200);
+        if (!sujet) return json({ erreur: 'Choisis une idée ou écris ton sujet.' }, 400);
+        const notes = String(d.notes || '').replace(/[\u0000-\u0009\u000b-\u001f]/g, ' ').trim().slice(0, 3000);
+        let r;
+        try { r = await redigerArticle(env, { sujet, notes, mois: moisActuel() }); }
+        catch (e) { return json({ erreur: 'Le brouillon n’a pas pu être écrit. Réessaie dans une minute.', detail: String(e.message || e).slice(0, 200) }, 502); }
+        const a = {
+          id: id(),
+          titre: texte(nettoyer(r.titre), 120) || sujet,
+          description: texte(nettoyer(r.description), 200),
+          corps: nettoyer(r.corps).slice(0, 20000),
+          photo: base(d.photo),
+          photo_alt: texte(d.photo_alt, 200),
+        };
+        a.slug = await adresseLibre(env, r.adresse || a.titre);
+        await env.DB.prepare("INSERT INTO articles (id, slug, titre, description, corps, photo, photo_alt, sujet, statut, cree, maj) VALUES (?,?,?,?,?,?,?,?,'brouillon',?,?)")
+          .bind(a.id, a.slug, a.titre, a.description, a.corps, a.photo, a.photo_alt, sujet, Date.now(), Date.now()).run();
+        return json({ ok: true, id: a.id });
+      }
+      if (sous) {
+        const actuel = await env.DB.prepare('SELECT * FROM articles WHERE id = ?').bind(sous).first();
+        if (!actuel) return json({ erreur: 'Article introuvable.' }, 404);
+        if (methode === 'GET') return json({ article: actuel });
+        if (methode === 'PATCH') {
+          const d = await request.json();
+          const n = {
+            titre: d.titre != null ? texte(d.titre, 120) : actuel.titre,
+            description: d.description != null ? texte(d.description, 200) : actuel.description,
+            corps: d.corps != null ? String(d.corps).replace(/[\u0000-\u0009\u000b-\u001f]/g, ' ').slice(0, 20000) : actuel.corps,
+            photo: d.photo != null ? base(d.photo) : actuel.photo,
+            photo_alt: d.photo_alt != null ? texte(d.photo_alt, 200) : actuel.photo_alt,
+            statut: d.statut === 'publie' || d.statut === 'brouillon' ? d.statut : actuel.statut,
+          };
+          if (!n.titre) return json({ erreur: 'Il manque un titre.' }, 400);
+          if (n.statut === 'publie' && !n.corps.trim()) return json({ erreur: 'L’article est vide.' }, 400);
+          // Tant que l'article n'a jamais été publié, son adresse suit le titre.
+          const slug = actuel.publie_le || n.titre === actuel.titre ? actuel.slug : await adresseLibre(env, n.titre, actuel.id);
+          const publieLe = n.statut === 'publie' ? (actuel.publie_le || Date.now()) : actuel.publie_le;
+          await env.DB.prepare('UPDATE articles SET titre=?, description=?, corps=?, photo=?, photo_alt=?, statut=?, slug=?, maj=?, publie_le=? WHERE id=?')
+            .bind(n.titre, n.description, n.corps, n.photo, n.photo_alt, n.statut, slug, Date.now(), publieLe, actuel.id).run();
+          if (actuel.photo && actuel.photo !== n.photo) await supprimerPhoto(env, actuel.photo);
+          await viderCache(request);
+          return json({ ok: true, slug, statut: n.statut });
+        }
+        if (methode === 'DELETE') {
+          await env.DB.prepare('DELETE FROM articles WHERE id = ?').bind(actuel.id).run();
+          await supprimerPhoto(env, actuel.photo);
+          await viderCache(request);
+          return json({ ok: true });
+        }
+      }
     }
 
     return json({ erreur: 'Action inconnue.' }, 404);

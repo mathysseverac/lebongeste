@@ -141,3 +141,22 @@ textarea.champ{resize:vertical}
 .origine{font-size:.92rem;color:var(--texte);background:var(--menthe-clair);border-radius:12px;padding:.6rem .8rem;margin:.2rem 0 .4rem}
 .fiche-boutons{display:grid;grid-template-columns:1fr 1fr;gap:0 .6rem}
 .fiche-boutons .bouton:first-child{grid-column:1/-1}
+
+/* conseils (blog) */
+.idees{display:grid;gap:.6rem;margin-top:.8rem}
+.idee{display:block;width:100%;text-align:left;padding:.9rem 1rem;border:2px solid var(--filet);border-radius:18px;background:#fff;cursor:pointer;color:var(--nuit)}
+.idee b{display:block;font-size:1.08rem;line-height:1.3}
+.idee i{display:block;font-style:normal;font-size:.95rem;color:var(--texte);margin-top:.25rem}
+.idee[aria-checked="true"]{border-color:var(--vert);background:var(--menthe-clair)}
+.centre{text-align:center}
+.onglets{display:grid;grid-template-columns:1fr 1fr;gap:.3rem;background:var(--menthe-clair);border-radius:999px;padding:.3rem;margin:1.5rem 0 .8rem}
+.onglets button{min-height:3rem;border:0;border-radius:999px;background:none;font-weight:800;cursor:pointer;color:var(--vert)}
+.onglets button[aria-selected="true"]{background:#fff;color:var(--nuit);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.texte-article{font-size:1.05rem;line-height:1.55;min-height:24rem}
+.apercu-article{border:1.5px solid var(--filet);border-radius:18px;padding:1rem 1.1rem;font-size:1.08rem;line-height:1.6}
+.apercu-article h2{font-size:1.35rem;font-weight:800;margin:1.4rem 0 .5rem;line-height:1.25}
+.apercu-article h2:first-child{margin-top:0}
+.apercu-article h1{font-size:1.7rem;line-height:1.15;margin:0 0 .8rem}
+.apercu-article p{margin:0 0 .9rem}
+.apercu-article ul{padding-left:1.3rem}
+.etat-brouillon{background:#fff4dc;color:#7a5200}

@@ -33,12 +33,12 @@
       }, function () { throw new Error('Pas de connexion Internet. Réessaie quand tu as du réseau.'); });
   }
 
-  function confirmer(titre, texte, oui) {
+  function confirmer(titre, texte, oui, doux) {
     return new Promise(function (resoudre) {
       var m = document.createElement('div');
       m.className = 'modale';
       m.innerHTML = '<div class="modale-boite" role="dialog" aria-modal="true" aria-labelledby="mt"><h2 id="mt">' + esc(titre) + '</h2><p>' + esc(texte) + '</p>' +
-        '<button type="button" class="bouton bouton-danger" data-oui>' + esc(oui) + '</button><button type="button" class="bouton bouton-ligne" data-non>Annuler</button></div>';
+        '<button type="button" class="bouton ' + (doux ? 'bouton-plein' : 'bouton-danger') + '" data-oui>' + esc(oui) + '</button><button type="button" class="bouton bouton-ligne" data-non>Annuler</button></div>';
       document.body.appendChild(m);
       var fermer = function (v) { m.remove(); resoudre(v); };
       m.querySelector('[data-oui]').onclick = function () { fermer(true); };
@@ -96,9 +96,9 @@
   }
 
   /* ---------- écrans ---------- */
-  var titres = { accueil: '', nouveau: 'Nouveau chantier', modifier: 'Modifier un chantier', fini: '', chantiers: 'Mes chantiers', site: 'Modifier le site', page: 'Modifier le site', coordonnees: 'Modifier le site', absence: 'Absence' };
+  var titres = { accueil: '', nouveau: 'Nouveau chantier', modifier: 'Modifier un chantier', fini: '', chantiers: 'Mes chantiers', site: 'Modifier le site', page: 'Modifier le site', coordonnees: 'Modifier le site', absence: 'Absence', blog: 'Mes conseils', ecrire: 'Mes conseils', article: 'Mes conseils' };
   var modeles = { modifier: 'nouveau' };
-  var parents = { page: 'site', coordonnees: 'site', modifier: 'chantiers' };
+  var parents = { page: 'site', coordonnees: 'site', modifier: 'chantiers', ecrire: 'blog', article: 'blog' };
 
   function afficher(adresse) {
     var morceaux = String(adresse || '').split('/');
@@ -478,6 +478,187 @@
         .then(function () { fini(); toast('Coordonnées changées sur tout le site'); aller('site'); })
         .catch(function (err) { fini(); erreur.textContent = err.message; erreur.hidden = false; });
     });
+  };
+
+  /* ---------- conseils (blog) ---------- */
+  function enLigne(t) { return esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); }
+  function versHTML(texte) {
+    var out = [], para = [], liste = null;
+    function finPara() { if (para.length) { out.push('<p>' + enLigne(para.join(' ')) + '</p>'); para = []; } }
+    function finListe() { if (liste) { out.push('<ul>' + liste.map(function (l) { return '<li>' + enLigne(l) + '</li>'; }).join('') + '</ul>'); liste = null; } }
+    String(texte || '').replace(/\r/g, '').split('\n').forEach(function (brut) {
+      var l = brut.trim(), m;
+      if (!l) { finPara(); finListe(); return; }
+      if ((m = l.match(/^(#{2,3})\s+(.+)$/))) { finPara(); finListe(); out.push('<h2>' + enLigne(m[2]) + '</h2>'); return; }
+      if ((m = l.match(/^[-*•]\s+(.+)$/))) { finPara(); (liste = liste || []).push(m[1]); return; }
+      finListe(); para.push(l);
+    });
+    finPara(); finListe();
+    return out.join('');
+  }
+  function dateCourte(ms) { try { return new Date(ms).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return ''; } }
+
+  // Une zone photo réutilisable : montre la photo choisie, garde le fichier.
+  function zonePhoto(conteneur, actuelle) {
+    var input = conteneur.querySelector('[data-photo-article]');
+    var zone = input.closest('.photo-choix');
+    var etat = { fichier: null, base: actuelle || '' };
+    function montrer(src) {
+      var img = zone.querySelector('img');
+      if (src) { img.src = src; img.hidden = false; zone.querySelector('.photo-vide').hidden = true; zone.classList.add('rempli'); }
+      else { img.hidden = true; zone.querySelector('.photo-vide').hidden = false; zone.classList.remove('rempli'); }
+    }
+    if (actuelle) montrer(actuelle + '-m');
+    input.addEventListener('change', function () {
+      var f = input.files && input.files[0];
+      if (!f) return;
+      etat.fichier = f; montrer(URL.createObjectURL(f));
+      if (etat.onChange) etat.onChange();
+    });
+    etat.vider = function () { etat.fichier = null; etat.base = ''; input.value = ''; montrer(''); };
+    etat.envoyerSiBesoin = function () {
+      if (!etat.fichier) return Promise.resolve(etat.base);
+      voileTexte.textContent = 'Envoi de la photo…';
+      return preparer(etat.fichier).then(envoyer).then(function (b) { etat.base = b; etat.fichier = null; return b; });
+    };
+    return etat;
+  }
+
+  ecrans.blog = function () {
+    var liste = ecran.querySelector('[data-articles]');
+    var alerte = ecran.querySelector('[data-alerte-ia]');
+    liste.innerHTML = '<p class="vide">Chargement…</p>';
+    api('blog').then(function (d) {
+      if (!d.ia.claude) { alerte.textContent = 'La clé Claude n’est pas encore ajoutée dans Cloudflare : l’écriture automatique ne marchera pas avant.'; alerte.hidden = false; }
+      if (!d.articles.length) { liste.innerHTML = '<p class="vide">Pas encore de conseil. Le premier, c’est le plus dur&nbsp;!</p>'; return; }
+      liste.innerHTML = '';
+      d.articles.forEach(function (a) {
+        var f = document.createElement('article');
+        f.className = 'fiche';
+        var publie = a.statut === 'publie';
+        f.innerHTML = (a.photo ? '<div class="fiche-photos une"><img src="' + a.photo + '-s" alt=""></div>' : '') +
+          '<div class="fiche-corps"><span class="etat' + (publie ? '' : ' etat-brouillon') + '">' + (publie ? 'En ligne depuis le ' + esc(dateCourte(a.publie_le)) : 'Brouillon, pas encore publié') + '</span>' +
+          '<h2>' + esc(a.titre) + '</h2>' +
+          '<button type="button" class="bouton bouton-plein" data-aller="article/' + encodeURIComponent(a.id) + '">' + (publie ? 'Modifier' : 'Relire et publier') + '</button></div>';
+        liste.appendChild(f);
+      });
+    }).catch(function (e) { liste.innerHTML = '<p class="vide">' + esc(e.message) + '</p>'; });
+  };
+
+  ecrans.ecrire = function () {
+    var form = ecran.querySelector('[data-form-ecrire]');
+    var erreur = form.querySelector('[data-erreur]');
+    var listeIdees = form.querySelector('[data-liste-idees]');
+    var boutonIdees = form.querySelector('[data-idees]');
+    var photo = zonePhoto(form, '');
+    var choisie = '';
+    function montrerErreur(t) { erreur.textContent = t; erreur.hidden = false; erreur.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    boutonIdees.onclick = function () {
+      erreur.hidden = true;
+      attendre('Je regarde ce que les gens se demandent en ce moment…');
+      api('blog/idees', { method: 'POST', json: {} }).then(function (d) {
+        fini();
+        listeIdees.innerHTML = '';
+        boutonIdees.textContent = 'Proposer d’autres idées';
+        d.idees.forEach(function (idee) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'idee'; b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', 'false');
+          b.innerHTML = '<b>' + esc(idee.titre) + '</b><i>' + esc(idee.pourquoi) + '</i>';
+          b.onclick = function () {
+            choisie = idee.titre; form.sujet.value = idee.titre;
+            listeIdees.querySelectorAll('.idee').forEach(function (x) { x.setAttribute('aria-checked', String(x === b)); });
+          };
+          listeIdees.appendChild(b);
+        });
+      }).catch(function (e) { fini(); montrerErreur(e.message); });
+    };
+    form.sujet.addEventListener('input', function () {
+      if (form.sujet.value !== choisie) listeIdees.querySelectorAll('.idee').forEach(function (x) { x.setAttribute('aria-checked', 'false'); });
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      erreur.hidden = true;
+      var sujet = form.sujet.value.trim();
+      if (!sujet) { form.sujet.focus(); return montrerErreur('Choisis une idée ou écris ton sujet.'); }
+      attendre('Préparation…');
+      photo.envoyerSiBesoin().then(function (base) {
+        voileTexte.textContent = 'Claude écrit ton brouillon. Ça prend environ une minute, garde l’appli ouverte.';
+        return api('blog/rediger', { method: 'POST', json: { sujet: sujet, notes: form.notes.value, photo: base } });
+      }).then(function (d) { fini(); location.replace('#article/' + encodeURIComponent(d.id)); })
+        .catch(function (err) { fini(); montrerErreur(err.message); });
+    });
+  };
+
+  ecrans.article = function (id) {
+    var form = ecran.querySelector('[data-form-article]');
+    var erreur = form.querySelector('[data-erreur]');
+    var boutons = form.querySelector('[data-boutons]');
+    var apercu = form.querySelector('[data-vue="apercu"]');
+    var compte = form.querySelector('[data-compte-desc]');
+    form.hidden = true;
+    attendre('Chargement…');
+    api('blog/' + encodeURIComponent(id)).then(function (d) {
+      fini();
+      var a = d.article;
+      form.hidden = false;
+      form.titre.value = a.titre; form.description.value = a.description || ''; form.corps.value = a.corps || '';
+      var publie = a.statut === 'publie';
+      form.querySelector('[data-etat-article]').textContent = publie ? 'En ligne depuis le ' + dateCourte(a.publie_le) + '. Tes changements s’affichent dès que tu enregistres.' : 'C’est un brouillon. Lis-le, corrige ce qui ne te ressemble pas, puis publie.';
+      var photo = zonePhoto(form, a.photo);
+      var retirer = form.querySelector('[data-retirer-photo]');
+      retirer.hidden = !a.photo;
+      photo.onChange = function () { retirer.hidden = false; };
+      retirer.onclick = function () { photo.vider(); retirer.hidden = true; };
+      function majCompte() { var n = form.description.value.length; compte.textContent = n + ' caractères' + (n < 110 ? ', un peu court' : n > 165 ? ', Google risque de couper la fin' : ', parfait'); }
+      form.description.addEventListener('input', majCompte); majCompte();
+      form.querySelectorAll('[data-onglet]').forEach(function (o) {
+        o.onclick = function () {
+          var vue = o.getAttribute('data-onglet');
+          form.querySelectorAll('[data-onglet]').forEach(function (x) { x.setAttribute('aria-selected', String(x === o)); });
+          form.querySelector('[data-vue="texte"]').hidden = vue !== 'texte';
+          apercu.hidden = vue !== 'apercu';
+          if (vue === 'apercu') apercu.innerHTML = '<h1>' + esc(form.titre.value) + '</h1>' + versHTML(form.corps.value);
+        };
+      });
+      function enregistrer(statut, message) {
+        erreur.hidden = true;
+        if (!form.titre.value.trim()) { form.titre.focus(); erreur.textContent = 'Il manque un titre.'; erreur.hidden = false; return; }
+        attendre('Enregistrement…');
+        photo.envoyerSiBesoin().then(function (base) {
+          voileTexte.textContent = 'Enregistrement…';
+          return api('blog/' + encodeURIComponent(a.id), { method: 'PATCH', json: { titre: form.titre.value, description: form.description.value, corps: form.corps.value, photo: base, statut: statut } });
+        }).then(function (r) {
+          fini(); toast(message);
+          if (statut === 'publie' && !publie) { afficherPublie(r.slug); return; }
+          aller('blog');
+        }).catch(function (e) { fini(); erreur.textContent = e.message; erreur.hidden = false; });
+      }
+      function afficherPublie(slug) {
+        ecran.innerHTML = '';
+        ecran.appendChild(document.getElementById('t-fini').content.cloneNode(true));
+        ecran.querySelector('.sous').textContent = 'Ton conseil est sur la page Conseils du site. Google le découvrira dans les prochains jours.';
+        var lien = ecran.querySelector('a.bouton'); lien.href = '/conseils/' + slug; lien.textContent = 'Le voir sur le site';
+        var autre = ecran.querySelector('[data-aller="nouveau"]'); autre.setAttribute('data-aller', 'ecrire'); autre.textContent = 'Écrire un autre conseil';
+        history.replaceState(null, '', '#fini');
+      }
+      var html = publie
+        ? '<button type="button" class="bouton bouton-plein" data-b="maj">Enregistrer les changements</button><a class="bouton bouton-ligne" href="/conseils/' + esc(a.slug) + '" target="_blank" rel="noopener">Voir sur le site</a><button type="button" class="bouton bouton-ligne" data-b="retirer">Retirer du site</button>'
+        : '<button type="button" class="bouton bouton-plein" data-b="publier">Publier sur le site</button><button type="button" class="bouton bouton-ligne" data-b="garder">Garder en brouillon</button>';
+      boutons.innerHTML = html + '<button type="button" class="bouton bouton-danger" data-b="supprimer">Supprimer</button>';
+      boutons.onclick = function (e) {
+        var b = e.target.closest('[data-b]'); if (!b) return;
+        var quoi = b.getAttribute('data-b');
+        if (quoi === 'maj') enregistrer('publie', 'Conseil mis à jour sur le site');
+        if (quoi === 'garder') enregistrer('brouillon', 'Brouillon enregistré');
+        if (quoi === 'publier') confirmer('Publier ce conseil ?', 'Il sera visible par tout le monde sur le site. Tu pourras toujours le modifier ou le retirer.', 'Oui, publier', true).then(function (oui) { if (oui) enregistrer('publie', 'Conseil publié'); });
+        if (quoi === 'retirer') enregistrer('brouillon', 'Conseil retiré du site, il reste en brouillon');
+        if (quoi === 'supprimer') confirmer('Supprimer ce conseil ?', 'Il sera effacé pour de bon, avec sa photo.', 'Oui, supprimer').then(function (oui) {
+          if (!oui) return;
+          attendre('Suppression…');
+          api('blog/' + encodeURIComponent(a.id), { method: 'DELETE' }).then(function () { fini(); toast('Conseil supprimé'); aller('blog'); }).catch(function (e2) { fini(); toast(e2.message); });
+        });
+      };
+    }).catch(function (e) { fini(); toast(e.message); aller('blog'); });
   };
 
   function dateFr(iso) { try { return new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }); } catch (e) { return iso; } }

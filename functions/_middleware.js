@@ -4,6 +4,7 @@
 // Si rien n'a été modifié (ou si la base n'est pas branchée), la page part telle quelle.
 import { contenuEnCache } from './api/contenu.js';
 import { chantierHTML, esc } from './_lib/rendu.js';
+import { carteArticle } from './_lib/blog.js';
 
 const TEL = '0610669435';
 const MAIL = 'contact.lebongeste@gmail.com';
@@ -18,7 +19,7 @@ function dateFr(iso) {
 
 function vide(c) {
   return !c.chantiers.length && !c.absence && !Object.keys(c.emplacements).length && !Object.keys(c.textes).length &&
-    !c.contact.tel && !c.contact.mail && !Object.keys(c.caches).length;
+    !c.contact.tel && !c.contact.mail && !Object.keys(c.caches).length && !(c.articles || []).length;
 }
 
 export async function onRequest(context) {
@@ -74,6 +75,10 @@ export async function onRequest(context) {
   if (c.chantiers.length) {
     const html = c.chantiers.map(chantierHTML).join('\n');
     rw = rw.on('[data-chantiers-dyn]', { element(el) { el.setInnerContent(html, { html: true }); el.setAttribute('data-rendu', 'serveur'); } });
+  }
+  if ((c.articles || []).length) {
+    const cartes = c.articles.map(carteArticle).join('\n');
+    rw = rw.on('[data-articles]', { element(el) { el.setInnerContent(cartes, { html: true }); } });
   }
   if (c.absence) {
     const a = c.absence;

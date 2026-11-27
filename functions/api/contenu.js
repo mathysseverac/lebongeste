@@ -1,8 +1,9 @@
 // Contenu publié depuis l'appli, lu par le site : chantiers, absence, photos, textes, coordonnées.
 // Sans base configurée, renvoie un contenu vide et le site reste tel quel.
-import { configure, prepare, json, lireReglage, PRESTATIONS } from '../_lib/base.js';
+import { configure, prepare, json, PRESTATIONS } from '../_lib/base.js';
+import { articlesPublies } from '../_lib/blog.js';
 
-export const VIDE = { chantiers: [], absence: null, emplacements: {}, textes: {}, contact: {}, caches: {} };
+export const VIDE = { chantiers: [], absence: null, emplacements: {}, textes: {}, contact: {}, caches: {}, articles: [] };
 
 export async function lireContenu(env) {
   if (!configure(env)) return VIDE;
@@ -21,6 +22,7 @@ export async function lireContenu(env) {
     textes: r.textes || {},
     contact: r.contact || {},
     caches: r.caches || {},
+    articles: await articlesPublies(env, 30),
   };
 }
 

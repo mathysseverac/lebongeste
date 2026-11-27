@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
     <link rel="stylesheet" href="/assets/marque.css?v=22">
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-latin-wght-normal.woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/lbg.css?v=2">
+    <link rel="stylesheet" href="/assets/lbg.css?v=3">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -85,6 +85,7 @@
                 <a href="https://le-bon-geste.fr/" data-nav="accueil" class="nav-link">Accueil</a>
                 <a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="nav-link">Prestations</a>
                 <a href="https://le-bon-geste.fr/realisations" data-nav="realisations" class="nav-link">Réalisations</a>
+                <a href="https://le-bon-geste.fr/conseils" data-nav="conseils" class="nav-link">Conseils</a>
                 <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="nav-link">Les 50 %</a>
                 <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="nav-link">Guide Unipros</a>
                 <a href="https://le-bon-geste.fr/faq" data-nav="faq" class="nav-link">Questions</a>
@@ -98,6 +99,7 @@
             <a href="https://le-bon-geste.fr/" data-nav="accueil" class="mobile-link">Accueil</a>
             <a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="mobile-link">Prestations</a>
             <a href="https://le-bon-geste.fr/realisations" data-nav="realisations" class="mobile-link">Réalisations</a>
+            <a href="https://le-bon-geste.fr/conseils" data-nav="conseils" class="mobile-link">Conseils</a>
             <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="mobile-link">Les 50 %</a>
             <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="mobile-link">Guide Unipros</a>
             <a href="https://le-bon-geste.fr/faq" data-nav="faq" class="mobile-link">Questions</a>
@@ -768,6 +770,24 @@
             </div>
         </section>
 
+        <!-- ==================== PAGE : CONSEILS (blog) ==================== -->
+        <section id="page-conseils" class="page-view relative">
+            <div class="lb-wrap lb-pagehead">
+                <div>
+                    <p class="lb-kicker">Conseils</p>
+                    <h1 class="lb-h1 lb-h1-page">Mes conseils de jardinier</h1>
+                    <p class="lb-lead">Ce que je vois sur mes chantiers autour de Mazamet, et ce que vous pouvez faire vous-même entre deux passages.</p>
+                </div>
+                <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-montre.svg" alt="" width="280" height="360">
+            </div>
+            <div class="lb-wrap lb-wrap-last n-articles" data-articles>
+                <p class="n-articles-vide">Les premiers conseils arrivent bientôt. En attendant, mes réponses aux questions courantes sont sur la page <a href="https://le-bon-geste.fr/faq" data-nav="faq">Questions</a>.</p>
+            </div>
+        </section>
+
+        <!-- ==================== PAGE : UN ARTICLE (rempli par le serveur) ==================== -->
+        <section id="page-article" class="page-view relative"></section>
+
         <!-- ==================== PAGE : CONFIRMATION DEVIS ==================== -->
         <section id="page-merci" class="page-view active-page relative">
             <div class="lb-wrap lb-wrap-last">
@@ -999,6 +1019,7 @@
                 <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap">Les 50 %</a>
                 <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide">Guide Unipros</a>
                 <a href="https://le-bon-geste.fr/guide-urssaf#espace-unipros" data-nav="guide" data-scroll="espace-unipros">Mon espace Unipros</a>
+                <a href="https://le-bon-geste.fr/conseils" data-nav="conseils">Conseils</a>
                 <a href="https://le-bon-geste.fr/faq" data-nav="faq">Questions</a>
                 <a href="https://le-bon-geste.fr/contact" data-nav="contact">Contact</a>
                 <a href="https://le-bon-geste.fr/avis" target="_blank" rel="noopener">Laisser un avis</a>
@@ -1074,7 +1095,7 @@
         </div>
     </div>
 
-    <script src="/assets/app.js?v=avis1" defer></script>
+    <script src="/assets/app.js?v=blog1" defer></script>
     <script src="/assets/lbg.js?v=1" defer></script>
     <script src="/assets/contenu.js?v=2" defer></script>
 </body>

@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" href="/admin/icone-180.png">
 <link rel="icon" href="/admin/icone-192.png" type="image/png">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-latin-wght-normal.woff2" crossorigin>
-<link rel="stylesheet" href="/admin/admin.css?v=2">
+<link rel="stylesheet" href="/admin/admin.css?v=3">
 </head>
 <body>
 <header class="barre">
@@ -48,6 +48,10 @@
       <button type="button" class="tuile" data-aller="site">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>
         <span><b>Modifier le site</b><i>Textes, photos, téléphone</i></span>
+      </button>
+      <button type="button" class="tuile" data-aller="blog">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg>
+        <span><b>Mes conseils</b><i data-etat-blog>Écrire un article pour le site</i></span>
       </button>
       <button type="button" class="tuile" data-aller="absence">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
@@ -163,6 +167,78 @@
   </form>
 </template>
 
+<template id="t-blog">
+  <section>
+    <h1>Mes conseils</h1>
+    <p class="sous">Des articles courts sur ton métier. Ils aident les gens du coin à te trouver sur Google.</p>
+    <p class="erreur" data-alerte-ia hidden></p>
+    <button type="button" class="tuile tuile-principale" data-aller="ecrire">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>
+      <span><b>Écrire un conseil</b><i>L'IA prépare un brouillon, tu relis</i></span>
+    </button>
+    <div class="liste" data-articles></div>
+  </section>
+</template>
+
+<template id="t-ecrire">
+  <form class="formulaire" data-form-ecrire novalidate>
+    <h1>Écrire un conseil</h1>
+    <div class="etape">
+      <p class="etape-titre"><span>1</span> Le sujet</p>
+      <button type="button" class="bouton bouton-ligne" data-idees>Me proposer des idées</button>
+      <div class="idees" data-liste-idees role="radiogroup" aria-label="Idées de sujets"></div>
+      <label class="etiquette" for="sujet">Ou écris ton idée</label>
+      <input class="champ" id="sujet" name="sujet" maxlength="200" placeholder="Par exemple : quand tailler un laurier">
+    </div>
+    <div class="etape">
+      <p class="etape-titre"><span>2</span> Ce que tu veux dire</p>
+      <textarea class="champ" name="notes" rows="5" maxlength="3000" placeholder="Facultatif, mais c'est ce qui rend l'article bon : un chantier que tu as fait, une astuce, une erreur que tu vois souvent, un outil que tu conseilles."></textarea>
+      <p class="aide">Tu peux aussi dicter avec le micro du clavier.</p>
+    </div>
+    <div class="etape">
+      <p class="etape-titre"><span>3</span> Une photo</p>
+      <label class="photo-choix">
+        <input type="file" accept="image/*" data-photo-article>
+        <span class="photo-vide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Facultatif : une de tes photos</span>
+        <img alt="" hidden>
+      </label>
+    </div>
+    <p class="erreur" data-erreur hidden></p>
+    <button type="submit" class="bouton bouton-plein">Écrire le brouillon</button>
+    <p class="aide centre">Ça prend environ une minute. Rien n'est publié sans toi.</p>
+  </form>
+</template>
+
+<template id="t-article">
+  <form class="formulaire" data-form-article novalidate>
+    <h1>Relire et publier</h1>
+    <p class="sous" data-etat-article></p>
+    <label class="etiquette" for="a-titre">Titre</label>
+    <input class="champ" id="a-titre" name="titre" maxlength="120">
+    <label class="etiquette" for="a-desc">Résumé affiché sur Google</label>
+    <textarea class="champ" id="a-desc" name="description" rows="3" maxlength="200"></textarea>
+    <p class="aide" data-compte-desc></p>
+    <p class="etiquette">Photo</p>
+    <label class="photo-choix">
+      <input type="file" accept="image/*" data-photo-article>
+      <span class="photo-vide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Ajouter une photo (facultatif)</span>
+      <img alt="" hidden>
+    </label>
+    <button type="button" class="bouton bouton-texte" data-retirer-photo hidden>Retirer la photo</button>
+    <div class="onglets" role="tablist">
+      <button type="button" role="tab" aria-selected="true" data-onglet="texte">Le texte</button>
+      <button type="button" role="tab" aria-selected="false" data-onglet="apercu">Aperçu</button>
+    </div>
+    <div data-vue="texte">
+      <textarea class="champ texte-article" name="corps" rows="18"></textarea>
+      <p class="aide">Une ligne qui commence par <b>##</b> devient un intertitre, une ligne qui commence par <b>-</b> devient une liste.</p>
+    </div>
+    <div class="apercu-article" data-vue="apercu" hidden></div>
+    <p class="erreur" data-erreur hidden></p>
+    <div data-boutons></div>
+  </form>
+</template>
+
 <template id="t-absence">
   <form class="formulaire" data-form-absence novalidate>
     <h1>Je suis absent</h1>
@@ -182,6 +258,6 @@
   </form>
 </template>
 
-<script src="/admin/admin.js?v=3" defer></script>
+<script src="/admin/admin.js?v=4" defer></script>
 </body>
 </html>

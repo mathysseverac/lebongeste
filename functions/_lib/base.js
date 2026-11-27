@@ -21,6 +21,20 @@ export async function prepare(env) {
       cree INTEGER NOT NULL,
       publie INTEGER NOT NULL DEFAULT 1
     )`),
+    env.DB.prepare(`CREATE TABLE IF NOT EXISTS articles (
+      id TEXT PRIMARY KEY,
+      slug TEXT NOT NULL UNIQUE,
+      titre TEXT NOT NULL,
+      description TEXT,
+      corps TEXT,
+      photo TEXT,
+      photo_alt TEXT,
+      sujet TEXT,
+      statut TEXT NOT NULL DEFAULT 'brouillon',
+      cree INTEGER NOT NULL,
+      maj INTEGER,
+      publie_le INTEGER
+    )`),
     env.DB.prepare(`CREATE TABLE IF NOT EXISTS reglages (
       cle TEXT PRIMARY KEY,
       valeur TEXT NOT NULL

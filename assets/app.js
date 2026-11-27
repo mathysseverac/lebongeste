@@ -361,6 +361,11 @@ const PAGES = {
         title: "Avant, après : haies taillées autour de Mazamet | Le bon geste",
         description: "Photos avant et après de mes chantiers de taille de haies et d'arbustes à Mazamet et alentours. Devis gratuit, 50 % déduits via Unipros."
     },
+    'conseils': {
+        url: 'https://le-bon-geste.fr/conseils',
+        title: "Conseils de jardinier à Mazamet | Le bon geste",
+        description: "Mes conseils pour l'entretien des haies, de la pelouse et du jardin autour de Mazamet : quand tailler, comment s'y prendre, ce que je vois sur mes chantiers."
+    },
     'devis': {
         url: 'https://le-bon-geste.fr/devis',
         title: "Rendez-vous et devis gratuit à Mazamet | Le bon geste",
@@ -432,7 +437,9 @@ function navigateTo(event, pageId) {
         event.preventDefault();
     }
 
-    if (!PAGES[pageId]) {
+    // Un article du blog : la page est déjà préparée par le serveur, on la garde telle quelle.
+    const estArticle = pageId === 'article' && document.querySelector('#page-article .n-article');
+    if (!PAGES[pageId] && !estArticle) {
         pageId = '404';
     }
 
@@ -472,7 +479,7 @@ function navigateTo(event, pageId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // Mettre à jour titre, description et balises de partage
-    updateMetadata(pageId);
+    if (!estArticle) updateMetadata(pageId);
 
     // Mettre à jour l'URL avec history.pushState
     if (PAGES[pageId]) {
@@ -637,6 +644,8 @@ function resolvePathToPageId(path) {
     if (path.indexOf('catalogue') !== -1) return 'services';
     if (path.indexOf('avantage-sap') !== -1 || path.indexOf('avantage-unipros') !== -1) return 'sap';
     if (path.indexOf('guide-urssaf') !== -1 || path.indexOf('guide-unipros') !== -1) return 'guide';
+    if (path.indexOf('/conseils/') === 0 && path.length > 10) return 'article';
+    if (path.indexOf('conseils') !== -1) return 'conseils';
     if (path.indexOf('realisations') !== -1) return 'realisations';
     if (path.indexOf('devis') !== -1) return 'devis';
     if (path.indexOf('merci') !== -1) return 'merci';
