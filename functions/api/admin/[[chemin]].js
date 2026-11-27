@@ -1,7 +1,7 @@
 // API de l'appli de gestion (espace admin). Tout passe par ici.
 // Protégée deux fois : Cloudflare Access devant, et la vérification du jeton ci-dessous.
 import { utilisateur } from '../../_lib/acces.js';
-import { configure, prepare, json, lireReglage, ecrireReglage, EMPLACEMENTS, PRESTATIONS, supprimerPhoto } from '../../_lib/base.js';
+import { configure, prepare, json, lireReglage, ecrireReglage, PRESTATIONS, supprimerPhoto } from '../../_lib/base.js';
 
 const TAILLE_MAX = 5 * 1024 * 1024; // 5 Mo par fichier, largement assez après redimensionnement
 const TYPES = ['image/webp', 'image/jpeg'];
@@ -24,7 +24,7 @@ function base(v) {
 async function viderCache(request) {
   const cache = caches.default;
   const o = new URL(request.url).origin;
-  await Promise.all(['/api/contenu', '/realisations'].map((p) => cache.delete(new Request(o + p)).catch(() => {})));
+  await Promise.all(['/api/contenu'].map((p) => cache.delete(new Request(o + p)).catch(() => {})));
 }
 
 export async function onRequest(context) {
@@ -47,7 +47,7 @@ export async function onRequest(context) {
 
   try {
     if (ressource === 'moi' && methode === 'GET') {
-      return json({ email: qui.email, emplacements: EMPLACEMENTS, prestations: PRESTATIONS });
+      return json({ email: qui.email, prestations: PRESTATIONS });
     }
 
     // ---------- chantiers ----------
@@ -66,11 +66,12 @@ export async function onRequest(context) {
           prestation: PRESTATIONS[d.prestation] ? d.prestation : 'autre',
           avant: base(d.avant),
           apres: base(d.apres),
+          portrait: d.portrait ? 1 : 0,
         };
         if (!c.titre) return json({ erreur: 'Il manque un titre.' }, 400);
         if (!c.apres) return json({ erreur: 'Il manque la photo « après ».' }, 400);
-        await env.DB.prepare('INSERT INTO chantiers (id, titre, commune, texte, prestation, avant, apres, cree, publie) VALUES (?,?,?,?,?,?,?,?,1)')
-          .bind(c.id, c.titre, c.commune, c.texte, c.prestation, c.avant, c.apres, Date.now()).run();
+        await env.DB.prepare('INSERT INTO chantiers (id, titre, commune, texte, prestation, avant, apres, portrait, cree, publie) VALUES (?,?,?,?,?,?,?,?,?,1)')
+          .bind(c.id, c.titre, c.commune, c.texte, c.prestation, c.avant, c.apres, c.portrait, Date.now()).run();
         await viderCache(request);
         return json({ ok: true, id: c.id });
       }
@@ -84,10 +85,16 @@ export async function onRequest(context) {
           texte: d.texte != null ? texte(d.texte, 600) : actuel.texte,
           prestation: d.prestation && PRESTATIONS[d.prestation] ? d.prestation : actuel.prestation,
           publie: d.publie != null ? (d.publie ? 1 : 0) : actuel.publie,
+          // photos : absente = on garde, chaîne vide = on retire la photo avant
+          avant: d.avant != null ? base(d.avant) : actuel.avant,
+          apres: d.apres != null && base(d.apres) ? base(d.apres) : actuel.apres,
+          portrait: d.portrait != null ? (d.portrait ? 1 : 0) : actuel.portrait,
         };
         if (!n.titre) return json({ erreur: 'Il manque un titre.' }, 400);
-        await env.DB.prepare('UPDATE chantiers SET titre=?, commune=?, texte=?, prestation=?, publie=? WHERE id=?')
-          .bind(n.titre, n.commune, n.texte, n.prestation, n.publie, cle).run();
+        await env.DB.prepare('UPDATE chantiers SET titre=?, commune=?, texte=?, prestation=?, publie=?, avant=?, apres=?, portrait=? WHERE id=?')
+          .bind(n.titre, n.commune, n.texte, n.prestation, n.publie, n.avant, n.apres, n.portrait, cle).run();
+        if (actuel.avant && actuel.avant !== n.avant) await supprimerPhoto(env, actuel.avant);
+        if (actuel.apres && actuel.apres !== n.apres) await supprimerPhoto(env, actuel.apres);
         await viderCache(request);
         return json({ ok: true });
       }
@@ -125,7 +132,9 @@ export async function onRequest(context) {
       return json({
         absence: await lireReglage(env, 'absence', { actif: false, jusqu: '', message: '' }),
         emplacements: await lireReglage(env, 'emplacements', {}),
-        liste: EMPLACEMENTS,
+        textes: await lireReglage(env, 'textes', {}),
+        contact: await lireReglage(env, 'contact', {}),
+        caches: await lireReglage(env, 'caches', {}),
       });
     }
     if (ressource === 'absence' && methode === 'PUT') {
@@ -138,7 +147,7 @@ export async function onRequest(context) {
     }
     if (ressource === 'emplacement' && methode === 'PUT') {
       const d = await request.json();
-      if (!EMPLACEMENTS[d.cle]) return json({ erreur: 'Emplacement inconnu.' }, 400);
+      if (!/^[a-z0-9-]{1,60}$/.test(String(d.cle || ''))) return json({ erreur: 'Emplacement inconnu.' }, 400);
       const tous = await lireReglage(env, 'emplacements', {});
       const ancien = tous[d.cle];
       const nouveau = base(d.base);
@@ -147,6 +156,46 @@ export async function onRequest(context) {
       if (ancien && ancien !== nouveau) await supprimerPhoto(env, ancien);
       await viderCache(request);
       return json({ ok: true, emplacements: tous });
+    }
+
+    // ---------- textes du site ----------
+    if (ressource === 'texte' && methode === 'PUT') {
+      const d = await request.json();
+      if (!/^t\d{1,5}$/.test(String(d.cle || ''))) return json({ erreur: 'Texte inconnu.' }, 400);
+      const tous = await lireReglage(env, 'textes', {});
+      const t = texte(d.texte, 2000);
+      if (d.texte == null || d.origine) delete tous[d.cle];
+      else if (!t) return json({ erreur: 'Le texte est vide. Pour revenir au texte d’origine, utilise le bouton prévu.' }, 400);
+      else tous[d.cle] = t;
+      await ecrireReglage(env, 'textes', tous);
+      await viderCache(request);
+      return json({ ok: true });
+    }
+
+    // ---------- coordonnées ----------
+    if (ressource === 'contact' && methode === 'PUT') {
+      const d = await request.json();
+      const tel = String(d.tel || '').replace(/[^\d+]/g, '').replace(/^\+33/, '0');
+      const mail = texte(d.mail, 120).toLowerCase();
+      if (tel && !/^0[1-9]\d{8}$/.test(tel)) return json({ erreur: 'Le numéro doit avoir 10 chiffres, par exemple 06 12 34 56 78.' }, 400);
+      if (mail && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/.test(mail)) return json({ erreur: 'L’adresse mail ne semble pas complète.' }, 400);
+      const contact = {};
+      if (tel) contact.tel = tel;
+      if (mail) contact.mail = mail;
+      await ecrireReglage(env, 'contact', contact);
+      await viderCache(request);
+      return json({ ok: true, contact });
+    }
+
+    // ---------- anciens chantiers de la page Réalisations : afficher ou cacher ----------
+    if (ressource === 'bloc' && methode === 'PUT') {
+      const d = await request.json();
+      if (!/^[a-z0-9-]{1,60}$/.test(String(d.cle || ''))) return json({ erreur: 'Bloc inconnu.' }, 400);
+      const tous = await lireReglage(env, 'caches', {});
+      if (d.visible) delete tous[d.cle]; else tous[d.cle] = true;
+      await ecrireReglage(env, 'caches', tous);
+      await viderCache(request);
+      return json({ ok: true });
     }
 
     return json({ erreur: 'Action inconnue.' }, 404);

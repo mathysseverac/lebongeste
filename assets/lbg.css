@@ -257,3 +257,8 @@ body h1,body h2,body h3{font-family:inherit}
 .n-cd-apres figcaption{background:var(--jaune)}
 @media(max-width:599px){.n-cd-photos{grid-template-columns:1fr}}
 .n-absence{background:var(--jaune);color:var(--nuit);text-align:center;padding:.7rem var(--marge);font-size:1rem;line-height:1.4}
+/* chantiers ajoutés avec l'appli : même présentation que les anciens */
+.n-chantiers-dyn:not(:empty)+.lb-wrap .lb-chantier:first-child{border-top:1.5px solid var(--filet);padding-top:2.5rem}
+.lb-ba-seule{max-width:46rem}
+.lb-ba-seule.is-portrait{max-width:24rem;margin:0 auto}
+.lb-ba-seule .lb-ba-fig figcaption{display:block}

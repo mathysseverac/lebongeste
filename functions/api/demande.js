@@ -42,6 +42,15 @@ async function brevo(env, payload) {
 }
 
 export async function onRequestPost({ request, env }) {
+  // Adresse de réception : celle choisie dans l'appli de gestion, sinon la variable Cloudflare, sinon l'adresse d'origine.
+  let destination = env.DEST_EMAIL || 'contact.lebongeste@gmail.com';
+  try {
+    if (env.DB) {
+      const l = await env.DB.prepare("SELECT valeur FROM reglages WHERE cle = 'contact'").first();
+      const m = l && JSON.parse(l.valeur).mail;
+      if (m) destination = m;
+    }
+  } catch (e) {}
   if (!env.BREVO_API_KEY || !env.BREVO_SENDER_EMAIL || !env.TURNSTILE_SECRET) {
     return json({ ok: false, reason: 'non_configure' }, 503);
   }
@@ -109,7 +118,7 @@ ${photosNote}${skippedNote}
 
   const resSylvain = await brevo(env, {
     sender: { name: 'Site Le bon geste', email: env.BREVO_SENDER_EMAIL },
-    to: [{ email: env.DEST_EMAIL || 'contact.lebongeste@gmail.com', name: 'Sylvain' }],
+    to: [{ email: destination, name: 'Sylvain' }],
     replyTo: { email, name: nom },
     subject: `${titre} : ${nom}${ville ? ' (' + ville + ')' : ''}`,
     htmlContent: pourSylvain,
@@ -164,7 +173,7 @@ https://le-bon-geste.fr/`;
     await brevo(env, {
       sender: { name: 'Sylvain, Le bon geste', email: env.BREVO_SENDER_EMAIL },
       to: [{ email, name: nom || undefined }],
-      replyTo: { email: env.DEST_EMAIL || 'contact.lebongeste@gmail.com', name: 'Sylvain, Le bon geste' },
+      replyTo: { email: destination, name: 'Sylvain, Le bon geste' },
       subject: isContact ? 'Bien reçu ! Je vous réponds sous 24 à 48 h' : 'Bien reçu ! Je vous rappelle sous 24 à 48 h',
       htmlContent: html,
       textContent: text,

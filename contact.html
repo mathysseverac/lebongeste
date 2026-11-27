@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
     <link rel="stylesheet" href="/assets/marque.css?v=22">
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-latin-wght-normal.woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/lbg.css?v=1">
+    <link rel="stylesheet" href="/assets/lbg.css?v=2">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -116,14 +116,14 @@
             <section class="n-hero">
                 <div class="n-hero-txt">
                     <h1><span class="n-l">Jardinier et</span> <span class="n-l">homme toutes mains</span> <span class="n-l n-vert">à Mazamet.</span></h1>
-                    <p class="n-chapo">Je taille les haies, je tonds et je nettoie les terrasses. Dans la maison, je monte les meubles et je règle la box. Vous payez la moitié de la facture.</p>
+                    <p data-t="t1" class="n-chapo">Je taille les haies, je tonds et je nettoie les terrasses. Dans la maison, je monte les meubles et je règle la box. Vous payez la moitié de la facture.</p>
                     <div class="n-actions">
                         <a class="n-pilule n-pilule-vert" href="tel:+33610669435">Appeler le 06 10 66 94 35</a>
                         <a class="n-lien" href="https://le-bon-geste.fr/devis" data-nav="devis">Demander un devis gratuit</a>
                     </div>
                 </div>
                 <div class="n-hero-visuel">
-                    <div class="n-hero-photo"><picture><source type="image/avif" srcset="/assets/realisations/hero-haie-m.avif 720w, /assets/realisations/hero-haie-l.avif 1092w" sizes="(min-width:900px) 45vw, 100vw"><img src="/assets/realisations/hero-haie-l.webp" srcset="/assets/realisations/hero-haie-m.webp 720w, /assets/realisations/hero-haie-l.webp 1092w" sizes="(min-width:900px) 45vw, 100vw" alt="Une longue haie fraîchement taillée le long d'un terrain, sous un ciel bleu, près de Mazamet" width="1092" height="819" fetchpriority="high" data-glisse data-slot="accueil-haut"></picture></div>
+                    <div class="n-hero-photo"><picture><source data-slot="accueil-haut" type="image/avif" srcset="/assets/realisations/hero-haie-m.avif 720w, /assets/realisations/hero-haie-l.avif 1092w" sizes="(min-width:900px) 45vw, 100vw"><img src="/assets/realisations/hero-haie-l.webp" srcset="/assets/realisations/hero-haie-m.webp 720w, /assets/realisations/hero-haie-l.webp 1092w" sizes="(min-width:900px) 45vw, 100vw" alt="Une longue haie fraîchement taillée le long d'un terrain, sous un ciel bleu, près de Mazamet" width="1092" height="819" fetchpriority="high" data-glisse data-slot="accueil-haut"></picture></div>
                     <a class="n-badge" href="https://le-bon-geste.fr/avantage-sap" data-nav="sap"><b>−50 %</b><span>sur la facture</span></a>
                     <div class="n-sylvain-rond"><img src="/assets/img/marque/sylvain-face.svg" alt="" width="280" height="360"></div>
                 </div>
@@ -136,16 +136,16 @@
                 </div>
                 <div class="n-mosaique">
                     <div class="n-col" data-vitesse="0">
-                        <img class="n-tuile n-r43" src="/assets/accueil/0725.webp" alt="Une haie de laurier taillée droite" width="900" height="675" loading="lazy">
-                        <img class="n-tuile n-r34" src="/assets/accueil/0718.webp" alt="Un arbuste taillé en boule" width="675" height="900" loading="lazy">
+                        <img data-slot="photo-0725" class="n-tuile n-r43" src="/assets/accueil/0725.webp" alt="Une haie de laurier taillée droite" width="900" height="675" loading="lazy">
+                        <img data-slot="photo-0718" class="n-tuile n-r34" src="/assets/accueil/0718.webp" alt="Un arbuste taillé en boule" width="675" height="900" loading="lazy">
                     </div>
                     <div class="n-col" data-vitesse="-0.06">
-                        <picture><source type="image/avif" srcset="/assets/accueil/arbre-taille.avif"><img class="n-tuile n-r34" src="/assets/accueil/arbre-taille.webp" alt="Un arbre taillé en tête de chat au milieu d'une pelouse, près de Mazamet" width="900" height="1200" loading="lazy"></picture>
-                        <img class="n-tuile n-r43" src="/assets/accueil/0723.webp" alt="Une pelouse tondue au pied des pins" width="900" height="675" loading="lazy">
+                        <picture><source data-slot="photo-arbre-taille" type="image/avif" srcset="/assets/accueil/arbre-taille.avif"><img data-slot="photo-arbre-taille" class="n-tuile n-r34" src="/assets/accueil/arbre-taille.webp" alt="Un arbre taillé en tête de chat au milieu d'une pelouse, près de Mazamet" width="900" height="1200" loading="lazy"></picture>
+                        <img data-slot="photo-0723" class="n-tuile n-r43" src="/assets/accueil/0723.webp" alt="Une pelouse tondue au pied des pins" width="900" height="675" loading="lazy">
                     </div>
                     <div class="n-col n-col-3" data-vitesse="0.04">
-                        <img class="n-tuile n-r43" src="/assets/accueil/0570.webp" alt="Une allée bordée de haies" width="900" height="675" loading="lazy">
-                        <img class="n-tuile n-r34" src="/assets/accueil/1462.webp" alt="Un jardin en automne, pelouse et dallage" width="675" height="900" loading="lazy">
+                        <img data-slot="photo-0570" class="n-tuile n-r43" src="/assets/accueil/0570.webp" alt="Une allée bordée de haies" width="900" height="675" loading="lazy">
+                        <img data-slot="photo-1462" class="n-tuile n-r34" src="/assets/accueil/1462.webp" alt="Un jardin en automne, pelouse et dallage" width="675" height="900" loading="lazy">
                     </div>
                 </div>
             </section>
@@ -154,12 +154,12 @@
                 <div class="n-bloc-in">
                     <div class="n-bloc-tete">
                         <h2 id="t-pr">Ce que je fais chez vous</h2>
-                        <p>Toutes ces prestations donnent droit aux 50&nbsp;% déduits.</p>
+                        <p data-t="t2">Toutes ces prestations donnent droit aux 50&nbsp;% déduits.</p>
                     </div>
                     <ul class="n-cartes">
                         <li class="n-carte"><a href="https://le-bon-geste.fr/catalogue#service-haies" data-nav-service="service-haies"><img data-slot="presta-haies" src="/assets/accueil/0725.webp" alt="" width="900" height="675" loading="lazy"><span class="n-carte-txt"><b>Taille de haies</b><span>Jusqu'à 3&nbsp;m, toujours depuis le sol.</span></span></a></li>
                         <li class="n-carte"><a href="https://le-bon-geste.fr/catalogue#service-pelouses" data-nav-service="service-pelouses"><img data-slot="presta-tonte" src="/assets/accueil/0577.webp" alt="" width="900" height="675" loading="lazy"><span class="n-carte-txt"><b>Tonte et débroussaillage</b><span>Pelouses, herbes hautes, talus.</span></span></a></li>
-                        <li class="n-carte"><a href="https://le-bon-geste.fr/catalogue#service-nettoyage" data-nav-service="service-nettoyage"><picture><source type="image/avif" srcset="/assets/accueil/arbre-taille.avif"><img data-slot="presta-terrasses" src="/assets/accueil/arbre-taille.webp" alt="" width="900" height="1200" loading="lazy"></picture><span class="n-carte-txt"><b>Terrasses et allées</b><span>Démoussage et nettoyage.</span></span></a></li>
+                        <li class="n-carte"><a href="https://le-bon-geste.fr/catalogue#service-nettoyage" data-nav-service="service-nettoyage"><picture><source data-slot="presta-terrasses" type="image/avif" srcset="/assets/accueil/arbre-taille.avif"><img data-slot="presta-terrasses" src="/assets/accueil/arbre-taille.webp" alt="" width="900" height="1200" loading="lazy"></picture><span class="n-carte-txt"><b>Terrasses et allées</b><span>Démoussage et nettoyage.</span></span></a></li>
                         <li class="n-carte n-illu"><a href="https://le-bon-geste.fr/catalogue#service-bricolage" data-nav-service="service-bricolage"><img src="/assets/img/marque/scene-bricolage.svg" alt="" width="480" height="330" loading="lazy"><span class="n-carte-txt"><b>Petit bricolage</b><span>Meubles, étagères, tringles.</span></span></a></li>
                         <li class="n-carte n-illu"><a href="https://le-bon-geste.fr/catalogue#service-assistance" data-nav-service="service-assistance"><img src="/assets/img/marque/scene-informatique.svg" alt="" width="480" height="330" loading="lazy"><span class="n-carte-txt"><b>Informatique</b><span>Box, Wi-Fi, ordinateur, sans jargon.</span></span></a></li>
                     </ul>
@@ -169,7 +169,7 @@
             <section class="n-bloc" aria-labelledby="t-ba">
                 <div class="n-bloc-tete">
                     <h2 id="t-ba">Avant et après</h2>
-                    <p>Faites glisser la barre pour comparer.</p>
+                    <p data-t="t3">Faites glisser la barre pour comparer.</p>
                 </div>
                 <div class="n-ba" data-compare>
                     <img src="/assets/realisations/haie-1-apres-l.webp" alt="La haie après la taille" width="1092" height="819" loading="lazy">
@@ -185,7 +185,7 @@
                     <p class="n-cinquante" aria-hidden="true"><span data-compte="50">50</span>&nbsp;%</p>
                     <div>
                         <h2 id="t-mo">Vous payez la moitié, tout de suite.</h2>
-                        <p>Mes prestations sont des services à la personne. Je passe par la coopérative Unipros&nbsp;: les 50&nbsp;% de crédit d'impôt sont déduits de la facture, vous n'avancez rien.</p>
+                        <p data-t="t4">Mes prestations sont des services à la personne. Je passe par la coopérative Unipros&nbsp;: les 50&nbsp;% de crédit d'impôt sont déduits de la facture, vous n'avancez rien.</p>
                         <a class="n-lien n-lien-clair" href="https://le-bon-geste.fr/avantage-sap" data-nav="sap">Comment ça marche</a>
                     </div>
                 </div>
@@ -194,9 +194,9 @@
             <section class="n-bloc" aria-labelledby="t-et">
                 <div class="n-bloc-tete"><h2 id="t-et">Comment ça se passe</h2></div>
                 <ol class="n-etapes">
-                    <li><span class="n-n">1</span><h3>Vous m'appelez</h3><p>Ou vous remplissez la demande de devis. Je réponds sous 48 h.</p></li>
-                    <li><span class="n-n">2</span><h3>Je passe voir</h3><p>Je regarde sur place et je vous fais un devis gratuit.</p></li>
-                    <li><span class="n-n">3</span><h3>Je fais le travail</h3><p>Au jour convenu. Vous réglez la moitié de la facture.</p></li>
+                    <li><span class="n-n">1</span><h3 data-t="t5">Vous m'appelez</h3><p data-t="t6">Ou vous remplissez la demande de devis. Je réponds sous 48 h.</p></li>
+                    <li><span class="n-n">2</span><h3 data-t="t7">Je passe voir</h3><p data-t="t8">Je regarde sur place et je vous fais un devis gratuit.</p></li>
+                    <li><span class="n-n">3</span><h3 data-t="t9">Je fais le travail</h3><p data-t="t10">Au jour convenu. Vous réglez la moitié de la facture.</p></li>
                 </ol>
             </section>
 
@@ -205,7 +205,7 @@
                 <div class="lb-wrap">
                     <div class="lb-real-head">
                         <div>
-                            <h2 class="lb-h2">Ce que disent mes clients</h2>
+                            <h2 data-t="t11" class="lb-h2">Ce que disent mes clients</h2>
                             <p class="lb-sub" data-avis-note>Avis publiés sur Google.</p>
                         </div>
                         <div class="lb-actions">
@@ -214,7 +214,7 @@
                         </div>
                     </div>
                     <div class="lb-avis-grid" data-avis-liste></div>
-                    <p class="lb-avis-source">Avis repris de Google tels qu'ils ont été publiés, sans retouche. Google n'en transmet que 5 au maximum : tous les avis sont sur la fiche Google.</p>
+                    <p data-t="t12" class="lb-avis-source">Avis repris de Google tels qu'ils ont été publiés, sans retouche. Google n'en transmet que 5 au maximum : tous les avis sont sur la fiche Google.</p>
                 </div>
             </div>
 
@@ -223,14 +223,14 @@
                 <div class="n-bloc-in n-zone">
                     <div>
                         <h2 id="t-zo">J'interviens autour de Mazamet</h2>
-                        <p>Jusqu'à 20 km environ. Je confirme avec le devis.</p>
+                        <p data-t="t13">Jusqu'à 20 km environ. Je confirme avec le devis.</p>
                         <ul class="n-communes">
-                            <li>Mazamet</li><li>Aiguefonde</li><li>Aussillon</li><li>Pont-de-Larn</li><li>Payrin-Augmontel</li><li>Saint-Amans-Soult</li><li>Caucalières</li><li>Labruguière</li><li>Hautpoul</li>
+                            <li data-t="t14">Mazamet</li><li data-t="t15">Aiguefonde</li><li data-t="t16">Aussillon</li><li data-t="t17">Pont-de-Larn</li><li data-t="t18">Payrin-Augmontel</li><li data-t="t19">Saint-Amans-Soult</li><li data-t="t20">Caucalières</li><li data-t="t21">Labruguière</li><li data-t="t22">Hautpoul</li>
                         </ul>
                     </div>
                     <div class="n-appel">
                         <img class="n-appel-sylvain" src="/assets/img/marque/sylvain-pouce.svg" alt="" width="280" height="360" loading="lazy">
-                        <p>Le plus simple, c'est de m'appeler.</p>
+                        <p data-t="t23">Le plus simple, c'est de m'appeler.</p>
                         <a class="n-numero" href="tel:+33610669435">06 10 66 94 35</a>
                         <a class="n-pilule n-pilule-vert" href="https://le-bon-geste.fr/devis" data-nav="devis">Ou demander un devis en ligne</a>
                     </div>
@@ -241,8 +241,8 @@
         <section id="page-services" class="page-view relative">
             <div class="lb-wrap lb-pagehead">
                 <div>
-                                        <h1 class="lb-h1 lb-h1-page">Entretien de jardin et petits travaux à domicile</h1>
-                    <p class="lb-lead">À Mazamet, Aiguefonde et alentours. Devis gratuit, et 50&nbsp;% déduits directement de la facture.</p>
+                                        <h1 data-t="t24" class="lb-h1 lb-h1-page">Entretien de jardin et petits travaux à domicile</h1>
+                    <p data-t="t25" class="lb-lead">À Mazamet, Aiguefonde et alentours. Devis gratuit, et 50&nbsp;% déduits directement de la facture.</p>
                     <div class="lb-actions">
                         <a href="tel:+33610669435" class="lb-btn lb-btn-main"><img src="/assets/img/marque/picto-telephone-blanc.svg" alt="" width="20" height="20"> Appeler le 06 10 66 94 35</a>
                         <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-soft">Prendre rendez-vous</a>
@@ -254,13 +254,13 @@
                 <div class="lb-services">
 
                     <article class="lb-service" id="service-haies">
-                        <div class="lb-service-illu"><picture><source type="image/avif" srcset="/assets/accueil/0725.avif"><img data-slot="presta-haies" src="/assets/accueil/0725.webp" alt="Une haie de laurier taillée droite, près de Mazamet" width="900" height="675" loading="lazy" class="n-photo-presta"></picture></div>
+                        <div class="lb-service-illu"><picture><source data-slot="presta-haies" type="image/avif" srcset="/assets/accueil/0725.avif"><img data-slot="presta-haies" src="/assets/accueil/0725.webp" alt="Une haie de laurier taillée droite, près de Mazamet" width="900" height="675" loading="lazy" class="n-photo-presta"></picture></div>
                         <div class="lb-service-body">
-                            <h2>Taille de haies à Mazamet et alentours</h2>
+                            <h2 data-t="t26">Taille de haies à Mazamet et alentours</h2>
                             <ul class="lb-checks">
-                            <li>Haies basses, moyennes et hautes</li>
-                            <li>Jusqu'à 3&nbsp;m, depuis le sol</li>
-                            <li>Arbustes</li>
+                            <li data-t="t27">Haies basses, moyennes et hautes</li>
+                            <li data-t="t28">Jusqu'à 3&nbsp;m, depuis le sol</li>
+                            <li data-t="t29">Arbustes</li>
                         </ul>
                             <div class="lb-card-foot">
                                 <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-main lb-btn-sm">Demander un devis</a>
@@ -269,13 +269,13 @@
                     </article>
 
                     <article class="lb-service" id="service-pelouses">
-                        <div class="lb-service-illu"><picture><source type="image/avif" srcset="/assets/accueil/0577.avif"><img data-slot="presta-tonte" src="/assets/accueil/0577.webp" alt="Un talus débroussaillé le long d'un chemin" width="900" height="675" loading="lazy" class="n-photo-presta"></picture></div>
+                        <div class="lb-service-illu"><picture><source data-slot="presta-tonte" type="image/avif" srcset="/assets/accueil/0577.avif"><img data-slot="presta-tonte" src="/assets/accueil/0577.webp" alt="Un talus débroussaillé le long d'un chemin" width="900" height="675" loading="lazy" class="n-photo-presta"></picture></div>
                         <div class="lb-service-body">
-                            <h2>Tonte de pelouse et débroussaillage</h2>
+                            <h2 data-t="t30">Tonte de pelouse et débroussaillage</h2>
                             <ul class="lb-checks">
-                            <li>Tonte et finitions des bordures</li>
-                            <li>Débroussaillage des herbes hautes et talus</li>
-                            <li>Mulching</li>
+                            <li data-t="t31">Tonte et finitions des bordures</li>
+                            <li data-t="t32">Débroussaillage des herbes hautes et talus</li>
+                            <li data-t="t33">Mulching</li>
                         </ul>
                             <div class="lb-card-foot">
                                 <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="jardin" class="lb-btn lb-btn-main lb-btn-sm">Demander un devis</a>
@@ -284,12 +284,12 @@
                     </article>
 
                     <article class="lb-service" id="service-nettoyage">
-                        <div class="lb-service-illu"><picture><source type="image/avif" srcset="/assets/accueil/arbre-taille.avif"><img data-slot="presta-terrasses" src="/assets/accueil/arbre-taille.webp" alt="Une terrasse dallée et une pelouse entretenues" width="675" height="900" loading="lazy" class="n-photo-presta"></picture></div>
+                        <div class="lb-service-illu"><picture><source data-slot="presta-terrasses" type="image/avif" srcset="/assets/accueil/arbre-taille.avif"><img data-slot="presta-terrasses" src="/assets/accueil/arbre-taille.webp" alt="Une terrasse dallée et une pelouse entretenues" width="675" height="900" loading="lazy" class="n-photo-presta"></picture></div>
                         <div class="lb-service-body">
-                            <h2>Nettoyage de terrasses et allées</h2>
+                            <h2 data-t="t34">Nettoyage de terrasses et allées</h2>
                             <ul class="lb-checks">
-                            <li>Démoussage</li>
-                            <li>Terrasses, allées et margelles</li>
+                            <li data-t="t35">Démoussage</li>
+                            <li data-t="t36">Terrasses, allées et margelles</li>
                         </ul>
                             <div class="lb-card-foot">
                                 <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="nettoyage" class="lb-btn lb-btn-main lb-btn-sm">Demander un devis</a>
@@ -300,11 +300,11 @@
                     <article class="lb-service" id="service-bricolage">
                         <div class="lb-service-illu"><img src="/assets/img/marque/scene-bricolage.svg" alt="Illustration : petit bricolage à domicile, Sylvain fixe une étagère à la perceuse" width="480" height="330" loading="lazy"></div>
                         <div class="lb-service-body">
-                            <h2>Petit bricolage et montage de meubles</h2>
+                            <h2 data-t="t37">Petit bricolage et montage de meubles</h2>
                             <ul class="lb-checks">
-                            <li>Montage de meubles</li>
-                            <li>Étagères, tringles, cadres</li>
-                            <li>Petits dépannages, 2&nbsp;h maximum</li>
+                            <li data-t="t38">Montage de meubles</li>
+                            <li data-t="t39">Étagères, tringles, cadres</li>
+                            <li data-t="t40">Petits dépannages, 2&nbsp;h maximum</li>
                         </ul>
                             <div class="lb-card-foot">
                                 <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="bricolage" class="lb-btn lb-btn-main lb-btn-sm">Demander un devis</a>
@@ -315,11 +315,11 @@
                     <article class="lb-service" id="service-assistance">
                         <div class="lb-service-illu"><img src="/assets/img/marque/scene-informatique.svg" alt="Illustration : Sylvain installe un ordinateur et aide à son utilisation" width="480" height="330" loading="lazy"></div>
                         <div class="lb-service-body">
-                            <h2>Assistance informatique à domicile</h2>
+                            <h2 data-t="t41">Assistance informatique à domicile</h2>
                             <ul class="lb-checks">
-                            <li>Ordinateur, tablette, imprimante</li>
-                            <li>Box et Wi-Fi</li>
-                            <li>Relevé du courrier, arrosage des plantes</li>
+                            <li data-t="t42">Ordinateur, tablette, imprimante</li>
+                            <li data-t="t43">Box et Wi-Fi</li>
+                            <li data-t="t44">Relevé du courrier, arrosage des plantes</li>
                         </ul>
                             <div class="lb-card-foot">
                                 <a href="https://le-bon-geste.fr/devis" data-nav="devis" data-devis-prestation="assistance" class="lb-btn lb-btn-main lb-btn-sm">Demander un devis</a>
@@ -327,7 +327,7 @@
                         </div>
                     </article>
                 </div>
-                    <p class="lb-services-note">Services à la personne : 50&nbsp;% du montant déduits de la facture via Unipros. Tarifs sur devis gratuit. TVA non applicable, art. 293 B du CGI.</p>
+                    <p data-t="t45" class="lb-services-note">Services à la personne : 50&nbsp;% du montant déduits de la facture via Unipros. Tarifs sur devis gratuit. TVA non applicable, art. 293 B du CGI.</p>
                 </div>
             </section>
 
@@ -335,9 +335,9 @@
         <section id="page-realisations" class="page-view relative">
             <div class="lb-wrap lb-pagehead">
                 <div>
-                    <p class="lb-kicker">Réalisations</p>
-                    <h1 class="lb-h1 lb-h1-page">Avant, après : des jardins taillés autour de Mazamet</h1>
-                    <p class="lb-lead">Je prends les photos moi-même sur place, juste avant de commencer et une fois le travail fini. Elles sont seulement recadrées, sans retouche.</p>
+                    <p data-t="t46" class="lb-kicker">Réalisations</p>
+                    <h1 data-t="t47" class="lb-h1 lb-h1-page">Avant, après : des jardins taillés autour de Mazamet</h1>
+                    <p data-t="t48" class="lb-lead">Je prends les photos moi-même sur place, juste avant de commencer et une fois le travail fini. Elles sont seulement recadrées, sans retouche.</p>
                 </div>
                 <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-pouce.svg" alt="" width="280" height="360">
             </div>
@@ -345,15 +345,15 @@
             <div class="lb-wrap n-chantiers-dyn" data-chantiers-dyn></div>
 
             <div class="lb-wrap">
-                <article class="lb-chantier" id="chantier-haie">
+                <article data-bloc="chantier-haie" class="lb-chantier" id="chantier-haie">
                     <div class="lb-chantier-head">
                         <div>
-                            <h2 class="lb-h2">Une haie qui avait doublé de volume</h2>
-                            <p class="lb-body">Elle passait par-dessus la clôture et recouvrait le composteur. Je l'ai rabattue nettement, en hauteur comme en épaisseur, pour redonner de la place tout autour.</p>
+                            <h2 data-t="t49" class="lb-h2">Une haie qui avait doublé de volume</h2>
+                            <p data-t="t50" class="lb-body">Elle passait par-dessus la clôture et recouvrait le composteur. Je l'ai rabattue nettement, en hauteur comme en épaisseur, pour redonner de la place tout autour.</p>
                         </div>
                         <dl class="lb-chantier-meta">
-                            <div><dt>Prestation</dt><dd>Taille de haie</dd></div>
-                            <div><dt>Secteur</dt><dd>Mazamet et alentours</dd></div>
+                            <div><dt data-t="t51">Prestation</dt><dd data-t="t52">Taille de haie</dd></div>
+                            <div><dt data-t="t53">Secteur</dt><dd data-t="t54">Mazamet et alentours</dd></div>
                         </dl>
                     </div>
 <div class="lb-ba" data-ba data-state="avant">
@@ -374,15 +374,15 @@
 </div>
                 </article>
 
-                <article class="lb-chantier" id="chantier-jardin">
+                <article data-bloc="chantier-jardin" class="lb-chantier" id="chantier-jardin">
                     <div class="lb-chantier-head">
                         <div>
-                            <h2 class="lb-h2">Les haies et les massifs d'un grand terrain</h2>
-                            <p class="lb-body">Une longue haie au bord du pré, une autre sous les pins et les arbustes qui débordaient sur l'allée. J'ai tout repris dans la même intervention.</p>
+                            <h2 data-t="t55" class="lb-h2">Les haies et les massifs d'un grand terrain</h2>
+                            <p data-t="t56" class="lb-body">Une longue haie au bord du pré, une autre sous les pins et les arbustes qui débordaient sur l'allée. J'ai tout repris dans la même intervention.</p>
                         </div>
                         <dl class="lb-chantier-meta">
-                            <div><dt>Prestation</dt><dd>Haies et arbustes</dd></div>
-                            <div><dt>Secteur</dt><dd>Mazamet et alentours</dd></div>
+                            <div><dt data-t="t57">Prestation</dt><dd data-t="t58">Haies et arbustes</dd></div>
+                            <div><dt data-t="t59">Secteur</dt><dd data-t="t60">Mazamet et alentours</dd></div>
                         </dl>
                     </div>
 <div class="lb-ba" data-ba data-state="avant">
@@ -407,8 +407,8 @@
             <div class="lb-wrap lb-wrap-last">
                 <div class="lb-block lb-block-teal lb-cta">
                     <div>
-                        <h2 class="lb-h2 lb-light">Votre haie ressemble plutôt à la photo de gauche ?</h2>
-                        <p class="lb-body-light">Je passe la voir et je vous fais un devis gratuit. Avec Unipros, vous ne réglez que la moitié de la facture.</p>
+                        <h2 data-t="t61" class="lb-h2 lb-light">Votre haie ressemble plutôt à la photo de gauche ?</h2>
+                        <p data-t="t62" class="lb-body-light">Je passe la voir et je vous fais un devis gratuit. Avec Unipros, vous ne réglez que la moitié de la facture.</p>
                         <p class="lb-body-light lb-avis-lien">Déjà client ? <a href="https://le-bon-geste.fr/avis" target="_blank" rel="noopener">Laissez un avis sur Google</a>, ça m'aide beaucoup.</p>
                     </div>
                     <div class="lb-actions">
@@ -423,9 +423,9 @@
         <section id="page-sap" class="page-view relative">
             <div class="lb-wrap lb-pagehead">
                 <div>
-                    <p class="lb-kicker">Services à la personne</p>
+                    <p data-t="t63" class="lb-kicker">Services à la personne</p>
                     <h1 class="lb-h1 lb-h1-page">Le crédit d'impôt de 50&nbsp;%, déduit <span>dès la facture.</span></h1>
-                    <p class="lb-lead">Le jardinage, le petit bricolage et l'assistance informatique à domicile ouvrent droit au crédit d'impôt de 50&nbsp;% des services à la personne. Avec la coopérative Unipros, vous n'attendez pas votre déclaration d'impôts : le montant que vous réglez est directement réduit de moitié.</p>
+                    <p data-t="t64" class="lb-lead">Le jardinage, le petit bricolage et l'assistance informatique à domicile ouvrent droit au crédit d'impôt de 50&nbsp;% des services à la personne. Avec la coopérative Unipros, vous n'attendez pas votre déclaration d'impôts : le montant que vous réglez est directement réduit de moitié.</p>
                 </div>
                 <div class="lb-stamp" aria-hidden="true"><strong>−50 %</strong><span>déduits tout de suite</span></div>
             </div>
@@ -433,29 +433,29 @@
                 <div class="lb-block lb-block-mint lb-split">
                     <img src="/assets/img/marque/illu-moitie.svg" alt="Illustration : une facture coupée en deux, la moitié est déduite grâce à Unipros" width="480" height="330" loading="lazy">
                     <div class="lb-ticket-rows lb-ticket-solo">
-                        <p class="lb-label">Exemple de facture</p>
+                        <p data-t="t65" class="lb-label">Exemple de facture</p>
                         <div><span>Prestation</span><span>100,00 €</span></div>
                         <div class="lb-minus"><span>Déduction de 50 %</span><span>− 50,00 €</span></div>
                         <div class="lb-total"><span>Vous payez</span><span>50,00 €</span></div>
                     </div>
                 </div>
                 <div class="lb-steps lb-steps-top">
-                    <div class="lb-step"><span class="lb-step-num">1</span><h2>Un montant réduit dès la facture</h2><p>Vous réglez uniquement la moitié, la coopérative gère le reste.</p></div>
-                    <div class="lb-step"><span class="lb-step-num">2</span><h2>Une démarche simple</h2><p>Unipros édite la facture, vous la recevez et la réglez via leur plateforme sécurisée.</p></div>
-                    <div class="lb-step"><span class="lb-step-num">3</span><h2>Un encaissement officiel</h2><p>La coopérative Unipros gère la facturation et l'encaissement de manière sécurisée et officielle.</p></div>
+                    <div class="lb-step"><span class="lb-step-num">1</span><h2 data-t="t66">Un montant réduit dès la facture</h2><p data-t="t67">Vous réglez uniquement la moitié, la coopérative gère le reste.</p></div>
+                    <div class="lb-step"><span class="lb-step-num">2</span><h2 data-t="t68">Une démarche simple</h2><p data-t="t69">Unipros édite la facture, vous la recevez et la réglez via leur plateforme sécurisée.</p></div>
+                    <div class="lb-step"><span class="lb-step-num">3</span><h2 data-t="t70">Un encaissement officiel</h2><p data-t="t71">La coopérative Unipros gère la facturation et l'encaissement de manière sécurisée et officielle.</p></div>
                 </div>
                 <div class="lb-note-box lb-note-big">
                     <img src="/assets/img/marque/sylvain-face.svg" alt="" width="90" height="116">
                     <div><strong>La facturation par Unipros : comment ça marche ?</strong>
-                    <p>Je réalise les travaux, mais c'est la coopérative Unipros (unipros.coop) qui vous facture. C'est ce fonctionnement qui vous permet d'obtenir les 50&nbsp;% de déduction de manière transparente et légale. Je m'occupe du devis, et je reste votre interlocuteur direct pour toute question technique.</p></div>
+                    <p data-t="t72">Je réalise les travaux, mais c'est la coopérative Unipros (unipros.coop) qui vous facture. C'est ce fonctionnement qui vous permet d'obtenir les 50&nbsp;% de déduction de manière transparente et légale. Je m'occupe du devis, et je reste votre interlocuteur direct pour toute question technique.</p></div>
                 </div>
             </div>
             <div class="lb-wrap lb-wrap-last">
                 <div class="lb-block lb-block-teal lb-cta">
                     <div>
-                        <p class="lb-label lb-label-light">En pratique</p>
-                        <h2 class="lb-h2 lb-light">Un devis gratuit, avant toute intervention.</h2>
-                        <p class="lb-body-light">J'établis le tarif dans un devis gratuit et personnalisé, selon la configuration de votre terrain.</p>
+                        <p data-t="t73" class="lb-label lb-label-light">En pratique</p>
+                        <h2 data-t="t74" class="lb-h2 lb-light">Un devis gratuit, avant toute intervention.</h2>
+                        <p data-t="t75" class="lb-body-light">J'établis le tarif dans un devis gratuit et personnalisé, selon la configuration de votre terrain.</p>
                     </div>
                     <div class="lb-actions">
                         <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-white">Prendre rendez-vous</a>
@@ -471,9 +471,9 @@
                 
                 <div class="lb-pagehead lb-pagehead-devis">
                     <div>
-                        <p class="lb-kicker">Rendez-vous</p>
-                        <h1 class="lb-h1 lb-h1-page">Prendre rendez-vous</h1>
-                        <p class="lb-lead">Décrivez votre besoin : je vous réponds sous 24 à 48 h, puis je vous remets un devis gratuit avant toute intervention.</p>
+                        <p data-t="t76" class="lb-kicker">Rendez-vous</p>
+                        <h1 data-t="t77" class="lb-h1 lb-h1-page">Prendre rendez-vous</h1>
+                        <p data-t="t78" class="lb-lead">Décrivez votre besoin : je vous réponds sous 24 à 48 h, puis je vous remets un devis gratuit avant toute intervention.</p>
                     </div>
                     <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-travail.svg" alt="" width="280" height="360">
                 </div>
@@ -611,9 +611,9 @@
         <section id="page-contact" class="page-view active-page relative">
             <div class="lb-wrap lb-pagehead">
                 <div>
-                    <p class="lb-kicker">Contact</p>
-                    <h1 class="lb-h1 lb-h1-page">Prêt à me confier vos travaux ?</h1>
-                    <p class="lb-lead">Contactez-moi directement pour me parler de votre besoin. J'établis un devis clair et gratuit avant toute intervention.</p>
+                    <p data-t="t79" class="lb-kicker">Contact</p>
+                    <h1 data-t="t80" class="lb-h1 lb-h1-page">Prêt à me confier vos travaux ?</h1>
+                    <p data-t="t81" class="lb-lead">Contactez-moi directement pour me parler de votre besoin. J'établis un devis clair et gratuit avant toute intervention.</p>
                 </div>
                 <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-travail-coucou.svg" alt="" width="280" height="360">
             </div>
@@ -636,8 +636,8 @@
                     </a>
                 </div>
                 <div class="lb-block lb-block-white lb-contact-form-wrap" id="ecrire">
-                    <h2 class="lb-h2">Écrivez-moi un message</h2>
-                    <p class="lb-body">Une question, une précision ? Écrivez-moi ici, le message arrive directement dans ma boîte mail.</p>
+                    <h2 data-t="t82" class="lb-h2">Écrivez-moi un message</h2>
+                    <p data-t="t83" class="lb-body">Une question, une précision ? Écrivez-moi ici, le message arrive directement dans ma boîte mail.</p>
                     <form id="contact-form" class="lb-form" action="https://formsubmit.co/contact.lebongeste@gmail.com" method="POST" novalidate>
                         <input type="hidden" name="_subject" value="Nouveau message de contact - Le bon geste">
                         <input type="hidden" name="_template" value="table">
@@ -672,9 +672,9 @@
                     </form>
                 </div>
                 <div class="lb-steps lb-steps-top">
-                    <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-lieu.svg" alt="" width="26" height="26"></span><h2>Zone d'intervention</h2><p>Mazamet, Aiguefonde et communes voisines dans un rayon de 20 km.</p></div>
-                    <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-horloge.svg" alt="" width="26" height="26"></span><h2>Je réponds sous 24 à 48 h</h2><p>Un retour rapide après votre appel, email ou demande de rendez-vous.</p></div>
-                    <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-valide.svg" alt="" width="26" height="26"></span><h2>Devis gratuit</h2><p>Je confirme chaque intervention par un devis clair, avant de commencer.</p></div>
+                    <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-lieu.svg" alt="" width="26" height="26"></span><h2 data-t="t84">Zone d'intervention</h2><p data-t="t85">Mazamet, Aiguefonde et communes voisines dans un rayon de 20 km.</p></div>
+                    <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-horloge.svg" alt="" width="26" height="26"></span><h2 data-t="t86">Je réponds sous 24 à 48 h</h2><p data-t="t87">Un retour rapide après votre appel, email ou demande de rendez-vous.</p></div>
+                    <div class="lb-step"><span class="lb-step-ico"><img src="/assets/img/marque/picto-valide.svg" alt="" width="26" height="26"></span><h2 data-t="t88">Devis gratuit</h2><p data-t="t89">Je confirme chaque intervention par un devis clair, avant de commencer.</p></div>
                 </div>
                 <p class="lb-note-box"><img src="/assets/img/marque/picto-telephone.svg" alt="" width="22" height="22"><span>En cas d'absence, laissez un message vocal avec vos coordonnées et l'objet de votre demande. Je vous rappellerai dans les plus brefs délais.</span></p>
                 <div class="lb-center"><a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-main">Prendre rendez-vous en ligne</a></div>
@@ -685,23 +685,23 @@
         <section id="page-faq" class="page-view relative">
             <div class="lb-wrap lb-pagehead">
                 <div>
-                    <p class="lb-kicker">Questions fréquentes</p>
-                    <h1 class="lb-h1 lb-h1-page">Tout savoir avant de demander un devis</h1>
-                    <p class="lb-lead">Les réponses essentielles sur les prestations à domicile, le devis gratuit et la facturation via Unipros.</p>
+                    <p data-t="t90" class="lb-kicker">Questions fréquentes</p>
+                    <h1 data-t="t91" class="lb-h1 lb-h1-page">Tout savoir avant de demander un devis</h1>
+                    <p data-t="t92" class="lb-lead">Les réponses essentielles sur les prestations à domicile, le devis gratuit et la facturation via Unipros.</p>
                 </div>
                 <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-montre.svg" alt="" width="280" height="360">
             </div>
             <div class="lb-wrap lb-faq">
-                <details open><summary><h2 class="lb-faq-q">Quelles prestations proposez-vous ?</h2></summary><p>Je propose le jardinage, la taille de haies, la tonte, le petit bricolage, l'entretien courant des terrasses et allées de jardin, et l'assistance multimédia ou de confort à domicile.</p></details>
-                <details><summary><h2 class="lb-faq-q">Comment fonctionne la déduction de 50&nbsp;% ?</h2></summary><p>Je suis adhérent de la coopérative Unipros. C'est elle qui édite la facture et encaisse le paiement, ce qui vous permet de ne régler que 50&nbsp;% du montant total de la facture, de façon immédiate.</p></details>
-                <details><summary><h2 class="lb-faq-q">Dois-je faire des démarches compliquées ?</h2></summary><p>Non. Je transmets les éléments du devis à Unipros, qui vous envoie ensuite un lien pour régler uniquement votre reste à charge en toute sécurité.</p></details>
-                <details><summary><h2 class="lb-faq-q">Et le crédit d'impôt pour le jardinage ?</h2></summary><p>Ce sont bien les 50&nbsp;% du crédit d'impôt des services à la personne. La différence, c'est que vous n'attendez pas l'année suivante : la coopérative Unipros les déduit directement de la facture.</p></details>
-                <details><summary><h2 class="lb-faq-q">Combien coûte une taille de haie ?</h2></summary><p>Ça dépend de la longueur, de la hauteur et de l'accès. Je passe voir la haie et je fais un devis gratuit. Vous ne réglez ensuite que la moitié du montant.</p></details>
-                <details><summary><h2 class="lb-faq-q">Êtes-vous paysagiste ?</h2></summary><p>Non. Je ne fais pas de création de jardin, de plantation ni de maçonnerie. Je m'occupe de l'entretien : taille de haies, tonte, débroussaillage, terrasses. C'est ce qui permet les 50&nbsp;% déduits.</p></details>
-                <details><summary><h2 class="lb-faq-q">Dans quelles communes intervenez-vous ?</h2></summary><p>J'interviens à Mazamet, Aiguefonde et dans les communes voisines, dans un rayon indicatif de 20 km. Je confirme la zone avec le devis.</p></details>
-                <details><summary><h2 class="lb-faq-q">Le devis est-il gratuit ?</h2></summary><p>Oui. J'établis un devis clair et gratuit avant toute intervention, avec les éventuelles contraintes de terrain, d'accès ou de fourniture.</p></details>
-                <details><summary><h2 class="lb-faq-q">Comment établissez-vous vos tarifs ?</h2></summary><p>Je les établis sur devis gratuit et personnalisé, selon la configuration de votre terrain.</p></details>
-                <details><summary><h2 class="lb-faq-q">Comment préparer ma demande ?</h2></summary><p>Indiquez la commune, la prestation souhaitée, les dimensions ou la surface si vous les connaissez, puis ajoutez quelques photos lorsque cela peut aider à évaluer le besoin.</p></details>
+                <details open><summary><h2 data-t="t93" class="lb-faq-q">Quelles prestations proposez-vous ?</h2></summary><p data-t="t94">Je propose le jardinage, la taille de haies, la tonte, le petit bricolage, l'entretien courant des terrasses et allées de jardin, et l'assistance multimédia ou de confort à domicile.</p></details>
+                <details><summary><h2 data-t="t95" class="lb-faq-q">Comment fonctionne la déduction de 50&nbsp;% ?</h2></summary><p data-t="t96">Je suis adhérent de la coopérative Unipros. C'est elle qui édite la facture et encaisse le paiement, ce qui vous permet de ne régler que 50&nbsp;% du montant total de la facture, de façon immédiate.</p></details>
+                <details><summary><h2 data-t="t97" class="lb-faq-q">Dois-je faire des démarches compliquées ?</h2></summary><p data-t="t98">Non. Je transmets les éléments du devis à Unipros, qui vous envoie ensuite un lien pour régler uniquement votre reste à charge en toute sécurité.</p></details>
+                <details><summary><h2 data-t="t99" class="lb-faq-q">Et le crédit d'impôt pour le jardinage ?</h2></summary><p data-t="t100">Ce sont bien les 50&nbsp;% du crédit d'impôt des services à la personne. La différence, c'est que vous n'attendez pas l'année suivante : la coopérative Unipros les déduit directement de la facture.</p></details>
+                <details><summary><h2 data-t="t101" class="lb-faq-q">Combien coûte une taille de haie ?</h2></summary><p data-t="t102">Ça dépend de la longueur, de la hauteur et de l'accès. Je passe voir la haie et je fais un devis gratuit. Vous ne réglez ensuite que la moitié du montant.</p></details>
+                <details><summary><h2 data-t="t103" class="lb-faq-q">Êtes-vous paysagiste ?</h2></summary><p data-t="t104">Non. Je ne fais pas de création de jardin, de plantation ni de maçonnerie. Je m'occupe de l'entretien : taille de haies, tonte, débroussaillage, terrasses. C'est ce qui permet les 50&nbsp;% déduits.</p></details>
+                <details><summary><h2 data-t="t105" class="lb-faq-q">Dans quelles communes intervenez-vous ?</h2></summary><p data-t="t106">J'interviens à Mazamet, Aiguefonde et dans les communes voisines, dans un rayon indicatif de 20 km. Je confirme la zone avec le devis.</p></details>
+                <details><summary><h2 data-t="t107" class="lb-faq-q">Le devis est-il gratuit ?</h2></summary><p data-t="t108">Oui. J'établis un devis clair et gratuit avant toute intervention, avec les éventuelles contraintes de terrain, d'accès ou de fourniture.</p></details>
+                <details><summary><h2 data-t="t109" class="lb-faq-q">Comment établissez-vous vos tarifs ?</h2></summary><p data-t="t110">Je les établis sur devis gratuit et personnalisé, selon la configuration de votre terrain.</p></details>
+                <details><summary><h2 data-t="t111" class="lb-faq-q">Comment préparer ma demande ?</h2></summary><p data-t="t112">Indiquez la commune, la prestation souhaitée, les dimensions ou la surface si vous les connaissez, puis ajoutez quelques photos lorsque cela peut aider à évaluer le besoin.</p></details>
                 <div class="lb-center"><a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-main">Décrire mon projet</a></div>
             </div>
         </section>
@@ -710,25 +710,25 @@
         <section id="page-guide" class="page-view relative">
             <div class="lb-wrap lb-pagehead">
                 <div>
-                    <p class="lb-kicker">Activer la facturation Unipros</p>
-                    <h1 class="lb-h1 lb-h1-page">Mode d'emploi client</h1>
-                    <p class="lb-lead">Vous souhaitez que j'intervienne chez vous ? Voici comment fonctionne la déduction de 50&nbsp;% avec la coopérative Unipros.</p>
+                    <p data-t="t113" class="lb-kicker">Activer la facturation Unipros</p>
+                    <h1 data-t="t114" class="lb-h1 lb-h1-page">Mode d'emploi client</h1>
+                    <p data-t="t115" class="lb-lead">Vous souhaitez que j'intervienne chez vous ? Voici comment fonctionne la déduction de 50&nbsp;% avec la coopérative Unipros.</p>
                 </div>
                 <img class="lb-pagehead-art" src="/assets/img/marque/sylvain-pouce.svg" alt="" width="280" height="360">
             </div>
             <div class="lb-wrap">
                 <p class="lb-note-box lb-note-teal"><img src="/assets/img/marque/picto-pourcent-blanc.svg" alt="" width="22" height="22"><span><strong>Le principe en une phrase :</strong> pour bénéficier de la déduction immédiate de 50&nbsp;% sur votre facture, le règlement passe obligatoirement par la coopérative Unipros (unipros.coop), dont je suis adhérent.</span></p>
                 <ol class="lb-timeline" aria-label="Étapes de la facturation">
-                    <li><span class="lb-step-num">1</span><div><h2>Un dispositif simple</h2><p>Toutes mes prestations sont facturables via Unipros, afin de vous faire bénéficier des 50&nbsp;% de déduction.</p></div></li>
-                    <li><span class="lb-step-num">2</span><div><h2>Votre devis</h2><p>Je vous établis un devis clair. Une fois validé, je réalise les travaux comme convenu ensemble.</p></div></li>
-                    <li><span class="lb-step-num">3</span><div><h2>La facturation</h2><p>Unipros prend le relais pour éditer la facture correspondante et vous l'envoyer de façon sécurisée.</p></div></li>
-                    <li><span class="lb-step-num">4</span><div><h2>Votre règlement</h2><p>Vous recevez la facture d'Unipros et vous réglez uniquement 50&nbsp;% du montant total directement sur leur plateforme dédiée.</p></div></li>
-                    <li><span class="lb-step-num">5</span><div><h2>Suivez votre historique</h2><p>Vous conservez les devis et factures transmis par la coopérative de manière centralisée et officielle.</p></div></li>
+                    <li><span class="lb-step-num">1</span><div><h2 data-t="t116">Un dispositif simple</h2><p data-t="t117">Toutes mes prestations sont facturables via Unipros, afin de vous faire bénéficier des 50&nbsp;% de déduction.</p></div></li>
+                    <li><span class="lb-step-num">2</span><div><h2 data-t="t118">Votre devis</h2><p data-t="t119">Je vous établis un devis clair. Une fois validé, je réalise les travaux comme convenu ensemble.</p></div></li>
+                    <li><span class="lb-step-num">3</span><div><h2 data-t="t120">La facturation</h2><p data-t="t121">Unipros prend le relais pour éditer la facture correspondante et vous l'envoyer de façon sécurisée.</p></div></li>
+                    <li><span class="lb-step-num">4</span><div><h2 data-t="t122">Votre règlement</h2><p data-t="t123">Vous recevez la facture d'Unipros et vous réglez uniquement 50&nbsp;% du montant total directement sur leur plateforme dédiée.</p></div></li>
+                    <li><span class="lb-step-num">5</span><div><h2 data-t="t124">Suivez votre historique</h2><p data-t="t125">Vous conservez les devis et factures transmis par la coopérative de manière centralisée et officielle.</p></div></li>
                 </ol>
                                 <div class="lb-block lb-block-mint lb-unipros" id="espace-unipros">
                     <div class="lb-unipros-art"><img src="/assets/img/marque/scene-informatique.svg" alt="Illustration : Sylvain montre comment accéder à son espace sur un ordinateur" width="480" height="330" loading="lazy"></div>
                     <div>
-                        <h2 class="lb-h2">Retrouver vos factures sur votre espace Unipros</h2>
+                        <h2 data-t="t126" class="lb-h2">Retrouver vos factures sur votre espace Unipros</h2>
                         <ol class="lb-mini-steps">
                             <li><strong>Le mail d'Unipros.</strong> Après l'intervention, Unipros vous envoie votre facture par mail, avec un lien pour la régler. Pensez à regarder dans les courriers indésirables.</li>
                             <li><strong>Votre espace.</strong> Créez votre espace sur le site d'Unipros avec l'adresse mail donnée lors du devis. Vous y retrouverez toutes vos factures.</li>
@@ -740,16 +740,16 @@
                 </div>
                 <div class="lb-two">
                     <div class="lb-block lb-block-mint lb-block-pad">
-                        <h2 class="lb-h3">Conditions d'utilisation</h2>
+                        <h2 data-t="t127" class="lb-h3">Conditions d'utilisation</h2>
                         <ul class="lb-checks">
-                            <li>Demander une prestation de jardinage ou de petit bricolage éligible.</li>
-                            <li>Accepter la facturation via la coopérative Unipros.</li>
-                            <li>Régler la facture directement à la coopérative selon ses conditions.</li>
+                            <li data-t="t128">Demander une prestation de jardinage ou de petit bricolage éligible.</li>
+                            <li data-t="t129">Accepter la facturation via la coopérative Unipros.</li>
+                            <li data-t="t130">Régler la facture directement à la coopérative selon ses conditions.</li>
                         </ul>
                     </div>
                     <div class="lb-block lb-block-white lb-block-pad">
-                        <h2 class="lb-h3">Une question ? Je reste votre interlocuteur</h2>
-                        <p class="lb-body">Pour toute question sur une prestation technique ou un devis en cours, vous me contactez directement, par téléphone ou par mail.</p>
+                        <h2 data-t="t131" class="lb-h3">Une question ? Je reste votre interlocuteur</h2>
+                        <p data-t="t132" class="lb-body">Pour toute question sur une prestation technique ou un devis en cours, vous me contactez directement, par téléphone ou par mail.</p>
                         <a href="https://le-bon-geste.fr/contact" data-nav="contact" class="lb-link">Me contacter</a>
                     </div>
                 </div>
@@ -757,8 +757,8 @@
             <div class="lb-wrap lb-wrap-last">
                 <div class="lb-block lb-block-teal lb-cta">
                     <div>
-                        <p class="lb-label lb-label-light">À retenir</p>
-                        <p class="lb-body-light lb-strong">La facturation via Unipros est le seul moyen de bénéficier de la déduction de 50&nbsp;% sur ces prestations. Elle est encadrée et parfaitement légale.</p>
+                        <p data-t="t133" class="lb-label lb-label-light">À retenir</p>
+                        <p data-t="t134" class="lb-body-light lb-strong">La facturation via Unipros est le seul moyen de bénéficier de la déduction de 50&nbsp;% sur ces prestations. Elle est encadrée et parfaitement légale.</p>
                     </div>
                     <div class="lb-actions">
                         <a href="https://le-bon-geste.fr/devis" data-nav="devis" class="lb-btn lb-btn-white">Prendre rendez-vous</a>
@@ -1076,6 +1076,6 @@
 
     <script src="/assets/app.js?v=avis1" defer></script>
     <script src="/assets/lbg.js?v=1" defer></script>
-    <script src="/assets/contenu.js?v=1" defer></script>
+    <script src="/assets/contenu.js?v=2" defer></script>
 </body>
 </html>

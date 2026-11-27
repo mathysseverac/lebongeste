@@ -109,3 +109,35 @@ textarea.champ{resize:vertical}
 .modale-boite h2{font-size:1.45rem;font-weight:800;margin:0 0 .4rem;letter-spacing:-.02em}
 .modale-boite p{margin:0 0 .5rem;color:var(--texte)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* modifier le site */
+.recherche{position:relative;display:block;margin:0 0 1.25rem}
+.recherche svg{position:absolute;left:1rem;top:50%;width:1.4rem;height:1.4rem;transform:translateY(-50%);fill:none;stroke:var(--vert);stroke-width:2.2;stroke-linecap:round}
+.recherche input{width:100%;min-height:3.5rem;padding:.8rem 1rem .8rem 3rem;border:2px solid var(--filet);border-radius:999px;font-size:1.1rem;background:#fff;-webkit-appearance:none}
+.recherche input:focus{border-color:var(--vert);outline:none}
+.pages{display:grid;gap:.7rem;margin-top:.7rem}
+.ligne-page{display:flex;align-items:center;gap:1rem;width:100%;min-height:4.5rem;padding:.9rem 1.1rem;border-radius:var(--r);border:0;background:var(--menthe-clair);text-align:left;cursor:pointer;color:var(--nuit)}
+.ligne-page span{display:flex;flex-direction:column;flex:1}
+.ligne-page b{font-size:1.2rem;font-weight:800}
+.ligne-page i{font-style:normal;font-size:.98rem;color:var(--texte)}
+.ligne-page svg{flex:none;width:1.5rem;height:1.5rem;fill:none;stroke:var(--vert);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ligne-contact{background:var(--vert);color:#fff}
+.ligne-contact i{color:#d4ece9}
+.ligne-contact svg{stroke:#fff}
+.lien{color:var(--vert);font-weight:700;text-underline-offset:4px}
+.bloc-texte{display:block;width:100%;padding:1rem 1.1rem;border:1.5px solid var(--filet);border-radius:18px;background:#fff;text-align:left;cursor:pointer;color:var(--nuit)}
+.bloc-texte:active{background:var(--menthe-clair)}
+.bloc-libelle{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:800;color:var(--vert);margin-bottom:.25rem}
+.bloc-libelle em{font-style:normal;background:var(--jaune);color:var(--nuit);border-radius:999px;padding:.05rem .55rem;font-size:.78rem}
+.bloc-contenu{display:block;font-size:1.08rem;line-height:1.45}
+.bloc-texte.titre .bloc-contenu{font-weight:800;font-size:1.2rem;line-height:1.25}
+.bloc-modifier{display:block;margin-top:.4rem;font-size:.92rem;font-weight:700;color:var(--vert);text-decoration:underline;text-underline-offset:4px}
+.bloc-page{font-size:.85rem;color:var(--texte);margin-bottom:.15rem}
+.fiche-photos.portrait img{aspect-ratio:3/4;max-height:24rem;object-fit:cover}
+.fiche-ancien{display:flex;flex-direction:column;gap:.2rem;background:var(--menthe-clair);border-radius:18px;padding:1rem 1.1rem}
+.fiche-ancien b{font-size:1.1rem}
+.fiche-ancien .interrupteur{font-size:1.05rem}
+.modale-boite textarea{min-height:9rem}
+.origine{font-size:.92rem;color:var(--texte);background:var(--menthe-clair);border-radius:12px;padding:.6rem .8rem;margin:.2rem 0 .4rem}
+.fiche-boutons{display:grid;grid-template-columns:1fr 1fr;gap:0 .6rem}
+.fiche-boutons .bouton:first-child{grid-column:1/-1}

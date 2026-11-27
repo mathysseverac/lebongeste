@@ -26,6 +26,8 @@ export async function prepare(env) {
       valeur TEXT NOT NULL
     )`),
   ]);
+  // colonne ajoutée après coup : orientation de la photo (1 = en hauteur)
+  try { await env.DB.prepare('ALTER TABLE chantiers ADD COLUMN portrait INTEGER NOT NULL DEFAULT 0').run(); } catch (e) {}
   pret = true;
 }
 
@@ -46,14 +48,6 @@ export async function ecrireReglage(env, cle, valeur) {
   await env.DB.prepare('INSERT INTO reglages (cle, valeur) VALUES (?, ?) ON CONFLICT(cle) DO UPDATE SET valeur = excluded.valeur')
     .bind(cle, JSON.stringify(valeur)).run();
 }
-
-// Les emplacements de photo que l'appli peut changer sur le site.
-export const EMPLACEMENTS = {
-  'accueil-haut': 'Grande photo du haut de l’accueil',
-  'presta-haies': 'Photo « Taille de haies »',
-  'presta-tonte': 'Photo « Tonte et débroussaillage »',
-  'presta-terrasses': 'Photo « Terrasses et allées »',
-};
 
 export const PRESTATIONS = {
   haies: 'Taille de haies',
