@@ -241,3 +241,19 @@ body h1,body h2,body h3{font-family:inherit}
 .n-carte picture{display:block}
 .n-carte picture img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 70%}
 .n-carte:nth-child(3) picture img{object-position:50% 96%}
+
+/* ---------- Contenu publié depuis l'appli ---------- */
+.n-chantiers-dyn:empty{display:none}
+.n-cd{display:grid;gap:1.25rem;margin:0 0 clamp(2.5rem,6vw,4rem);padding-bottom:clamp(2.5rem,6vw,4rem);border-bottom:1px solid var(--filet)}
+.n-cd-txt h2{font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(1.8rem,4vw,2.8rem);margin:0 0 .5rem;color:var(--nuit)}
+.n-cd-lieu{margin:0 0 .5rem;font-weight:700;color:var(--vert)}
+.n-cd-txt p{margin:0 0 .5rem;color:var(--texte);max-width:40rem}
+.n-cd-photos{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.n-cd-seule .n-cd-photos{grid-template-columns:1fr}
+.n-cd figure{position:relative;margin:0}
+.n-cd img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-petit);display:block;background:var(--menthe-clair)}
+.n-cd-seule img{aspect-ratio:16/9}
+.n-cd figcaption{position:absolute;left:.75rem;top:.75rem;background:#fff;color:var(--nuit);font-weight:700;font-size:.9rem;padding:.25rem .8rem;border-radius:999px}
+.n-cd-apres figcaption{background:var(--jaune)}
+@media(max-width:599px){.n-cd-photos{grid-template-columns:1fr}}
+.n-absence{background:var(--jaune);color:var(--nuit);text-align:center;padding:.7rem var(--marge);font-size:1rem;line-height:1.4}

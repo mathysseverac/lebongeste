@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le bon geste, gestion</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#007271">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Le bon geste">
+<link rel="manifest" href="/admin/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/admin/icone-180.png">
+<link rel="icon" href="/admin/icone-192.png" type="image/png">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-latin-wght-normal.woff2" crossorigin>
+<link rel="stylesheet" href="/admin/admin.css?v=1">
+</head>
+<body>
+<header class="barre">
+  <button type="button" class="retour" data-aller="accueil" hidden aria-label="Retour à l'accueil de l'appli">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <img class="barre-logo" src="/assets/img/logo.svg" alt="Le bon geste" width="120" height="44">
+  <span class="barre-titre" data-titre></span>
+</header>
+
+<main id="ecran" tabindex="-1"></main>
+
+<div class="voile" data-voile hidden>
+  <div class="voile-boite" role="status" aria-live="polite"><span class="rond-charge" aria-hidden="true"></span><p data-voile-texte>Un instant…</p></div>
+</div>
+<div class="toast" data-toast role="status" aria-live="polite" hidden></div>
+
+<template id="t-accueil">
+  <section class="ecran-accueil">
+    <h1>Bonjour Sylvain</h1>
+    <p class="sous">Que veux-tu faire&nbsp;?</p>
+    <button type="button" class="tuile tuile-principale" data-aller="nouveau">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+      <span><b>Ajouter un chantier</b><i>Photos avant et après</i></span>
+    </button>
+    <div class="grille">
+      <button type="button" class="tuile" data-aller="chantiers">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="3" y="13" width="8" height="7" rx="2"/><rect x="13" y="13" width="8" height="7" rx="2"/></svg>
+        <span><b>Mes chantiers</b><i data-nb-chantiers>Voir, cacher, supprimer</i></span>
+      </button>
+      <button type="button" class="tuile" data-aller="photos">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.6"/></svg>
+        <span><b>Photos du site</b><i>Changer une grande photo</i></span>
+      </button>
+      <button type="button" class="tuile" data-aller="absence">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <span><b>Je suis absent</b><i data-etat-absence>Prévenir les clients</i></span>
+      </button>
+      <a class="tuile" href="/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+        <span><b>Voir le site</b><i>le-bon-geste.fr</i></span>
+      </a>
+    </div>
+    <p class="compte" data-compte></p>
+  </section>
+</template>
+
+<template id="t-nouveau">
+  <form class="formulaire" data-form-chantier novalidate>
+    <h1>Nouveau chantier</h1>
+    <div class="etape">
+      <p class="etape-titre"><span>1</span> La photo avant</p>
+      <label class="photo-choix" data-zone="avant">
+        <input type="file" accept="image/*" data-fichier="avant">
+        <span class="photo-vide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Prendre ou choisir la photo avant</span>
+        <img alt="" hidden>
+      </label>
+      <p class="aide">Pas de photo avant&nbsp;? Ce n'est pas grave, passe à la suite.</p>
+    </div>
+    <div class="etape">
+      <p class="etape-titre"><span>2</span> La photo après</p>
+      <label class="photo-choix" data-zone="apres">
+        <input type="file" accept="image/*" data-fichier="apres">
+        <span class="photo-vide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Prendre ou choisir la photo après</span>
+        <img alt="" hidden>
+      </label>
+      <p class="aide">Astuce&nbsp;: prends-la du même endroit que la photo avant.</p>
+    </div>
+    <div class="etape">
+      <p class="etape-titre"><span>3</span> C'était quoi&nbsp;?</p>
+      <div class="puces" data-prestations role="radiogroup" aria-label="Prestation"></div>
+    </div>
+    <div class="etape">
+      <p class="etape-titre"><span>4</span> Où&nbsp;?</p>
+      <input class="champ" name="commune" list="communes" placeholder="Commune, par exemple Mazamet" autocomplete="off" maxlength="60">
+      <datalist id="communes"><option value="Mazamet"><option value="Aiguefonde"><option value="Aussillon"><option value="Pont-de-Larn"><option value="Payrin-Augmontel"><option value="Saint-Amans-Soult"><option value="Caucalières"><option value="Labruguière"><option value="Hautpoul"><option value="Castres"></datalist>
+    </div>
+    <div class="etape">
+      <p class="etape-titre"><span>5</span> Un titre et une phrase</p>
+      <input class="champ" name="titre" placeholder="Par exemple : Haie de laurier remise au propre" maxlength="120" required>
+      <textarea class="champ" name="texte" rows="3" placeholder="Facultatif : ce que tu as fait, en une ou deux phrases" maxlength="600"></textarea>
+    </div>
+    <p class="erreur" data-erreur hidden></p>
+    <button type="submit" class="bouton bouton-plein">Publier sur le site</button>
+  </form>
+</template>
+
+<template id="t-fini">
+  <section class="ecran-fini">
+    <div class="coche" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>
+    <h1>C'est en ligne&nbsp;!</h1>
+    <p class="sous">Ton chantier est sur la page Réalisations. Il peut falloir une minute pour qu'il apparaisse partout.</p>
+    <a class="bouton bouton-plein" href="/realisations" target="_blank" rel="noopener">Le voir sur le site</a>
+    <button type="button" class="bouton bouton-ligne" data-aller="nouveau">Ajouter un autre chantier</button>
+    <button type="button" class="bouton bouton-texte" data-aller="accueil">Retour à l'accueil</button>
+  </section>
+</template>
+
+<template id="t-chantiers">
+  <section>
+    <h1>Mes chantiers</h1>
+    <p class="sous">Ceux que tu as ajoutés avec l'appli.</p>
+    <div class="liste" data-liste></div>
+  </section>
+</template>
+
+<template id="t-photos">
+  <section>
+    <h1>Photos du site</h1>
+    <p class="sous">Choisis la photo à changer. Une photo prise à l'horizontale rend mieux.</p>
+    <div class="liste" data-emplacements></div>
+  </section>
+</template>
+
+<template id="t-absence">
+  <form class="formulaire" data-form-absence novalidate>
+    <h1>Je suis absent</h1>
+    <p class="sous">Un bandeau jaune s'affiche en haut du site. Il disparaît tout seul après la date de retour.</p>
+    <label class="interrupteur">
+      <input type="checkbox" name="actif">
+      <span class="interrupteur-piste" aria-hidden="true"><span></span></span>
+      <b>Afficher le bandeau</b>
+    </label>
+    <label class="etiquette" for="jusqu">Je reviens le</label>
+    <input class="champ" type="date" id="jusqu" name="jusqu">
+    <label class="etiquette" for="message">Message (facultatif)</label>
+    <textarea class="champ" id="message" name="message" rows="3" maxlength="240" placeholder="Laissez-moi un message, je vous rappelle à mon retour."></textarea>
+    <div class="apercu" data-apercu></div>
+    <p class="erreur" data-erreur hidden></p>
+    <button type="submit" class="bouton bouton-plein">Enregistrer</button>
+  </form>
+</template>
+
+<script src="/admin/admin.js?v=1" defer></script>
+</body>
+</html>

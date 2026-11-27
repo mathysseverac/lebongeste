@@ -18,3 +18,14 @@
 # Pour remplacer une photo, lui donner un nouveau nom de fichier.
 /assets/realisations/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Appli de gestion : jamais en cache, jamais indexée, appareil photo autorisé.
+/admin/*
+  ! Permissions-Policy
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
+  Permissions-Policy: camera=(self), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+
+/api/admin/*
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
