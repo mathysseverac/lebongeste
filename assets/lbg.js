@@ -56,3 +56,26 @@
   addEventListener('scroll', function () { if (!attente) { attente = true; requestAnimationFrame(maj); } }, { passive: true });
   maj();
 })();
+
+/* Menu du haut : le sous-menu « Les 50 % » s'ouvre au clic (et au survol avec une souris). */
+(function () {
+  var sous = document.querySelector('[data-sous]');
+  if (!sous) return;
+  var btn = sous.querySelector('.n-sous-btn');
+  var menu = sous.querySelector('.n-sous-menu');
+  var minuteur, parSurvol = false;
+  function ouvrir(v) { btn.setAttribute('aria-expanded', String(v)); menu.hidden = !v; if (!v) parSurvol = false; }
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    // ouvert par le survol de la souris : le clic le garde ouvert au lieu de le refermer
+    if (parSurvol) { parSurvol = false; ouvrir(true); return; }
+    ouvrir(btn.getAttribute('aria-expanded') !== 'true');
+  });
+  if (matchMedia('(hover: hover)').matches) {
+    sous.addEventListener('mouseenter', function () { clearTimeout(minuteur); if (menu.hidden) { ouvrir(true); parSurvol = true; } });
+    sous.addEventListener('mouseleave', function () { minuteur = setTimeout(function () { ouvrir(false); }, 250); });
+  }
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) ouvrir(false); });
+  document.addEventListener('click', function (e) { if (!sous.contains(e.target)) ouvrir(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { ouvrir(false); btn.focus(); } });
+})();

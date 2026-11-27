@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="/assets/style.css?v=app-1">
     <link rel="stylesheet" href="/assets/marque.css?v=22">
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-latin-wght-normal.woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/lbg.css?v=4">
+    <link rel="stylesheet" href="/assets/lbg.css?v=5">
 </head>
 <body class="font-sans text-slate-800 bg-gray-light antialiased flex flex-col min-h-screen">
 
@@ -82,13 +82,18 @@
                     </svg>
             </a>
             <nav class="n-nav" aria-label="Principal">
-                <a href="https://le-bon-geste.fr/" data-nav="accueil" class="nav-link">Accueil</a>
                 <a href="https://le-bon-geste.fr/catalogue" data-nav="services" class="nav-link">Prestations</a>
                 <a href="https://le-bon-geste.fr/realisations" data-nav="realisations" class="nav-link">Réalisations</a>
                 <a href="https://le-bon-geste.fr/conseils" data-nav="conseils" class="nav-link">Conseils</a>
-                <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="nav-link">Les 50 %</a>
-                <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="nav-link active-link">Guide Unipros</a>
-                <a href="https://le-bon-geste.fr/faq" data-nav="faq" class="nav-link">Questions</a>
+                <div class="n-sous" data-sous>
+                    <button type="button" class="n-sous-btn" aria-expanded="false" aria-controls="sous-50">Les 50&nbsp;%<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+                    <div class="n-sous-menu" id="sous-50" hidden>
+                        <a href="https://le-bon-geste.fr/avantage-sap" data-nav="sap" class="nav-link"><b>Comment ça marche</b><span>Vous ne payez que la moitié</span></a>
+                        <a href="https://le-bon-geste.fr/guide-urssaf" data-nav="guide" class="nav-link active-link"><b>Guide Unipros</b><span>Le paiement, étape par étape</span></a>
+                        <a href="https://le-bon-geste.fr/guide-urssaf#espace-unipros" data-nav="guide" data-scroll="espace-unipros"><b>Mon espace Unipros</b><span>Créer mon compte, voir mes factures</span></a>
+                        <a href="https://le-bon-geste.fr/faq" data-nav="faq" class="nav-link"><b>Questions fréquentes</b><span>Devis, tarifs, communes</span></a>
+                    </div>
+                </div>
                 <a href="https://le-bon-geste.fr/contact" data-nav="contact" class="nav-link">Contact</a>
             </nav>
             <a class="n-tel" href="tel:+33610669435">06 10 66 94 35</a>
@@ -1096,7 +1101,7 @@
     </div>
 
     <script src="/assets/app.js?v=blog1" defer></script>
-    <script src="/assets/lbg.js?v=1" defer></script>
+    <script src="/assets/lbg.js?v=3" defer></script>
     <script src="/assets/contenu.js?v=2" defer></script>
 </body>
 </html>
