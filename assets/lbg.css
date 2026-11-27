@@ -298,3 +298,10 @@ body h1,body h2,body h3{font-family:inherit}
 .n-article-fin p{margin:0 0 .5rem}
 .n-article-boutons{display:flex;flex-wrap:wrap;gap:.75rem}
 .n-article-boutons .n-pilule{width:auto;flex:1 1 15rem;text-align:center}
+
+/* En-tête : jamais plus large que l'écran, quelle que soit la largeur */
+html,body{overflow-x:clip}
+@media(max-width:1279px){.n-nav,.n-tete-devis{display:none!important}.n-burger{display:grid!important}.n-tel{display:inline!important;margin-left:auto!important}}
+@media(min-width:1280px){.n-nav{display:flex!important;gap:1.15rem;font-size:.95rem}.n-burger,.n-menu{display:none!important}.n-tete-devis{display:inline-flex!important}}
+@media(min-width:1280px) and (max-width:1599px){.n-tel{display:none!important}}
+@media(max-width:1279px){.n-menu:not(.hidden){display:flex!important}}
